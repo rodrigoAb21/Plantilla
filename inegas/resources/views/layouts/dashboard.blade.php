@@ -34,42 +34,76 @@
                 </div>
                 <div class="user-info">
                     <a data-toggle="collapse" href="#collapseExample" class="username">
-              <span>
-                Juan Perez
-                <b class="caret"></b>
-              </span>
+                      <span>
+                        Juan Perez
+                      </span>
                     </a>
-                    <div class="collapse" id="collapseExample">
-                        <ul class="nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span class="sidebar-mini"> VP </span>
-                                    <span class="sidebar-normal"> Ver Perfil </span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span class="sidebar-mini"> EP </span>
-                                    <span class="sidebar-normal"> Editar Perfil </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </div>
             <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="">
-                        <i class="material-icons">dashboard</i>
-                        <p> Principal </p>
+                <li class="{{ Request::is('categorias*') ? 'nav-item active' : 'nav-item' }}">
+                    <a class="nav-link" href="{{url('categorias')}}">
+                        <i class="fa fa-tags"></i>
+                        <p> Categorias </p>
                     </a>
                 </li>
+
                 <li class="{{ Request::is('medidas*') ? 'nav-item active' : 'nav-item' }}">
                     <a class="nav-link" href="{{url('medidas')}}">
                         <i class="fa fa-ruler"></i>
-                        <p> Unidad de Medida </p>
+                        <p> Unidades Medida </p>
                     </a>
                 </li>
+
+                <li class="{{ Request::is('inventario*') ? 'nav-item active' : 'nav-item' }}">
+                    <a class="nav-link" href="{{url('inventario')}}">
+                        <i class="fa fa-boxes"></i>
+                        <p> Inventario </p>
+                    </a>
+                </li>
+
+
+                <li class="{{ Request::is('mov-suministro*') ? 'nav-item active' : 'nav-item' }}">
+                    <a class="nav-link" data-toggle="collapse" href="#mov-sum" aria-expanded="true">
+                        <i class="fa fa-people-carry"></i>
+                        <p> Mov. Suministros <b class="caret"></b></p>
+                    </a>
+                    <div class="collapse" id="mov-sum">
+                        <ul class="nav">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="regular.html">
+                                    <i class="fa fa-arrow-right"></i>
+                                    <p> Ingreso </p>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="extended.html">
+                                    <i class="fa fa-arrow-left"></i>
+                                    <p> Salida </p>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="extended.html">
+                                    <i class="fa fa-redo"></i>
+                                    <p> Devolucion </p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="{{ Request::is('reportes*') ? 'nav-item active' : 'nav-item' }}">
+                    <a class="nav-link" href="{{url('reportes')}}">
+                        <i class="fa fa-clipboard-list"></i>
+                        <p> Reportes </p>
+                    </a>
+                </li>
+
+
+
+
+
 
             </ul>
         </div>
@@ -96,29 +130,44 @@
                 <div class="collapse navbar-collapse justify-content-end">
                     <div class="navbar-form" hidden></div>
                     <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="material-icons">person</i>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#pablo">
+                                <i class="fa fa-exchange-alt"></i>
                                 <p class="d-lg-none d-md-block">
-                                    Acciones
+                                    Cambiar vista
                                 </p>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                                <a class="dropdown-item" href="">
-                                    Cerrar Sesion
-                                </a>
-
-                                {{--<a class="dropdown-item" href="{{ route('logout') }}"--}}
-                                   {{--onclick="event.preventDefault();--}}
-                                                     {{--document.getElementById('logout-form').submit();">--}}
-                                    {{--Cerrar Sesion--}}
-                                {{--</a>--}}
-
-                                {{--<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
-                                    {{--{{ csrf_field() }}--}}
-                                {{--</form>--}}
-                            </div>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#pablo">
+                                <i class="fa fa-user-shield"></i>
+                                <p class="d-lg-none d-md-block">
+                                    Seguridad
+                                </p>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#pablo">
+                                <i class="fa fa-sign-out-alt"></i>
+                                <p class="d-lg-none d-md-block">
+                                    Cerrar Sesion
+                                </p>
+                            </a>
+
+                            {{--<a class="dropdown-item" href="{{ route('logout') }}"--}}
+                            {{--onclick="event.preventDefault();--}}
+                            {{--document.getElementById('logout-form').submit();">--}}
+                            {{--Cerrar Sesion--}}
+                            {{--</a>--}}
+
+                            {{--<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
+                            {{--{{ csrf_field() }}--}}
+                            {{--</form>--}}
+                        </li>
+
                     </ul>
                 </div>
             </div>

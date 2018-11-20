@@ -19,7 +19,7 @@
     #fondo{
       background-size: cover;
       background-position: top center;
-      background-image: url("{{asset('img/login.jpg')}}");
+      background-image: url("{{asset('img/login2.jpg')}}");
     }
   </style>
 </head>
