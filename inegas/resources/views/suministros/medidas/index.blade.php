@@ -107,10 +107,10 @@
                             <li class="page-item disabled">
                                 <a class="page-link" href="#" tabindex="-1">ANT</a>
                             </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
                             <li class="page-item active">
-                                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                                <a class="page-link" href="#">1<span class="sr-only">(current)</span></a>
                             </li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
                             <li class="page-item"><a class="page-link" href="#">3</a></li>
                             <li class="page-item">
                                 <a class="page-link" href="#">SIG</a>
@@ -132,7 +132,7 @@
 
             function eliminarModelo(nombre, url) {
                 $('#modalEliminarForm').attr("action", url);
-                $('#modalEliminarTitulo').html("Eliminar Modelo");
+                $('#modalEliminarTitulo').html("Eliminar Unidad de Medida");
                 $('#modalEliminarEnunciado').html("Realmente desea eliminar la Unidad de medida: " + nombre + "?");
                 $('#modalEliminar').modal('show');
 

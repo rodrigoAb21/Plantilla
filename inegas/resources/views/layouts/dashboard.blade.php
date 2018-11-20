@@ -41,8 +41,8 @@
                 </div>
             </div>
             <ul class="nav">
-                <li class="{{ Request::is('categorias*') ? 'nav-item active' : 'nav-item' }}">
-                    <a class="nav-link" href="{{url('categorias')}}">
+                <li class="{{ Request::is('categorias-sum*') ? 'nav-item active' : 'nav-item' }}">
+                    <a class="nav-link" href="{{url('categorias-sum')}}">
                         <i class="fa fa-tags"></i>
                         <p> Categorias </p>
                     </a>
@@ -119,7 +119,7 @@
                             <i class="material-icons design_bullet-list-67 visible-on-sidebar-mini">view_list</i>
                         </button>
                     </div>
-                    <a class="navbar-brand" href="{{url('/')}}">Dashboard</a>
+                    <a class="navbar-brand" href="{{url('/')}}">Area de Suministros</a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="sr-only">Toggle navigation</span>

@@ -18,7 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('/categorias', 'UnidadMedidaController');
+Route::resource('/categorias-sum', 'CategoriaSumController');
 Route::resource('/inventario', 'UnidadMedidaController');
 Route::resource('/mov-suministros', 'UnidadMedidaController');
 Route::resource('/medidas', 'UnidadMedidaController');

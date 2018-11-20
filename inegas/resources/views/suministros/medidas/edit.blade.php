@@ -8,7 +8,7 @@
                     <div class="card-icon">
                         <i class="fa fa-ruler fa-2x"></i>
                     </div>
-                    <h4 class="card-title">Nueva Unidad de medida</h4>
+                    <h3 class="card-title">Editar Unidad de medida</h3>
                 </div>
                 <form method="POST" action="{{url('medidas/1')}}" autocomplete="off">
                     <div class="card-body ">

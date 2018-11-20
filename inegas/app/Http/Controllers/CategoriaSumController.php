@@ -4,41 +4,39 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UnidadMedidaController extends Controller
+class CategoriaSumController extends Controller
 {
     public function index()
     {
-        return view('suministros.medidas.index');
+        return view('suministros.categorias.index');
     }
 
 
     public function create()
     {
-        return view('suministros.medidas.create');
+        return view('suministros.categorias.create');
     }
 
 
     public function store(Request $request)
     {
-        return redirect('medidas');
+        return redirect('categorias-sum');
     }
 
 
     public function edit($id)
     {
-        return view('suministros.medidas.edit');
+        return view('suministros.categorias.edit');
     }
 
     public function update(Request $request, $id)
     {
-        return redirect('medidas');
+        return redirect('categorias-sum');
     }
 
 
     public function destroy($id)
     {
-        return redirect('medidas');
+        return redirect('categorias-sum');
     }
-
-
 }
