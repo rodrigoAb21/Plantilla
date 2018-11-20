@@ -63,29 +63,29 @@
                 </li>
 
 
-                <li class="{{ Request::is('mov-suministro*') ? 'nav-item active' : 'nav-item' }}">
-                    <a class="nav-link" data-toggle="collapse" href="#mov-sum" aria-expanded="true">
+                <li class="{{ Request::is('mov-suministros*') ? 'nav-item active' : 'nav-item' }}">
+                    <a {{ Request::is('mov-suministros*') ? 'class="nav-link collapse" data-toggle="collapse" href="#mov-sum" aria-expanded="false"' : 'class="nav-link collapse" data-toggle="collapse" href="#mov-sum" aria-expanded="false"' }} >
                         <i class="fa fa-people-carry"></i>
                         <p> Mov. Suministros <b class="caret"></b></p>
                     </a>
                     <div class="collapse" id="mov-sum">
                         <ul class="nav">
-                            <li class="nav-item ">
-                                <a class="nav-link" href="regular.html">
+                            <li class="{{ Request::is('mov-suministros/ingresos*') ? 'nav-item active' : 'nav-item' }}">
+                                <a class="nav-link" href="{{url('mov-suministros/ingresos')}}">
                                     <i class="fa fa-arrow-right"></i>
-                                    <p> Ingreso </p>
+                                    <p> Ingresos </p>
                                 </a>
                             </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="extended.html">
+                            <li class="{{ Request::is('mov-suministros/salidas*') ? 'nav-item active' : 'nav-item' }}">
+                                <a class="nav-link" href="{{url('mov-suministros/salidas')}}">
                                     <i class="fa fa-arrow-left"></i>
-                                    <p> Salida </p>
+                                    <p> Salidas </p>
                                 </a>
                             </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="extended.html">
+                            <li class="{{ Request::is('mov-suministros/devoluciones*') ? 'nav-item active' : 'nav-item' }}">
+                                <a class="nav-link" href="{{url('mov-suministros/devoluciones')}}">
                                     <i class="fa fa-redo"></i>
-                                    <p> Devolucion </p>
+                                    <p> Devoluciones </p>
                                 </a>
                             </li>
 
