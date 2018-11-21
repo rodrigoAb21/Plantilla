@@ -19,10 +19,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/categorias-sum', 'CategoriaSumController');
-Route::resource('/inventario', 'UnidadMedidaController');
-Route::resource('/mov-suministros/ingresos', 'UnidadMedidaController');
-Route::resource('/mov-suministros/salidas', 'UnidadMedidaController');
-Route::resource('/mov-suministros/devoluciones', 'UnidadMedidaController');
+Route::resource('/suministros', 'SuministroController');
+Route::resource('/mov-suministros/ingresos', 'IngresoController');
+Route::resource('/mov-suministros/salidas', 'SalidaController');
+Route::resource('/mov-suministros/devoluciones', 'DevolucionController');
 Route::resource('/medidas', 'UnidadMedidaController');
-Route::resource('/reportes', 'UnidadMedidaController');
+Route::resource('/reportes', 'ReporteSumController');
 
