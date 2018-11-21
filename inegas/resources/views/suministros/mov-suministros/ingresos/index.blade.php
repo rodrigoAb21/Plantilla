@@ -6,23 +6,22 @@
             <div class="card">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">
-                        <i class="fa fa-tags fa-2x"></i>
+                        <i class="fa fa-arrow-right fa-2x"></i>
                     </div>
-                    <h3 class="card-title">Categorias</h3>
+                    <h3 class="card-title">Ingresos de Suministro</h3>
 
                 </div>
                 <div class="card-body">
-
                     <form action="">
                         <div class="form-group form-file-upload form-file-multiple">
                             <div class="input-group">
-                                    <label for="busqueda" class="bmd-label-floating">Buscar</label>
-                                    <input type="text" class="form-control" id="busqueda" name="busqueda">
-                                    <span class="input-group-btn">
+                                <label for="busqueda" class="bmd-label-floating">Buscar</label>
+                                <input type="text" class="form-control" id="busqueda" name="busqueda">
+                                <span class="input-group-btn">
                                         <button type="button" class="btn btn-fab btn-round btn-primary">
                                             <i class="fa fa-search"></i>
                                         </button>
-                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('categorias-sum/create')}}">
+                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('mov-suministros/ingresos/create')}}">
                                                 <i class="fa fa-plus"></i>
                                         </a>
                                     </span>
@@ -36,68 +35,68 @@
                             <thead>
                                 <tr>
                                     <th><b>#</b></th>
-                                    <th><b>Nombre</b></th>
-                                    <th><b>Cat. Superior</b></th>
+                                    <th><b>Fecha</b></th>
+                                    <th><b>Estado</b></th>
                                     <th class="text-right"><b>Opciones</b></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>Material de Oficina</td>
-                                    <td>Ninguna</td>
+                                    <td>20/11/2018 10:09</td>
+                                    <td>Realizado</td>
                                     <td class="text-right ">
-                                        <a href="{{url('categorias-sum/1/edit')}}">
+                                        <a href="{{url('mov-suministros/ingresos/1')}}">
                                             <button class="btn btn-outline-primary btn-sm">
-                                                <i class="fa fa-pen"></i>
+                                                <i class="fa fa-eye"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Material de Oficina', '{{url('categorias-sum/1')}}')">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Material de Limpieza</td>
-                                    <td>Ninguna</td>
-                                    <td class="text-right ">
-                                        <a href="{{url('categorias-sum/1/edit')}}">
-                                            <button class="btn btn-outline-primary btn-sm">
-                                                <i class="fa fa-pen"></i>
-                                            </button>
-                                        </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Material de Oficina', '{{url('categorias-sum/1')}}')">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Utensilios</td>
-                                    <td>Ninguna</td>
-                                    <td class="text-right ">
-                                        <a href="{{url('categorias-sum/1/edit')}}">
-                                            <button class="btn btn-outline-primary btn-sm">
-                                                <i class="fa fa-pen"></i>
-                                            </button>
-                                        </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Material de Oficina', '{{url('categorias-sum/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('1', '{{url('mov-suministros/ingresos/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>4</td>
-                                    <td>Cintas</td>
-                                    <td>Material de Oficina</td>
+                                    <td>20/11/2018 16:21</td>
+                                    <td>Realizado</td>
                                     <td class="text-right ">
-                                        <a href="{{url('categorias-sum/1/edit')}}">
+                                        <a href="{{url('mov-suministros/ingresos/1')}}">
                                             <button class="btn btn-outline-primary btn-sm">
-                                                <i class="fa fa-pen"></i>
+                                                <i class="fa fa-eye"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Material de Oficina', '{{url('categorias-sum/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('4', '{{url('mov-suministros/ingresos/1')}}')">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>20/11/2018 17:47</td>
+                                    <td>Anulado</td>
+                                    <td class="text-right ">
+                                        <a href="{{url('mov-suministros/ingresos/1')}}">
+                                            <button class="btn btn-outline-primary btn-sm">
+                                                <i class="fa fa-eye"></i>
+                                            </button>
+                                        </a>
+                                        <button type="button" class="btn btn-outline-primary btn-sm disabled" onclick="eliminarModelo('7', '{{url('mov-suministros/ingresos/1')}}')">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>21/11/2018 09:34</td>
+                                    <td>Realizado</td>
+                                    <td class="text-right ">
+                                        <a href="{{url('mov-suministros/ingresos/1')}}">
+                                            <button class="btn btn-outline-primary btn-sm">
+                                                <i class="fa fa-eye"></i>
+                                            </button>
+                                        </a>
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('8', '{{url('mov-suministros/ingresos/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -137,8 +136,8 @@
 
             function eliminarModelo(nombre, url) {
                 $('#modalEliminarForm').attr("action", url);
-                $('#modalEliminarTitulo').html("Eliminar Categoria");
-                $('#modalEliminarEnunciado').html("Realmente desea eliminar la Cateoria: " + nombre + "?");
+                $('#modalEliminarTitulo').html("Eliminar Ingreso de suministro");
+                $('#modalEliminarEnunciado').html("Realmente desea eliminar el Ingreso Nro: " + nombre + "?");
                 $('#modalEliminar').modal('show');
 
             }
