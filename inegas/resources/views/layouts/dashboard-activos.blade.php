@@ -48,25 +48,18 @@
                     </a>
                 </li>
 
-                <li class="{{ Request::is('sum/medidas*') ? 'nav-item active' : 'nav-item' }}">
-                    <a class="nav-link" href="{{url('sum/medidas')}}">
-                        <i class="fa fa-ruler"></i>
-                        <p> Unidades Medida </p>
-                    </a>
-                </li>
-
                 <li class="{{ Request::is('sum/suministros*') ? 'nav-item active' : 'nav-item' }}">
                     <a class="nav-link" href="{{url('sum/suministros')}}">
                         <i class="fa fa-box-open"></i>
-                        <p> Suministros </p>
+                        <p> Activos Fijos </p>
                     </a>
                 </li>
 
 
                 <li class="{{ Request::is('sum/mov-suministros*') ? 'nav-item active' : 'nav-item' }}">
                     <a class="{{ Request::is('sum/mov-suministros*') ? 'nav-link collapse collapsed' : 'nav-link collapse' }}" data-toggle="collapse" href="#mov-sum" aria-expanded="{{ Request::is('sum/mov-suministros*') ? 'true' : 'false' }}" >
-                        <i class="fa fa-people-carry"></i>
-                        <p> Mov. Suministros <b class="caret"></b></p>
+                        <i class="fa fa-couch"></i>
+                        <p> Mov. Activos Fijos <b class="caret"></b></p>
                     </a>
                     <div class="{{ Request::is('sum/mov-suministros*') ? 'collapse show' : 'collapse' }}" id="mov-sum">
                         <ul class="nav">
@@ -136,7 +129,7 @@
                             <i class="material-icons design_bullet-list-67 visible-on-sidebar-mini">view_list</i>
                         </button>
                     </div>
-                    <a class="navbar-brand" href="{{url('sum/')}}">Area de Suministros</a>
+                    <a class="navbar-brand" href="{{url('act/')}}">Area de Activos Fijos</a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="sr-only">Toggle navigation</span>
@@ -148,7 +141,7 @@
                     <div class="navbar-form" hidden></div>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('act/')}}">
+                            <a class="nav-link" href="{{url('sum/')}}">
                                 <i class="fa fa-exchange-alt"></i>
                                 <p class="d-lg-none d-md-block">
                                     Cambiar vista

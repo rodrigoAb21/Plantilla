@@ -148,7 +148,7 @@
                     <div class="navbar-form" hidden></div>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('act/')}}">
+                            <a class="nav-link" href="#pablo">
                                 <i class="fa fa-exchange-alt"></i>
                                 <p class="d-lg-none d-md-block">
                                     Cambiar vista

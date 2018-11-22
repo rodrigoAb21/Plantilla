@@ -27,3 +27,14 @@ Route::resource('/sum/reportes/inventario', 'ReporteSumController');
 Route::resource('/sum/reportes/movimientos', 'ReporteSumController');
 
 
+Route::get('/act', function () {
+    return view('layouts.dashboard-activos');
+});
+
+
+
+
+
+Route::get('/seguridad', function () {
+    return view('layouts.dashboard-seguridad');
+});
