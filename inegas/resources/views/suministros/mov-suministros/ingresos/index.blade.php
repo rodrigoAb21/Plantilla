@@ -136,8 +136,8 @@
 
             function eliminarModelo(nombre, url) {
                 $('#modalEliminarForm').attr("action", url);
-                $('#modalEliminarTitulo').html("Eliminar Ingreso de suministro");
-                $('#modalEliminarEnunciado').html("Realmente desea eliminar el Ingreso Nro: " + nombre + "?");
+                $('#modalEliminarTitulo').html("Anular Ingreso de suministro");
+                $('#modalEliminarEnunciado').html("Realmente desea anular el ingreso Nro: " + nombre + "?");
                 $('#modalEliminar').modal('show');
 
             }

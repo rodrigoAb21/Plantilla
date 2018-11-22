@@ -7,9 +7,9 @@
                 <div class="card ">
                     <div class="card-header card-header-primary card-header-icon">
                         <div class="card-icon">
-                            <i class="fa fa-arrow-left fa-2x"></i>
+                            <i class="fa fa-redo fa-2x"></i>
                         </div>
-                        <h3 class="card-title">Salida de Suministros</h3>
+                        <h3 class="card-title">Devolucion de Suministros</h3>
                     </div>
 
                     <div class="card-body ">
@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 
-                                        <label>Solicita</label>
+                                        <label>Devuelve</label>
                                         <p>Marina Toledo</p>
 
                                 </div>

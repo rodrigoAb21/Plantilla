@@ -1,15 +1,15 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    <form method="POST" action="{{url('mov-suministros/salidas')}}" autocomplete="off">
+    <form method="POST" action="{{url('mov-suministros/devoluciones')}}" autocomplete="off">
     <div class="row">
         <div class="col-md-12">
             <div class="card ">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">
-                        <i class="fa fa-arrow-right fa-2x"></i>
+                        <i class="fa fa-redo fa-2x"></i>
                     </div>
-                    <h3 class="card-title">Salida de Suministros</h3>
+                    <h3 class="card-title">Devolucion de Suministros</h3>
                 </div>
 
                 <div class="card-body ">
@@ -31,7 +31,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <div class="form-group mt-2">
                                 <div class="mb-1">
-                                    <label>Solicita</label>
+                                    <label>Devuelve</label>
                                 </div>
                                 <input type="text" class="form-control">
                             </div>
