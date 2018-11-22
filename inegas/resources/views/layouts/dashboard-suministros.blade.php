@@ -136,7 +136,7 @@
                             <i class="material-icons design_bullet-list-67 visible-on-sidebar-mini">view_list</i>
                         </button>
                     </div>
-                    <a class="navbar-brand" href="{{url('sum/')}}">Area de Suministros</a>
+                    <a class="navbar-brand" href="{{url('sum')}}">Area de Suministros</a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="sr-only">Toggle navigation</span>
@@ -148,7 +148,7 @@
                     <div class="navbar-form" hidden></div>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('act/')}}">
+                            <a class="nav-link" href="{{url('act')}}">
                                 <i class="fa fa-exchange-alt"></i>
                                 <p class="d-lg-none d-md-block">
                                     Cambiar vista
@@ -157,7 +157,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#pablo">
+                            <a class="nav-link" href="{{url('seg')}}">
                                 <i class="fa fa-user-shield"></i>
                                 <p class="d-lg-none d-md-block">
                                     Seguridad
@@ -165,9 +165,8 @@
                             </a>
                         </li>
 
-
                         <li class="nav-item">
-                            <a class="nav-link" href="#pablo">
+                            <a class="nav-link" href="{{url('/')}}">
                                 <i class="fa fa-sign-out-alt"></i>
                                 <p class="d-lg-none d-md-block">
                                     Cerrar Sesion

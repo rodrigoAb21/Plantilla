@@ -6,37 +6,14 @@ use Illuminate\Http\Request;
 
 class ReporteSumController extends Controller
 {
-    public function index()
+    public function inventario()
     {
-        return view('suministros.categorias.index');
+        return view('suministros.reportes-sum.inventario');
     }
 
-
-    public function create()
+    public function movimientos()
     {
-        return view('suministros.categorias.create');
+        return view('suministros.reportes-sum.movimientos');
     }
 
-
-    public function store(Request $request)
-    {
-        return redirect('categorias-sum');
-    }
-
-
-    public function edit($id)
-    {
-        return view('suministros.categorias.edit');
-    }
-
-    public function update(Request $request, $id)
-    {
-        return redirect('categorias-sum');
-    }
-
-
-    public function destroy($id)
-    {
-        return redirect('categorias-sum');
-    }
 }
