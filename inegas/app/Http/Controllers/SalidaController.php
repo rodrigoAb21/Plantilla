@@ -8,35 +8,29 @@ class SalidaController extends Controller
 {
     public function index()
     {
-        return view('suministros.categorias.index');
+        return view('suministros.mov-suministros.salidas.index');
     }
 
 
     public function create()
     {
-        return view('suministros.categorias.create');
+        return view('suministros.mov-suministros.salidas.create');
     }
 
 
     public function store(Request $request)
     {
-        return redirect('categorias-sum');
+        return redirect('mov-suministros/salidas');
     }
 
 
-    public function edit($id)
+    public function show($id)
     {
-        return view('suministros.categorias.edit');
+        return view('suministros.mov-suministros.salidas.show');
     }
-
-    public function update(Request $request, $id)
-    {
-        return redirect('categorias-sum');
-    }
-
 
     public function destroy($id)
     {
-        return redirect('categorias-sum');
+        return redirect('mov-suministros/salidas');
     }
 }

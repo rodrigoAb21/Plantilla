@@ -8,7 +8,7 @@
                     <div class="card-icon">
                         <i class="fa fa-arrow-right fa-2x"></i>
                     </div>
-                    <h3 class="card-title">Ingresos de Suministro</h3>
+                    <h3 class="card-title">Ingreso de Suministros</h3>
 
                 </div>
                 <div class="card-body">

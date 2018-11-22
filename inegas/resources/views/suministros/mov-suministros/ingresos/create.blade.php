@@ -19,7 +19,7 @@
                             <div class="input-group">
                                 <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
                                     <div class="form-group">
-                                        <label for="exampleFormControlSelect1">Categoria Superior</label>
+                                        <label for="exampleFormControlSelect1">Suministro</label>
                                         <select class="form-control selectpicker" data-live-search="true" data-style="btn btn-link" id="exampleFormControlSelect1">
                                             <option>Papel Bond Carte Pack500</option>
                                             <option>Papel Bond Oficio Pack500</option>
