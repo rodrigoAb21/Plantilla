@@ -20,7 +20,7 @@ class SuministroController extends Controller
 
     public function store(Request $request)
     {
-        return redirect('suministros');
+        return redirect('sum/suministros');
     }
 
 
@@ -36,12 +36,12 @@ class SuministroController extends Controller
 
     public function update(Request $request, $id)
     {
-        return redirect('suministros');
+        return redirect('sum/suministros');
     }
 
 
     public function destroy($id)
     {
-        return redirect('suministros');
+        return redirect('sum/suministros');
     }
 }

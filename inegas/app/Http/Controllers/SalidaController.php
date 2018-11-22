@@ -20,7 +20,7 @@ class SalidaController extends Controller
 
     public function store(Request $request)
     {
-        return redirect('mov-suministros/salidas');
+        return redirect('sum/mov-suministros/salidas');
     }
 
 
@@ -31,6 +31,6 @@ class SalidaController extends Controller
 
     public function destroy($id)
     {
-        return redirect('mov-suministros/salidas');
+        return redirect('sum/mov-suministros/salidas');
     }
 }

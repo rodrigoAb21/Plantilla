@@ -20,7 +20,7 @@ class CategoriaSumController extends Controller
 
     public function store(Request $request)
     {
-        return redirect('categorias-sum');
+        return redirect('sum/categorias-sum');
     }
 
 
@@ -31,12 +31,12 @@ class CategoriaSumController extends Controller
 
     public function update(Request $request, $id)
     {
-        return redirect('categorias-sum');
+        return redirect('sum/categorias-sum');
     }
 
 
     public function destroy($id)
     {
-        return redirect('categorias-sum');
+        return redirect('sum/categorias-sum');
     }
 }

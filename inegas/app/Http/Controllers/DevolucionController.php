@@ -20,7 +20,7 @@ class DevolucionController extends Controller
 
     public function store(Request $request)
     {
-        return redirect('mov-suministros/devoluciones');
+        return redirect('sum/mov-suministros/devoluciones');
     }
 
 
@@ -31,6 +31,6 @@ class DevolucionController extends Controller
 
     public function destroy($id)
     {
-        return redirect('mov-suministros/devoluciones');
+        return redirect('sum/mov-suministros/devoluciones');
     }
 }

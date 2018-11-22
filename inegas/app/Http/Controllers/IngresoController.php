@@ -20,7 +20,7 @@ class IngresoController extends Controller
 
     public function store(Request $request)
     {
-        return redirect('mov-suministros/ingresos');
+        return redirect('sum/mov-suministros/ingresos');
     }
 
 
@@ -33,6 +33,6 @@ class IngresoController extends Controller
 
     public function destroy($id)
     {
-        return redirect('mov-suministros/ingresos');
+        return redirect('sum/mov-suministros/ingresos');
     }
 }

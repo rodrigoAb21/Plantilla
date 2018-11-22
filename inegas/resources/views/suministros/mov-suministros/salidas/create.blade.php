@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.dashboard-suministros')
 
 @section('content')
     <form method="POST" action="{{url('mov-suministros/salidas')}}" autocomplete="off">

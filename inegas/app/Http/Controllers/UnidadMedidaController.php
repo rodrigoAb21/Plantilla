@@ -20,7 +20,7 @@ class UnidadMedidaController extends Controller
 
     public function store(Request $request)
     {
-        return redirect('medidas');
+        return redirect('sum/medidas');
     }
 
 
@@ -31,13 +31,13 @@ class UnidadMedidaController extends Controller
 
     public function update(Request $request, $id)
     {
-        return redirect('medidas');
+        return redirect('sum/medidas');
     }
 
 
     public function destroy($id)
     {
-        return redirect('medidas');
+        return redirect('sum/medidas');
     }
 
 
