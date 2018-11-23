@@ -41,8 +41,8 @@
                 </div>
             </div>
             <ul class="nav">
-                <li class="{{ Request::is('act/categorias-sum*') ? 'nav-item active' : 'nav-item' }}">
-                    <a class="nav-link" href="{{url('act/categorias-sum')}}">
+                <li class="{{ Request::is('act/categorias-act*') ? 'nav-item active' : 'nav-item' }}">
+                    <a class="nav-link" href="{{url('act/categorias-act')}}">
                         <i class="fa fa-tags"></i>
                         <p> Categorias </p>
                     </a>

@@ -35,7 +35,9 @@ Route::get('/act', function () {
     return view('layouts.dashboard-activos');
 });
 
-
+Route::resource('/act/categorias-act', 'activos\CategoriaActController');
+Route::resource('/act/activos', 'activos\ActivoController');
+Route::resource('/act/revaluos', 'activos\RevaluoController');
 
 
 

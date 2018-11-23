@@ -1,4 +1,4 @@
-@extends('layouts.dashboard-suministros')
+@extends('layouts.dashboard-activos')
 
 @section('content')
     <div class="row">
@@ -10,7 +10,7 @@
                     </div>
                     <h3 class="card-title">Editar Categoria</h3>
                 </div>
-                <form method="POST" action="{{url('categorias-sum/1')}}" autocomplete="off">
+                <form method="POST" action="{{url('act/categorias-act/1')}}" autocomplete="off">
                     <div class="card-body ">
                         {{method_field('patch')}}
                         {{csrf_field()}}

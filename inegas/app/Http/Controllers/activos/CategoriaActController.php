@@ -5,44 +5,44 @@ namespace App\Http\Controllers\activos;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ActivoController extends Controller
+class CategoriaActController extends Controller
 {
     public function index()
     {
-        return view('suministros.suministros.index');
+        return view('activos.categorias.index');
     }
 
 
     public function create()
     {
-        return view('suministros.suministros.create');
+        return view('activos.categorias.create');
     }
 
 
     public function store(Request $request)
     {
-        return redirect('sum/suministros');
+        return redirect('act/categorias-act');
     }
 
 
     public function edit($id)
     {
-        return view('suministros.suministros.edit');
+        return view('activos.categorias.edit');
     }
 
     public function show($id)
     {
-        return view('suministros.suministros.show');
+        return view('activos.categorias.show');
     }
 
     public function update(Request $request, $id)
     {
-        return redirect('sum/suministros');
+        return redirect('act/categorias-act');
     }
 
 
     public function destroy($id)
     {
-        return redirect('sum/suministros');
+        return redirect('act/categorias-act');
     }
 }
