@@ -36,31 +36,24 @@
                             <thead>
                                 <tr>
                                     <th><b>#</b></th>
-                                    <th><b>Nombre</b></th>
-                                    <th><b>U. Medida</b></th>
-                                    <th><b>Categoria</b></th>
-                                    <th><b>S. Max</b></th>
-                                    <th><b>S. Min</b></th>
+                                    <th><b>Fecha</b></th>
+                                    <th><b>Activo</b></th>
+                                    <th><b>Tipo</b></th>
+                                    <th><b>Estado</b></th>
                                     <th class="text-right"><b>Opciones</b></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>Papel Bond Carta</td>
-                                    <td>Paquete 500u</td>
-                                    <td>Material de oficina</td>
-                                    <td>50</td>
-                                    <td>10</td>
+                                    <td>18-11-2018 10:00</td>
+                                    <td>Activo 1 - 1</td>
+                                    <td>Decremento</td>
+                                    <td>Realizado</td>
                                     <td class="text-right ">
                                         <button class="btn btn-outline-primary btn-sm" onclick="verSuministro()">
                                             <i class="fa fa-eye"></i>
                                         </button>
-                                        <a href="{{url('act/revaluos/1/edit')}}">
-                                            <button class="btn btn-outline-primary btn-sm">
-                                                <i class="fa fa-pen"></i>
-                                            </button>
-                                        </a>
                                         <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarSuministro('Papel Bond Carta', '{{url('act/revaluos/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
@@ -69,21 +62,15 @@
 
                                 <tr>
                                     <td>2</td>
-                                    <td>Papel Bond Oficio</td>
-                                    <td>Paquete 500u</td>
-                                    <td>Material de oficina</td>
-                                    <td>50</td>
-                                    <td>10</td>
+                                    <td>18-11-2018 10:00</td>
+                                    <td>Activo 2</td>
+                                    <td>Incremento</td>
+                                    <td>Anulado</td>
                                     <td class="text-right ">
                                         <button class="btn btn-outline-primary btn-sm" onclick="verSuministro()">
                                             <i class="fa fa-eye"></i>
                                         </button>
-                                        <a href="{{url('act/revaluos/1/edit')}}">
-                                            <button class="btn btn-outline-primary btn-sm">
-                                                <i class="fa fa-pen"></i>
-                                            </button>
-                                        </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarSuministro('Papel Bond Oficio', '{{url('act/revaluos/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm disabled" onclick="eliminarSuministro('Papel Bond Carta', '{{url('act/revaluos/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -91,21 +78,15 @@
 
                                 <tr>
                                     <td>3</td>
-                                    <td>Papel Bond A4</td>
-                                    <td>Paquete 500u</td>
-                                    <td>Material de oficina</td>
-                                    <td>50</td>
-                                    <td>10</td>
+                                    <td>18-11-2018 10:00</td>
+                                    <td>Activo 3</td>
+                                    <td>Decremento</td>
+                                    <td>Realizado</td>
                                     <td class="text-right ">
                                         <button class="btn btn-outline-primary btn-sm" onclick="verSuministro()">
                                             <i class="fa fa-eye"></i>
                                         </button>
-                                        <a href="{{url('act/revaluos/1/edit')}}">
-                                            <button class="btn btn-outline-primary btn-sm">
-                                                <i class="fa fa-pen"></i>
-                                            </button>
-                                        </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarSuministro('Papel Bond A4', '{{url('act/revaluos/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarSuministro('Papel Bond Carta', '{{url('act/revaluos/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -143,7 +124,7 @@
     <!-- end row -->
 
     @include('modal')
-    @include('suministros.suministros.show')
+    @include('activos.revaluos.show')
     @push('scripts')
         <script>
 
