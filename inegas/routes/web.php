@@ -38,6 +38,8 @@ Route::get('/act', function () {
 Route::resource('/act/categorias-act', 'activos\CategoriaActController');
 Route::resource('/act/activos', 'activos\ActivoController');
 Route::resource('/act/revaluos', 'activos\RevaluoController');
+Route::resource('/act/mov-activos/ingresos', 'activos\IngresoController');
+Route::resource('/act/mov-activos/traslados', 'activos\TrasladoController');
 
 
 

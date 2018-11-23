@@ -44,7 +44,7 @@
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>Material de Oficina</td>
+                                    <td>Categoria 1</td>
                                     <td>Ninguna</td>
                                     <td class="text-right ">
                                         <a href="{{url('act/categorias-act/1/edit')}}">
@@ -59,7 +59,7 @@
                                 </tr>
                                 <tr>
                                     <td>2</td>
-                                    <td>Material de Limpieza</td>
+                                    <td>Categoria 2</td>
                                     <td>Ninguna</td>
                                     <td class="text-right ">
                                         <a href="{{url('act/categorias-act/1/edit')}}">
@@ -74,7 +74,7 @@
                                 </tr>
                                 <tr>
                                     <td>3</td>
-                                    <td>Utensilios</td>
+                                    <td>Categoria 3</td>
                                     <td>Ninguna</td>
                                     <td class="text-right ">
                                         <a href="{{url('act/categorias-act/1/edit')}}">
@@ -89,8 +89,8 @@
                                 </tr>
                                 <tr>
                                     <td>4</td>
-                                    <td>Cintas</td>
-                                    <td>Material de Oficina</td>
+                                    <td>Categoria 4</td>
+                                    <td>Categoria 2</td>
                                     <td class="text-right ">
                                         <a href="{{url('act/categorias-act/1/edit')}}">
                                             <button class="btn btn-outline-primary btn-sm">

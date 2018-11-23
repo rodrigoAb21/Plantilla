@@ -6,7 +6,7 @@
             <div class="card ">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">
-                        <i class="fa fa-ruler fa-2x"></i>
+                        <i class="fa fa-tags fa-2x"></i>
                     </div>
                     <h3 class="card-title">Editar Categoria</h3>
                 </div>
@@ -21,7 +21,7 @@
                                     <div class="mb-1">
                                         <label for="nombre">Nombre</label>
                                     </div>
-                                    <input type="text" class="form-control" id="nombre" name="nombre" value="Material de Oficina">
+                                    <input type="text" class="form-control" id="nombre" name="nombre" value="Categoria 1">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">

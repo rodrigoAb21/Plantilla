@@ -8,7 +8,7 @@
                     <div class="card-icon">
                         <i class="fa fa-box-open fa-2x"></i>
                     </div>
-                    <h3 class="card-title">Nuevo Suministro</h3>
+                    <h3 class="card-title">Editar Suministro</h3>
                 </div>
                 <form method="POST" action="{{url('sum/suministros/1')}}" autocomplete="off">
                     <div class="card-body ">

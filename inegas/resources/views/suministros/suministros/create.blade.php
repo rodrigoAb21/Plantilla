@@ -38,7 +38,6 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Categoria</label>
                                     <select class="form-control selectpicker" data-live-search="true" data-style="btn btn-link" id="exampleFormControlSelect1">
-                                        <option>Ninguna</option>
                                         <option>Material de oficina</option>
                                         <option>Material Limpieza</option>
                                         <option>Utensilios</option>

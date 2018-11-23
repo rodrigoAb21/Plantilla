@@ -6,7 +6,7 @@
             <div class="card ">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">
-                        <i class="fa fa-ruler fa-2x"></i>
+                        <i class="fa fa-tags fa-2x"></i>
                     </div>
                     <h3 class="card-title">Nueva Categoria</h3>
                 </div>

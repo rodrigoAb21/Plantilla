@@ -48,36 +48,36 @@
                     </a>
                 </li>
 
-                <li class="{{ Request::is('act/suministros*') ? 'nav-item active' : 'nav-item' }}">
-                    <a class="nav-link" href="{{url('act/suministros')}}">
+                <li class="{{ Request::is('act/activos*') ? 'nav-item active' : 'nav-item' }}">
+                    <a class="nav-link" href="{{url('act/activos')}}">
                         <i class="fa fa-couch"></i>
-                        <p> Activos Fijos </p>
+                        <p> Activos fijos </p>
                     </a>
                 </li>
 
-                <li class="{{ Request::is('sum/suministros*') ? 'nav-item active' : 'nav-item' }}">
-                    <a class="nav-link" href="{{url('sum/suministros')}}">
+                <li class="{{ Request::is('act/revaluos*') ? 'nav-item active' : 'nav-item' }}">
+                    <a class="nav-link" href="{{url('act/revaluos')}}">
                         <i class="fa fa-file-invoice-dollar"></i>
                         <p> Revaluos </p>
                     </a>
                 </li>
 
 
-                <li class="{{ Request::is('sum/mov-suministros*') ? 'nav-item active' : 'nav-item' }}">
-                    <a class="{{ Request::is('sum/mov-suministros*') ? 'nav-link collapse collapsed' : 'nav-link collapse' }}" data-toggle="collapse" href="#mov-sum" aria-expanded="{{ Request::is('sum/mov-suministros*') ? 'true' : 'false' }}" >
+                <li class="{{ Request::is('act/mov-activos*') ? 'nav-item active' : 'nav-item' }}">
+                    <a class="{{ Request::is('act/mov-activos*') ? 'nav-link collapse collapsed' : 'nav-link collapse' }}" data-toggle="collapse" href="#mov-sum" aria-expanded="{{ Request::is('act/mov-activos*') ? 'true' : 'false' }}" >
                         <i class="fa fa-people-carry"></i>
                         <p> Mov. Activos Fijos <b class="caret"></b></p>
                     </a>
-                    <div class="{{ Request::is('sum/mov-suministros*') ? 'collapse show' : 'collapse' }}" id="mov-sum">
+                    <div class="{{ Request::is('act/mov-activos*') ? 'collapse show' : 'collapse' }}" id="mov-sum">
                         <ul class="nav">
-                            <li class="{{ Request::is('sum/mov-suministros/ingresos*') ? 'nav-item active' : 'nav-item' }}">
-                                <a class="nav-link" href="{{url('sum/mov-suministros/ingresos')}}">
+                            <li class="{{ Request::is('act/mov-activos/ingresos*') ? 'nav-item active' : 'nav-item' }}">
+                                <a class="nav-link" href="{{url('act/mov-activos/ingresos')}}">
                                     <i class="fa fa-angle-double-right"></i>
                                     <p> Ingresos </p>
                                 </a>
                             </li>
-                            <li class="{{ Request::is('sum/mov-suministros/salidas*') ? 'nav-item active' : 'nav-item' }}">
-                                <a class="nav-link" href="{{url('sum/mov-suministros/salidas')}}">
+                            <li class="{{ Request::is('act/mov-activos/traslados*') ? 'nav-item active' : 'nav-item' }}">
+                                <a class="nav-link" href="{{url('act/mov-activos/traslados')}}">
                                     <i class="fa fa-dolly-flatbed"></i>
                                     <p> Traslados </p>
                                 </a>

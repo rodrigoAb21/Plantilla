@@ -1,4 +1,4 @@
-@extends('layouts.dashboard-suministros')
+@extends('layouts.dashboard-activos')
 
 @section('content')
     <div class="row">
@@ -6,9 +6,9 @@
             <div class="card">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">
-                        <i class="fa fa-box-open fa-2x"></i>
+                        <i class="fa fa-file-invoice-dollar fa-2x"></i>
                     </div>
-                    <h3 class="card-title">Suministros</h3>
+                    <h3 class="card-title">Revaluos</h3>
 
                 </div>
                 <div class="card-body">
@@ -22,7 +22,7 @@
                                         <button type="button" class="btn btn-fab btn-round btn-primary">
                                             <i class="fa fa-search"></i>
                                         </button>
-                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('suministros/create')}}">
+                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('act/revaluos/create')}}">
                                                 <i class="fa fa-plus"></i>
                                         </a>
                                     </span>
@@ -56,12 +56,12 @@
                                         <button class="btn btn-outline-primary btn-sm" onclick="verSuministro()">
                                             <i class="fa fa-eye"></i>
                                         </button>
-                                        <a href="{{url('suministros/1/edit')}}">
+                                        <a href="{{url('act/revaluos/1/edit')}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarSuministro('Papel Bond Carta', '{{url('suministros/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarSuministro('Papel Bond Carta', '{{url('act/revaluos/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -78,12 +78,12 @@
                                         <button class="btn btn-outline-primary btn-sm" onclick="verSuministro()">
                                             <i class="fa fa-eye"></i>
                                         </button>
-                                        <a href="{{url('suministros/1/edit')}}">
+                                        <a href="{{url('act/revaluos/1/edit')}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarSuministro('Papel Bond Oficio', '{{url('suministros/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarSuministro('Papel Bond Oficio', '{{url('act/revaluos/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -100,12 +100,12 @@
                                         <button class="btn btn-outline-primary btn-sm" onclick="verSuministro()">
                                             <i class="fa fa-eye"></i>
                                         </button>
-                                        <a href="{{url('suministros/1/edit')}}">
+                                        <a href="{{url('act/revaluos/1/edit')}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarSuministro('Papel Bond A4', '{{url('suministros/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarSuministro('Papel Bond A4', '{{url('act/revaluos/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
