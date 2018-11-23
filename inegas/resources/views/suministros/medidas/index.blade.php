@@ -22,7 +22,7 @@
                                         <button type="button" class="btn btn-fab btn-round btn-primary">
                                             <i class="fa fa-search"></i>
                                         </button>
-                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('medidas/create')}}">
+                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('sum/medidas/create')}}">
                                                 <i class="fa fa-plus"></i>
                                         </a>
                                     </span>
@@ -45,12 +45,12 @@
                                     <td>1</td>
                                     <td>Caja</td>
                                     <td class="text-right ">
-                                        <a href="{{url('medidas/1/edit')}}">
+                                        <a href="{{url('sum/medidas/1/edit')}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Caja', '{{url('medidas/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Caja', '{{url('sum/medidas/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -59,12 +59,12 @@
                                     <td>2</td>
                                     <td>Pieza</td>
                                     <td class="text-right ">
-                                        <a href="{{url('medidas/1/edit')}}">
+                                        <a href="{{url('sum/medidas/1/edit')}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Caja', '{{url('medidas/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Caja', '{{url('sum/medidas/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -73,12 +73,12 @@
                                     <td>3</td>
                                     <td>Litros</td>
                                     <td class="text-right ">
-                                        <a href="{{url('medidas/1/edit')}}">
+                                        <a href="{{url('sum/medidas/1/edit')}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Caja', '{{url('medidas/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Caja', '{{url('sum/medidas/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -87,12 +87,12 @@
                                     <td>4</td>
                                     <td>Paquete</td>
                                     <td class="text-right ">
-                                        <a href="{{url('medidas/1/edit')}}">
+                                        <a href="{{url('sum/medidas/1/edit')}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Caja', '{{url('medidas/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Caja', '{{url('sum/medidas/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>

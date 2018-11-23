@@ -21,7 +21,7 @@
                                         <button type="button" class="btn btn-fab btn-round btn-primary">
                                             <i class="fa fa-search"></i>
                                         </button>
-                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('mov-suministros/devoluciones/create')}}">
+                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('sum/mov-suministros/devoluciones/create')}}">
                                                 <i class="fa fa-plus"></i>
                                         </a>
                                     </span>
@@ -48,12 +48,12 @@
                                     <td>Finanzas</td>
                                     <td>Realizado</td>
                                     <td class="text-right ">
-                                        <a href="{{url('mov-suministros/devoluciones/1')}}">
+                                        <a href="{{url('sum/mov-suministros/devoluciones/1')}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-eye"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('1', '{{url('mov-suministros/devoluciones/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('1', '{{url('sum/mov-suministros/devoluciones/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -64,12 +64,12 @@
                                     <td>RR.HH.</td>
                                     <td>Realizado</td>
                                     <td class="text-right ">
-                                        <a href="{{url('mov-suministros/devoluciones/1')}}">
+                                        <a href="{{url('sum/mov-suministros/devoluciones/1')}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-eye"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('4', '{{url('mov-suministros/devoluciones/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('4', '{{url('sum/mov-suministros/devoluciones/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -80,12 +80,12 @@
                                     <td>Publicidad</td>
                                     <td>Anulado</td>
                                     <td class="text-right ">
-                                        <a href="{{url('mov-suministros/devoluciones/1')}}">
+                                        <a href="{{url('sum/mov-suministros/devoluciones/1')}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-eye"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm disabled" onclick="eliminarModelo('7', '{{url('mov-suministros/devoluciones/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm disabled" onclick="eliminarModelo('7', '{{url('sum/mov-suministros/devoluciones/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -96,12 +96,12 @@
                                     <td>Administracion</td>
                                     <td>Realizado</td>
                                     <td class="text-right ">
-                                        <a href="{{url('mov-suministros/devoluciones/1')}}">
+                                        <a href="{{url('sum/mov-suministros/devoluciones/1')}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-eye"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('8', '{{url('mov-suministros/devoluciones/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('8', '{{url('sum/mov-suministros/devoluciones/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>

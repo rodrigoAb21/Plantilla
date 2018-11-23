@@ -10,7 +10,7 @@
                     </div>
                     <h3 class="card-title">Editar Categoria</h3>
                 </div>
-                <form method="POST" action="{{url('categorias-sum/1')}}" autocomplete="off">
+                <form method="POST" action="{{url('sum/categorias-sum/1')}}" autocomplete="off">
                     <div class="card-body ">
                         {{method_field('patch')}}
                         {{csrf_field()}}

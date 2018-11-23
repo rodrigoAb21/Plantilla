@@ -10,7 +10,7 @@
                     </div>
                     <h3 class="card-title">Editar Unidad de medida</h3>
                 </div>
-                <form method="POST" action="{{url('medidas/1')}}" autocomplete="off">
+                <form method="POST" action="{{url('sum/medidas/1')}}" autocomplete="off">
                     <div class="card-body ">
                         {{csrf_field()}}
                         {{method_field('PATCH')}}

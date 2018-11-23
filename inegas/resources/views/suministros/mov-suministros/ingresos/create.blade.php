@@ -1,7 +1,7 @@
 @extends('layouts.dashboard-suministros')
 
 @section('content')
-    <form method="POST" action="{{url('mov-suministros/ingresos')}}" autocomplete="off">
+    <form method="POST" action="{{url('sum/mov-suministros/ingresos')}}" autocomplete="off">
     <div class="row">
         <div class="col-md-12">
             <div class="card ">

@@ -22,7 +22,7 @@
                                         <button type="button" class="btn btn-fab btn-round btn-primary">
                                             <i class="fa fa-search"></i>
                                         </button>
-                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('suministros/create')}}">
+                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('sum/suministros/create')}}">
                                                 <i class="fa fa-plus"></i>
                                         </a>
                                     </span>
@@ -56,12 +56,12 @@
                                         <button class="btn btn-outline-primary btn-sm" onclick="verSuministro()">
                                             <i class="fa fa-eye"></i>
                                         </button>
-                                        <a href="{{url('suministros/1/edit')}}">
+                                        <a href="{{url('sum/suministros/1/edit')}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarSuministro('Papel Bond Carta', '{{url('suministros/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarSuministro('Papel Bond Carta', '{{url('sum/suministros/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -78,12 +78,12 @@
                                         <button class="btn btn-outline-primary btn-sm" onclick="verSuministro()">
                                             <i class="fa fa-eye"></i>
                                         </button>
-                                        <a href="{{url('suministros/1/edit')}}">
+                                        <a href="{{url('sum/suministros/1/edit')}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarSuministro('Papel Bond Oficio', '{{url('suministros/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarSuministro('Papel Bond Oficio', '{{url('sum/suministros/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -100,12 +100,12 @@
                                         <button class="btn btn-outline-primary btn-sm" onclick="verSuministro()">
                                             <i class="fa fa-eye"></i>
                                         </button>
-                                        <a href="{{url('suministros/1/edit')}}">
+                                        <a href="{{url('sum/suministros/1/edit')}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarSuministro('Papel Bond A4', '{{url('suministros/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarSuministro('Papel Bond A4', '{{url('sum/suministros/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>

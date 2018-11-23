@@ -10,7 +10,7 @@
                     </div>
                     <h3 class="card-title">Nuevo Suministro</h3>
                 </div>
-                <form method="POST" action="{{url('sum/suministros/1')}}" autocomplete="off">
+                <form method="POST" action="{{url('suministros/1')}}" autocomplete="off">
                     <div class="card-body ">
                         {{method_field('patch')}}
                         {{csrf_field()}}

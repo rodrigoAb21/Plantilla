@@ -97,4 +97,24 @@
     </div>
     <!-- end row -->
 
+    @include('modal')
+    @include('suministros.suministros.show')
+    @push('scripts')
+        <script>
+
+            function eliminarSuministro(nombre, url) {
+                $('#modalEliminarForm').attr("action", url);
+                $('#modalEliminarTitulo').html("Eliminar Suministro");
+                $('#modalEliminarEnunciado').html("Realmente desea eliminar el suministro: " + nombre + "?");
+                $('#modalEliminar').modal('show');
+            }
+
+            function verSuministro() {
+                $('#modalVer').modal('show');
+            }
+
+        </script>
+
+    @endpush()
+
 @endsection

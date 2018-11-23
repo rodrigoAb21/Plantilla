@@ -1,85 +1,51 @@
 @extends('layouts.dashboard-suministros')
 
 @section('content')
-    <form method="POST" action="{{url('sum/mov-suministros/devoluciones')}}" autocomplete="off">
+    <form method="POST" action="{{url('mov-suministros/ingresos')}}" autocomplete="off">
     <div class="row">
         <div class="col-md-12">
             <div class="card ">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">
-                        <i class="fa fa-redo fa-2x"></i>
+                        <i class="fa fa-arrow-right fa-2x"></i>
                     </div>
-                    <h3 class="card-title">Devolucion de Suministros</h3>
+                    <h3 class="card-title">Ingreso de Suministros</h3>
                 </div>
 
                 <div class="card-body ">
                     {{csrf_field()}}
 
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">Departamento</label>
-                                <select class="form-control selectpicker" data-live-search="true" data-style="btn btn-link" id="exampleFormControlSelect1">
-                                    <option>Finanzas</option>
-                                    <option>RR.HH.</option>
-                                    <option>Publicidad</option>
-                                    <option>Administracion</option>
-                                    <option>Informatica</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="form-group mt-2">
-                                <div class="mb-1">
-                                    <label>Devuelve</label>
-                                </div>
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="form-group mt-2">
-                                <div class="mb-1">
-                                    <label>Observacion</label>
-                                </div>
-                                <textarea rows="3" class="form-control"></textarea>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group form-file-upload form-file-multiple">
-                        <div class="input-group">
-                            <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
-                                <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Suministro</label>
-                                    <select class="form-control selectpicker" data-live-search="true" data-style="btn btn-link" id="exampleFormControlSelect1">
-                                        <option>Papel Bond Carte Pack500</option>
-                                        <option>Papel Bond Oficio Pack500</option>
-                                        <option>Papel Bond A4 Pack500</option>
-                                        <option>CD-ROM Pack100</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                                <div class="form-group mt-2">
-                                    <div class="mb-1">
-                                        <label for="nombre">Cantidad</label>
+                        <div class="form-group form-file-upload form-file-multiple">
+                            <div class="input-group">
+                                <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Suministro</label>
+                                        <select class="form-control selectpicker" data-live-search="true" data-style="btn btn-link" id="exampleFormControlSelect1">
+                                            <option>Papel Bond Carte Pack500</option>
+                                            <option>Papel Bond Oficio Pack500</option>
+                                            <option>Papel Bond A4 Pack500</option>
+                                            <option>CD-ROM Pack100</option>
+                                        </select>
                                     </div>
-                                    <input type="number" class="form-control" id="nombre" name="nombre" min="1">
                                 </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                    <div class="form-group mt-2">
+                                        <div class="mb-1">
+                                            <label for="nombre">Cantidad</label>
+                                        </div>
+                                        <input type="number" class="form-control" id="nombre" name="nombre" min="1">
+                                    </div>
+                                </div>
+
+                                <span class="input-group-btn pt-4 ml-auto mr-0">
+                                    <button type="button" class="btn btn-fab btn-round btn-primary">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                </span>
+
+
                             </div>
-
-                            <span class="input-group-btn pt-4 ml-auto mr-0">
-                            <button type="button" class="btn btn-fab btn-round btn-primary">
-                                <i class="fa fa-plus"></i>
-                            </button>
-                        </span>
-
-
                         </div>
-                    </div>
 
                 </div>
             </div>

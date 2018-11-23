@@ -21,14 +21,14 @@ Route::get('/sum', function () {
 
 Auth::routes();
 
-Route::resource('/sum/categorias-sum', 'CategoriaSumController');
-Route::resource('/sum/suministros', 'SuministroController');
-Route::resource('/sum/mov-suministros/ingresos', 'IngresoController');
-Route::resource('/sum/mov-suministros/salidas', 'SalidaController');
-Route::resource('/sum/mov-suministros/devoluciones', 'DevolucionController');
-Route::resource('/sum/medidas', 'UnidadMedidaController');
-Route::get('/sum/reportes/inventario', 'ReporteSumController@inventario');
-Route::get('/sum/reportes/movimientos', 'ReporteSumController@movimientos');
+Route::resource('/sum/categorias-sum', 'suministros\CategoriaSumController');
+Route::resource('/sum/suministros', 'suministros\SuministroController');
+Route::resource('/sum/mov-suministros/ingresos', 'suministros\IngresoController');
+Route::resource('/sum/mov-suministros/salidas', 'suministros\SalidaController');
+Route::resource('/sum/mov-suministros/devoluciones', 'suministros\DevolucionController');
+Route::resource('/sum/medidas', 'suministros\UnidadMedidaController');
+Route::get('/sum/reportes/inventario', 'suministros\ReporteSumController@inventario');
+Route::get('/sum/reportes/movimientos', 'suministros\ReporteSumController@movimientos');
 
 
 Route::get('/act', function () {

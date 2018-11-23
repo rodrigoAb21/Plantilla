@@ -10,7 +10,7 @@
                     </div>
                     <h3 class="card-title">Nueva Unidad de medida</h3>
                 </div>
-                <form method="POST" action="{{url('medidas')}}" autocomplete="off">
+                <form method="POST" action="{{url('sum/medidas')}}" autocomplete="off">
                 <div class="card-body ">
                         {{csrf_field()}}
                         <div class="form-group">

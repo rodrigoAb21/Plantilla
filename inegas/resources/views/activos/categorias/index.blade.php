@@ -22,7 +22,7 @@
                                         <button type="button" class="btn btn-fab btn-round btn-primary">
                                             <i class="fa fa-search"></i>
                                         </button>
-                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('sum/categorias-sum/create')}}">
+                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('categorias-sum/create')}}">
                                                 <i class="fa fa-plus"></i>
                                         </a>
                                     </span>
@@ -47,12 +47,12 @@
                                     <td>Material de Oficina</td>
                                     <td>Ninguna</td>
                                     <td class="text-right ">
-                                        <a href="{{url('sum/categorias-sum/1/edit')}}">
+                                        <a href="{{url('categorias-sum/1/edit')}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Material de Oficina', '{{url('sum/categorias-sum/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Material de Oficina', '{{url('categorias-sum/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -62,12 +62,12 @@
                                     <td>Material de Limpieza</td>
                                     <td>Ninguna</td>
                                     <td class="text-right ">
-                                        <a href="{{url('sum/categorias-sum/1/edit')}}">
+                                        <a href="{{url('categorias-sum/1/edit')}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Material de Oficina', '{{url('sum/categorias-sum/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Material de Oficina', '{{url('categorias-sum/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -77,12 +77,12 @@
                                     <td>Utensilios</td>
                                     <td>Ninguna</td>
                                     <td class="text-right ">
-                                        <a href="{{url('sum/categorias-sum/1/edit')}}">
+                                        <a href="{{url('categorias-sum/1/edit')}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Material de Oficina', '{{url('sum/categorias-sum/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Material de Oficina', '{{url('categorias-sum/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -92,12 +92,12 @@
                                     <td>Cintas</td>
                                     <td>Material de Oficina</td>
                                     <td class="text-right ">
-                                        <a href="{{url('sum/categorias-sum/1/edit')}}">
+                                        <a href="{{url('categorias-sum/1/edit')}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Material de Oficina', '{{url('sum/categorias-sum/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Material de Oficina', '{{url('categorias-sum/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
