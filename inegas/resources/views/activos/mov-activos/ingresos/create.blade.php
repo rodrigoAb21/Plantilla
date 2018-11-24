@@ -7,27 +7,52 @@
             <div class="card ">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">
-                        <i class="fa fa-arrow-right fa-2x"></i>
+                        <i class="fa fa-angle-double-right fa-2x"></i>
                     </div>
-                    <h3 class="card-title">Ingreso de Suministros</h3>
+                    <h3 class="card-title">Ingreso de Activos Fijos</h3>
                 </div>
 
                 <div class="card-body ">
                     {{csrf_field()}}
 
+                        <div class="input-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group mt-2">
+                                    <div class="mb-1">
+                                        <label for="nombre">Nro. Factura</label>
+                                    </div>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group mt-2 text-center">
+                                    <div class="mb-1">
+                                        <label for="nombre">Adjuntar imagen</label>
+                                    </div>
+                                    <span class="btn btn-primary btn-round btn-sm">
+                                        <i class="fa fa-paperclip"></i>
+                                        <input type="file" class="form-control" accept="image/*" >
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
                         <div class="form-group form-file-upload form-file-multiple">
                             <div class="input-group">
-                                <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
+                                <div class="col-lg-7 col-md-7 col-sm-6 col-xs-12">
                                     <div class="form-group">
-                                        <label for="exampleFormControlSelect1">Suministro</label>
-                                        <select class="form-control selectpicker" data-live-search="true" data-style="btn btn-link" id="exampleFormControlSelect1">
-                                            <option>Papel Bond Carte Pack500</option>
-                                            <option>Papel Bond Oficio Pack500</option>
-                                            <option>Papel Bond A4 Pack500</option>
-                                            <option>CD-ROM Pack100</option>
+                                        <label for="activo">Activo</label>
+                                        <select class="form-control selectpicker" data-live-search="true" data-style="btn btn-link" id="activo">
+                                            <option>Activo 1</option>
+                                            <option>Activo 2</option>
+                                            <option>Activo 3</option>
+                                            <option>Activo 4</option>
                                         </select>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                                     <div class="form-group mt-2">
                                         <div class="mb-1">
@@ -37,13 +62,20 @@
                                     </div>
                                 </div>
 
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                    <div class="form-group mt-2">
+                                        <div class="mb-1">
+                                            <label for="costo">Costo Bs.</label>
+                                        </div>
+                                        <input type="number" class="form-control" id="costo" name="costo" min="1">
+                                    </div>
+                                </div>
+
                                 <span class="input-group-btn pt-4 ml-auto mr-0">
                                     <button type="button" class="btn btn-fab btn-round btn-primary">
                                         <i class="fa fa-plus"></i>
                                     </button>
                                 </span>
-
-
                             </div>
                         </div>
 
@@ -63,7 +95,7 @@
                                 <thead>
                                 <tr>
                                     <th scope="col" ><b>#</b></th>
-                                    <th scope="col" class="w-75"><b>Suministro</b></th>
+                                    <th scope="col" class="w-75"><b>Activo</b></th>
                                     <th scope="col"><b>Cantidad</b></th>
                                     <th scope="col" class="text-right"><b>Opciones</b></th>
                                 </tr>
@@ -71,7 +103,7 @@
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td>CD-ROM Pack100</td>
+                                        <td>Activo 1</td>
                                         <td>15</td>
                                         <td class="text-right ">
                                             <button type="button" class="btn btn-outline-primary">
@@ -81,7 +113,7 @@
                                     </tr>
                                     <tr>
                                         <td>2</td>
-                                        <td>Papel Bond Oficio Pack500</td>
+                                        <td>Activo 3</td>
                                         <td>10</td>
                                         <td class="text-right ">
                                             <button type="button" class="btn btn-outline-primary">
@@ -91,7 +123,7 @@
                                     </tr>
                                     <tr>
                                         <td>3</td>
-                                        <td>Papel Bond Carta Pack500</td>
+                                        <td>Activo 2</td>
                                         <td>25</td>
                                         <td class="text-right ">
                                             <button type="button" class="btn btn-outline-primary">
