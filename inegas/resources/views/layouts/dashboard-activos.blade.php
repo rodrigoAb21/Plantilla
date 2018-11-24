@@ -6,7 +6,7 @@
     <link rel="icon" type="image/png" href="{{asset('img/favicon.png')}}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Material
+        Area de Activos Fijos
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
@@ -200,6 +200,8 @@
 <script src="{{asset('js/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
 <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
 <script src="{{asset('js/plugins/bootstrap-selectpicker.js')}}"></script>
+<!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+<script src="{{asset('js/plugins/jasny-bootstrap.min.js')}}"></script>
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="{{asset('js/material-dashboard.minf066.js?v=2.1.0')}}" type="text/javascript"></script>
 <script>

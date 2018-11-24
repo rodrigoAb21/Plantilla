@@ -21,18 +21,23 @@
                                     <div class="mb-1">
                                         <label for="nombre">Nro. Factura</label>
                                     </div>
-                                    <input type="text" class="form-control">
+                                    <input type="number" class="form-control">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-group mt-2 text-center">
+                                <div class="form-group form-file-upload form-file-multiple mt-2">
                                     <div class="mb-1">
-                                        <label for="nombre">Adjuntar imagen</label>
+                                        <label>Adjuntar Imagen</label>
                                     </div>
-                                    <span class="btn btn-primary btn-round btn-sm">
-                                        <i class="fa fa-paperclip"></i>
-                                        <input type="file" class="form-control" accept="image/*" >
-                                    </span>
+                                    <input type="file" name="imagen" accept="image/*" class="inputFileHidden">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control inputFileVisible" >
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-fab btn-round btn-primary">
+                                                <i class="material-icons">attach_file</i>
+                                            </button>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -41,7 +46,7 @@
 
                         <div class="form-group form-file-upload form-file-multiple">
                             <div class="input-group">
-                                <div class="col-lg-7 col-md-7 col-sm-6 col-xs-12">
+                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <label for="activo">Activo</label>
                                         <select class="form-control selectpicker" data-live-search="true" data-style="btn btn-link" id="activo">
@@ -53,7 +58,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
                                     <div class="form-group mt-2">
                                         <div class="mb-1">
                                             <label for="nombre">Cantidad</label>
@@ -62,7 +67,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
                                     <div class="form-group mt-2">
                                         <div class="mb-1">
                                             <label for="costo">Costo Bs.</label>
@@ -147,4 +152,41 @@
     </div>
     </form>
     <!-- end row -->
+    @push('scripts')
+        <script>
+            $('.form-file-simple .inputFileVisible').click(function() {
+                $(this).siblings('.inputFileHidden').trigger('click');
+            });
+
+            $('.form-file-simple .inputFileHidden').change(function() {
+                var filename = $(this).val().replace(/C:\\fakepath\\/i, '');
+                $(this).siblings('.inputFileVisible').val(filename);
+            });
+
+            $('.form-file-multiple .inputFileVisible, .form-file-multiple .input-group-btn').click(function() {
+                $(this).parent().parent().find('.inputFileHidden').trigger('click');
+                $(this).parent().parent().addClass('is-focused');
+            });
+
+            $('.form-file-multiple .inputFileHidden').change(function() {
+                var names = '';
+                for (var i = 0; i < $(this).get(0).files.length; ++i) {
+                    if (i < $(this).get(0).files.length - 1) {
+                        names += $(this).get(0).files.item(i).name + ',';
+                    } else {
+                        names += $(this).get(0).files.item(i).name;
+                    }
+                }
+                $(this).siblings('.input-group').find('.inputFileVisible').val(names);
+            });
+
+            $('.form-file-multiple .btn').on('focus', function() {
+                $(this).parent().siblings().trigger('focus');
+            });
+
+            $('.form-file-multiple .btn').on('focusout', function() {
+                $(this).parent().siblings().trigger('focusout');
+            });
+        </script>
+    @endpush
 @endsection
