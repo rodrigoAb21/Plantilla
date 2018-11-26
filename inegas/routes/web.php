@@ -43,6 +43,9 @@ Route::resource('/act/mov-activos/traslados', 'activos\TrasladoController');
 
 
 
-Route::get('/seguridad', function () {
+Route::get('/seg', function () {
     return view('layouts.dashboard-seguridad');
 });
+Route::resource('/seg/usuarios', 'seguridad\UsuarioController');
+Route::resource('/seg/bitacora', 'seguridad\BitacoraController');
+Route::resource('/seg/estadisticas', 'seguridad\EstadisticaController');

@@ -41,85 +41,26 @@
                 </div>
             </div>
             <ul class="nav">
-                <li class="{{ Request::is('sum/categorias-sum*') ? 'nav-item active' : 'nav-item' }}">
-                    <a class="nav-link" href="{{url('sum/categorias-sum')}}">
-                        <i class="fa fa-tags"></i>
-                        <p> Categorias </p>
+                <li class="{{ Request::is('seg/usuarios*') ? 'nav-item active' : 'nav-item' }}">
+                    <a class="nav-link" href="{{url('seg/usuarios')}}">
+                        <i class="fa fa-users"></i>
+                        <p> Usuarios </p>
                     </a>
                 </li>
 
-                <li class="{{ Request::is('sum/medidas*') ? 'nav-item active' : 'nav-item' }}">
-                    <a class="nav-link" href="{{url('sum/medidas')}}">
-                        <i class="fa fa-ruler"></i>
-                        <p> Unidades Medida </p>
+                <li class="{{ Request::is('seg/bitacora*') ? 'nav-item active' : 'nav-item' }}">
+                    <a class="nav-link" href="{{url('seg/bitacora')}}">
+                        <i class="fa fa-user-clock"></i>
+                        <p> Bitacora </p>
                     </a>
                 </li>
 
-                <li class="{{ Request::is('sum/suministros*') ? 'nav-item active' : 'nav-item' }}">
-                    <a class="nav-link" href="{{url('sum/suministros')}}">
-                        <i class="fa fa-box-open"></i>
-                        <p> Suministros </p>
+                <li class="{{ Request::is('seg/estadisticas*') ? 'nav-item active' : 'nav-item' }}">
+                    <a class="nav-link" href="{{url('seg/estadisticas')}}">
+                        <i class="fa fa-chart-line"></i>
+                        <p> Estadisticas </p>
                     </a>
                 </li>
-
-
-                <li class="{{ Request::is('sum/mov-suministros*') ? 'nav-item active' : 'nav-item' }}">
-                    <a class="{{ Request::is('sum/mov-suministros*') ? 'nav-link collapse collapsed' : 'nav-link collapse' }}" data-toggle="collapse" href="#mov-sum" aria-expanded="{{ Request::is('sum/mov-suministros*') ? 'true' : 'false' }}" >
-                        <i class="fa fa-people-carry"></i>
-                        <p> Mov. Suministros <b class="caret"></b></p>
-                    </a>
-                    <div class="{{ Request::is('sum/mov-suministros*') ? 'collapse show' : 'collapse' }}" id="mov-sum">
-                        <ul class="nav">
-                            <li class="{{ Request::is('sum/mov-suministros/ingresos*') ? 'nav-item active' : 'nav-item' }}">
-                                <a class="nav-link" href="{{url('sum/mov-suministros/ingresos')}}">
-                                    <i class="fa fa-arrow-right"></i>
-                                    <p> Ingresos </p>
-                                </a>
-                            </li>
-                            <li class="{{ Request::is('sum/mov-suministros/salidas*') ? 'nav-item active' : 'nav-item' }}">
-                                <a class="nav-link" href="{{url('sum/mov-suministros/salidas')}}">
-                                    <i class="fa fa-arrow-left"></i>
-                                    <p> Salidas </p>
-                                </a>
-                            </li>
-                            <li class="{{ Request::is('sum/mov-suministros/devoluciones*') ? 'nav-item active' : 'nav-item' }}">
-                                <a class="nav-link" href="{{url('sum/mov-suministros/devoluciones')}}">
-                                    <i class="fa fa-redo"></i>
-                                    <p> Devoluciones </p>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </li>
-
-
-                <li class="{{ Request::is('sum/reportes*') ? 'nav-item active' : 'nav-item' }}">
-                    <a class="{{ Request::is('sum/reportes*') ? 'nav-link collapse collapsed' : 'nav-link collapse' }}" data-toggle="collapse" href="#reportes" aria-expanded="{{ Request::is('sum/reportes*') ? 'true' : 'false' }}" >
-                        <i class="fa fa-clipboard-list"></i>
-                        <p> Reportes <b class="caret"></b></p>
-                    </a>
-                    <div class="{{ Request::is('sum/reportes*') ? 'collapse show' : 'collapse' }}" id="reportes">
-                        <ul class="nav">
-                            <li class="{{ Request::is('sum/reportes/inventario*') ? 'nav-item active' : 'nav-item' }}">
-                                <a class="nav-link" href="{{url('sum/reportes/inventario')}}">
-                                    <i class="fa fa-boxes"></i>
-                                    <p> Inventario </p>
-                                </a>
-                            </li>
-                            <li class="{{ Request::is('sum/reportes/movimientos*') ? 'nav-item active' : 'nav-item' }}">
-                                <a class="nav-link" href="{{url('sum/reportes/movimientos')}}">
-                                    <i class="fa fa-truck-loading"></i>
-                                    <p> Movimientos </p>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </li>
-
-
-
 
 
             </ul>
@@ -136,7 +77,7 @@
                             <i class="material-icons design_bullet-list-67 visible-on-sidebar-mini">view_list</i>
                         </button>
                     </div>
-                    <a class="navbar-brand" href="{{url('sum/')}}">Area de Suministros</a>
+                    <a class="navbar-brand" href="{{url('seg')}}">Area de Seguridad</a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="sr-only">Toggle navigation</span>
@@ -147,26 +88,26 @@
                 <div class="collapse navbar-collapse justify-content-end">
                     <div class="navbar-form" hidden></div>
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#pablo">
-                                <i class="fa fa-exchange-alt"></i>
+                        <li class="nav-item" title="Area de Activos Fijos">
+                            <a class="nav-link" href="{{url('act')}}">
+                                <i class="fa fa-couch"></i>
                                 <p class="d-lg-none d-md-block">
-                                    Cambiar vista
+                                    Area de Activos Fijos
                                 </p>
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#pablo">
-                                <i class="fa fa-user-shield"></i>
+                        <li class="nav-item" title="Area de Suministros">
+                            <a class="nav-link" href="{{url('sum')}}">
+                                <i class="fa fa-box-open"></i>
                                 <p class="d-lg-none d-md-block">
-                                    Seguridad
+                                    Area de Suministros
                                 </p>
                             </a>
                         </li>
 
 
-                        <li class="nav-item">
+                        <li class="nav-item" title="Cerrar Sesion">
                             <a class="nav-link" href="#pablo">
                                 <i class="fa fa-sign-out-alt"></i>
                                 <p class="d-lg-none d-md-block">
