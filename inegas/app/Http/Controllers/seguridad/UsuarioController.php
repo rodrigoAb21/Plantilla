@@ -15,30 +15,30 @@ class UsuarioController extends Controller
 
     public function create()
     {
-        return view('activos.activos.create');
+        return view('seguridad.usuarios.create');
     }
 
 
     public function store(Request $request)
     {
-        return redirect('act/activos');
+        return redirect('seg/usuarios');
     }
 
 
     public function edit($id)
     {
-        return view('activos.activos.edit');
+        return view('seguridad.usuarios.edit');
     }
 
 
     public function update(Request $request, $id)
     {
-        return redirect('act/activos');
+        return redirect('seg/usuarios');
     }
 
 
     public function destroy($id)
     {
-        return redirect('act/activos');
+        return redirect('seg/usuarios');
     }
 }

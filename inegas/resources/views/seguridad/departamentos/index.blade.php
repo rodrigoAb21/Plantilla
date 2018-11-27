@@ -8,7 +8,7 @@
                     <div class="card-icon">
                         <i class="fa fa-ruler fa-2x"></i>
                     </div>
-                    <h3 class="card-title">Unidades de Medida</h3>
+                    <h3 class="card-title">Departamentos</h3>
 
                 </div>
                 <div class="card-body">
