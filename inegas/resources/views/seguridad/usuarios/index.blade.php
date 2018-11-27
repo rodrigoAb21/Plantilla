@@ -37,7 +37,7 @@
                                     <th><b>#</b></th>
                                     <th><b>CI</b></th>
                                     <th><b>Nombre</b></th>
-                                    <th><b>Email</b></th>
+                                    <th><b>Area</b></th>
                                     <th><b>Estado</b></th>
                                     <th class="text-right"><b>Opciones</b></th>
                                 </tr>
@@ -47,7 +47,7 @@
                                     <td>1</td>
                                     <td>8181035</td>
                                     <td>Juan Perez</td>
-                                    <td>juan@gmail.com</td>
+                                    <td>Administrador</td>
                                     <td>Habilitado</td>
                                     <td class="text-right ">
                                         <a href="{{url('seg/usuarios/1/edit')}}">
@@ -64,7 +64,7 @@
                                     <td>2</td>
                                     <td>4865218</td>
                                     <td>Jose Tola</td>
-                                    <td>jose@gmail.com</td>
+                                    <td>Activos Fijos</td>
                                     <td>Habilitado</td>
                                     <td class="text-right ">
                                         <a href="{{url('seg/usuarios/1/edit')}}">
@@ -81,7 +81,7 @@
                                     <td>3</td>
                                     <td>3292605</td>
                                     <td>Marcos Claros</td>
-                                    <td>marcos@gmail.com</td>
+                                    <td>Suministros</td>
                                     <td>Habilitado</td>
                                     <td class="text-right ">
                                         <a href="{{url('seg/usuarios/1/edit')}}">
@@ -98,7 +98,7 @@
                                     <td>4</td>
                                     <td>8846559</td>
                                     <td>Pedro Suarez</td>
-                                    <td>pedro@gmail.com</td>
+                                    <td>Activos Fijos</td>
                                     <td>Deshabilitado</td>
                                     <td class="text-right ">
                                         <a href="{{url('seg/usuarios/1/edit')}}">

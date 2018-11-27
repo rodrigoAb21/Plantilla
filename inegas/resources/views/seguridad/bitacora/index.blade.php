@@ -6,9 +6,9 @@
             <div class="card">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">
-                        <i class="fa fa-ruler fa-2x"></i>
+                        <i class="fa fa-user-clock fa-2x"></i>
                     </div>
-                    <h3 class="card-title">Unidades de Medida</h3>
+                    <h3 class="card-title">Bitacora</h3>
 
                 </div>
                 <div class="card-body">
@@ -16,16 +16,29 @@
                     <form action="">
                         <div class="form-group form-file-upload form-file-multiple">
                             <div class="input-group">
-                                    <label for="busqueda" class="bmd-label-floating">Buscar</label>
-                                    <input type="text" class="form-control" id="busqueda" name="busqueda">
-                                    <span class="input-group-btn">
-                                        <button type="button" class="btn btn-fab btn-round btn-primary">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('sum/medidas/create')}}">
-                                                <i class="fa fa-plus"></i>
-                                        </a>
-                                    </span>
+                                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                    <div class="form-group mt-2">
+                                        <div class="mb-1">
+                                            <label for="inicio">Desde</label>
+                                        </div>
+                                        <input type="date" class="form-control" id="inicio" name="inicio">
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                    <div class="form-group mt-2">
+                                        <div class="mb-1">
+                                            <label for="fin">Hasta</label>
+                                        </div>
+                                        <input type="date" class="form-control" id="fin" name="fin">
+                                    </div>
+                                </div>
+
+                                <span class="input-group-btn pt-4 ml-auto mr-0">
+                                <button type="button" class="btn btn-fab btn-round btn-primary">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+
 
                             </div>
                         </div>
@@ -36,67 +49,37 @@
                             <thead>
                                 <tr>
                                     <th><b>#</b></th>
-                                    <th><b>Nombre</b></th>
-                                    <th class="text-right"><b>Opciones</b></th>
+                                    <th><b>Fecha</b></th>
+                                    <th><b>Accion</b></th>
+                                    <th><b>Usuario</b></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>Caja</td>
-                                    <td class="text-right ">
-                                        <a href="{{url('sum/medidas/1/edit')}}">
-                                            <button class="btn btn-outline-primary btn-sm">
-                                                <i class="fa fa-pen"></i>
-                                            </button>
-                                        </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Caja', '{{url('sum/medidas/1')}}')">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
+                                    <td>15/11/2018 12:04</td>
+                                    <td>Crear: Unidad de Medida --> ID:3</td>
+                                    <td>Juan Perez</td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
-                                    <td>Pieza</td>
-                                    <td class="text-right ">
-                                        <a href="{{url('sum/medidas/1/edit')}}">
-                                            <button class="btn btn-outline-primary btn-sm">
-                                                <i class="fa fa-pen"></i>
-                                            </button>
-                                        </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Caja', '{{url('sum/medidas/1')}}')">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
+                                    <td>15/11/2018 14:21</td>
+                                    <td>Editar: Unidad de Medida --> ID:3</td>
+                                    <td>Juan Perez</td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
-                                    <td>Litros</td>
-                                    <td class="text-right ">
-                                        <a href="{{url('sum/medidas/1/edit')}}">
-                                            <button class="btn btn-outline-primary btn-sm">
-                                                <i class="fa fa-pen"></i>
-                                            </button>
-                                        </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Caja', '{{url('sum/medidas/1')}}')">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
+                                    <td>15/11/2018 14:27</td>
+                                    <td>Crear: Suministro --> ID:21</td>
+                                    <td>Marcos Claros</td>
                                 </tr>
                                 <tr>
                                     <td>4</td>
-                                    <td>Paquete</td>
-                                    <td class="text-right ">
-                                        <a href="{{url('sum/medidas/1/edit')}}">
-                                            <button class="btn btn-outline-primary btn-sm">
-                                                <i class="fa fa-pen"></i>
-                                            </button>
-                                        </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Caja', '{{url('sum/medidas/1')}}')">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
+                                    <td>16/11/2018 09:13</td>
+                                    <td>Eliminar: Unidad de Medida ID:3</td>
+                                    <td>Marcos Claros</td>
                                 </tr>
+
                             </tbody>
                         </table>
                     </div>
@@ -125,21 +108,5 @@
         <!-- end col-md-12 -->
     </div>
     <!-- end row -->
-
-    @include('modal')
-    @push('scripts')
-        <script>
-
-            function eliminarModelo(nombre, url) {
-                $('#modalEliminarForm').attr("action", url);
-                $('#modalEliminarTitulo').html("Eliminar Unidad de Medida");
-                $('#modalEliminarEnunciado').html("Realmente desea eliminar la Unidad de medida: " + nombre + "?");
-                $('#modalEliminar').modal('show');
-
-            }
-
-        </script>
-
-    @endpush()
 
 @endsection
