@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">
-                        <i class="fa fa-ruler fa-2x"></i>
+                        <i class="fa fa-sitemap fa-2x"></i>
                     </div>
                     <h3 class="card-title">Departamentos</h3>
 
@@ -22,7 +22,7 @@
                                         <button type="button" class="btn btn-fab btn-round btn-primary">
                                             <i class="fa fa-search"></i>
                                         </button>
-                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('sum/medidas/create')}}">
+                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('seg/departamentos/create')}}">
                                                 <i class="fa fa-plus"></i>
                                         </a>
                                     </span>
@@ -43,56 +43,56 @@
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>Caja</td>
+                                    <td>Finanzas</td>
                                     <td class="text-right ">
-                                        <a href="{{url('sum/medidas/1/edit')}}">
+                                        <a href="{{url('seg/departamentos/1/edit')}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Caja', '{{url('sum/medidas/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Finanzas', '{{url('seg/departamentos/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
-                                    <td>Pieza</td>
+                                    <td>RRHH</td>
                                     <td class="text-right ">
-                                        <a href="{{url('sum/medidas/1/edit')}}">
+                                        <a href="{{url('seg/departamentos/1/edit')}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Caja', '{{url('sum/medidas/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('RRHH', '{{url('seg/departamentos/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
-                                    <td>Litros</td>
+                                    <td>Publicidad</td>
                                     <td class="text-right ">
-                                        <a href="{{url('sum/medidas/1/edit')}}">
+                                        <a href="{{url('seg/departamentos/1/edit')}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Caja', '{{url('sum/medidas/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Publicidad', '{{url('seg/departamentos/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>4</td>
-                                    <td>Paquete</td>
+                                    <td>Administracion</td>
                                     <td class="text-right ">
-                                        <a href="{{url('sum/medidas/1/edit')}}">
+                                        <a href="{{url('seg/departamentos/1/edit')}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Caja', '{{url('sum/medidas/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('Administracion', '{{url('seg/departamentos/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -132,8 +132,8 @@
 
             function eliminarModelo(nombre, url) {
                 $('#modalEliminarForm').attr("action", url);
-                $('#modalEliminarTitulo').html("Eliminar Unidad de Medida");
-                $('#modalEliminarEnunciado').html("Realmente desea eliminar la Unidad de medida: " + nombre + "?");
+                $('#modalEliminarTitulo').html("Eliminar Departamento");
+                $('#modalEliminarEnunciado').html("Realmente desea eliminar el departamento: " + nombre + "?");
                 $('#modalEliminar').modal('show');
 
             }

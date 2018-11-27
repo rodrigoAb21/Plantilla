@@ -6,17 +6,17 @@
             <div class="card ">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">
-                        <i class="fa fa-ruler fa-2x"></i>
+                        <i class="fa fa-sitemap fa-2x"></i>
                     </div>
-                    <h3 class="card-title">Editar Unidad de medida</h3>
+                    <h3 class="card-title">Editar Departamento</h3>
                 </div>
-                <form method="POST" action="{{url('sum/medidas/1')}}" autocomplete="off">
+                <form method="POST" action="{{url('seg/departamentos/1')}}" autocomplete="off">
                     <div class="card-body ">
                         {{csrf_field()}}
                         {{method_field('PATCH')}}
                         <div class="form-group">
                             <label for="nombre" class="bmd-label-floating">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" value="Caja">
+                            <input type="text" class="form-control" id="nombre" name="nombre" value="Finanzas">
                         </div>
                     </div>
                     <div class="card-footer ">

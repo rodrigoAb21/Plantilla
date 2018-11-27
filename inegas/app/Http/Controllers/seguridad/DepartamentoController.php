@@ -15,30 +15,30 @@ class DepartamentoController extends Controller
 
     public function create()
     {
-        return view('activos.activos.create');
+        return view('seguridad.departamentos.create');
     }
 
 
     public function store(Request $request)
     {
-        return redirect('act/activos');
+        return redirect('seg/departamentos');
     }
 
 
     public function edit($id)
     {
-        return view('activos.activos.edit');
+        return view('seguridad.departamentos.edit');
     }
 
 
     public function update(Request $request, $id)
     {
-        return redirect('act/activos');
+        return redirect('seg/departamentos');
     }
 
 
     public function destroy($id)
     {
-        return redirect('act/activos');
+        return redirect('seg/departamentos');
     }
 }

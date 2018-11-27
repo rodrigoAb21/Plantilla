@@ -6,11 +6,11 @@
             <div class="card ">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">
-                        <i class="fa fa-ruler fa-2x"></i>
+                        <i class="fa fa-sitemap fa-2x"></i>
                     </div>
-                    <h3 class="card-title">Nueva Unidad de medida</h3>
+                    <h3 class="card-title">Nuevo Departamento</h3>
                 </div>
-                <form method="POST" action="{{url('sum/medidas')}}" autocomplete="off">
+                <form method="POST" action="{{url('seg/departamentos')}}" autocomplete="off">
                 <div class="card-body ">
                         {{csrf_field()}}
                         <div class="form-group">
