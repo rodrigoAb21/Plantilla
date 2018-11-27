@@ -40,7 +40,7 @@ Route::resource('/act/activos', 'activos\ActivoController');
 Route::resource('/act/revaluos', 'activos\RevaluoController');
 Route::resource('/act/mov-activos/ingresos', 'activos\IngresoController');
 Route::resource('/act/mov-activos/traslados', 'activos\TrasladoController');
-
+Route::get('/act/reportes/inventario','activos\ReporteActController@inventario');
 
 
 Route::get('/seg', function () {

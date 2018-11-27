@@ -35,12 +35,15 @@
                             <thead>
                                 <tr>
                                     <th><b>#</b></th>
-                                    <th><b>Foto</b></th>
+
                                     <th><b>Nombre</b></th>
-                                    <th><b>Costo</b></th>
-                                    <th><b>Estado</b></th>
                                     <th><b>Ubicación</b></th>
                                     <th><b>Categoría</b></th>
+                                    <th><b>Costo</b></th>
+                                    <th><b>Estado</b></th>
+
+
+                                    <th><b>Foto</b></th>
                                 </tr>
                             </thead>
                             <tbody>
