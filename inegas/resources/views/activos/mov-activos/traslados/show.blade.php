@@ -1,4 +1,4 @@
-@extends('layouts.dashboard-suministros')
+@extends('layouts.dashboard-activos')
 
 @section('content')
 
@@ -7,9 +7,9 @@
                 <div class="card ">
                     <div class="card-header card-header-primary card-header-icon">
                         <div class="card-icon">
-                            <i class="fa fa-arrow-left fa-2x"></i>
+                            <i class="fa fa-dolly-flatbed fa-2x"></i>
                         </div>
-                        <h3 class="card-title">Salida de Suministros</h3>
+                        <h3 class="card-title">Traslados</h3>
                     </div>
 
                     <div class="card-body ">
@@ -31,13 +31,19 @@
                             </div>
 
                             <div class="input-group">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
 
-                                        <label>Departamento</label>
+                                        <label>Origen</label>
                                         <p>Finanzas</p>
 
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+
+                                    <label>Destino</label>
+                                    <p>RRHH</p>
+
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
 
                                         <label>Solicita</label>
                                         <p>Marina Toledo</p>
@@ -68,24 +74,20 @@
                                 <tr>
                                     <th scope="col" ><b>#</b></th>
                                     <th scope="col" class="w-75"><b>Suministro</b></th>
-                                    <th scope="col"><b>Cantidad</b></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>CD-ROM Pack100</td>
-                                    <td>15</td>
+                                    <td>Escritorio#1</td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
-                                    <td>Papel Bond Oficio Pack500</td>
-                                    <td>10</td>
+                                    <td>Mesa#20</td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
-                                    <td>Papel Bond Carta Pack500</td>
-                                    <td>25</td>
+                                    <td>Silla#2</td>
                                 </tr>
                                 </tbody>
                             </table>

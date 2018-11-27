@@ -1,4 +1,4 @@
-@extends('layouts.dashboard-suministros')
+@extends('layouts.dashboard-activos')
 
 @section('content')
     <div class="row">
@@ -8,7 +8,7 @@
                     <div class="card-icon">
                         <i class="fa fa-boxes fa-2x"></i>
                     </div>
-                    <h3 class="card-title">Inventario de Suministros</h3>
+                    <h3 class="card-title">Inventario de Activos</h3>
 
                 </div>
                 <div class="card-body">
@@ -35,25 +35,25 @@
                             <thead>
                                 <tr>
                                     <th><b>#</b></th>
+                                    <th><b>Foto</b></th>
                                     <th><b>Nombre</b></th>
-                                    <th><b>Stock</b></th>
-                                    <th><b>U. Medida</b></th>
-                                    <th><b>Categoria</b></th>
+                                    <th><b>Costo</b></th>
+                                    <th><b>Estado</b></th>
+                                    <th><b>Ubicación</b></th>
+                                    <th><b>Categoría</b></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>Papel Bond Carta</td>
-                                    <td>50</td>
-                                    <td>Paquete 500u</td>
-                                    <td>Material de oficina</td>
+                                    <td>Mesa</td>
+                                    <td>Finanzas</td>
+                                    <td>Muebles</td>
                                 </tr>
 
                                 <tr class="table-warning">
                                     <td>2</td>
                                     <td>Papel Bond Oficio</td>
-                                    <td>0</td>
                                     <td>Paquete 500u</td>
                                     <td>Material de oficina</td>
                                 </tr>
@@ -61,7 +61,6 @@
                                 <tr>
                                     <td>3</td>
                                     <td>Papel Bond A4</td>
-                                    <td>50</td>
                                     <td>Paquete 500u</td>
                                     <td>Material de oficina</td>
                                 </tr>

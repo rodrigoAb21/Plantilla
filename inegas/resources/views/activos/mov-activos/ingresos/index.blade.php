@@ -50,7 +50,7 @@
                                                 <i class="fa fa-eye"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('1', '{{url('act/mov-activos/ingresos/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('1', '{{url('act/mov-activos/ingresos/create')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -65,7 +65,7 @@
                                                 <i class="fa fa-eye"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('4', '{{url('act/mov-activos/ingresos/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('4', '{{url('act/mov-activos/ingresos/create')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -80,7 +80,7 @@
                                                 <i class="fa fa-eye"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm disabled" onclick="eliminarModelo('7', '{{url('act/mov-activos/ingresos/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm disabled" onclick="eliminarModelo('7', '{{url('act/mov-activos/ingresos/create')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -95,7 +95,7 @@
                                                 <i class="fa fa-eye"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('8', '{{url('act/mov-activos/ingresos/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('8', '{{url('act/mov-activos/ingresos/create')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>

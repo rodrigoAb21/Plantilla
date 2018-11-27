@@ -34,7 +34,18 @@
                                         <p>20/11/2018 10:09</p>
                                     </div>
                                 </div>
-
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <div class="form-group">
+                                        <label >Nro de factura</label>
+                                        <p>10258464</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <div class="form-group">
+                                        <label >Imagen</label><br>
+                                        <img src="{{asset('img/product1.jpg')}}" height="100px">
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -49,37 +60,47 @@
                     </div>
 
                     <div class="card-body ">
-                        <div class="table-responsive table-bordered table-hover table-striped">
-                            <table class="table ">
-                                <thead>
-                                <tr>
-                                    <th scope="col" ><b>#</b></th>
-                                    <th scope="col" class="w-75"><b>Suministro</b></th>
-                                    <th scope="col"><b>Cantidad</b></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>CD-ROM Pack100</td>
-                                    <td>15</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Papel Bond Oficio Pack500</td>
-                                    <td>10</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Papel Bond Carta Pack500</td>
-                                    <td>25</td>
-                                </tr>
-                                </tbody>
-                            </table>
+                        <div>
+                            <div class="card-body" style="width: 20rem;">
+                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 float-left">
+                                    <img src="{{asset('img/product1.jpg')}}" height="100px">
+                                </div>
+                                <div class="float-right">
+                                    <h4 class="card-title">Artículo</h4>
+                                    <h6 class="card-subtitle mb-2 text-muted">Costo</h6>
+                                    <p>Descripción...</p>
+                                </div>
+                            </div>
                         </div>
-
                     </div>
-
+                    <div class="card-body ">
+                        <div>
+                            <div class="card-body" style="width: 20rem;">
+                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 float-left">
+                                    <img src="{{asset('img/product1.jpg')}}" height="100px">
+                                </div>
+                                <div class="float-right">
+                                    <h4 class="card-title">Artículo</h4>
+                                    <h6 class="card-subtitle mb-2 text-muted">Costo</h6>
+                                    <p>Descripción...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body ">
+                        <div>
+                            <div class="card-body" style="width: 20rem;">
+                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 float-left">
+                                    <img src="{{asset('img/product1.jpg')}}" height="100px">
+                                </div>
+                                <div class="float-right">
+                                    <h4 class="card-title">Artículo</h4>
+                                    <h6 class="card-subtitle mb-2 text-muted">Costo</h6>
+                                    <p>Descripción...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!--  end card  -->
             </div>

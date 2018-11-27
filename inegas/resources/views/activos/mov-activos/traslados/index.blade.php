@@ -1,4 +1,4 @@
-@extends('layouts.dashboard-suministros')
+@extends('layouts.dashboard-activos')
 
 @section('content')
     <div class="row">
@@ -6,9 +6,9 @@
             <div class="card">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">
-                        <i class="fa fa-arrow-left fa-2x"></i>
+                        <i class="fa fa-dolly-flatbed fa-2x"></i>
                     </div>
-                    <h3 class="card-title">Salida de Suministros</h3>
+                    <h3 class="card-title">Traslados</h3>
 
                 </div>
                 <div class="card-body">
@@ -21,7 +21,7 @@
                                         <button type="button" class="btn btn-fab btn-round btn-primary">
                                             <i class="fa fa-search"></i>
                                         </button>
-                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('mov-suministros/salidas/create')}}">
+                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('act/mov-activos/traslados/create')}}">
                                                 <i class="fa fa-plus"></i>
                                         </a>
                                     </span>
@@ -36,7 +36,6 @@
                                 <tr>
                                     <th><b>#</b></th>
                                     <th><b>Fecha</b></th>
-                                    <th><b>Departamento</b></th>
                                     <th><b>Estado</b></th>
                                     <th class="text-right"><b>Opciones</b></th>
                                 </tr>
@@ -45,15 +44,14 @@
                                 <tr>
                                     <td>1</td>
                                     <td>20/11/2018 10:09</td>
-                                    <td>Finanzas</td>
                                     <td>Realizado</td>
                                     <td class="text-right ">
-                                        <a href="{{url('mov-suministros/salidas/1')}}">
+                                        <a href="{{url('act/mov-activos/traslados/show')}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-eye"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('1', '{{url('mov-suministros/salidas/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('1', '{{url('act/mov-activos/traslados/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -61,15 +59,14 @@
                                 <tr>
                                     <td>4</td>
                                     <td>20/11/2018 16:21</td>
-                                    <td>RR.HH.</td>
                                     <td>Realizado</td>
                                     <td class="text-right ">
-                                        <a href="{{url('mov-suministros/salidas/1')}}">
+                                        <a href="{{url('act/mov-activos/traslados/show')}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-eye"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('4', '{{url('mov-suministros/salidas/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('4', '{{url('act/mov-activos/traslados/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -77,15 +74,14 @@
                                 <tr>
                                     <td>7</td>
                                     <td>20/11/2018 17:47</td>
-                                    <td>Publicidad</td>
                                     <td>Anulado</td>
                                     <td class="text-right ">
-                                        <a href="{{url('mov-suministros/salidas/1')}}">
+                                        <a href="{{url('act/mov-activos/traslados/show')}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-eye"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm disabled" onclick="eliminarModelo('7', '{{url('mov-suministros/salidas/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm disabled" onclick="eliminarModelo('7', '{{url('act/mov-activos/traslados/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -93,15 +89,14 @@
                                 <tr>
                                     <td>8</td>
                                     <td>21/11/2018 09:34</td>
-                                    <td>Administracion</td>
                                     <td>Realizado</td>
                                     <td class="text-right ">
-                                        <a href="{{url('mov-suministros/salidas/1')}}">
+                                        <a href="{{url('act/mov-activos/traslados/show')}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-eye"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('8', '{{url('mov-suministros/salidas/1')}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('8', '{{url('act/mov-activos/traslados/1')}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -141,8 +136,8 @@
 
             function eliminarModelo(nombre, url) {
                 $('#modalEliminarForm').attr("action", url);
-                $('#modalEliminarTitulo').html("Anular Ingreso de suministro");
-                $('#modalEliminarEnunciado').html("Realmente desea anular la salida Nro: " + nombre + "?");
+                $('#modalEliminarTitulo').html("Anular traslado de activo");
+                $('#modalEliminarEnunciado').html("Realmente desea anular el traslado Nro: " + nombre + "?");
                 $('#modalEliminar').modal('show');
 
             }

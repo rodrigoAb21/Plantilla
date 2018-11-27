@@ -1,24 +1,33 @@
-@extends('layouts.dashboard-suministros')
+@extends('layouts.dashboard-activos')
 
 @section('content')
-    <form method="POST" action="{{url('mov-suministros/salidas')}}" autocomplete="off">
+    <form method="POST" action="{{url('act/mov-activos/traslados')}}" autocomplete="off">
     <div class="row">
         <div class="col-md-12">
             <div class="card ">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">
-                        <i class="fa fa-arrow-right fa-2x"></i>
+                        <i class="fa fa-dolly-flatbed fa-2x"></i>
                     </div>
-                    <h3 class="card-title">Salida de Suministros</h3>
+                    <h3 class="card-title">Traslados</h3>
                 </div>
 
                 <div class="card-body ">
                     {{csrf_field()}}
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group mt-2">
+                            <div class="mb-1">
+                                <label>Solicita</label>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <br>
+                    {{--<div class="row">--}}
 
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 float-left" >
                             <div class="form-group">
-                                <label for="exampleFormControlSelect1">Departamento</label>
+                                <label for="exampleFormControlSelect1">Origen</label>
                                 <select class="form-control selectpicker" data-live-search="true" data-style="btn btn-link" id="exampleFormControlSelect1">
                                     <option>Finanzas</option>
                                     <option>RR.HH.</option>
@@ -28,46 +37,38 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="form-group mt-2">
-                                <div class="mb-1">
-                                    <label>Solicita</label>
-                                </div>
-                                <input type="text" class="form-control">
+                        <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 float-right">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Destino</label>
+                                <select class="form-control selectpicker" data-live-search="true" data-style="btn btn-link" id="exampleFormControlSelect1">
+                                    <option>Finanzas</option>
+                                    <option>RR.HH.</option>
+                                    <option>Publicidad</option>
+                                    <option>Administracion</option>
+                                    <option>Informatica</option>
+                                </select>
                             </div>
                         </div>
 
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="form-group mt-2">
-                                <div class="mb-1">
-                                    <label>Observacion</label>
-                                </div>
-                                <textarea rows="3" class="form-control"></textarea>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="form-group form-file-upload form-file-multiple">
+                    {{--</div>--}}
+
+                    <br><br><br>
+                    <div class="form-group form-file-upload form-file-multiple  row">
                         <div class="input-group">
                             <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Suministro</label>
+                                    <label for="exampleFormControlSelect1">Activo</label>
                                     <select class="form-control selectpicker" data-live-search="true" data-style="btn btn-link" id="exampleFormControlSelect1">
-                                        <option>Papel Bond Carte Pack500</option>
-                                        <option>Papel Bond Oficio Pack500</option>
-                                        <option>Papel Bond A4 Pack500</option>
+                                        <option>Mesa#4</option>
+                                        <option>Mesa#5</option>
+                                        <option>Mesa#6</option>
+                                        <option>Escritorio#20</option>
+                                        <option>Escritorio#21</option>
+                                        <option>Estante#9</option>
+                                        <option>Estante#15</option>
                                         <option>CD-ROM Pack100</option>
                                     </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                                <div class="form-group mt-2">
-                                    <div class="mb-1">
-                                        <label for="nombre">Cantidad</label>
-                                    </div>
-                                    <input type="number" class="form-control" id="nombre" name="nombre" min="1">
                                 </div>
                             </div>
 
@@ -80,6 +81,15 @@
 
                         </div>
                     </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group mt-2">
+                                <div class="mb-1">
+                                    <label>Observacion</label>
+                                </div>
+                                <textarea rows="3" class="form-control"></textarea>
+                            </div>
+                        </div>
 
                 </div>
             </div>
@@ -97,16 +107,14 @@
                                 <thead>
                                 <tr>
                                     <th scope="col" ><b>#</b></th>
-                                    <th scope="col" class="w-75"><b>Suministro</b></th>
-                                    <th scope="col"><b>Cantidad</b></th>
+                                    <th scope="col" class="w-75"><b>Activo</b></th>
                                     <th scope="col" class="text-right"><b>Opciones</b></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td>CD-ROM Pack100</td>
-                                        <td>15</td>
+                                        <td>Escritorio#11</td>
                                         <td class="text-right ">
                                             <button type="button" class="btn btn-outline-primary">
                                                 <i class="fa fa-times"></i>
@@ -115,8 +123,7 @@
                                     </tr>
                                     <tr>
                                         <td>2</td>
-                                        <td>Papel Bond Oficio Pack500</td>
-                                        <td>10</td>
+                                        <td>Escritorio#13</td>
                                         <td class="text-right ">
                                             <button type="button" class="btn btn-outline-primary">
                                                 <i class="fa fa-times"></i>
@@ -125,8 +132,16 @@
                                     </tr>
                                     <tr>
                                         <td>3</td>
-                                        <td>Papel Bond Carta Pack500</td>
-                                        <td>25</td>
+                                        <td>Computadora#21</td>
+                                        <td class="text-right ">
+                                            <button type="button" class="btn btn-outline-primary">
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Impresora#9</td>
                                         <td class="text-right ">
                                             <button type="button" class="btn btn-outline-primary">
                                                 <i class="fa fa-times"></i>

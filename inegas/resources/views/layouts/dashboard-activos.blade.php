@@ -87,21 +87,21 @@
                 </li>
 
 
-                <li class="{{ Request::is('sum/reportes*') ? 'nav-item active' : 'nav-item' }}">
-                    <a class="{{ Request::is('sum/reportes*') ? 'nav-link collapse collapsed' : 'nav-link collapse' }}" data-toggle="collapse" href="#reportes" aria-expanded="{{ Request::is('sum/reportes*') ? 'true' : 'false' }}" >
+                <li class="{{ Request::is('act/reportes*') ? 'nav-item active' : 'nav-item' }}">
+                    <a class="{{ Request::is('act/reportes*') ? 'nav-link collapse collapsed' : 'nav-link collapse' }}" data-toggle="collapse" href="#reportes" aria-expanded="{{ Request::is('act/reportes*') ? 'true' : 'false' }}" >
                         <i class="fa fa-clipboard-list"></i>
                         <p> Reportes <b class="caret"></b></p>
                     </a>
-                    <div class="{{ Request::is('sum/reportes*') ? 'collapse show' : 'collapse' }}" id="reportes">
+                    <div class="{{ Request::is('act/reportes*') ? 'collapse show' : 'collapse' }}" id="reportes">
                         <ul class="nav">
-                            <li class="{{ Request::is('sum/reportes/inventario*') ? 'nav-item active' : 'nav-item' }}">
-                                <a class="nav-link" href="{{url('sum/reportes/inventario')}}">
+                            <li class="{{ Request::is('act/reportes/inventario*') ? 'nav-item active' : 'nav-item' }}">
+                                <a class="nav-link" href="{{url('act/reportes/inventario')}}">
                                     <i class="fa fa-boxes"></i>
                                     <p> Inventario </p>
                                 </a>
                             </li>
-                            <li class="{{ Request::is('sum/reportes/movimientos*') ? 'nav-item active' : 'nav-item' }}">
-                                <a class="nav-link" href="{{url('sum/reportes/movimientos')}}">
+                            <li class="{{ Request::is('act/reportes/movimientos*') ? 'nav-item active' : 'nav-item' }}">
+                                <a class="nav-link" href="{{url('act/reportes/movimientos')}}">
                                     <i class="fa fa-truck-loading"></i>
                                     <p> Movimientos </p>
                                 </a>
