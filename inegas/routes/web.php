@@ -48,4 +48,5 @@ Route::get('/seg', function () {
 });
 Route::resource('/seg/usuarios', 'seguridad\UsuarioController');
 Route::resource('/seg/bitacora', 'seguridad\BitacoraController');
+Route::resource('/seg/departamentos', 'seguridad\DepartamentoController');
 Route::resource('/seg/estadisticas', 'seguridad\EstadisticaController');

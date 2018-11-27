@@ -48,6 +48,13 @@
                     </a>
                 </li>
 
+                <li class="{{ Request::is('seg/departamentos*') ? 'nav-item active' : 'nav-item' }}">
+                    <a class="nav-link" href="{{url('seg/departamentos')}}">
+                        <i class="fa fa-sitemap"></i>
+                        <p> Departamentos </p>
+                    </a>
+                </li>
+
                 <li class="{{ Request::is('seg/bitacora*') ? 'nav-item active' : 'nav-item' }}">
                     <a class="nav-link" href="{{url('seg/bitacora')}}">
                         <i class="fa fa-user-clock"></i>
@@ -55,12 +62,13 @@
                     </a>
                 </li>
 
-                <li class="{{ Request::is('seg/estadisticas*') ? 'nav-item active' : 'nav-item' }}">
+
+                {{--<li class="{{ Request::is('seg/estadisticas*') ? 'nav-item active' : 'nav-item' }}">
                     <a class="nav-link" href="{{url('seg/estadisticas')}}">
                         <i class="fa fa-chart-line"></i>
                         <p> Estadisticas </p>
                     </a>
-                </li>
+                </li>--}}
 
 
             </ul>
@@ -108,7 +116,7 @@
 
 
                         <li class="nav-item" title="Cerrar Sesion">
-                            <a class="nav-link" href="#pablo">
+                            <a class="nav-link" href="{{url('/')}}">
                                 <i class="fa fa-sign-out-alt"></i>
                                 <p class="d-lg-none d-md-block">
                                     Cerrar Sesion
