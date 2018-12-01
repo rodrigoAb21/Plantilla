@@ -160,22 +160,17 @@
 
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/')}}">
+                            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
                                 <i class="fa fa-sign-out-alt"></i>
                                 <p class="d-lg-none d-md-block">
                                     Cerrar Sesion
                                 </p>
                             </a>
 
-                            {{--<a class="dropdown-item" href="{{ route('logout') }}"--}}
-                            {{--onclick="event.preventDefault();--}}
-                            {{--document.getElementById('logout-form').submit();">--}}
-                            {{--Cerrar Sesion--}}
-                            {{--</a>--}}
-
-                            {{--<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
-                            {{--{{ csrf_field() }}--}}
-                            {{--</form>--}}
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                            </form>
                         </li>
 
                     </ul>

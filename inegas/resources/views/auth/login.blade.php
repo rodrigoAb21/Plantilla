@@ -31,7 +31,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
-            {{--<form class="form" method="POST" action="{{ route('login') }}">--}}
+            <form class="form" method="POST" action="{{ route('login') }}">
               {{ csrf_field() }}
               <div class="card card-login">
                 <div class="card-header card-header-primary text-center">
@@ -60,14 +60,21 @@
                   </span>
                 </div>
                 <div class="card-footer justify-content-center">
-                  <a href="{{url('act')}}">
-                    <button type="button" class="btn btn-primary">Iniciar Sesion</button>
-                  </a>
+                  <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
                 </div>
               </div>
-            {{--</form>--}}
+            </form>
           </div>
         </div>
+        @if($errors -> any())
+          <div class="alert alert-danger">
+            <ul>
+              @foreach($errors -> all() as $error)
+                <li>{{$error}}</li>
+              @endforeach
+            </ul>
+          </div>
+        @endif
       </div>
     </div>
   </div>
