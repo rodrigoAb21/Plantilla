@@ -9,6 +9,15 @@
                         <i class="fa fa-users fa-2x"></i>
                     </div>
                     <h3 class="card-title">Nuevo Usuario</h3>
+                    @if($errors -> any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach($errors -> all() as $error)
+                                    <li>{{$error}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                 </div>
                 <form method="POST" action="{{url('seg/usuarios')}}" autocomplete="off">
                 <div class="card-body ">
@@ -17,35 +26,27 @@
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="form-group mt-2">
                                 <div class="mb-1">
-                                    <label>Nro de Carnet</label>
+                                    <label>Nombre Completo</label>
                                 </div>
-                                <input type="text" class="form-control"  name="ci">
+                                <input type="text" class="form-control"  name="nombre" required>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="form-group mt-2">
                                 <div class="mb-1">
-                                    <label>Nombre Completo</label>
+                                    <label>Cargo</label>
                                 </div>
-                                <input type="text" class="form-control"  name="nombre">
+                                <input type="text" class="form-control"  name="cargo" required>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <label for="area">Area de trabajo</label>
-                                <select class="form-control selectpicker" data-style="btn btn-link" id="area">
-                                    <option>Activos Fijos</option>
-                                    <option>Suministros</option>
-                                    <option>Administrador</option>
+                                <label>Area de trabajo</label>
+                                <select class="form-control selectpicker" data-style="btn btn-link" name="area">
+                                    @foreach($areas as $area)
+                                        <option value="{{$area}}">{{$area}}</option>
+                                    @endforeach
                                 </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                            <div class="form-group mt-2">
-                                <div class="mb-1">
-                                     <label>Telefono</label>
-                                </div>
-                                <input type="number" class="form-control"  name="telefono">
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -53,7 +54,7 @@
                                 <div class="mb-1">
                                      <label>Email</label>
                                 </div>
-                                <input type="email" class="form-control"  name="email">
+                                <input type="email" class="form-control"  name="email" required>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -61,7 +62,7 @@
                                 <div class="mb-1">
                                      <label>Password</label>
                                 </div>
-                                <input type="password" class="form-control"  name="password">
+                                <input type="password" class="form-control"  name="password" required>
                             </div>
                         </div>
 

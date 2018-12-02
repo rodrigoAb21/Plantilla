@@ -12,9 +12,9 @@
             </div>
             <div class="modal-footer">
                 <form  id="modalEliminarForm" method="POST">
-                    {{method_field('DELETE')}}
+                    <input id="metodo" type="hidden" name="_method">
                     {{csrf_field()}}
-                    <button type="submit" class="btn btn-primary">Eliminar</button>
+                    <button type="submit" class="btn btn-primary">Aceptar</button>
                 </form>
             </div>
         </div>

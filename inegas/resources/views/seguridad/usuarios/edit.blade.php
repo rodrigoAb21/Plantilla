@@ -9,44 +9,49 @@
                         <i class="fa fa-users fa-2x"></i>
                     </div>
                     <h3 class="card-title">Editar Usuario</h3>
+                    @if($errors -> any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach($errors -> all() as $error)
+                                    <li>{{$error}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                 </div>
-                <form method="POST" action="{{url('seg/usuarios/1')}}" autocomplete="off">
+                <form method="POST" action="{{url('seg/usuarios/'.$usuario -> id)}}" autocomplete="off">
                     <div class="card-body ">
+                        {{method_field('patch')}}
                         {{csrf_field()}}
-                        {{method_field('PATCH')}}
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                <div class="form-group mt-2">
-                                    <div class="mb-1">
-                                        <label>Nro de Carnet</label>
-                                    </div>
-                                    <input type="text" class="form-control" value="8181035" name="ci">
-                                </div>
-                            </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <div class="form-group mt-2">
                                     <div class="mb-1">
                                         <label>Nombre Completo</label>
                                     </div>
-                                    <input type="text" class="form-control" value="Juan Perez" name="nombre">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <label for="area">Area de trabajo</label>
-                                    <select class="form-control selectpicker" data-style="btn btn-link" id="area">
-                                        <option>Activos Fijos</option>
-                                        <option selected>Suministros</option>
-                                        <option>Administrador</option>
-                                    </select>
+                                    <input type="text" class="form-control" name="nombre" value="{{$usuario->nombre}}" required>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <div class="form-group mt-2">
                                     <div class="mb-1">
-                                        <label>Telefono</label>
+                                        <label>Cargo</label>
                                     </div>
-                                    <input type="number" class="form-control" value="33532021" name="telefono">
+                                    <input type="text" class="form-control"  name="cargo" value="{{$usuario->cargo}}" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label>Area de trabajo</label>
+                                    <select class="form-control selectpicker" data-style="btn btn-link" name="area">
+                                        @foreach($areas as $area)
+                                            @if($area == $usuario -> area)
+                                                <option selected value="{{$area}}">{{$area}}</option>
+                                            @else
+                                                <option value="{{$area}}">{{$area}}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -54,7 +59,7 @@
                                     <div class="mb-1">
                                         <label>Email</label>
                                     </div>
-                                    <input type="email" class="form-control" value="juan@gmail.com" name="email">
+                                    <input type="email" class="form-control"  name="email" value="{{$usuario->email}}" required>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">

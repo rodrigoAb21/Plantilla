@@ -53,6 +53,8 @@ Route::middleware('auth')->group(function () {
         return view('layouts.dashboard-seguridad');
     });
     Route::resource('/seg/usuarios', 'seguridad\UsuarioController');
+    Route::patch('/seg/usuarios/{id}/habilitar', 'seguridad\UsuarioController@habilitar');
+
     Route::resource('/seg/bitacora', 'seguridad\BitacoraController');
     Route::resource('/seg/departamentos', 'seguridad\DepartamentoController');
     Route::resource('/seg/estadisticas', 'seguridad\EstadisticaController');
