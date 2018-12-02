@@ -35,7 +35,7 @@
                 <div class="user-info">
                     <a data-toggle="collapse" href="#collapseExample" class="username">
                       <span>
-                        Juan Perez
+                        {{\Illuminate\Support\Facades\Auth::user()->nombre}}
                       </span>
                     </a>
                 </div>
@@ -86,7 +86,6 @@
                         </button>
                     </div>
                     <a class="navbar-brand" href="{{url('seg')}}">Area de Seguridad</a>
-                    <a href="{{URL::previous()}}">Back</a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="sr-only">Toggle navigation</span>

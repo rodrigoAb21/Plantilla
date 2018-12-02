@@ -12,7 +12,7 @@
             </div>
             <div class="modal-footer">
                 <form  id="modalEliminarForm" method="POST">
-                    <input id="metodo" type="hidden" name="_method">
+                    <input id="metodo" value="delete" type="hidden" name="_method">
                     {{csrf_field()}}
                     <button type="submit" class="btn btn-primary">Aceptar</button>
                 </form>
