@@ -8,19 +8,20 @@
                     <div class="card-icon">
                         <i class="fa fa-sitemap fa-2x"></i>
                     </div>
-                    <h3 class="card-title">Nuevo Departamento</h3>
+                    <h3 class="card-title">Editar Ubicacion</h3>
                 </div>
-                <form method="POST" action="{{url('seg/departamentos')}}" autocomplete="off">
-                <div class="card-body ">
+                <form method="POST" action="{{url('seg/ubicaciones/'.$ubicacion -> id)}}" autocomplete="off">
+                    <div class="card-body ">
                         {{csrf_field()}}
+                        {{method_field('PATCH')}}
                         <div class="form-group">
                             <label for="nombre" class="bmd-label-floating">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre">
+                            <input type="text" class="form-control" id="nombre" name="nombre" value="{{$ubicacion -> nombre}}">
                         </div>
-                </div>
-                <div class="card-footer ">
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                </div>
+                    </div>
+                    <div class="card-footer ">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
                 </form>
             </div>
             <!--  end card  -->

@@ -48,10 +48,10 @@
                     </a>
                 </li>
 
-                <li class="{{ Request::is('seg/departamentos*') ? 'nav-item active' : 'nav-item' }}">
-                    <a class="nav-link" href="{{url('seg/departamentos')}}">
+                <li class="{{ Request::is('seg/ubicaciones*') ? 'nav-item active' : 'nav-item' }}">
+                    <a class="nav-link" href="{{url('seg/ubicaciones')}}">
                         <i class="fa fa-sitemap"></i>
-                        <p> Departamentos </p>
+                        <p> Ubicaciones </p>
                     </a>
                 </li>
 
@@ -86,6 +86,7 @@
                         </button>
                     </div>
                     <a class="navbar-brand" href="{{url('seg')}}">Area de Seguridad</a>
+                    <a href="{{URL::previous()}}">Back</a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="sr-only">Toggle navigation</span>

@@ -56,7 +56,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/seg/usuarios/{id}/habilitar', 'seguridad\UsuarioController@habilitar');
 
     Route::resource('/seg/bitacora', 'seguridad\BitacoraController');
-    Route::resource('/seg/departamentos', 'seguridad\DepartamentoController');
+    Route::resource('/seg/ubicaciones', 'seguridad\UbicacionController');
     Route::resource('/seg/estadisticas', 'seguridad\EstadisticaController');
 });
 

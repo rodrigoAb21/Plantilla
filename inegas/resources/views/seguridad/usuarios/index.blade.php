@@ -57,11 +57,11 @@
                                                 </button>
                                             </a>
                                             @if($usuario -> estado == "Habilitado")
-                                                <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('{{$usuario -> nombre}}', '{{url('seg/usuarios/'.$usuario -> id)}}')">
+                                                <button type="button" class="btn btn-outline-primary btn-sm" onclick="modalEliminar('{{$usuario -> nombre}}', '{{url('seg/usuarios/'.$usuario -> id)}}')">
                                                     <i class="fa fa-times"></i>
                                                 </button>
                                             @else
-                                                <button type="button" class="btn btn-outline-primary btn-sm" onclick="habilitarModelo('{{$usuario -> nombre}}', '{{url('/seg/usuarios/'.$usuario -> id.'/habilitar')}}')">
+                                                <button type="button" class="btn btn-outline-primary btn-sm" onclick="modalHabilitar('{{$usuario -> nombre}}', '{{url('/seg/usuarios/'.$usuario -> id.'/habilitar')}}')">
                                                     <i class="fa fa-check"></i>
                                                 </button>
                                             @endif
@@ -87,7 +87,7 @@
     @push('scripts')
         <script>
 
-            function eliminarModelo(nombre, url) {
+            function modalEliminar(nombre, url) {
                 $('#modalEliminarForm').attr("action", url);
                 $('#metodo').val("delete");
                 $('#modalEliminarTitulo').html("Deshabilitar Usuario");
@@ -96,7 +96,7 @@
 
             }
 
-            function habilitarModelo(nombre, url) {
+            function modalHabilitar(nombre, url) {
                 $('#modalEliminarForm').attr("action", url);
                 $('#metodo').val("patch");
                 $('#modalEliminarTitulo').html("Habilitar Usuario");
