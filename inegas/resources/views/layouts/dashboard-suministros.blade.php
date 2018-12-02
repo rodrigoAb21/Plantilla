@@ -41,10 +41,10 @@
                 </div>
             </div>
             <ul class="nav">
-                <li class="{{ Request::is('sum/categorias-sum*') ? 'nav-item active' : 'nav-item' }}">
-                    <a class="nav-link" href="{{url('sum/categorias-sum')}}">
+                <li class="{{ Request::is('sum/lineas*') ? 'nav-item active' : 'nav-item' }}">
+                    <a class="nav-link" href="{{url('sum/lineas')}}">
                         <i class="fa fa-tags"></i>
-                        <p> Categorias </p>
+                        <p> Lineas </p>
                     </a>
                 </li>
 

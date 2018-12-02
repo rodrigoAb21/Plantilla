@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function () {
     });
 
 
-    Route::resource('/sum/categorias-sum', 'suministros\CategoriaSumController');
+    Route::resource('/sum/lineas', 'suministros\LineaController');
     Route::resource('/sum/suministros', 'suministros\SuministroController');
     Route::resource('/sum/mov-suministros/ingresos', 'suministros\IngresoController');
     Route::resource('/sum/mov-suministros/salidas', 'suministros\SalidaController');
