@@ -17,7 +17,7 @@
                         <div class="form-group form-file-upload form-file-multiple">
                             <div class="input-group">
                                 <label for="busqueda" class="bmd-label-floating">Buscar</label>
-                                <input type="text" class="form-control" id="busqueda" name="busqueda">
+                                <input type="text" class="form-control" id="busqueda" name="busqueda" value="{{$busqueda}}" >
                                 <span class="input-group-btn">
                                         <button type="submit" class="btn btn-fab btn-round btn-primary">
                                             <i class="fa fa-search"></i>

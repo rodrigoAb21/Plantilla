@@ -20,7 +20,7 @@ class UsuarioController extends Controller
             ->orWhere('estado','LIKE','%'.trim($request['busqueda']).'%')
             ->orderBy('id', 'asc')
             ->paginate(5);
-        return view('seguridad.usuarios.index', ['usuarios' => $usuarios]);
+        return view('seguridad.usuarios.index', ['usuarios' => $usuarios, 'busqueda' => trim($request['busqueda'])]);
     }
 
 

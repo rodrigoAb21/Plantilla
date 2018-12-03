@@ -18,7 +18,7 @@ class UnidadMedidaController extends Controller
             ->where('visible', '=', true)
             ->orderBy('id', 'asc')
             ->paginate(5);
-        return view('suministros.medidas.index',['unidades' => $unidades]);
+        return view('suministros.medidas.index',['unidades' => $unidades, 'busqueda' => trim($request['busqueda'])]);
     }
 
 

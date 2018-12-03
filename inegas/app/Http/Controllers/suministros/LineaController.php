@@ -14,12 +14,12 @@ class LineaController extends Controller
 {
     public function index(Request $request)
     {
-        $lineas = DB::table('linea')
+        $lineas = DB::table('linea_s')
             ->where('nombre', 'LIKE','%'.trim($request['busqueda']).'%')
             ->where('visible', '=', true)
             ->orderBy('id', 'asc')
             ->paginate(5);
-        return view('suministros.lineas.index',['lineas' => $lineas]);
+        return view('suministros.lineas.index',['lineas' => $lineas, 'busqueda' => trim($request['busqueda'])]);
     }
 
 
@@ -44,13 +44,13 @@ class LineaController extends Controller
 
     public function edit(Request $request, $id)
     {
-        $grupos = DB::table('grupo_sum')
+        $grupos = DB::table('grupo_s')
             ->where('nombre', 'LIKE','%'.trim($request['busqueda']).'%')
-            ->where('linea_id','=', $id)
+            ->where('linea_s_id','=', $id)
             ->where('visible','=', true)
             ->orderBy('id', 'asc')
             ->get();
-        return view('suministros.lineas.edit', ['linea' => Linea::findOrFail($id), 'grupos' => $grupos]);
+        return view('suministros.lineas.edit', ['linea' => Linea::findOrFail($id), 'grupos' => $grupos, 'busqueda' => trim($request['busqueda'])]);
     }
 
 
@@ -74,8 +74,8 @@ class LineaController extends Controller
             Bitacora::registrar_accion(Tablas::$linea, 'Eliminó la linea con ID: '.$linea -> id.' junto a todos sus grupos');
         }
 
-        $grupos = DB::table('grupo_sum')
-            ->where('linea_id','=', $id)
+        $grupos = DB::table('grupo_s')
+            ->where('linea_s_id','=', $id)
             ->get();
 
         foreach ($grupos as $grupo){
@@ -91,7 +91,7 @@ class LineaController extends Controller
         $grupo = new Grupo();
         $grupo -> nombre = $request['nombreGrupo'];
         $grupo -> visible = true;
-        $grupo -> linea_id = $id;
+        $grupo -> linea_s_id = $id;
         if ($grupo -> save()){
             Bitacora::registrar_accion(Tablas::$grupo, 'Creó el grupo con ID: '.$grupo -> id);
         }

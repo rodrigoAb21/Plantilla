@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Grupo extends Model
 {
-    protected $table = 'grupo_sum';
+    protected $table = 'grupo_s';
     protected $primaryKey = 'id';
     public $timestamps = false;
     protected $fillable = [
         'nombre',
-        'linea_id',
+        'linea_s_id',
     ];
 }
