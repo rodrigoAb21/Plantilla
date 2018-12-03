@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGrupoSumTable extends Migration
+class CreateBitacoraTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateGrupoSumTable extends Migration
      */
     public function up()
     {
-        Schema::create('grupo_sum', function (Blueprint $table) {
+        Schema::create('bitacora', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
-            $table->boolean('visible');
-            $table->unsignedInteger('linea_id');
-            $table->foreign('linea_id')->references('id')->on('linea')->onDelete('cascade');
+            $table->timestamp('inicio');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -29,6 +28,6 @@ class CreateGrupoSumTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('grupo_sum');
+        Schema::dropIfExists('bitacora');
     }
 }
