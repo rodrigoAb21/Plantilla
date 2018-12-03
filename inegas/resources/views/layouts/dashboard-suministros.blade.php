@@ -44,7 +44,7 @@
                 <li class="{{ Request::is('sum/lineas*') ? 'nav-item active' : 'nav-item' }}">
                     <a class="nav-link" href="{{url('sum/lineas')}}">
                         <i class="fa fa-tags"></i>
-                        <p> Lineas </p>
+                        <p> Lineas - Grupos </p>
                     </a>
                 </li>
 

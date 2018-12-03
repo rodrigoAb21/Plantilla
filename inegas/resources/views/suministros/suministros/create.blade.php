@@ -42,10 +42,10 @@
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label>Grupo</label>
+                                    <label>Linea - Grupo</label>
                                     <select class="form-control selectpicker" data-live-search="true" data-style="btn btn-link" name="grupo_s_id">
                                         @foreach($grupos as $grupo)
-                                            <option value="{{$grupo -> id}}">{{$grupo -> nombre}}</option>
+                                            <option value="{{$grupo -> id}}">{{$grupo -> linea.' - '.$grupo -> grupo }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -55,7 +55,7 @@
                                     <div class="mb-1">
                                         <label for="min" >Stock Min.</label>
                                     </div>
-                                    <input type="number" class="form-control" id="min" name="min">
+                                    <input type="number" class="form-control" id="min" name="stock_minimo">
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
@@ -63,7 +63,7 @@
                                     <div class="mb-1">
                                         <label for="max" >Stock Max.</label>
                                     </div>
-                                    <input type="number" class="form-control" id="max" name="max">
+                                    <input type="number" class="form-control" id="max" name="stock_maximo">
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

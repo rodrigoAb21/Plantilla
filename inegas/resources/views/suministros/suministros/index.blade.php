@@ -35,24 +35,22 @@
                         <table class="table table-hover table-striped ">
                             <thead>
                                 <tr>
-                                    <th><b>ID</b></th>
+                                    <th><b>Codigo</b></th>
                                     <th><b>Nombre</b></th>
                                     <th><b>Marca</b></th>
                                     <th><b>U. Medida</b></th>
-                                    <th><b>Grupo</b></th>
                                     <th class="text-right"><b>Opciones</b></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($suministros as $suministro)
                                     <tr>
-                                        <td>{{$suministro -> id}}</td>
+                                        <td>{{$suministro -> codigo}}</td>
                                         <td>{{$suministro -> nombre}}</td>
                                         <td>{{$suministro -> marca}}</td>
                                         <td>{{$suministro -> medida}}</td>
-                                        <td>{{$suministro -> grupo}}</td>
                                         <td class="text-right ">
-                                            <button class="btn btn-outline-primary btn-sm" onclick="verSuministro()">
+                                            <button class="btn btn-outline-primary btn-sm" onclick="verSuministro('{{json_encode($suministro)}}')">
                                                 <i class="fa fa-eye"></i>
                                             </button>
                                             <a href="{{url('sum/suministros/1/edit')}}">
@@ -60,7 +58,7 @@
                                                     <i class="fa fa-pen"></i>
                                                 </button>
                                             </a>
-                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarSuministro('Papel Bond Carta', '{{url('sum/suministros/1')}}')">
+                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarSuministro('{{$suministro -> nombre}}', '{{url('sum/suministros/'.$suministro -> id)}}')">
                                                 <i class="fa fa-times"></i>
                                             </button>
                                         </td>
@@ -93,7 +91,16 @@
                 $('#modalEliminar').modal('show');
             }
 
-            function verSuministro() {
+            function verSuministro(suministro) {
+                var sum = JSON.parse(suministro);
+                $('#p_codigo').html(sum.codigo);
+                $('#p_nombre').html(sum.nombre);
+                $('#p_marca').html(sum.marca);
+                $('#p_medida').html(sum.medida);
+                $('#p_grupo').html(sum.linea + " - " + sum.grupo);
+                $('#p_minimo').html(sum.stock_minimo);
+                $('#p_maximo').html(sum.stock_maximo);
+                $('#p_descr').html(sum.descripcion);
                 $('#modalVer').modal('show');
             }
 

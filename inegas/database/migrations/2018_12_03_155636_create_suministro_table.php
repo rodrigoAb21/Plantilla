@@ -16,10 +16,11 @@ class CreateSuministroTable extends Migration
         Schema::create('suministro', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->integer('stockMinimo');
-            $table->integer('stockMaximo');
+            $table->integer('stock_minimo');
+            $table->integer('stock_maximo');
             $table->integer('stock');
             $table->string('marca');
+            $table->string('codigo');
             $table->string('descripcion');
             $table->boolean('visible');
             $table->unsignedInteger('grupo_s_id');

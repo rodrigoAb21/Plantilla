@@ -11,10 +11,11 @@ class Suministro extends Model
     public $timestamps = false;
     protected $fillable = [
         'nombre',
-        'stockMinimo',
-        'stockMaximo',
+        'stock_minimo',
+        'stock_maximo',
         'stock',
         'marca',
+        'codigo',
         'descripcion',
         'visible',
         'grupo_s_id',
