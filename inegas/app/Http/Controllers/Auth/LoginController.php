@@ -46,6 +46,8 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
+        Bitacora::salida();
+
         $this->guard()->logout();
 
         $request->session()->invalidate();

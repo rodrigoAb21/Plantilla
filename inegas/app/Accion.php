@@ -14,10 +14,9 @@ class Accion extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'accion',
+        'descripcion',
         'fecha',
         'tabla',
-        'tupla',
-        'idBitacora',
+        'bitacora_id',
     ];
 }

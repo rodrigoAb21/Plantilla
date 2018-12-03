@@ -16,9 +16,8 @@ class CreateAccionTable extends Migration
         Schema::create('accion', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamp('fecha');
-            $table->string('accion');
+            $table->string('descripcion');
             $table->string('tabla');
-            $table->string('tupla');
             $table->unsignedInteger('bitacora_id');
             $table->foreign('bitacora_id')->references('id')->on('bitacora')->onDelete('cascade');
         });
