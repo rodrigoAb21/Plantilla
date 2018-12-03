@@ -13,13 +13,13 @@
                 </div>
                 <div class="card-body">
 
-                    <form action="">
+                    <form method="GET" action="{{url('sum/suministros')}}" autocomplete="off">
                         <div class="form-group form-file-upload form-file-multiple">
                             <div class="input-group">
-                                    <label for="busqueda" class="bmd-label-floating">Buscar</label>
-                                    <input type="text" class="form-control" id="busqueda" name="busqueda">
-                                    <span class="input-group-btn">
-                                        <button type="button" class="btn btn-fab btn-round btn-primary">
+                                <label for="busqueda" class="bmd-label-floating">Buscar</label>
+                                <input type="text" class="form-control" id="busqueda" name="busqueda" value="{{$busqueda}}" >
+                                <span class="input-group-btn">
+                                        <button type="submit" class="btn btn-fab btn-round btn-primary">
                                             <i class="fa fa-search"></i>
                                         </button>
                                         <a class="btn btn-fab btn-round btn-primary" href="{{url('sum/suministros/create')}}">
@@ -35,104 +35,43 @@
                         <table class="table table-hover table-striped ">
                             <thead>
                                 <tr>
-                                    <th><b>#</b></th>
+                                    <th><b>ID</b></th>
                                     <th><b>Nombre</b></th>
+                                    <th><b>Marca</b></th>
                                     <th><b>U. Medida</b></th>
-                                    <th><b>Categoria</b></th>
-                                    <th><b>S. Max</b></th>
-                                    <th><b>S. Min</b></th>
+                                    <th><b>Grupo</b></th>
                                     <th class="text-right"><b>Opciones</b></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Papel Bond Carta</td>
-                                    <td>Paquete 500u</td>
-                                    <td>Material de oficina</td>
-                                    <td>50</td>
-                                    <td>10</td>
-                                    <td class="text-right ">
-                                        <button class="btn btn-outline-primary btn-sm" onclick="verSuministro()">
-                                            <i class="fa fa-eye"></i>
-                                        </button>
-                                        <a href="{{url('sum/suministros/1/edit')}}">
-                                            <button class="btn btn-outline-primary btn-sm">
-                                                <i class="fa fa-pen"></i>
+                                @foreach($suministros as $suministro)
+                                    <tr>
+                                        <td>{{$suministro -> id}}</td>
+                                        <td>{{$suministro -> nombre}}</td>
+                                        <td>{{$suministro -> marca}}</td>
+                                        <td>{{$suministro -> medida}}</td>
+                                        <td>{{$suministro -> grupo}}</td>
+                                        <td class="text-right ">
+                                            <button class="btn btn-outline-primary btn-sm" onclick="verSuministro()">
+                                                <i class="fa fa-eye"></i>
                                             </button>
-                                        </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarSuministro('Papel Bond Carta', '{{url('sum/suministros/1')}}')">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>2</td>
-                                    <td>Papel Bond Oficio</td>
-                                    <td>Paquete 500u</td>
-                                    <td>Material de oficina</td>
-                                    <td>50</td>
-                                    <td>10</td>
-                                    <td class="text-right ">
-                                        <button class="btn btn-outline-primary btn-sm" onclick="verSuministro()">
-                                            <i class="fa fa-eye"></i>
-                                        </button>
-                                        <a href="{{url('sum/suministros/1/edit')}}">
-                                            <button class="btn btn-outline-primary btn-sm">
-                                                <i class="fa fa-pen"></i>
+                                            <a href="{{url('sum/suministros/1/edit')}}">
+                                                <button class="btn btn-outline-primary btn-sm">
+                                                    <i class="fa fa-pen"></i>
+                                                </button>
+                                            </a>
+                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarSuministro('Papel Bond Carta', '{{url('sum/suministros/1')}}')">
+                                                <i class="fa fa-times"></i>
                                             </button>
-                                        </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarSuministro('Papel Bond Oficio', '{{url('sum/suministros/1')}}')">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>3</td>
-                                    <td>Papel Bond A4</td>
-                                    <td>Paquete 500u</td>
-                                    <td>Material de oficina</td>
-                                    <td>50</td>
-                                    <td>10</td>
-                                    <td class="text-right ">
-                                        <button class="btn btn-outline-primary btn-sm" onclick="verSuministro()">
-                                            <i class="fa fa-eye"></i>
-                                        </button>
-                                        <a href="{{url('sum/suministros/1/edit')}}">
-                                            <button class="btn btn-outline-primary btn-sm">
-                                                <i class="fa fa-pen"></i>
-                                            </button>
-                                        </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarSuministro('Papel Bond A4', '{{url('sum/suministros/1')}}')">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-
-
-
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div class="card-footer">
-                    <nav class="mr-0 ml-auto">
-                        <ul class="pagination">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">ANT</a>
-                            </li>
-                            <li class="page-item active">
-                                <a class="page-link" href="#">1<span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">SIG</a>
-                            </li>
-                        </ul>
-                    </nav>
+                    {{$suministros -> links('pagination.default')}}
                 </div>
             </div>
 

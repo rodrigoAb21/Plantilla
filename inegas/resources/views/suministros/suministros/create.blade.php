@@ -14,7 +14,7 @@
                 <div class="card-body ">
                     {{csrf_field()}}
                         <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <div class="form-group mt-2">
                                     <div class="mb-1">
                                         <label for="nombre" >Nombre</label>
@@ -22,25 +22,31 @@
                                     <input type="text" class="form-control" id="nombre" name="nombre">
                                 </div>
                             </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="form-group mt-2">
+                                    <div class="mb-1">
+                                        <label for="marca" >Marca</label>
+                                    </div>
+                                    <input type="text" class="form-control" id="marca" name="marca">
+                                </div>
+                            </div>
                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Unidad de Medida</label>
-                                    <select class="form-control selectpicker" data-live-search="true" data-style="btn btn-link" id="exampleFormControlSelect1">
-                                        <option>Caja</option>
-                                        <option>Bolsa</option>
-                                        <option>Paquete 10u</option>
-                                        <option>Paquete 20u</option>
-                                        <option>Paquete 500u</option>
+                                    <label>Unidad de Medida</label>
+                                    <select class="form-control selectpicker" data-live-search="true" data-style="btn btn-link" name="unidad_medida_id">
+                                        @foreach($medidas as $medida)
+                                            <option value="{{$medida -> id}}">{{$medida -> nombre}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Categoria</label>
-                                    <select class="form-control selectpicker" data-live-search="true" data-style="btn btn-link" id="exampleFormControlSelect1">
-                                        <option>Material de oficina</option>
-                                        <option>Material Limpieza</option>
-                                        <option>Utensilios</option>
+                                    <label>Grupo</label>
+                                    <select class="form-control selectpicker" data-live-search="true" data-style="btn btn-link" name="grupo_s_id">
+                                        @foreach($grupos as $grupo)
+                                            <option value="{{$grupo -> id}}">{{$grupo -> nombre}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
