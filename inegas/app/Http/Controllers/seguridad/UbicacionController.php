@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\seguridad;
 
+use App\Bitacora;
+use App\Tablas;
 use App\Ubicacion;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -31,7 +33,9 @@ class UbicacionController extends Controller
         $ubi = new Ubicacion();
         $ubi -> nombre = $request['nombre'];
         $ubi -> visible = true;
-        $ubi -> save();
+        if ($ubi -> save()){
+            Bitacora::registrar_accion(Tablas::$ubicacion, 'Creó la ubicación con ID:'.$ubi->id);
+        }
 
         return redirect('seg/ubicaciones');
     }
@@ -47,7 +51,9 @@ class UbicacionController extends Controller
     {
         $ubi = Ubicacion::findOrFail($id);
         $ubi -> nombre = $request['nombre'];
-        $ubi -> save();
+        if ($ubi -> save()){
+            Bitacora::registrar_accion(Tablas::$ubicacion, 'Editó la ubicación con ID:'.$ubi->id);
+        }
 
         return redirect('seg/ubicaciones');
     }
@@ -57,7 +63,9 @@ class UbicacionController extends Controller
     {
         $ubi = Ubicacion::findOrFail($id);
         $ubi -> visible = false;
-        $ubi -> save();
+        if ($ubi -> save()){
+            Bitacora::registrar_accion(Tablas::$ubicacion, 'Eliminó la ubicación con ID:'.$ubi->id);
+        }
 
         return redirect('seg/ubicaciones');
     }

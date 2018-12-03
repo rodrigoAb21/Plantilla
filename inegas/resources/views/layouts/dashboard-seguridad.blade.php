@@ -33,7 +33,7 @@
                     <img src="{{asset('img/faces/pusheen.png')}}"/>
                 </div>
                 <div class="user-info">
-                    <a data-toggle="collapse" href="#collapseExample" class="username">
+                    <a class="username">
                       <span>
                         {{\Illuminate\Support\Facades\Auth::user()->nombre}}
                       </span>

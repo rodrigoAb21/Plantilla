@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\suministros;
 
+use App\Bitacora;
+use App\Tablas;
 use App\UnidadMedida;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -31,7 +33,9 @@ class UnidadMedidaController extends Controller
         $unidad = new UnidadMedida();
         $unidad -> nombre = $request['nombre'];
         $unidad -> visible = true;
-        $unidad -> save();
+        if ($unidad -> save()){
+            Bitacora::registrar_accion(Tablas::$unidad_medida, 'Creó la unidad de medida con ID: '.$unidad ->id);
+        }
 
         return redirect('sum/medidas');
     }
@@ -46,7 +50,9 @@ class UnidadMedidaController extends Controller
     {
         $unidad = UnidadMedida::findOrFail($id);
         $unidad -> nombre = $request['nombre'];
-        $unidad -> save();
+        if ($unidad -> save()){
+            Bitacora::registrar_accion(Tablas::$unidad_medida, 'Editó la unidad de medida con ID: '.$unidad ->id);
+        }
 
         return redirect('sum/medidas');
     }
@@ -56,7 +62,9 @@ class UnidadMedidaController extends Controller
     {
         $unidad = UnidadMedida::findOrFail($id);
         $unidad -> visible = false;
-        $unidad -> save();
+        if ($unidad -> save()){
+            Bitacora::registrar_accion(Tablas::$unidad_medida, 'Eliminó la unidad de medida con ID: '.$unidad ->id);
+        }
         return redirect('sum/medidas');
     }
 

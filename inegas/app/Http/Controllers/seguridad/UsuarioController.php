@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\seguridad;
 
+use App\Bitacora;
+use App\Tablas;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -38,7 +40,9 @@ class UsuarioController extends Controller
         $usuario -> area = $request['area'];
         $usuario -> estado = "Habilitado";
         $usuario -> password = bcrypt($request['password']);
-        $usuario -> save();
+        if ($usuario -> save()){
+            Bitacora::registrar_accion(Tablas::$usuario, 'Creó al usuario con ID:'.$usuario->id);
+        }
 
         return redirect('seg/usuarios');
     }
@@ -61,7 +65,9 @@ class UsuarioController extends Controller
         if (trim($request['password']) != ""){
             $usuario -> password = bcrypt($request['password']);
         }
-        $usuario -> save();
+        if ($usuario -> save()){
+            Bitacora::registrar_accion(Tablas::$usuario, 'Editó al usuario con ID:'.$usuario->id);
+        }
 
         return redirect('seg/usuarios');
     }
@@ -71,8 +77,9 @@ class UsuarioController extends Controller
     {
         $usuario = User::findOrFail($id);
         $usuario -> estado = "Deshabilitado";
-        $usuario -> save();
-
+        if ($usuario -> save()){
+            Bitacora::registrar_accion(Tablas::$usuario, 'Deshabilitó al usuario con ID:'.$usuario->id);
+        }
         return redirect('seg/usuarios');
     }
 
@@ -80,7 +87,9 @@ class UsuarioController extends Controller
     {
         $usuario = User::findOrFail($id);
         $usuario -> estado = "Habilitado";
-        $usuario -> save();
+        if ($usuario -> save()){
+            Bitacora::registrar_accion(Tablas::$usuario, 'Habilitó al usuario con ID:'.$usuario->id);
+        }
 
         return redirect('seg/usuarios');
     }

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\suministros;
 
+use App\Bitacora;
 use App\Grupo;
 use App\Linea;
+use App\Tablas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -29,10 +31,12 @@ class LineaController extends Controller
 
     public function store(Request $request)
     {
-        $unidad = new Linea();
-        $unidad -> nombre = $request['nombre'];
-        $unidad -> visible = true;
-        $unidad -> save();
+        $linea = new Linea();
+        $linea -> nombre = $request['nombre'];
+        $linea -> visible = true;
+        if ($linea -> save()){
+            Bitacora::registrar_accion(Tablas::$linea, 'Creó la linea con ID: '.$linea -> id);
+        }
 
         return redirect('sum/lineas');
     }
@@ -49,39 +53,14 @@ class LineaController extends Controller
         return view('suministros.lineas.edit', ['linea' => Linea::findOrFail($id), 'grupos' => $grupos]);
     }
 
-    public function guardarGrupo(Request $request, $id){
-        $grupo = new Grupo();
-        $grupo -> nombre = $request['nombreGrupo'];
-        $grupo -> visible = true;
-        $grupo -> linea_id = $id;
-        $grupo -> save();
-
-        return redirect('sum/lineas/'.$id.'/edit');
-
-    }
-
-    public function actualizarGrupo(Request $request, $idLinea, $idGrupo){
-        $grupo = Grupo::findOrFail($idGrupo);
-        $grupo -> nombre = $request['nombreGrupo'];
-        $grupo -> save();
-
-        return redirect('sum/lineas/'.$idLinea.'/edit');
-    }
-
-    public function eliminarGrupo($idLinea, $idGrupo){
-        $grupo = Grupo::findOrFail($idGrupo);
-        $grupo -> visible = false;
-        $grupo -> save();
-
-        return redirect('sum/lineas/'.$idLinea.'/edit');
-    }
-
 
     public function update(Request $request, $id)
     {
-        $unidad = Linea::findOrFail($id);
-        $unidad -> nombre = $request['nombre'];
-        $unidad -> save();
+        $linea = Linea::findOrFail($id);
+        $linea -> nombre = $request['nombre'];
+        if ($linea -> save()){
+            Bitacora::registrar_accion(Tablas::$linea, 'Editó la linea con ID: '.$linea -> id);
+        }
 
         return redirect('sum/lineas');
     }
@@ -89,9 +68,11 @@ class LineaController extends Controller
 
     public function destroy($id)
     {
-        $unidad = Linea::findOrFail($id);
-        $unidad -> visible = false;
-        $unidad -> save();
+        $linea = Linea::findOrFail($id);
+        $linea -> visible = false;
+        if ($linea -> save()){
+            Bitacora::registrar_accion(Tablas::$linea, 'Eliminó la linea con ID: '.$linea -> id.' junto a todos sus grupos');
+        }
 
         $grupos = DB::table('grupo_sum')
             ->where('linea_id','=', $id)
@@ -105,4 +86,38 @@ class LineaController extends Controller
 
         return redirect('sum/lineas');
     }
+
+    public function guardarGrupo(Request $request, $id){
+        $grupo = new Grupo();
+        $grupo -> nombre = $request['nombreGrupo'];
+        $grupo -> visible = true;
+        $grupo -> linea_id = $id;
+        if ($grupo -> save()){
+            Bitacora::registrar_accion(Tablas::$grupo, 'Creó el grupo con ID: '.$grupo -> id);
+        }
+
+        return redirect('sum/lineas/'.$id.'/edit');
+
+    }
+
+    public function actualizarGrupo(Request $request, $idLinea, $idGrupo){
+        $grupo = Grupo::findOrFail($idGrupo);
+        $grupo -> nombre = $request['nombreGrupo'];
+        if ($grupo -> save()){
+            Bitacora::registrar_accion(Tablas::$grupo, 'Editó el grupo con ID: '.$grupo -> id);
+        }
+
+        return redirect('sum/lineas/'.$idLinea.'/edit');
+    }
+
+    public function eliminarGrupo($idLinea, $idGrupo){
+        $grupo = Grupo::findOrFail($idGrupo);
+        $grupo -> visible = false;
+        if ($grupo -> save()){
+            Bitacora::registrar_accion(Tablas::$grupo, 'Eliminó el grupo con ID: '.$grupo -> id);
+        }
+
+        return redirect('sum/lineas/'.$idLinea.'/edit');
+    }
+
 }
