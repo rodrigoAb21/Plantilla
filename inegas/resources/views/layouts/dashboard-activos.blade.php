@@ -35,7 +35,7 @@
                 <div class="user-info">
                     <a class="username">
                       <span>
-                        {{\Illuminate\Support\Facades\Auth::user()->nombre}}
+                        {{Auth::user()->nombre}}
                       </span>
                     </a>
                 </div>
@@ -140,24 +140,25 @@
                 <div class="collapse navbar-collapse justify-content-end">
                     <div class="navbar-form" hidden></div>
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('sum')}}">
-                                <i class="fa fa-exchange-alt"></i>
-                                <p class="d-lg-none d-md-block">
-                                    Cambiar vista
-                                </p>
-                            </a>
-                        </li>
+                        @if(Auth::user()->area == 'Activos Fijos - Suministros')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('sum')}}">
+                                    <i class="fa fa-exchange-alt"></i>
+                                    <p class="d-lg-none d-md-block">
+                                        Cambiar vista
+                                    </p>
+                                </a>
+                            </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('seg')}}">
-                                <i class="fa fa-user-shield"></i>
-                                <p class="d-lg-none d-md-block">
-                                    Seguridad
-                                </p>
-                            </a>
-                        </li>
-
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('seg')}}">
+                                    <i class="fa fa-user-shield"></i>
+                                    <p class="d-lg-none d-md-block">
+                                        Seguridad
+                                    </p>
+                                </a>
+                            </li>
+                        @endif
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();

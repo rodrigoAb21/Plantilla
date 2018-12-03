@@ -35,7 +35,7 @@
                 <div class="user-info">
                     <a class="username">
                       <span>
-                        {{\Illuminate\Support\Facades\Auth::user()->nombre}}
+                        {{Auth::user()->nombre}}
                       </span>
                     </a>
                 </div>
