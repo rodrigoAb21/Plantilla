@@ -28,6 +28,10 @@ Route::middleware('auth')->group(function () {
 
 
     Route::resource('/sum/lineas', 'suministros\LineaController');
+    Route::post('sum/lineas/{id}/grupo', 'suministros\LineaController@guardarGrupo');
+    Route::patch('sum/lineas/{idLinea}/grupo/{idGrupo}', 'suministros\LineaController@actualizarGrupo');
+    Route::delete('sum/lineas/{idLinea}/grupo/{idGrupo}', 'suministros\LineaController@eliminarGrupo');
+
     Route::resource('/sum/suministros', 'suministros\SuministroController');
     Route::resource('/sum/mov-suministros/ingresos', 'suministros\IngresoController');
     Route::resource('/sum/mov-suministros/salidas', 'suministros\SalidaController');

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Grupo extends Model
 {
-    protected $table = 'grupo';
+    protected $table = 'grupo_sum';
     protected $primaryKey = 'id';
     public $timestamps = false;
     protected $fillable = [

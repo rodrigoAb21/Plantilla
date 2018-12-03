@@ -15,10 +15,8 @@
                     {{csrf_field()}}
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="form-group mt-2">
-                                    <div class="mb-1">
-                                        <label for="nombre" >Nombre</label>
-                                    </div>
+                                <div class="form-group">
+                                    <label for="nombre" class="bmd-label-floating">Nombre</label>
                                     <input type="text" class="form-control" id="nombre" name="nombre">
                                 </div>
                             </div>

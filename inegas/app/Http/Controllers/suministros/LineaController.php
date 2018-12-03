@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\suministros;
 
+use App\Grupo;
 use App\Linea;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -37,10 +38,44 @@ class LineaController extends Controller
     }
 
 
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        return view('suministros.lineas.edit', ['linea' => Linea::findOrFail($id)]);
+        $grupos = DB::table('grupo_sum')
+            ->where('nombre', 'LIKE','%'.trim($request['busqueda']).'%')
+            ->where('linea_id','=', $id)
+            ->where('visible','=', true)
+            ->orderBy('id', 'asc')
+            ->get();
+        return view('suministros.lineas.edit', ['linea' => Linea::findOrFail($id), 'grupos' => $grupos]);
     }
+
+    public function guardarGrupo(Request $request, $id){
+        $grupo = new Grupo();
+        $grupo -> nombre = $request['nombreGrupo'];
+        $grupo -> visible = true;
+        $grupo -> linea_id = $id;
+        $grupo -> save();
+
+        return redirect('sum/lineas/'.$id.'/edit');
+
+    }
+
+    public function actualizarGrupo(Request $request, $idLinea, $idGrupo){
+        $grupo = Grupo::findOrFail($idGrupo);
+        $grupo -> nombre = $request['nombreGrupo'];
+        $grupo -> save();
+
+        return redirect('sum/lineas/'.$idLinea.'/edit');
+    }
+
+    public function eliminarGrupo($idLinea, $idGrupo){
+        $grupo = Grupo::findOrFail($idGrupo);
+        $grupo -> visible = false;
+        $grupo -> save();
+
+        return redirect('sum/lineas/'.$idLinea.'/edit');
+    }
+
 
     public function update(Request $request, $id)
     {
@@ -57,6 +92,17 @@ class LineaController extends Controller
         $unidad = Linea::findOrFail($id);
         $unidad -> visible = false;
         $unidad -> save();
+
+        $grupos = DB::table('grupo_sum')
+            ->where('linea_id','=', $id)
+            ->get();
+
+        foreach ($grupos as $grupo){
+            $g = Grupo::findOrFail($grupo->id);
+            $g -> visible = false;
+            $g -> save();
+        }
+
         return redirect('sum/lineas');
     }
 }

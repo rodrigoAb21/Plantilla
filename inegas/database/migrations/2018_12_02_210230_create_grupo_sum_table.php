@@ -13,7 +13,7 @@ class CreateGrupoTable extends Migration
      */
     public function up()
     {
-        Schema::create('grupo', function (Blueprint $table) {
+        Schema::create('grupo_sum', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
             $table->boolean('visible');
@@ -29,6 +29,6 @@ class CreateGrupoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('grupo');
+        Schema::dropIfExists('grupo_sum');
     }
 }
