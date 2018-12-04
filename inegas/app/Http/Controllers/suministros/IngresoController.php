@@ -94,13 +94,13 @@ class IngresoController extends Controller
 
     public function show($id)
     {
-        $detalle = DB::table('detalle_i_s')
+        $detalles = DB::table('detalle_i_s')
             ->join('suministro','detalle_i_s.suministro_id','=','suministro.id')
             ->where('detalle_i_s.ingreso_s_id', '=', $id)
             ->select('detalle_i_s.id', 'detalle_i_s.cantidad', 'detalle_i_s.precio_unitario', 'suministro.nombre' )
             ->orderBy('detalle_i_s.id', 'asc')
             ->get();
-        return view('suministros.mov-suministros.ingresos.show',['ingreso' => IngresoSuministro::findOrFail($id), 'detalle' => $detalle]);
+        return view('suministros.mov-suministros.ingresos.show',['ingreso' => IngresoSuministro::findOrFail($id), 'detalles' => $detalles]);
     }
 
 
