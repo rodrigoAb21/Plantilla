@@ -18,8 +18,8 @@ class IngresoController extends Controller
     {
         $ingresos = DB::table('ingreso_s')
             ->where('nro_factura', 'LIKE','%'.trim($request['busqueda']).'%')
-            ->where('proveedor', 'LIKE','%'.trim($request['busqueda']).'%')
-            ->where('estado', 'LIKE','%'.trim($request['busqueda']).'%')
+            ->orWhere('proveedor', 'LIKE','%'.trim($request['busqueda']).'%')
+            ->orWhere('estado', 'LIKE','%'.trim($request['busqueda']).'%')
             ->orderBy('id', 'desc')
             ->paginate(10);
 

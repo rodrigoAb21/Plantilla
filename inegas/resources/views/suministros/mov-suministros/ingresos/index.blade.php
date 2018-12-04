@@ -12,13 +12,13 @@
 
                 </div>
                 <div class="card-body">
-                    <form action="">
+                    <form method="GET" action="{{url('sum/mov-suministros/ingresos')}}" autocomplete="off">
                         <div class="form-group form-file-upload form-file-multiple">
                             <div class="input-group">
                                 <label for="busqueda" class="bmd-label-floating">Buscar</label>
-                                <input type="text" class="form-control" id="busqueda" name="busqueda">
+                                <input type="text" class="form-control" id="busqueda" name="busqueda" value="{{$busqueda}}" >
                                 <span class="input-group-btn">
-                                        <button type="button" class="btn btn-fab btn-round btn-primary">
+                                        <button type="submit" class="btn btn-fab btn-round btn-primary">
                                             <i class="fa fa-search"></i>
                                         </button>
                                         <a class="btn btn-fab btn-round btn-primary" href="{{url('sum/mov-suministros/ingresos/create')}}">
@@ -36,6 +36,8 @@
                                 <tr>
                                     <th><b>ID</b></th>
                                     <th><b>Fecha</b></th>
+                                    <th><b>Proveedor</b></th>
+                                    <th><b>Nro Factura</b></th>
                                     <th><b>Estado</b></th>
                                     <th class="text-right"><b>Opciones</b></th>
                                 </tr>
@@ -45,6 +47,8 @@
                                     <tr>
                                         <td>{{$ingreso -> id}}</td>
                                         <td>{{$ingreso -> fecha_ingreso}}</td>
+                                        <td>{{$ingreso -> proveedor}}</td>
+                                        <td>{{$ingreso -> nro_factura}}</td>
                                         <td>{{$ingreso -> estado}}</td>
                                         <td class="text-right ">
                                             <a href="{{url('sum/mov-suministros/ingresos/'.$ingreso -> id)}}">
