@@ -133,19 +133,21 @@ class SalidaController extends Controller
     public function destroy($id)
     {
         $salida = SalidaSuministro::findOrFail($id);
-        $salida -> estado = 'Anulado';
-        $salida -> save();
+        if($salida -> estado != 'Anulado'){
+            $salida -> estado = 'Anulado';
+            $salida -> save();
 
-        // reviso los detalles que pertenecen al ingreso y descuento de su stock.
-        $detalles = DetalleSalSum::where('salida_s_id', '=', $id)->get();
+            // reviso los detalles que pertenecen al ingreso y descuento de su stock.
+            $detalles = DetalleSalSum::where('salida_s_id', '=', $id)->get();
 
-        foreach ($detalles as $detalle){
-            $s = Suministro::findOrFail($detalle -> suministro_id);
-            $s -> stock = $s -> stock + $detalle -> cantidad;
-            $s -> save();
+            foreach ($detalles as $detalle){
+                $s = Suministro::findOrFail($detalle -> suministro_id);
+                $s -> stock = $s -> stock + $detalle -> cantidad;
+                $s -> save();
+            }
+
+            Bitacora::registrar_accion(Tablas::$salida, 'Anuló un ingreso con ID: '. $id);
         }
-
-        Bitacora::registrar_accion(Tablas::$salida, 'Anuló un ingreso con ID: '. $id);
         
         return redirect('sum/mov-suministros/salidas');
     }

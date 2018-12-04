@@ -56,9 +56,15 @@
                                                     <i class="fa fa-eye"></i>
                                                 </button>
                                             </a>
-                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('{{$salida -> id}}', '{{url('sum/mov-suministros/salidas/'.$salida -> id)}}')">
-                                                <i class="fa fa-times"></i>
-                                            </button>
+                                            @if($salida -> estado != 'Anulado')
+                                                <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('{{$salida -> id}}', '{{url('sum/mov-suministros/salidas/'.$salida -> id)}}')">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            @else
+                                                <button type="button" class="btn btn-outline-primary btn-sm" disabled>
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach

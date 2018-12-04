@@ -108,19 +108,21 @@ class IngresoController extends Controller
     public function destroy($id)
     {
         $ingreso = IngresoSuministro::findOrFail($id);
-        $ingreso -> estado = 'Anulado';
-        $ingreso -> save();
+        if ($ingreso -> estado != 'Anulado'){
+            $ingreso -> estado = 'Anulado';
+            $ingreso -> save();
 
-        // reviso los detalles que pertenecen al ingreso y descuento de su stock.
-        $detalles = DetalleIngSum::where('ingreso_s_id', '=', $id)->get();
+            // reviso los detalles que pertenecen al ingreso y descuento de su stock.
+            $detalles = DetalleIngSum::where('ingreso_s_id', '=', $id)->get();
 
-        foreach ($detalles as $detalle){
-            $s = Suministro::findOrFail($detalle -> suministro_id);
-            $s -> stock = $s -> stock - $detalle -> cantidad;
-            $s -> save();
+            foreach ($detalles as $detalle){
+                $s = Suministro::findOrFail($detalle -> suministro_id);
+                $s -> stock = $s -> stock - $detalle -> cantidad;
+                $s -> save();
+            }
+
+            Bitacora::registrar_accion(Tablas::$ingreso, 'Anuló un ingreso con ID: '. $id);
         }
-
-        Bitacora::registrar_accion(Tablas::$ingreso, 'Anuló un ingreso con ID: '. $id);
 
         return redirect('sum/mov-suministros/ingresos');
     }
