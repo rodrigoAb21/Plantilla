@@ -121,51 +121,6 @@
                             </div>
                         </div>
                     </div>
-                    {{--<div class="table-responsive table-bordered table-hover table-striped">--}}
-                    {{--<table class="table ">--}}
-                    {{--<thead>--}}
-                    {{--<tr>--}}
-                    {{--<th scope="col" ><b>#</b></th>--}}
-                    {{--<th scope="col" class="w-75"><b>Activo</b></th>--}}
-                    {{--<th scope="col"><b>Cantidad</b></th>--}}
-                    {{--<th scope="col" class="text-right"><b>Opciones</b></th>--}}
-                    {{--</tr>--}}
-                    {{--</thead>--}}
-                    {{--<tbody>--}}
-                    {{--<tr>--}}
-                    {{--<td>1</td>--}}
-                    {{--<td>Activo 1</td>--}}
-                    {{--<td>15</td>--}}
-                    {{--<td class="text-right ">--}}
-                    {{--<button type="button" class="btn btn-outline-primary">--}}
-                    {{--<i class="fa fa-times"></i>--}}
-                    {{--</button>--}}
-                    {{--</td>--}}
-                    {{--</tr>--}}
-                    {{--<tr>--}}
-                    {{--<td>2</td>--}}
-                    {{--<td>Activo 3</td>--}}
-                    {{--<td>10</td>--}}
-                    {{--<td class="text-right ">--}}
-                    {{--<button type="button" class="btn btn-outline-primary">--}}
-                    {{--<i class="fa fa-times"></i>--}}
-                    {{--</button>--}}
-                    {{--</td>--}}
-                    {{--</tr>--}}
-                    {{--<tr>--}}
-                    {{--<td>3</td>--}}
-                    {{--<td>Activo 2</td>--}}
-                    {{--<td>25</td>--}}
-                    {{--<td class="text-right ">--}}
-                    {{--<button type="button" class="btn btn-outline-primary">--}}
-                    {{--<i class="fa fa-times"></i>--}}
-                    {{--</button>--}}
-                    {{--</td>--}}
-                    {{--</tr>--}}
-                    {{--</tbody>--}}
-                    {{--</table>--}}
-                    {{--</div>--}}
-
 
                     <div class="card-footer ">
                         <button type="submit" class="btn btn-primary">Guardar</button>

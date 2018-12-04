@@ -37,7 +37,6 @@ Route::middleware('auth')->group(function () {
         Route::resource('/sum/suministros', 'suministros\SuministroController');
         Route::resource('/sum/mov-suministros/ingresos', 'suministros\IngresoController');
         Route::resource('/sum/mov-suministros/salidas', 'suministros\SalidaController');
-        Route::resource('/sum/mov-suministros/devoluciones', 'suministros\DevolucionController');
         Route::resource('/sum/medidas', 'suministros\UnidadMedidaController');
         Route::get('/sum/reportes/inventario', 'suministros\ReporteSumController@inventario');
         Route::get('/sum/reportes/movimientos', 'suministros\ReporteSumController@movimientos');

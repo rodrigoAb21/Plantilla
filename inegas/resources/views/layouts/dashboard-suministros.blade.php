@@ -82,13 +82,6 @@
                                     <p> Salidas </p>
                                 </a>
                             </li>
-                            <li class="{{ Request::is('sum/mov-suministros/devoluciones*') ? 'nav-item active' : 'nav-item' }}">
-                                <a class="nav-link" href="{{url('sum/mov-suministros/devoluciones')}}">
-                                    <i class="fa fa-redo"></i>
-                                    <p> Devoluciones </p>
-                                </a>
-                            </li>
-
                         </ul>
                     </div>
                 </li>
