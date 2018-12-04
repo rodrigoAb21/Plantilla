@@ -14,42 +14,48 @@
 
                     <div class="card-body ">
 
-
+                        <div class="form-group form-file-upload form-file-multiple">
                             <div class="input-group">
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                                    <div class="form-group">
                                         <label>ID</label>
-                                        <p>1</p>
+                                        <p>{{$salida -> id}}</p>
+                                    </div>
                                 </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                                    <div class="form-group">
                                         <label>Estado</label>
-                                        <p>Realizado</p>
+                                        <p>{{$salida -> estado}}</p>
+                                    </div>
                                 </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                                    <div class="form-group">
                                         <label >Fecha</label>
-                                        <p>20/11/2018 10:09</p>
+                                        <p>{{$salida -> fecha}}</p>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="input-group">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-
-                                        <label>Departamento</label>
-                                        <p>Finanzas</p>
-
+                                    <div class="form-group">
+                                        <label>Ubicacion</label>
+                                        <p>{{$salida -> ubicacion}}</p>
+                                    </div>
                                 </div>
+
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-
-                                        <label>Solicita</label>
-                                        <p>Marina Toledo</p>
-
+                                    <div class="form-group">
+                                        <label>Recibe</label>
+                                        <p>{{$salida -> recibe}}</p>
+                                    </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
+                                    <div class="form-group">
                                         <label>Observacion</label>
-                                        <p>Ninguna.</p>
-
+                                        <p>{{$salida -> observacion}}</p>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
 
                     </div>
                 </div>
@@ -66,27 +72,17 @@
                             <table class="table ">
                                 <thead>
                                 <tr>
-                                    <th scope="col" ><b>#</b></th>
                                     <th scope="col" class="w-75"><b>Suministro</b></th>
                                     <th scope="col"><b>Cantidad</b></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>CD-ROM Pack100</td>
-                                    <td>15</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Papel Bond Oficio Pack500</td>
-                                    <td>10</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Papel Bond Carta Pack500</td>
-                                    <td>25</td>
-                                </tr>
+                                @foreach($detalles as $detalle)
+                                    <tr>
+                                        <td>{{$detalle -> nombre}}</td>
+                                        <td>{{$detalle -> cantidad}}</td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
