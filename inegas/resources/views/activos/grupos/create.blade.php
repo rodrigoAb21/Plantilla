@@ -8,13 +8,13 @@
                     <div class="card-icon">
                         <i class="fa fa-tags fa-2x"></i>
                     </div>
-                    <h3 class="card-title">Nueva Categoria</h3>
+                    <h3 class="card-title">Nuevo Grupo</h3>
                 </div>
-                <form method="POST" action="{{url('act/categorias-act')}}" autocomplete="off">
+                <form method="POST" action="{{url('act/grupos')}}" autocomplete="off">
                 <div class="card-body ">
                     {{csrf_field()}}
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group mt-2">
                                     <div class="mb-1">
                                         <label for="nombre" >Nombre</label>
@@ -22,19 +22,7 @@
                                     <input type="text" class="form-control" id="nombre" name="nombre">
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Categoria Superior</label>
-                                    <select class="form-control selectpicker" data-live-search="true" data-style="btn btn-link" id="exampleFormControlSelect1">
-                                        <option>Ninguna</option>
-                                        <option>Material escritorio</option>
-                                        <option>Material Limpieza</option>
-                                        <option>Utensilios</option>
-                                    </select>
-                                </div>
-                            </div>
                         </div>
-
                 </div>
                 <div class="card-footer ">
                     <button type="submit" class="btn btn-primary">Guardar</button>

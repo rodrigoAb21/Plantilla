@@ -8,31 +8,20 @@
                     <div class="card-icon">
                         <i class="fa fa-tags fa-2x"></i>
                     </div>
-                    <h3 class="card-title">Editar Categoria</h3>
+                    <h3 class="card-title">Editar Grupo</h3>
                 </div>
-                <form method="POST" action="{{url('act/categorias-act/1')}}" autocomplete="off">
+                <form method="POST" action="{{url('act/grupos/'.$grupo->id)}}" autocomplete="off">
                     <div class="card-body ">
                         {{method_field('patch')}}
                         {{csrf_field()}}
 
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group mt-2">
                                     <div class="mb-1">
                                         <label for="nombre">Nombre</label>
                                     </div>
-                                    <input type="text" class="form-control" id="nombre" name="nombre" value="Categoria 1">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Categoria Superior</label>
-                                    <select class="form-control selectpicker" data-live-search="true" data-style="btn btn-link" id="exampleFormControlSelect1">
-                                        <option>Ninguna</option>
-                                        <option>Material escritorio</option>
-                                        <option>Material Limpieza</option>
-                                        <option>Utensilios</option>
-                                    </select>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{$grupo->nombre}}">
                                 </div>
                             </div>
                         </div>

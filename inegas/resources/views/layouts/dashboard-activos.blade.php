@@ -41,10 +41,10 @@
                 </div>
             </div>
             <ul class="nav">
-                <li class="{{ Request::is('act/categorias-act*') ? 'nav-item active' : 'nav-item' }}">
-                    <a class="nav-link" href="{{url('act/categorias-act')}}">
+                <li class="{{ Request::is('act/grupos*') ? 'nav-item active' : 'nav-item' }}">
+                    <a class="nav-link" href="{{url('act/grupos')}}">
                         <i class="fa fa-tags"></i>
-                        <p> Categorias </p>
+                        <p> Grupos </p>
                     </a>
                 </li>
 

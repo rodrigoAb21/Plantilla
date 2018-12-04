@@ -48,7 +48,7 @@ Route::middleware('auth')->group(function () {
             return view('layouts.dashboard-activos');
         });
 
-        Route::resource('/act/categorias-act', 'activos\CategoriaActController');
+        Route::resource('/act/grupos', 'activos\GrupoController');
         Route::resource('/act/activos', 'activos\ActivoController');
         Route::resource('/act/revaluos', 'activos\RevaluoController');
         Route::resource('/act/mov-activos/ingresos', 'activos\IngresoController');
