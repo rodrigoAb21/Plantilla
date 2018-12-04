@@ -47,7 +47,7 @@ class IngresoController extends Controller
             $ingreso -> fecha_ingreso = $request['fecha_ingreso'];
             $ingreso -> fecha_factura = $request['fecha_factura'];
             $ingreso -> proveedor = $request['proveedor'];
-            $ingreso -> estado = 'Habilitado';
+            $ingreso -> estado = 'Realizado';
             $ingreso -> nro_factura = $request['nro_factura'];
 
             if (Input::hasFile('foto_factura')) {
@@ -108,7 +108,7 @@ class IngresoController extends Controller
     public function destroy($id)
     {
         $ingreso = IngresoSuministro::findOrFail($id);
-        $ingreso -> estado = 'Deshabilitado';
+        $ingreso -> estado = 'Anulado';
         $ingreso -> save();
 
         // reviso los detalles que pertenecen al ingreso y descuento de su stock.
@@ -119,6 +119,8 @@ class IngresoController extends Controller
             $s -> stock = $s -> stock - $detalle -> cantidad;
             $s -> save();
         }
+
+        Bitacora::registrar_accion(Tablas::$ingreso, 'Anuló un ingreso con ID: '. $id);
 
         return redirect('sum/mov-suministros/ingresos');
     }
