@@ -12,82 +12,66 @@
 
                 </div>
                 <div class="card-body">
-                    <form action="">
+                    <form method="GET" action="{{url('sum/reportes/inventario')}}" autocomplete="off">
                         <div class="form-group form-file-upload form-file-multiple">
                             <div class="input-group">
                                 <label for="busqueda" class="bmd-label-floating">Buscar</label>
-                                <input type="text" class="form-control" id="busqueda" name="busqueda">
+                                <input type="text" class="form-control" id="busqueda" name="busqueda" value="{{$busqueda}}" >
                                 <span class="input-group-btn">
-                                    <button type="button" class="btn btn-fab btn-round btn-primary">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                    <a href="">
-                                        <button type="button" class="btn btn-fab btn-round btn-primary" title="Descargar PDF" >
-                                            <i class="fa fa-file-pdf"></i>
+                                        <button type="submit" class="btn btn-fab btn-round btn-primary">
+                                            <i class="fa fa-search"></i>
                                         </button>
-                                    </a>
-                                </span>
+                                        <a href="">
+                                            <button type="button" class="btn btn-fab btn-round btn-primary" title="Descargar PDF" >
+                                                <i class="fa fa-file-pdf"></i>
+                                            </button>
+                                        </a>
+                                    </span>
+
                             </div>
                         </div>
                     </form>
+
                     <div class="table-responsive">
                         <table class="table table-hover table-striped ">
                             <thead>
                                 <tr>
-                                    <th><b>#</b></th>
+                                    <th><b>Codigo</b></th>
                                     <th><b>Nombre</b></th>
+                                    <th><b>Marca</b></th>
                                     <th><b>Stock</b></th>
                                     <th><b>U. Medida</b></th>
-                                    <th><b>Categoria</b></th>
+                                    <th><b>Linea - Grupo</b></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Papel Bond Carta</td>
-                                    <td>50</td>
-                                    <td>Paquete 500u</td>
-                                    <td>Material de oficina</td>
-                                </tr>
-
-                                <tr class="table-warning">
-                                    <td>2</td>
-                                    <td>Papel Bond Oficio</td>
-                                    <td>0</td>
-                                    <td>Paquete 500u</td>
-                                    <td>Material de oficina</td>
-                                </tr>
-
-                                <tr>
-                                    <td>3</td>
-                                    <td>Papel Bond A4</td>
-                                    <td>50</td>
-                                    <td>Paquete 500u</td>
-                                    <td>Material de oficina</td>
-                                </tr>
-
-
-
+                                @foreach($suministros as $suministro)
+                                    @if($suministro -> stock < $suministro -> stock_minimo)
+                                        <tr class="table-warning">
+                                            <td>{{$suministro -> codigo}}</td>
+                                            <td>{{$suministro -> nombre}}</td>
+                                            <td>{{$suministro -> marca}}</td>
+                                            <td>{{$suministro -> stock}}</td>
+                                            <td>{{$suministro -> medida}}</td>
+                                            <td>{{$suministro -> linea.' - '.$suministro -> grupo}}</td>
+                                        </tr>
+                                    @else
+                                        <tr>
+                                            <td>{{$suministro -> codigo}}</td>
+                                            <td>{{$suministro -> nombre}}</td>
+                                            <td>{{$suministro -> marca}}</td>
+                                            <td>{{$suministro -> stock}}</td>
+                                            <td>{{$suministro -> medida}}</td>
+                                            <td>{{$suministro -> linea.' - '.$suministro -> grupo}}</td>
+                                        </tr>
+                                    @endif
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div class="card-footer">
-                    <nav class="mr-0 ml-auto">
-                        <ul class="pagination">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">ANT</a>
-                            </li>
-                            <li class="page-item active">
-                                <a class="page-link" href="#">1<span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">SIG</a>
-                            </li>
-                        </ul>
-                    </nav>
+                    {{$suministros -> links('pagination.default')}}
                 </div>
             </div>
 
