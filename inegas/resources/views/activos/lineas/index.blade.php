@@ -8,12 +8,12 @@
                     <div class="card-icon">
                         <i class="fa fa-tags fa-2x"></i>
                     </div>
-                    <h3 class="card-title">Grupos</h3>
+                    <h3 class="card-title">Lineas</h3>
 
                 </div>
                 <div class="card-body">
 
-                    <form method="GET" action="{{url('act/grupos')}}" autocomplete="off">
+                    <form method="GET" action="{{url('act/lineas')}}" autocomplete="off">
                         <div class="form-group form-file-upload form-file-multiple">
                             <div class="input-group">
                                 <label for="busqueda" class="bmd-label-floating">Buscar</label>
@@ -22,7 +22,7 @@
                                         <button type="submit" class="btn btn-fab btn-round btn-primary">
                                             <i class="fa fa-search"></i>
                                         </button>
-                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('act/grupos/create')}}">
+                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('act/lineas/create')}}">
                                                 <i class="fa fa-plus"></i>
                                         </a>
                                     </span>
@@ -41,30 +41,28 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($grupos as $grupo)
+                                @foreach($lineas as $linea)
                                     <tr>
-                                        <td>{{$grupo -> id}}</td>
-                                        <td>{{$grupo -> nombre}}</td>
+                                        <td>{{$linea -> id}}</td>
+                                        <td>{{$linea -> nombre}}</td>
                                         <td class="text-right ">
-                                            <a href="{{url('act/grupos/'.$grupo -> id.'/edit')}}">
+                                            <a href="{{url('act/lineas/'.$linea -> id.'/edit')}}">
                                                 <button class="btn btn-outline-primary btn-sm">
                                                     <i class="fa fa-pen"></i>
                                                 </button>
                                             </a>
-                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('{{$grupo -> nombre}}', '{{url('act/grupos/'.$grupo -> id)}}')">
+                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="modalEliminar('{{$linea -> nombre}}', '{{url('act/lineas/'.$linea -> id)}}')">
                                                 <i class="fa fa-times"></i>
                                             </button>
                                         </td>
                                     </tr>
-
                                 @endforeach
-
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div class="card-footer">
-                    {{$grupos -> links('pagination.default')}}
+                    {{$lineas->links('pagination.default')}}
                 </div>
             </div>
 
@@ -78,10 +76,10 @@
     @push('scripts')
         <script>
 
-            function eliminarModelo(nombre, url) {
+            function modalEliminar(nombre, url) {
                 $('#modalEliminarForm').attr("action", url);
-                $('#modalEliminarTitulo').html("Eliminar Grupo");
-                $('#modalEliminarEnunciado').html("Realmente desea eliminar el Grupo: " + nombre + "?");
+                $('#modalEliminarTitulo').html("Eliminar Linea");
+                $('#modalEliminarEnunciado').html("Realmente desea eliminar la Linea: " + nombre + "?");
                 $('#modalEliminar').modal('show');
 
             }

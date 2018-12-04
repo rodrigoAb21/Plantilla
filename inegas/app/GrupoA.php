@@ -12,5 +12,6 @@ class GrupoA extends Model
     protected $fillable = [
         'nombre',
         'visible',
+        'linea_a_id',
     ];
 }

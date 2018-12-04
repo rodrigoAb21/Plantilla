@@ -1,4 +1,4 @@
-@extends('layouts.dashboard-activos')
+@extends('layouts.dashboard-suministros')
 
 @section('content')
     <div class="row">
@@ -8,17 +8,15 @@
                     <div class="card-icon">
                         <i class="fa fa-tags fa-2x"></i>
                     </div>
-                    <h3 class="card-title">Nuevo Grupo</h3>
+                    <h3 class="card-title">Nueva Linea</h3>
                 </div>
-                <form method="POST" action="{{url('act/grupos')}}" autocomplete="off">
+                <form method="POST" action="{{url('act/lineas')}}" autocomplete="off">
                 <div class="card-body ">
                     {{csrf_field()}}
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="form-group mt-2">
-                                    <div class="mb-1">
-                                        <label for="nombre" >Nombre</label>
-                                    </div>
+                                <div class="form-group">
+                                    <label for="nombre" class="bmd-label-floating">Nombre</label>
                                     <input type="text" class="form-control" id="nombre" name="nombre">
                                 </div>
                             </div>

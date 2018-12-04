@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGrupoATable extends Migration
+class CreateLineaATable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateGrupoATable extends Migration
      */
     public function up()
     {
-        Schema::create('grupo_a', function (Blueprint $table) {
+        Schema::create('linea_a', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
             $table->boolean('visible');
@@ -27,6 +27,6 @@ class CreateGrupoATable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('grupo_a');
+        Schema::dropIfExists('linea_a');
     }
 }

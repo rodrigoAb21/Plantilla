@@ -18,6 +18,7 @@ class Tablas
 
 
 
+    public static $linea_a = 'Lineas de Activos';
     public static $grupo_a = 'Grupos de Activos';
 
 }

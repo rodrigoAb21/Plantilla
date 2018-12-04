@@ -33,7 +33,6 @@ Route::middleware('auth')->group(function () {
         Route::post('sum/lineas/{id}/grupo', 'suministros\LineaController@guardarGrupo');
         Route::patch('sum/lineas/{idLinea}/grupo/{idGrupo}', 'suministros\LineaController@actualizarGrupo');
         Route::delete('sum/lineas/{idLinea}/grupo/{idGrupo}', 'suministros\LineaController@eliminarGrupo');
-
         Route::resource('/sum/suministros', 'suministros\SuministroController');
         Route::resource('/sum/mov-suministros/ingresos', 'suministros\IngresoController');
         Route::resource('/sum/mov-suministros/salidas', 'suministros\SalidaController');
@@ -48,7 +47,11 @@ Route::middleware('auth')->group(function () {
             return view('layouts.dashboard-activos');
         });
 
-        Route::resource('/act/grupos', 'activos\GrupoController');
+        Route::resource('/act/lineas', 'activos\LineaAController');
+        Route::post('act/lineas/{id}/grupo', 'activos\LineaAController@guardarGrupo');
+        Route::patch('act/lineas/{idLinea}/grupo/{idGrupo}', 'activos\LineaAController@actualizarGrupo');
+        Route::delete('act/lineas/{idLinea}/grupo/{idGrupo}', 'activos\LineaAController@eliminarGrupo');
+
         Route::resource('/act/activos', 'activos\ActivoController');
         Route::resource('/act/revaluos', 'activos\RevaluoController');
         Route::resource('/act/mov-activos/ingresos', 'activos\IngresoController');
