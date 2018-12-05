@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Bitacora;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
@@ -46,7 +47,9 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
-        Bitacora::salida();
+        if (Session::has('bitacora_id')){
+            Bitacora::salida();
+        }
 
         $this->guard()->logout();
 

@@ -26,7 +26,7 @@
                             @foreach($acciones as $accion)
                                 <tr>
                                     <td>{{$accion -> id}}</td>
-                                    <td>{{Carbon\Carbon::parse($accion -> fecha)->format('d/m/Y h:i')}}</td>
+                                    <td>{{Carbon\Carbon::parse($accion -> fecha)->format('d/m/Y h:i A')}}</td>
                                     <td>{{$accion -> descripcion}}</td>
                                     <td>{{$accion -> tabla}}</td>
                                 </tr>

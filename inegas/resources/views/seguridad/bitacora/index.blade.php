@@ -58,7 +58,7 @@
                                 @foreach($bitacoras as $bitacora)
                                     <tr>
                                         <td>{{$bitacora -> id}}</td>
-                                        <td>{{Carbon\Carbon::parse($bitacora -> inicio)->format('d/m/Y h:i')}}</td>
+                                        <td>{{Carbon\Carbon::parse($bitacora -> inicio)->format('d/m/Y h:i A')}}</td>
                                         <td>{{$bitacora -> nombre}}</td>
                                         <td class="text-right">
                                             <a class="btn btn-outline-primary" href="{{url('seg/bitacora/'.$bitacora -> id)}}">
