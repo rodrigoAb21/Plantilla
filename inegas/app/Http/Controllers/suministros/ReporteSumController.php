@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\suministros;
 
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -25,6 +26,11 @@ class ReporteSumController extends Controller
             ->orderBy('suministro.id', 'desc')
             ->paginate(10);
         return view('suministros.reportes-sum.inventario', ['suministros' => $suministros, 'busqueda' => trim($request['busqueda'])]);
+    }
+
+    public static function inventarioPDF(){
+        $pdf = PDF::loadView('suministros.reportes-sum.inventarioPDF',["informe" => "SOY UNA VARIABLE"]);
+        return $pdf->download('inventario.pdf');
     }
 
     public function movimientos()

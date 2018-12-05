@@ -38,6 +38,8 @@ Route::middleware('auth')->group(function () {
         Route::resource('/sum/mov-suministros/salidas', 'suministros\SalidaController');
         Route::resource('/sum/medidas', 'suministros\UnidadMedidaController');
         Route::get('/sum/reportes/inventario', 'suministros\ReporteSumController@inventario');
+        Route::get('/sum/reportes/inventario/PDF', 'suministros\ReporteSumController@inventarioPDF');
+
         Route::get('/sum/reportes/movimientos', 'suministros\ReporteSumController@movimientos');
 
     });

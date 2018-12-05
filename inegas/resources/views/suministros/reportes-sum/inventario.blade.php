@@ -21,7 +21,7 @@
                                         <button type="submit" class="btn btn-fab btn-round btn-primary">
                                             <i class="fa fa-search"></i>
                                         </button>
-                                        <a href="">
+                                        <a href="{{url('/sum/reportes/inventario/PDF')}}">
                                             <button type="button" class="btn btn-fab btn-round btn-primary" title="Descargar PDF" >
                                                 <i class="fa fa-file-pdf"></i>
                                             </button>
