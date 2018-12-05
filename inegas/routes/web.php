@@ -52,6 +52,7 @@ Route::middleware('auth')->group(function () {
         Route::patch('act/lineas/{idLinea}/grupo/{idGrupo}', 'activos\LineaAController@actualizarGrupo');
         Route::delete('act/lineas/{idLinea}/grupo/{idGrupo}', 'activos\LineaAController@eliminarGrupo');
 
+        Route::resource('/act/estados', 'activos\EstadoController');
         Route::resource('/act/activos', 'activos\ActivoController');
         Route::resource('/act/revaluos', 'activos\RevaluoController');
         Route::resource('/act/mov-activos/ingresos', 'activos\IngresoController');

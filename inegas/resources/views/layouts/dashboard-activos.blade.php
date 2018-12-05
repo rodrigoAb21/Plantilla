@@ -48,6 +48,13 @@
                     </a>
                 </li>
 
+                <li class="{{ Request::is('act/estados*') ? 'nav-item active' : 'nav-item' }}">
+                    <a class="nav-link" href="{{url('act/estados')}}">
+                        <i class="fa fa-file-medical-alt"></i>
+                        <p> Estados </p>
+                    </a>
+                </li>
+
                 <li class="{{ Request::is('act/activos*') ? 'nav-item active' : 'nav-item' }}">
                     <a class="nav-link" href="{{url('act/activos')}}">
                         <i class="fa fa-couch"></i>
