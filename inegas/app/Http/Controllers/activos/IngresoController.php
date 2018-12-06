@@ -8,6 +8,7 @@ use App\Tablas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 class IngresoController extends Controller
 {
@@ -38,10 +39,9 @@ class IngresoController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
         try {
             DB::beginTransaction();
-
+/*
             $ingreso = new IngresoActivo();
             $ingreso -> fecha_ingreso = $request['fecha_ingreso'];
             $ingreso -> fecha_factura = $request['fecha_factura'];
@@ -56,7 +56,21 @@ class IngresoController extends Controller
             }
 
             $ingreso ->save();
-            
+
+            $grupos = $request['grupo_a_idT'];
+            $grupos = $request['costoT'];
+            $grupos = $request['marcaT'];
+            $grupos = $request['serieT'];
+            $grupos = $request['modeloT'];
+            $grupos = $request['colorT'];
+            $grupos = $request['caracteristicasT'];*/
+
+            if (Input::hasFile('fotoT')) {
+                $files = Input::file('fotoT');
+                dd($files);
+            }
+
+
 
         }catch (Exception $e){
             DB::rollback();
