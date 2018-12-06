@@ -84,9 +84,9 @@
                                     <div class="form-group">
                                         <label>Linea - Grupo</label>
                                         <select class="form-control selectpicker" data-live-search="true"
-                                                data-style="btn btn-link" id="sumi_cab">
+                                                data-style="btn btn-link" id="grupo_cab">
                                             @foreach($grupos as $grupo)
-                                                <option value="{{$grupo->id}}">{{$grupo -> linea.' - '.$grupo -> grupo}}</option>
+                                                <option value="{{$grupo->id}}_{{$grupo -> linea.' - '.$grupo -> grupo}}">{{$grupo -> linea.' - '.$grupo -> grupo}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -97,7 +97,7 @@
                                         <div class="mb-1">
                                             <label>Cantidad</label>
                                         </div>
-                                        <input type="number" class="form-control" id="cant_cab" min="1">
+                                        <input type="number" class="form-control" id="cant_cab" min="1" value="1">
                                     </div>
                                 </div>
 
@@ -106,7 +106,7 @@
                                         <div class="mb-1">
                                             <label for="costo">Precio Uni. Bs</label>
                                         </div>
-                                        <input type="number" step="any" class="form-control" id="pre_cab" min="0">
+                                        <input type="number" step="any" class="form-control" id="pre_cab" min="0" value="1">
                                     </div>
                                 </div>
 
@@ -191,19 +191,26 @@
 
         <script>
             var cont = 0;
-
+            var grupos = [];
             $(document).ready(
                 function () {
                     evaluar();
+                    getGrupos();
                 }
             );
 
+            $('#grupo_cab').change(getGrupos);
+
+            function getGrupos() {
+                grupos = document.getElementById('grupo_cab').value.split('_');
+            }
+
             function agregar() {
                 var costo = parseFloat($('#pre_cab').val());
-                var grupo_id = 0;
+                var grupo_id = grupos[0];
+                var grupo_nombre = grupos[1];
                 var cant = parseInt($('#cant_cab').val());
-                var grupo_nombre = '';
-                if (cant > 0){
+                if (cant > 0 && costo > 0){
                     var i;
                     for (i = 0; i < cant; i++) {
                         var fila = '' +
@@ -293,8 +300,8 @@
             }
 
             function limpiar(){
-                $('#cant_cab').val("");
-                $('#pre_cab').val("");
+                $('#cant_cab').val("1");
+                $('#pre_cab').val("1");
             }
 
             function eliminar(index){
