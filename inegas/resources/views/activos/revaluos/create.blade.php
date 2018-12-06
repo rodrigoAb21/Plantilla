@@ -15,24 +15,23 @@
                     {{csrf_field()}}
                         <div class="row">
 
-                                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                                     <div class="form-group">
-                                        <label for="activo">Activo Fijo</label>
-                                        <select class="form-control selectpicker" data-live-search="true" data-style="btn btn-link" id="activo">
-                                            <option>Activo 1 - 1 - Categoria 1</option>
-                                            <option>Activo 2 - 2 - Categoria 1</option>
-                                            <option>Activo 3 - 3 - Categoria 1</option>
-                                            <option>Activo 4 - 4 - Categoria 1</option>
+                                        <label for="activo">Codigo/Grupo/Costo</label>
+                                        <select class="form-control selectpicker" data-live-search="true" data-style="btn btn-link" name="activo_fijo_id">
+                                            @foreach($activos as $activo)
+                                                <option value="{{$activo -> id}}">{{$activo -> codigo.' / '.$activo -> grupo.' / '.$activo -> costo_actual.'Bs'}}</option>
+                                            @endforeach
 
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                     <div class="form-group mt-2">
                                         <div class="mb-1">
-                                            <label>Monto</label>
+                                            <label>Monto Bs</label>
                                         </div>
-                                        <input type="number" class="form-control" value="50">
+                                        <input type="number" step="any" class="form-control" name="monto">
                                     </div>
                                 </div>
 
@@ -41,9 +40,9 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group mt-2">
                                         <div class="mb-1">
-                                            <label>Descripcion</label>
+                                            <label>Motivo</label>
                                         </div>
-                                        <textarea rows="3" class="form-control"></textarea>
+                                        <textarea rows="3" class="form-control" name="motivo"></textarea>
                                     </div>
                                 </div>
                             </div>

@@ -38,20 +38,24 @@ class Bitacora extends Model
     }
 
     public static function registrar_accion($tabla, $descripcion){
-        $accion = new Accion();
-        $accion -> descripcion = $descripcion;
-        $accion -> bitacora_id = Session::get('bitacora_id');
-        $accion -> fecha = Carbon::now('America/La_Paz');
-        $accion -> tabla = $tabla;
-        $accion -> save();
+        if (Session::has('bitacora_id')){
+            $accion = new Accion();
+            $accion -> descripcion = $descripcion;
+            $accion -> bitacora_id = Session::get('bitacora_id');
+            $accion -> fecha = Carbon::now('America/La_Paz');
+            $accion -> tabla = $tabla;
+            $accion -> save();
+        }
     }
 
     public static function salida(){
-        $accion = new Accion();
-        $accion -> descripcion = 'Ha cerrado sesion.';
-        $accion -> bitacora_id = Session::get('bitacora_id');
-        $accion -> fecha = Carbon::now('America/La_Paz');
-        $accion -> tabla = 'Ninguno';
-        $accion -> save();
+        if (Session::has('bitacora_id')){
+            $accion = new Accion();
+            $accion -> descripcion = 'Ha cerrado sesion.';
+            $accion -> bitacora_id = Session::get('bitacora_id');
+            $accion -> fecha = Carbon::now('America/La_Paz');
+            $accion -> tabla = 'Ninguno';
+            $accion -> save();
+        }
     }
 }

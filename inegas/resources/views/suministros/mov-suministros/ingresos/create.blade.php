@@ -20,7 +20,7 @@
                                 <div class="mb-1">
                                     <label>Fecha Ingreso</label>
                                 </div>
-                                <input type="date" class="form-control" name="fecha_ingreso">
+                                <input type="date" class="form-control" name="fecha_ingreso" value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}">
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -28,7 +28,7 @@
                                 <div class="mb-1">
                                     <label>Fecha Factura</label>
                                 </div>
-                                <input type="date" class="form-control" name="fecha_factura">
+                                <input type="date" class="form-control" name="fecha_factura" value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}">
                             </div>
                         </div>
                         <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">

@@ -46,7 +46,7 @@
                                 @foreach($salidas as $salida)
                                     <tr>
                                         <td>{{$salida -> id}}</td>
-                                        <td>{{$salida -> fecha}}</td>
+                                        <td>{{Carbon\Carbon::parse($salida -> fecha)->format('d/m/Y h:i A')}}</td>
                                         <td>{{$salida -> ubicacion}}</td>
                                         <td>{{$salida -> recibe}}</td>
                                         <td>{{$salida -> estado}}</td>

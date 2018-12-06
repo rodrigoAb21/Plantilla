@@ -46,7 +46,7 @@
                                 @foreach($ingresos as $ingreso)
                                     <tr>
                                         <td>{{$ingreso -> id}}</td>
-                                        <td>{{$ingreso -> fecha_ingreso}}</td>
+                                        <td>{{Carbon\Carbon::parse($ingreso -> fecha_ingreso)->format('d/m/Y h:i A')}}</td>
                                         <td>{{$ingreso -> proveedor}}</td>
                                         <td>{{$ingreso -> nro_factura}}</td>
                                         <td>{{$ingreso -> estado}}</td>

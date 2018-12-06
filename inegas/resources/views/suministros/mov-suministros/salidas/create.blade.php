@@ -20,7 +20,7 @@
                                 <div class="mb-1">
                                     <label>Fecha</label>
                                 </div>
-                                <input type="date" class="form-control" name="fecha" required>
+                                <input type="date" class="form-control" name="fecha" value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}" required>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

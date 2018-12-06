@@ -1,75 +1,79 @@
-<div class="modal fade" id="modalVer" tabindex="-1" role="dialog" aria-labelledby="eliminarLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title" id="modalEliminarTitulo">Revaluo - Decremento</h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div class="form-group mt-2">
-                            <div class="mb-1">
-                                <label for="medida" >Codigo</label>
-                            </div>
-                            <p>1</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div class="form-group mt-2">
-                            <div class="mb-1">
-                                <label for="medida" >Fecha</label>
-                            </div>
-                            <p>18-11-2018 10:00</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div class="form-group mt-2">
-                            <div class="mb-1">
-                                <label for="min" >Nuevo Monto</label>
-                            </div>
-                            <p>10</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div class="form-group mt-2">
-                            <div class="mb-1">
-                                <label for="nombre" >Activo Fijo</label>
-                            </div>
-                            <p>Activo 1</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div class="form-group mt-2">
-                            <div class="mb-1">
-                                <label for="categoria" >Categoria</label>
-                            </div>
-                            <p>Categoria 1</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div class="form-group mt-2">
-                            <div class="mb-1">
-                                <label for="min" >Monto Anterior</label>
-                            </div>
-                            <p>50</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="form-group">
-                            <label for="max" >Descripcion</label>
-                            <p>Descripcion Revaluo</p>
-                        </div>
-                    </div>
+@extends('layouts.dashboard-activos')
 
-
+@section('content')
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card ">
+                <div class="card-header card-header-primary card-header-icon">
+                    <div class="card-icon">
+                        <i class="fa fa-file-invoice-dollar fa-2x"></i>
+                    </div>
+                    <h3 class="card-title">Ver Revaluo: {{$revaluo -> id}}</h3>
                 </div>
+
+                    <div class="card-body ">
+                        <div class="row">
+
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                <div class="form-group mt-2">
+                                    <div class="mb-1">
+                                        <label>Fecha</label>
+                                    </div>
+                                    <p>{{Carbon\Carbon::parse($revaluo -> fecha)->format('d/m/Y h:i A')}}</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                <div class="form-group mt-2">
+                                    <div class="mb-1">
+                                        <label>Codigo Activo</label>
+                                    </div>
+                                    <p>{{$revaluo -> codigo}}</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                <div class="form-group mt-2">
+                                    <div class="mb-1">
+                                        <label>Monto del Revaluo</label>
+                                    </div>
+                                    <p>{{$revaluo -> monto}}</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                <div class="form-group mt-2">
+                                    <div class="mb-1">
+                                        <label>Grupo del Activo</label>
+                                    </div>
+                                    <p>{{$revaluo -> grupo}}</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                <div class="form-group mt-2">
+                                    <div class="mb-1">
+                                        <label>Costo Anterior</label>
+                                    </div>
+                                    <p>{{$revaluo -> costo_actual - $revaluo -> monto}}</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                <div class="form-group mt-2">
+                                    <div class="mb-1">
+                                        <label>Nuevo Costo</label>
+                                    </div>
+                                    <p>{{$revaluo -> costo_actual}}</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label>Motivo</label>
+                                    <p>{{$revaluo -> motivo}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-            </div>
+            <!--  end card  -->
         </div>
+        <!-- end col-md-12 -->
     </div>
-</div>
+    <!-- end row -->
+@endsection
