@@ -11,13 +11,13 @@
                     <h3 class="card-title">Ingreso de Activos Fijos</h3>
                 </div>
                 <div class="card-body">
-                    <form action="">
+                    <form method="GET" action="{{url('act/mov-activos/ingresos')}}" autocomplete="off">
                         <div class="form-group form-file-upload form-file-multiple">
                             <div class="input-group">
                                 <label for="busqueda" class="bmd-label-floating">Buscar</label>
-                                <input type="text" class="form-control" id="busqueda" name="busqueda">
+                                <input type="text" class="form-control" id="busqueda" name="busqueda" value="{{$busqueda}}" >
                                 <span class="input-group-btn">
-                                        <button type="button" class="btn btn-fab btn-round btn-primary">
+                                        <button type="submit" class="btn btn-fab btn-round btn-primary">
                                             <i class="fa fa-search"></i>
                                         </button>
                                         <a class="btn btn-fab btn-round btn-primary" href="{{url('act/mov-activos/ingresos/create')}}">
@@ -32,94 +32,51 @@
                     <div class="table-responsive">
                         <table class="table table-hover table-striped ">
                             <thead>
-                                <tr>
-                                    <th><b>#</b></th>
-                                    <th><b>Fecha</b></th>
-                                    <th><b>Estado</b></th>
-                                    <th class="text-right"><b>Opciones</b></th>
-                                </tr>
+                            <tr>
+                                <th><b>ID</b></th>
+                                <th><b>Fecha</b></th>
+                                <th><b>Proveedor</b></th>
+                                <th><b>Nro Factura</b></th>
+                                <th><b>Estado</b></th>
+                                <th class="text-right"><b>Opciones</b></th>
+                            </tr>
                             </thead>
                             <tbody>
+                            @foreach($ingresos as $ingreso)
                                 <tr>
-                                    <td>1</td>
-                                    <td>20/11/2018 10:09</td>
-                                    <td>Realizado</td>
+                                    <td>{{$ingreso -> id}}</td>
+                                    <td>{{Carbon\Carbon::parse($ingreso -> fecha_ingreso)->format('d/m/Y h:i A')}}</td>
+                                    <td>{{$ingreso -> proveedor}}</td>
+                                    <td>{{$ingreso -> nro_factura}}</td>
+                                    <td>{{$ingreso -> estado}}</td>
                                     <td class="text-right ">
-                                        <a href="{{url('act/mov-activos/ingresos/1')}}">
+                                        <a href="{{url('act/mov-activos/ingresos/'.$ingreso -> id)}}">
                                             <button class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-eye"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('1', '{{url('act/mov-activos/ingresos/create')}}')">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>20/11/2018 16:21</td>
-                                    <td>Realizado</td>
-                                    <td class="text-right ">
-                                        <a href="{{url('act/mov-activos/ingresos/1')}}">
-                                            <button class="btn btn-outline-primary btn-sm">
-                                                <i class="fa fa-eye"></i>
+                                        @if($ingreso -> estado != 'Anulado')
+                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('{{$ingreso -> id}}', '{{url('act/mov-activos/ingresos/'.$ingreso -> id)}}')">
+                                                <i class="fa fa-times"></i>
                                             </button>
-                                        </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('4', '{{url('act/mov-activos/ingresos/create')}}')">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>7</td>
-                                    <td>20/11/2018 17:47</td>
-                                    <td>Anulado</td>
-                                    <td class="text-right ">
-                                        <a href="{{url('act/mov-activos/ingresos/1')}}">
-                                            <button class="btn btn-outline-primary btn-sm">
-                                                <i class="fa fa-eye"></i>
+                                        @else
+                                            <button type="button" class="btn btn-outline-primary btn-sm" disabled>
+                                                <i class="fa fa-times"></i>
                                             </button>
-                                        </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm disabled" onclick="eliminarModelo('7', '{{url('act/mov-activos/ingresos/create')}}')">
-                                            <i class="fa fa-times"></i>
-                                        </button>
+                                        @endif
+
+
+
+
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>8</td>
-                                    <td>21/11/2018 09:34</td>
-                                    <td>Realizado</td>
-                                    <td class="text-right ">
-                                        <a href="{{url('act/mov-activos/ingresos/1')}}">
-                                            <button class="btn btn-outline-primary btn-sm">
-                                                <i class="fa fa-eye"></i>
-                                            </button>
-                                        </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('8', '{{url('act/mov-activos/ingresos/create')}}')">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
-                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div class="card-footer">
-                    <nav class="mr-0 ml-auto">
-                        <ul class="pagination">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">ANT</a>
-                            </li>
-                            <li class="page-item active">
-                                <a class="page-link" href="#">1<span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">SIG</a>
-                            </li>
-                        </ul>
-                    </nav>
+                    {{$ingresos -> links('pagination.default')}}
                 </div>
             </div>
 

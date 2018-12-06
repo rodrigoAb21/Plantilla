@@ -28,6 +28,8 @@ class CreateActivoFijoTable extends Migration
             $table->boolean('visible');
             $table->unsignedInteger('grupo_a_id');
             $table->foreign('grupo_a_id')->references('id')->on('grupo_a')->onDelete('cascade');
+            $table->unsignedInteger('ingreso_a_id');
+            $table->foreign('ingreso_a_id')->references('id')->on('ingreso_a')->onDelete('cascade');
         });
     }
 

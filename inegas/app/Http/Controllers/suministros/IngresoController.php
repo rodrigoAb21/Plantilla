@@ -52,7 +52,7 @@ class IngresoController extends Controller
 
             if (Input::hasFile('foto_factura')) {
                 $file = Input::file('foto_factura');
-                $file->move(public_path() . '/img/suministros/ingresos/' .$request->placa. '/', $file->getClientOriginalName());
+                $file->move(public_path() . '/img/suministros/ingresos/', $file->getClientOriginalName());
                 $ingreso -> foto_factura = $file->getClientOriginalName();
             }
 
@@ -82,7 +82,7 @@ class IngresoController extends Controller
 
             DB::commit();
 
-            Bitacora::registrar_accion(Tablas::$ingreso, 'Registró un nuevo ingreso con ID: '. $ingreso -> id. ' con '.$cont.' suministros.');
+            Bitacora::registrar_accion(Tablas::$ingreso_sum, 'Registró un nuevo ingreso con ID: '. $ingreso -> id. ' con '.$cont.' suministros.');
 
         }catch (Exception $e){
             DB::rollback();
@@ -121,7 +121,7 @@ class IngresoController extends Controller
                 $s -> save();
             }
 
-            Bitacora::registrar_accion(Tablas::$ingreso, 'Anuló un ingreso con ID: '. $id);
+            Bitacora::registrar_accion(Tablas::$ingreso_sum, 'Anuló un ingreso con ID: '. $id);
         }
 
         return redirect('sum/mov-suministros/ingresos');
