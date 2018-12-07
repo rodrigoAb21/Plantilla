@@ -27,7 +27,7 @@
                             <div class="form-group">
                                 <label>Ubicaciones</label>
                                 <select class="form-control selectpicker" data-live-search="true"
-                                        data-style="btn btn-link" id="grupo_cab">
+                                        data-style="btn btn-link" name="ubicacion_id">
                                     @foreach($ubicaciones as $ubicacion)
                                         <option value="{{$ubicacion -> id}}">{{$ubicacion -> nombre}}</option>
                                     @endforeach
@@ -45,6 +45,9 @@
                     </div>
                 </div>
             </div>
+
+
+
             <div class="card ">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">
@@ -54,59 +57,44 @@
                 </div>
 
                     <div class="card-body ">
+                        <div class="form-group form-file-upload form-file-multiple">
+                            <div class="input-group">
+                                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label>Activo Fijo (Codigo, Linea - Grupo)</label>
+                                        <select class="form-control selectpicker" data-live-search="true"
+                                                data-style="btn btn-link" id="activo_cab">
+                                            @foreach($activos as $activo)
+                                                <option value="{{$activo->id}}">{{'COD:'.$activo -> codigo.', '.$activo -> linea.' - '.$activo -> grupo}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <span class="input-group-btn pt-4 ml-auto mr-0">
+                                    <button type="button" onclick="agregar()" class="btn btn-fab btn-round btn-primary">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+
                         <div class="table-responsive table-bordered table-hover table-striped">
                             <table class="table ">
                                 <thead>
                                 <tr>
-                                    <th scope="col" ><b>#</b></th>
                                     <th scope="col" class="w-75"><b>Activo</b></th>
                                     <th scope="col" class="text-right"><b>Opciones</b></th>
                                 </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Escritorio#11</td>
-                                        <td class="text-right ">
-                                            <button type="button" class="btn btn-outline-primary">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Escritorio#13</td>
-                                        <td class="text-right ">
-                                            <button type="button" class="btn btn-outline-primary">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Computadora#21</td>
-                                        <td class="text-right ">
-                                            <button type="button" class="btn btn-outline-primary">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Impresora#9</td>
-                                        <td class="text-right ">
-                                            <button type="button" class="btn btn-outline-primary">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
+                                <tbody id="detalle">
                                 </tbody>
                             </table>
                         </div>
 
                     </div>
                     <div class="card-footer ">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button id="guardar" type="submit" class="btn btn-primary">Guardar</button>
                     </div>
 
             </div>
@@ -115,5 +103,69 @@
         <!-- end col-md-12 -->
     </div>
     </form>
+    @push('scripts')
     <!-- end row -->
+    <script>
+        var cont = 0;
+        var activo_id = 0;
+        var activo_nombre = '';
+        var agregados = [];
+
+        $(document).ready(
+            function () {
+                evaluar();
+                getActivo();
+            }
+        );
+
+        $('#activo_cab').change(getActivo);
+
+        function getActivo() {
+            activo_id = $('#activo_cab').val();
+            activo_nombre = $('#activo_cab option:selected').text();
+        }
+
+        function agregar() {
+            if (!agregados.includes(activo_id)){
+                agregados.push(activo_id);
+
+                var fila = ''+
+                            '<tr id="fila-'+cont+'">' +
+                                '<td>' +
+                                    '<input type="hidden" value="'+activo_id+'" name="activo_fijo_idT[]">'+
+                                        activo_nombre+
+                                '</td>' +
+                                '<td class="text-right">' +
+                                    '<button onclick="eliminar('+cont+','+activo_id+')" class="btn btn-sm btn-outline-primary">' +
+                                        '<i class="fa fa-times"></i>' +
+                                    '</button>' +
+                                '</td>' +
+                            '</tr>';
+                cont++;
+                $('#detalle').append(fila);
+                evaluar();
+
+            }
+        }
+
+        function eliminar(index, id){
+            var i = agregados.indexOf(String(id));
+            if (i > -1) {
+                agregados.splice(i, 1);
+            }
+            cont--;
+            $("#fila-" + index).remove();
+            evaluar();
+        }
+
+        function evaluar(){
+            if (cont > 0) {
+                $("#guardar").show();
+            }else{
+                $("#guardar").hide();
+            }
+        }
+
+    </script>
+    @endpush
 @endsection

@@ -26,7 +26,18 @@ class TrasladoController extends Controller
     }
 
     public function create(){
-        return view('activos.mov-activos.traslados.create',['ubicaciones' => Ubicacion::where('visible','=', true)->get()]);
+        $activos = DB::table('activo_fijo')
+            ->join('grupo_a','activo_fijo.grupo_a_id','=','grupo_a.id')
+            ->join('linea_a','grupo_a.linea_a_id','=','linea_a.id')
+            ->select('activo_fijo.id', 'activo_fijo.codigo', 'grupo_a.nombre as grupo', 'linea_a.nombre as linea')
+            ->where('activo_fijo.disponibilidad', '!=', 'Baja')
+            ->orderBy('linea_a.id', 'asc')
+            ->orderBy('grupo_a.id', 'asc')
+            ->get();
+
+
+
+        return view('activos.mov-activos.traslados.create',['ubicaciones' => Ubicacion::where('visible','=', true)->get(), 'activos' => $activos]);
     }
 
     public function store(Request $request){
