@@ -113,6 +113,7 @@ class IngresoController extends Controller
                     $detalle = new DetalleEstado();
                     $detalle -> fecha = Carbon::now('America/La_Paz');
                     $detalle -> motivo = 'Nuevo ingreso de activos fijos.';
+                    $detalle -> visible = true;
                     $detalle -> activo_fijo_id = $activo -> id;
                     $detalle -> estado_id = $estado -> id;
                     $detalle -> save();

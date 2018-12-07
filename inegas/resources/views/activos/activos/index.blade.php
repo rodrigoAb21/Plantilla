@@ -35,61 +35,35 @@
                         <table class="table table-hover table-striped ">
                             <thead>
                                 <tr>
-                                    <th><b>#</b></th>
-                                    <th class="w-50"><b>Nombre</b></th>
-                                    <th><b>Categoria</b></th>
+                                    <th><b>Codigo</b></th>
+                                    <th><b>Serie</b></th>
+                                    <th><b>Linea - Grupo</b></th>
                                     <th class="text-right"><b>Opciones</b></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Activo 1</td>
-                                    <td>Categoria 1</td>
-                                    <td class="text-right ">
-                                        <a href="{{url('act/activos/1/edit')}}">
-                                            <button class="btn btn-outline-primary btn-sm">
-                                                <i class="fa fa-pen"></i>
+                                @foreach($activos as $activo)
+                                    <tr>
+                                        <td>{{$activo -> codigo}}</td>
+                                        <td>{{$activo -> serie}}</td>
+                                        <td>{{$activo -> linea.' - '.$activo -> grupo}}</td>
+                                        <td class="text-right ">
+                                            <a href="{{url('act/activos/'.$activo->id.'/edit')}}">
+                                                <button class="btn btn-outline-primary btn-sm">
+                                                    <i class="fa fa-pen"></i>
+                                                </button>
+                                            </a>
+                                            <a href="{{url('act/activos/'.$activo->id.'/estados')}}">
+                                                <button class="btn btn-outline-primary btn-sm">
+                                                    <i class="fa fa-file-medical-alt"></i>
+                                                </button>
+                                            </a>
+                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarActivo('{{$activo -> codigo}}', '{{url('act/activos/'.$activo->id)}}')">
+                                                <i class="fa fa-times"></i>
                                             </button>
-                                        </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarSuministro('Activo 1', '{{url('act/activos/1')}}')">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>2</td>
-                                    <td>Activo 2</td>
-                                    <td>Categoria 1</td>
-                                    <td class="text-right ">
-                                        <a href="{{url('act/activos/1/edit')}}">
-                                            <button class="btn btn-outline-primary btn-sm">
-                                                <i class="fa fa-pen"></i>
-                                            </button>
-                                        </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarSuministro('Activo 1', '{{url('act/activos/1')}}')">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>3</td>
-                                    <td>Activo 3</td>
-                                    <td>Categoria 2</td>
-                                    <td class="text-right ">
-                                        <a href="{{url('act/activos/1/edit')}}">
-                                            <button class="btn btn-outline-primary btn-sm">
-                                                <i class="fa fa-pen"></i>
-                                            </button>
-                                        </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarSuministro('Activo 1', '{{url('act/activos/1')}}')">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-
+                                        </td>
+                                    </tr>
+                                @endforeach
 
 
                             </tbody>
@@ -97,21 +71,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <nav class="mr-0 ml-auto">
-                        <ul class="pagination">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">ANT</a>
-                            </li>
-                            <li class="page-item active">
-                                <a class="page-link" href="#">1<span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">SIG</a>
-                            </li>
-                        </ul>
-                    </nav>
+                    {{$activos -> links('pagination.default')}}
                 </div>
             </div>
 
@@ -126,10 +86,10 @@
     @push('scripts')
         <script>
 
-            function eliminarSuministro(nombre, url) {
+            function eliminarActivo(nombre, url) {
                 $('#modalEliminarForm').attr("action", url);
-                $('#modalEliminarTitulo').html("Eliminar Suministro");
-                $('#modalEliminarEnunciado').html("Realmente desea eliminar el suministro: " + nombre + "?");
+                $('#modalEliminarTitulo').html("Eliminar Activo Fijo");
+                $('#modalEliminarEnunciado').html("Realmente desea eliminar el activo: " + nombre + "?");
                 $('#modalEliminar').modal('show');
             }
         </script>

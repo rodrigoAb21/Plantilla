@@ -56,6 +56,11 @@ Route::middleware('auth')->group(function () {
 
         Route::resource('/act/estados', 'activos\EstadoController');
         Route::resource('/act/activos', 'activos\ActivoController');
+        Route::get('/act/activos/{id}/estados', 'activos\ActivoController@estados');
+        Route::get('/act/activos/{id}/estados/asignar', 'activos\ActivoController@asignar_estado');
+        Route::post('/act/activos/{id}/estados', 'activos\ActivoController@guardar_asignacion');
+        Route::delete('/act/activos/{activo_id}/estados/{id}', 'activos\ActivoController@eliminar_asignacion');
+
         Route::resource('/act/revaluos', 'activos\RevaluoController');
         Route::resource('/act/mov-activos/ingresos', 'activos\IngresoController');
         Route::resource('/act/mov-activos/traslados', 'activos\TrasladoController');

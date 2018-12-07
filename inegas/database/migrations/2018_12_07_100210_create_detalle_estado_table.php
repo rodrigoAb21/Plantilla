@@ -17,6 +17,7 @@ class CreateDetalleEstadoTable extends Migration
             $table->increments('id');
             $table->timestamp('fecha');
             $table->string('motivo');
+            $table->boolean('visible');
             $table->unsignedInteger('estado_id');
             $table->foreign('estado_id')->references('id')->on('estado')->onDelete('cascade');
             $table->unsignedInteger('activo_fijo_id');
