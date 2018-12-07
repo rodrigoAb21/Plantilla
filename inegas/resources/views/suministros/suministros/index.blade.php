@@ -53,7 +53,7 @@
                                             <button class="btn btn-outline-primary btn-sm" onclick="verSuministro('{{json_encode($suministro)}}')">
                                                 <i class="fa fa-eye"></i>
                                             </button>
-                                            <a href="{{url('sum/suministros/1/edit')}}">
+                                            <a href="{{url('sum/suministros/'.$suministro -> id.'/edit')}}">
                                                 <button class="btn btn-outline-primary btn-sm">
                                                     <i class="fa fa-pen"></i>
                                                 </button>
