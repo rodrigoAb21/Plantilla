@@ -102,7 +102,7 @@ class IngresoController extends Controller
                     $activo -> save();
 
                     $estado = Estado::where('nombre','LIKE', '%Nuevo%')->first();
-                   
+
                     if ($estado == null){
                         $estado = new Estado();
                         $estado -> nombre = 'Nuevo';
@@ -140,13 +140,14 @@ class IngresoController extends Controller
 
     public function show($id)
     {
-        $detalles = DB::table('detalle_i_s')
-            ->join('suministro','detalle_i_s.suministro_id','=','suministro.id')
-            ->where('detalle_i_s.ingreso_s_id', '=', $id)
-            ->select('detalle_i_s.id', 'detalle_i_s.cantidad', 'detalle_i_s.precio_unitario', 'suministro.nombre' )
-            ->orderBy('detalle_i_s.id', 'asc')
+        $activos = DB::table('activo_fijo')
+            ->join('grupo_a', 'activo_fijo.grupo_a_id', '=', 'grupo_a.id')
+            ->join('linea_a', 'grupo_a.linea_a_id', '=', 'linea_a.id')
+            ->where('activo_fijo.ingreso_a_id', '=', $id)
+            ->select('activo_fijo.id', 'activo_fijo.marca', 'activo_fijo.modelo', 'activo_fijo.color', 'activo_fijo.foto', 'activo_fijo.caracteristicas', 'activo_fijo.serie', 'activo_fijo.costo_ingreso', 'grupo_a.nombre as grupo', 'linea_a.nombre as linea')
+            ->orderBy('activo_fijo.id', 'asc')
             ->get();
-        return view('activos.mov-activos.ingresos.show',['ingreso' => IngresoSuministro::findOrFail($id), 'detalles' => $detalles]);
+        return view('activos.mov-activos.ingresos.show',['ingreso' => IngresoActivo::findOrFail($id), 'activos' => $activos]);
     }
 
 
