@@ -84,8 +84,19 @@ class TrasladoController extends Controller
         $traslado = DB::table('traslado')
             ->join('ubicacion', 'traslado.ubicacion_id','=','ubicacion.id')
             ->where('traslado.id','=', $id)
-            ->select('traslado.id','traslado.fecha', 'traslado.estado', 'ubicacion.nombre as ubicacion')
+            ->select('traslado.id','traslado.fecha', 'ubicacion.nombre as ubicacion')
             ->first();
+
+        $activos = DB::table('activo_fijo')
+            ->join('detalle_tras','activo_fijo.id','=','grupo_a.id')
+            ->join('traslado','activo_fijo.grupo_a_id','=','grupo_a.id')
+            ->join('grupo_a','activo_fijo.grupo_a_id','=','grupo_a.id')
+            ->join('linea_a','grupo_a.linea_a_id','=','linea_a.id')
+            ->select('activo_fijo.id', 'activo_fijo.codigo', 'grupo_a.nombre as grupo', 'linea_a.nombre as linea')
+            ->where('activo_fijo.disponibilidad', '!=', 'Baja')
+            ->orderBy('linea_a.id', 'asc')
+            ->orderBy('grupo_a.id', 'asc')
+            ->get();
 
         return view('activos.mov-activos.traslados.show',['traslado' => $traslado]);
     }
