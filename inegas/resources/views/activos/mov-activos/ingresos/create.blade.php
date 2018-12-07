@@ -237,7 +237,7 @@
                                                     '<div class="row">' +
                                                         '<div class="col-lg-10 col-md-10 col-sm-6 col-xs-12">' +
                                                             '<div class="form-group">' +
-                                                                '<label>Marca</label>' +
+                                                                '<label>Linea - Grupo</label>' +
                                                                 '<input class="form-control" value="'+grupo_nombre+'" disabled>' +
                                                                 '<input type="hidden" name="grupo_a_idT[]" value="'+grupo_id+'">' +
                                                             '</div>' +

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\activos;
 
+use App\ActivoFijo;
 use App\Bitacora;
+use App\GrupoA;
 use App\IngresoActivo;
 use App\Tablas;
 use Illuminate\Http\Request;
@@ -41,7 +43,7 @@ class IngresoController extends Controller
     {
         try {
             DB::beginTransaction();
-/*
+
             $ingreso = new IngresoActivo();
             $ingreso -> fecha_ingreso = $request['fecha_ingreso'];
             $ingreso -> fecha_factura = $request['fecha_factura'];
@@ -58,17 +60,55 @@ class IngresoController extends Controller
             $ingreso ->save();
 
             $grupos = $request['grupo_a_idT'];
-            $grupos = $request['costoT'];
-            $grupos = $request['marcaT'];
-            $grupos = $request['serieT'];
-            $grupos = $request['modeloT'];
-            $grupos = $request['colorT'];
-            $grupos = $request['caracteristicasT'];*/
+            $costos = $request['costoT'];
+            $marcas = $request['marcaT'];
+            $series = $request['serieT'];
+            $modelos = $request['modeloT'];
+            $colores = $request['colorT'];
+            $caracteristicas = $request['caracteristicasT'];
 
+            $files = array();
             if (Input::hasFile('fotoT')) {
-                $files = Input::file('fotoT');
-                dd($files);
+                $files = Input::file('fotoT');;
             }
+
+            $cont = 0;
+
+            while ($cont < count($grupos)) {
+                $lg = GrupoA::findOrFail($grupos[$cont]);
+                $activo = new ActivoFijo();
+
+                $files[$cont]->move(public_path() . '/img/activos/activos/', $files[$cont]->getClientOriginalName());
+                $activo -> foto = $files[$cont]->getClientOriginalName();
+
+                $activo -> codigo = ''.$lg -> linea_a_id.' - '.$lg -> id;
+                $activo -> disponibilidad = true;
+                $activo -> costo_actual = $costos[$cont];
+                $activo -> costo_ingreso = $costos[$cont];
+                $activo -> serie = $series[$cont];
+                $activo -> marca = $marcas[$cont];
+                $activo -> color = $colores[$cont];
+                $activo -> modelo = $modelos[$cont];
+                $activo -> caracteristicas = $caracteristicas[$cont];
+                $activo -> visible = true;
+                $activo -> grupo_a_id = $grupos[$cont];
+                $activo -> ingreso_a_id = $ingreso -> id;
+
+                if ($activo -> save()){
+                    $activo -> codigo = ''.$lg -> linea_a_id.' - '.$lg -> id.' - '.$activo -> id;
+                    $activo -> save();
+
+                }
+
+                $cont++;
+
+            }
+
+            DB::commit();
+
+            Bitacora::registrar_accion(Tablas::$ingreso_act, 'Registró un nuevo ingreso con ID: '. $ingreso -> id. ' con '.$cont.' unidades de  activos fijos.');
+
+
 
 
 

@@ -23,5 +23,6 @@ class Tablas
     public static $estado = 'Estados de Activos';
     public static $revaluo = 'Revaluos de Activos';
     public static $ingreso_act = 'Ingresos de Suministro';
+    public static $activo = 'Activo Fijo';
 
 }

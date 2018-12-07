@@ -22,5 +22,6 @@ class ActivoFijo extends Model
         'caracteristicas',
         'visible',
         'grupo_a_id',
+        'ingreso_a_id',
     ];
 }
