@@ -15,9 +15,9 @@
                         {{csrf_field()}}
 
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-6 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label>Linea - Grupo</label>
+                                    <label>Estado</label>
                                     <select class="form-control selectpicker" data-live-search="true"
                                             data-style="btn btn-link" name="estado_id">
                                         @foreach($estados as $estado)

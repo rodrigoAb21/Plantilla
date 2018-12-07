@@ -50,19 +50,21 @@
                                                     <i class="fa fa-eye"></i>
                                                 </button>
                                             </a>
-                                            <a href="{{url('act/activos/'.$activo->id.'/edit')}}">
-                                                <button class="btn btn-outline-primary btn-sm">
-                                                    <i class="fa fa-pen"></i>
+                                            @if($activo -> disponibilidad != 'Baja')
+                                                <a href="{{url('act/activos/'.$activo->id.'/edit')}}">
+                                                    <button class="btn btn-outline-primary btn-sm">
+                                                        <i class="fa fa-pen"></i>
+                                                    </button>
+                                                </a>
+                                                <a href="{{url('act/activos/'.$activo->id.'/estados')}}">
+                                                    <button class="btn btn-outline-primary btn-sm">
+                                                        <i class="fa fa-file-medical-alt"></i>
+                                                    </button>
+                                                </a>
+                                                <button type="button" class="btn btn-outline-primary btn-sm" onclick="modal_baja('{{$activo -> codigo}}', '{{url('act/activos/'.$activo->id)}}', '{{$hoy}}')">
+                                                    <i class="fa fa-times"></i>
                                                 </button>
-                                            </a>
-                                            <a href="{{url('act/activos/'.$activo->id.'/estados')}}">
-                                                <button class="btn btn-outline-primary btn-sm">
-                                                    <i class="fa fa-file-medical-alt"></i>
-                                                </button>
-                                            </a>
-                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="modal_baja('{{$activo -> codigo}}', '{{url('act/activos/'.$activo->id)}}', '{{$hoy}}')">
-                                                <i class="fa fa-times"></i>
-                                            </button>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach

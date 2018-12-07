@@ -85,7 +85,7 @@ class IngresoController extends Controller
                 $activo -> foto = $files[$cont]->getClientOriginalName();
 
                 $activo -> codigo = ''.$lg -> linea_a_id.' - '.$lg -> id;
-                $activo -> disponibilidad = true;
+                $activo -> disponibilidad = 'Disponible';
                 $activo -> costo_actual = $costos[$cont];
                 $activo -> costo_ingreso = $costos[$cont];
                 $activo -> serie = $series[$cont];

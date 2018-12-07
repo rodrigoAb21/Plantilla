@@ -17,7 +17,7 @@ class CreateActivoFijoTable extends Migration
             $table->increments('id');
             $table->string('foto');
             $table->string('codigo');
-            $table->boolean('disponibilidad');
+            $table->string('disponibilidad');
             $table->float('costo_actual');
             $table->float('costo_ingreso');
             $table->string('serie');

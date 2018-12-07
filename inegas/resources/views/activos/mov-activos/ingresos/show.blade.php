@@ -63,7 +63,7 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <label >Foto Factura</label>
-                                        <p><img src="{{asset('img/suministros/ingresos/'.$ingreso -> foto_factura)}}" alt="{{$ingreso -> foto_factura}}" class="img-thumbnail" style="height: 100%; width: 100%"></p>
+                                        <p><img src="{{asset('img/activos/ingresos/'.$ingreso -> foto_factura)}}" alt="{{$ingreso -> foto_factura}}" class="img-thumbnail" style="height: 100%; width: 100%"></p>
                                     </div>
                                 </div>
                             </div>
