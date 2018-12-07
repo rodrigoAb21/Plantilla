@@ -1,67 +1,87 @@
-<div class="modal fade" id="modalVer" tabindex="-1" role="dialog" aria-labelledby="eliminarLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title" id="modalEliminarTitulo">Suministro</h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="form-group mt-2">
-                            <div class="mb-1">
-                                <label for="nombre" >Nombre</label>
-                            </div>
-                            <p>Papel Bond Carta</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div class="form-group mt-2">
-                            <div class="mb-1">
-                                <label for="medida" >Unidad de Medida</label>
-                            </div>
-                            <p>Paquete 500u</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div class="form-group mt-2">
-                            <div class="mb-1">
-                                <label for="categoria" >Categoria</label>
-                            </div>
-                            <p>Material de oficina</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                        <div class="form-group mt-2">
-                            <div class="mb-1">
-                                <label for="min" >Stock Min.</label>
-                            </div>
-                            <p>10</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                        <div class="form-group mt-2">
-                            <div class="mb-1">
-                                <label for="max" >Stock Max.</label>
-                            </div>
-                            <p>50</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="form-group">
-                            <label for="max" >Descripcion</label>
-                            <p>Papel bond, tamaño carta especial para impresiones.</p>
-                        </div>
-                    </div>
+@extends('layouts.dashboard-activos')
 
+@section('content')
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card ">
+                <div class="card-header card-header-primary card-header-icon">
+                    <div class="card-icon">
+                        <i class="fa fa-angle-double-right fa-2x"></i>
+                    </div>
+                    <h3 class="card-title">Activo Fijo: {{$activo -> codigo}}</h3>
+                </div>
+
+                <div class="card-body ">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                    <div class="fileinput-new thumbnail img-raised" style="height: 80%; width: 80%">
+                                        <img src="{{asset('img/activos/activos/'.$activo -> foto)}}"  alt="...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                                <div class="row">
+                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Linea - Grupo</label>
+                                            <p>{{$activo -> linea.' - '.$activo -> grupo}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Costo Ingreso</label>
+                                            <p>{{$activo -> costo_ingreso}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Costo Actual</label>
+                                            <p>{{$activo -> costo_actual}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Marca</label>
+                                            <p>{{$activo -> marca}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Nro Serie</label>
+                                            <p>{{$activo -> serie}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Modelo</label>
+                                            <p>{{$activo -> modelo}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Color</label>
+                                            <p>{{$activo -> color}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Caracteristicas</label>
+                                            <p>{{$activo -> caracteristicas}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-            </div>
+            <!--  end card  -->
         </div>
+        <!-- end col-md-12 -->
     </div>
-</div>
+    <!-- end row -->
+@endsection

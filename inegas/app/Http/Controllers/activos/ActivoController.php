@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 class ActivoController extends Controller
 {
@@ -54,10 +55,10 @@ class ActivoController extends Controller
             ->join('grupo_a', 'activo_fijo.grupo_a_id', '=', 'grupo_a.id')
             ->join('linea_a', 'grupo_a.linea_a_id', '=', 'linea_a.id')
             ->where('activo_fijo.id', '=', $id)
-            ->select('activo_fijo.id', 'activo_fijo.marca', 'activo_fijo.modelo', 'activo_fijo.color', 'activo_fijo.foto','activo_fijo.codigo', 'activo_fijo.caracteristicas', 'activo_fijo.serie', 'activo_fijo.costo_actual', 'grupo_a.nombre as grupo', 'linea_a.nombre as linea')
+            ->select('activo_fijo.id', 'activo_fijo.marca', 'activo_fijo.modelo', 'activo_fijo.color', 'activo_fijo.foto','activo_fijo.codigo', 'activo_fijo.caracteristicas', 'activo_fijo.serie', 'activo_fijo.costo_actual','activo_fijo.costo_ingreso', 'grupo_a.nombre as grupo', 'linea_a.nombre as linea')
             ->orderBy('activo_fijo.id', 'asc')
-            ->get();
-        return redirect('act/activos');
+            ->first();
+        return view('activos.activos.show', ['activo' => $activo]);
     }
 
     public function destroy($id)
@@ -67,11 +68,12 @@ class ActivoController extends Controller
 
     public function estados(Request $request, $id){
         $estados = DB::table('estado')
-            ->where('estado.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
-            ->where('detalle_estado.activo_fijo_id', '=', $id)
-            ->where('detalle_estado.visible', '=', true)
             ->join('detalle_estado', 'estado.id', '=', 'detalle_estado.estado_id')
             ->select('detalle_estado.id','detalle_estado.activo_fijo_id', 'detalle_estado.fecha','detalle_estado.motivo', 'estado.nombre')
+            ->where('estado.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
+            ->orWhere('detalle_estado.motivo', 'LIKE','%'.trim($request['busqueda']).'%')
+            ->where('detalle_estado.activo_fijo_id', '=', $id)
+            ->where('detalle_estado.visible', '=', true)
             ->orderBy('detalle_estado.id', 'desc')
             ->paginate(10);
         return view('activos.activos.estados.index', ['estados' => $estados, 'busqueda' => trim($request['busqueda']), 'activo' => ActivoFijo::findOrFail($id)]);

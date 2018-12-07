@@ -48,6 +48,11 @@
                                         <td>{{$activo -> serie}}</td>
                                         <td>{{$activo -> linea.' - '.$activo -> grupo}}</td>
                                         <td class="text-right ">
+                                            <a href="{{url('act/activos/'.$activo -> id)}}">
+                                                <button class="btn btn-outline-primary btn-sm">
+                                                    <i class="fa fa-eye"></i>
+                                                </button>
+                                            </a>
                                             <a href="{{url('act/activos/'.$activo->id.'/edit')}}">
                                                 <button class="btn btn-outline-primary btn-sm">
                                                     <i class="fa fa-pen"></i>
