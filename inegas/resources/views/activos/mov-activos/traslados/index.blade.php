@@ -34,93 +34,35 @@
                         <table class="table table-hover table-striped ">
                             <thead>
                                 <tr>
-                                    <th><b>#</b></th>
+                                    <th><b>ID</b></th>
                                     <th><b>Fecha</b></th>
-                                    <th><b>Estado</b></th>
+                                    <th><b>Ubicacion</b></th>
                                     <th class="text-right"><b>Opciones</b></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>20/11/2018 10:09</td>
-                                    <td>Realizado</td>
-                                    <td class="text-right ">
-                                        <a href="{{url('act/mov-activos/traslados/show')}}">
-                                            <button class="btn btn-outline-primary btn-sm">
-                                                <i class="fa fa-eye"></i>
-                                            </button>
-                                        </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('1', '{{url('act/mov-activos/traslados/1')}}')">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>20/11/2018 16:21</td>
-                                    <td>Realizado</td>
-                                    <td class="text-right ">
-                                        <a href="{{url('act/mov-activos/traslados/show')}}">
-                                            <button class="btn btn-outline-primary btn-sm">
-                                                <i class="fa fa-eye"></i>
-                                            </button>
-                                        </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('4', '{{url('act/mov-activos/traslados/1')}}')">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>7</td>
-                                    <td>20/11/2018 17:47</td>
-                                    <td>Anulado</td>
-                                    <td class="text-right ">
-                                        <a href="{{url('act/mov-activos/traslados/show')}}">
-                                            <button class="btn btn-outline-primary btn-sm">
-                                                <i class="fa fa-eye"></i>
-                                            </button>
-                                        </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm disabled" onclick="eliminarModelo('7', '{{url('act/mov-activos/traslados/1')}}')">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>8</td>
-                                    <td>21/11/2018 09:34</td>
-                                    <td>Realizado</td>
-                                    <td class="text-right ">
-                                        <a href="{{url('act/mov-activos/traslados/show')}}">
-                                            <button class="btn btn-outline-primary btn-sm">
-                                                <i class="fa fa-eye"></i>
-                                            </button>
-                                        </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('8', '{{url('act/mov-activos/traslados/1')}}')">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </td>
-                                </tr>
+
+                                @foreach($traslados as $traslado)
+                                    <tr>
+                                        <td>{{$traslado -> id}}</td>
+                                        <td>{{$traslado -> fecha}}</td>
+                                        <td>{{$traslado -> ubicacion}}</td>
+                                        <td class="text-right ">
+                                            <a href="{{url('act/mov-activos/traslados/'.$traslado -> id)}}">
+                                                <button class="btn btn-outline-primary btn-sm">
+                                                    <i class="fa fa-eye"></i>
+                                                </button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div class="card-footer">
-                    <nav class="mr-0 ml-auto">
-                        <ul class="pagination">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">ANT</a>
-                            </li>
-                            <li class="page-item active">
-                                <a class="page-link" href="#">1<span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">SIG</a>
-                            </li>
-                        </ul>
-                    </nav>
+                    {{$traslados -> links('pagination.default')}}
                 </div>
             </div>
 
@@ -129,21 +71,5 @@
         <!-- end col-md-12 -->
     </div>
     <!-- end row -->
-
-    @include('modal')
-    @push('scripts')
-        <script>
-
-            function eliminarModelo(nombre, url) {
-                $('#modalEliminarForm').attr("action", url);
-                $('#modalEliminarTitulo').html("Anular traslado de activo");
-                $('#modalEliminarEnunciado').html("Realmente desea anular el traslado Nro: " + nombre + "?");
-                $('#modalEliminar').modal('show');
-
-            }
-
-        </script>
-
-    @endpush()
 
 @endsection

@@ -25,5 +25,7 @@ class Tablas
     public static $ingreso_act = 'Ingresos de Suministro';
     public static $activo = 'Activo Fijo';
     public static $baja = 'Baja de un Activo';
+    public static $traslado = 'Traslado de Activos';
+    public static $asignacion = 'Asignacion de Activos';
 
 }

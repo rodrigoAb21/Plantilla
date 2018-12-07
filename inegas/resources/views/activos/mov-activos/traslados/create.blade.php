@@ -14,83 +14,35 @@
 
                 <div class="card-body ">
                     {{csrf_field()}}
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group mt-2">
-                            <div class="mb-1">
-                                <label>Solicita</label>
-                            </div>
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <br>
-                    {{--<div class="row">--}}
-
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 float-left" >
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">Origen</label>
-                                <select class="form-control selectpicker" data-live-search="true" data-style="btn btn-link" id="exampleFormControlSelect1">
-                                    <option>Finanzas</option>
-                                    <option>RR.HH.</option>
-                                    <option>Publicidad</option>
-                                    <option>Administracion</option>
-                                    <option>Informatica</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 float-right">
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">Destino</label>
-                                <select class="form-control selectpicker" data-live-search="true" data-style="btn btn-link" id="exampleFormControlSelect1">
-                                    <option>Finanzas</option>
-                                    <option>RR.HH.</option>
-                                    <option>Publicidad</option>
-                                    <option>Administracion</option>
-                                    <option>Informatica</option>
-                                </select>
-                            </div>
-                        </div>
-
-
-                    {{--</div>--}}
-
-                    <br><br><br>
-                    <div class="form-group form-file-upload form-file-multiple  row">
-                        <div class="input-group">
-                            <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
-                                <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Activo</label>
-                                    <select class="form-control selectpicker" data-live-search="true" data-style="btn btn-link" id="exampleFormControlSelect1">
-                                        <option>Mesa#4</option>
-                                        <option>Mesa#5</option>
-                                        <option>Mesa#6</option>
-                                        <option>Escritorio#20</option>
-                                        <option>Escritorio#21</option>
-                                        <option>Estante#9</option>
-                                        <option>Estante#15</option>
-                                        <option>CD-ROM Pack100</option>
-                                    </select>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group mt-2">
+                                <div class="mb-1">
+                                    <label>Fecha</label>
                                 </div>
+                                <input type="date" class="form-control" name="fecha" value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}">
                             </div>
-
-                            <span class="input-group-btn pt-4 ml-auto mr-0">
-                            <button type="button" class="btn btn-fab btn-round btn-primary">
-                                <i class="fa fa-plus"></i>
-                            </button>
-                        </span>
-
-
                         </div>
-                    </div>
-
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label>Ubicaciones</label>
+                                <select class="form-control selectpicker" data-live-search="true"
+                                        data-style="btn btn-link" id="grupo_cab">
+                                    @foreach($ubicaciones as $ubicacion)
+                                        <option value="{{$ubicacion -> id}}">{{$ubicacion -> nombre}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
                             <div class="form-group mt-2">
                                 <div class="mb-1">
                                     <label>Observacion</label>
                                 </div>
-                                <textarea rows="3" class="form-control"></textarea>
+                                <textarea name="observacion" class="form-control" rows="3"></textarea>
                             </div>
                         </div>
-
+                    </div>
                 </div>
             </div>
             <div class="card ">
