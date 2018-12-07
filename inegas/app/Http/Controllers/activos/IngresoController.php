@@ -4,9 +4,12 @@ namespace App\Http\Controllers\activos;
 
 use App\ActivoFijo;
 use App\Bitacora;
+use App\DetalleEstado;
+use App\Estado;
 use App\GrupoA;
 use App\IngresoActivo;
 use App\Tablas;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -98,6 +101,21 @@ class IngresoController extends Controller
                     $activo -> codigo = ''.$lg -> linea_a_id.' - '.$lg -> id.' - '.$activo -> id;
                     $activo -> save();
 
+                    $estado = Estado::where('nombre','LIKE', '%Nuevo%')->first();
+                   
+                    if ($estado == null){
+                        $estado = new Estado();
+                        $estado -> nombre = 'Nuevo';
+                        $estado -> visible = true;
+                        $estado ->save();
+                    }
+
+                    $detalle = new DetalleEstado();
+                    $detalle -> fecha = Carbon::now('America/La_Paz');
+                    $detalle -> motivo = 'Nuevo ingreso de activos fijos.';
+                    $detalle -> activo_fijo_id = $activo -> id;
+                    $detalle -> estado_id = $estado -> id;
+                    $detalle -> save();
                 }
 
                 $cont++;
