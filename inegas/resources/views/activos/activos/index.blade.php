@@ -22,9 +22,6 @@
                                         <button type="button" class="btn btn-fab btn-round btn-primary">
                                             <i class="fa fa-search"></i>
                                         </button>
-                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('act/activos/create')}}">
-                                                <i class="fa fa-plus"></i>
-                                        </a>
                                     </span>
 
                             </div>
@@ -63,7 +60,7 @@
                                                     <i class="fa fa-file-medical-alt"></i>
                                                 </button>
                                             </a>
-                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarActivo('{{$activo -> codigo}}', '{{url('act/activos/'.$activo->id)}}')">
+                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="modal_baja('{{$activo -> codigo}}', '{{url('act/activos/'.$activo->id)}}', '{{$hoy}}')">
                                                 <i class="fa fa-times"></i>
                                             </button>
                                         </td>
@@ -86,16 +83,17 @@
     </div>
     <!-- end row -->
 
-    @include('modal')
+    @include('activos.activos.modal_baja')
     @include('suministros.suministros.show')
     @push('scripts')
         <script>
 
-            function eliminarActivo(nombre, url) {
-                $('#modalEliminarForm').attr("action", url);
-                $('#modalEliminarTitulo').html("Eliminar Activo Fijo");
-                $('#modalEliminarEnunciado').html("Realmente desea eliminar el activo: " + nombre + "?");
-                $('#modalEliminar').modal('show');
+            function modal_baja(codigo, url, fecha) {
+                $('#modalForm').attr("action", url);
+                $('#fecha').val(fecha);
+                $('#motivo').val("");
+                $('#modalTitulo').html('Baja del Activo: ' + codigo);
+                $('#modal_baja').modal('show');
             }
         </script>
 

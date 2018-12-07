@@ -6,6 +6,7 @@ use App\ActivoFijo;
 use App\Bitacora;
 use App\DetalleEstado;
 use App\Estado;
+use App\FormularioBaja;
 use App\Tablas;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -23,7 +24,8 @@ class ActivoController extends Controller
             ->select('activo_fijo.id', 'activo_fijo.codigo','activo_fijo.serie', 'grupo_a.nombre as grupo', 'linea_a.nombre as linea')
             ->orderBy('activo_fijo.codigo', 'asc')
             ->paginate(10);
-        return view('activos.activos.index', ['activos' => $activos]);
+        $hoy = Carbon::now('America/La_Paz')->toDateString();
+        return view('activos.activos.index', ['activos' => $activos, 'hoy' => $hoy]);
     }
 
 
@@ -61,8 +63,22 @@ class ActivoController extends Controller
         return view('activos.activos.show', ['activo' => $activo]);
     }
 
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
+        $activo = ActivoFijo::findOrFail($id);
+
+        $baja = FormularioBaja::where('activo_fijo_id', '=', $id)->first();
+        if ($baja == null){
+            $baja = new FormularioBaja();
+            $baja -> fecha = $request['fecha'];
+            $baja -> motivo = $request['motivo'];
+            $baja -> activo_fijo_id = $id;
+
+            if ($baja -> save()){
+                Bitacora::registrar_accion(Tablas::$baja, 'Dio baja al activo con codigo: '.$activo -> codigo);
+            }
+        }
+
         return redirect('act/activos');
     }
 

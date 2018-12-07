@@ -108,7 +108,6 @@
                 $('#modalGrupo').modal('show');
             }
 
-
             function modalEdit(nombre, url) {
                 $('#modalForm').attr("action", url);
                 $('#metodo').val('patch');
