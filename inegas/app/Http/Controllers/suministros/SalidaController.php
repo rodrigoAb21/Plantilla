@@ -8,6 +8,7 @@ use App\SalidaSuministro;
 use App\Suministro;
 use App\Tablas;
 use App\Ubicacion;
+use App\Visitas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -25,7 +26,9 @@ class SalidaController extends Controller
             ->orderBy('salida_s.id', 'desc')
             ->paginate(10);
 
-        return view('suministros.mov-suministros.salidas.index', ['salidas' => $salidas, 'busqueda' => trim($request['busqueda'])]);
+        Visitas::incrementar(12);
+
+        return view('suministros.mov-suministros.salidas.index', ['salidas' => $salidas, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(12)]);
 
     }
 

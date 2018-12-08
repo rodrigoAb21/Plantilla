@@ -7,6 +7,7 @@ use App\Grupo;
 use App\Suministro;
 use App\Tablas;
 use App\UnidadMedida;
+use App\Visitas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -28,7 +29,9 @@ class SuministroController extends Controller
             ->orderBy('suministro.id', 'desc')
             ->paginate(10);
 
-        return view('suministros.suministros.index', ['suministros' => $suministros, 'busqueda' => trim($request['busqueda'])]);
+        Visitas::incrementar(10);
+
+        return view('suministros.suministros.index', ['suministros' => $suministros, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(10)]);
     }
 
 

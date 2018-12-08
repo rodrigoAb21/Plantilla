@@ -6,6 +6,7 @@ use App\ActivoFijo;
 use App\Bitacora;
 use App\Revaluo;
 use App\Tablas;
+use App\Visitas;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -23,7 +24,10 @@ class RevaluoController extends Controller
             ->select('revaluo.id', 'revaluo.fecha', 'activo_fijo.codigo','revaluo.estado', 'revaluo.tipo')
             ->orderBy('revaluo.id','desc')
             ->paginate(10);
-        return view('activos.revaluos.index',['revaluos' => $revaluos, 'busqueda' => trim($request['busqueda'])]);
+
+        Visitas::incrementar(4);
+
+        return view('activos.revaluos.index',['revaluos' => $revaluos, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(4)]);
     }
 
 

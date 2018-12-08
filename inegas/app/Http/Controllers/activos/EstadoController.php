@@ -5,6 +5,7 @@ namespace App\Http\Controllers\activos;
 use App\Bitacora;
 use App\Estado;
 use App\Tablas;
+use App\Visitas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -17,8 +18,11 @@ class EstadoController extends Controller
             ->where('nombre', 'LIKE','%'.trim($request['busqueda']).'%')
             ->where('visible', '=', true)
             ->orderBy('id', 'asc')
-            ->paginate(5);
-        return view('activos.estados.index', ['estados' => $estados, 'busqueda' => trim($request['busqueda'])]);
+            ->paginate(10);
+
+        Visitas::incrementar(2);
+
+        return view('activos.estados.index', ['estados' => $estados, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(2)]);
     }
 
 

@@ -7,6 +7,7 @@ use App\DetalleIngSum;
 use App\IngresoSuministro;
 use App\Suministro;
 use App\Tablas;
+use App\Visitas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -23,7 +24,10 @@ class IngresoController extends Controller
             ->orderBy('id', 'desc')
             ->paginate(10);
 
-        return view('suministros.mov-suministros.ingresos.index', ['ingresos' => $ingresos, 'busqueda' => trim($request['busqueda'])]);
+
+        Visitas::incrementar(11);
+
+        return view('suministros.mov-suministros.ingresos.index', ['ingresos' => $ingresos, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(11)]);
 
     }
 

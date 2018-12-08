@@ -8,6 +8,7 @@ use App\DetalleTraslado;
 use App\Tablas;
 use App\Traslado;
 use App\Ubicacion;
+use App\Visitas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -21,8 +22,8 @@ class TrasladoController extends Controller
             ->select('traslado.id','traslado.fecha', 'ubicacion.nombre as ubicacion')
             ->orderBy('traslado.id','desc')
             ->paginate(10);
-
-        return view('activos.mov-activos.traslados.index',['traslados' => $traslados, 'busqueda' => trim($request['busqueda'])]);
+        Visitas::incrementar(6);
+        return view('activos.mov-activos.traslados.index',['traslados' => $traslados, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(6)]);
     }
 
     public function create(){

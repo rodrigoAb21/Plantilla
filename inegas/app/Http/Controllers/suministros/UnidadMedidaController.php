@@ -5,6 +5,7 @@ namespace App\Http\Controllers\suministros;
 use App\Bitacora;
 use App\Tablas;
 use App\UnidadMedida;
+use App\Visitas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -18,7 +19,8 @@ class UnidadMedidaController extends Controller
             ->where('visible', '=', true)
             ->orderBy('id', 'asc')
             ->paginate(5);
-        return view('suministros.medidas.index',['unidades' => $unidades, 'busqueda' => trim($request['busqueda'])]);
+        Visitas::incrementar(9);
+        return view('suministros.medidas.index',['unidades' => $unidades, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(9)]);
     }
 
 

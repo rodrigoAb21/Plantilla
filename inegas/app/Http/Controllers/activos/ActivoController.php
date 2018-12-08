@@ -8,6 +8,7 @@ use App\DetalleEstado;
 use App\Estado;
 use App\FormularioBaja;
 use App\Tablas;
+use App\Visitas;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -25,7 +26,9 @@ class ActivoController extends Controller
             ->orderBy('activo_fijo.codigo', 'asc')
             ->paginate(10);
         $hoy = Carbon::now('America/La_Paz')->toDateString();
-        return view('activos.activos.index', ['activos' => $activos, 'hoy' => $hoy]);
+        Visitas::incrementar(3);
+
+        return view('activos.activos.index', ['activos' => $activos, 'hoy' => $hoy,'visitas' => Visitas::findOrFail(3)]);
     }
 
 

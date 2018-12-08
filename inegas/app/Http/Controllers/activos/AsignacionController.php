@@ -7,6 +7,7 @@ use App\Asignacion;
 use App\Bitacora;
 use App\DetalleAsignacion;
 use App\Tablas;
+use App\Visitas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -18,7 +19,9 @@ class AsignacionController extends Controller
             ->where('responsable', 'LIKE','%'.trim($request['busqueda']).'%')
             ->paginate(10);
 
-        return view('activos.mov-activos.asignaciones.index',['asignaciones' => $asignaciones, 'busqueda' => trim($request['busqueda'])]);
+        Visitas::incrementar(7);
+
+        return view('activos.mov-activos.asignaciones.index',['asignaciones' => $asignaciones, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(7)]);
     }
 
     public function create(){

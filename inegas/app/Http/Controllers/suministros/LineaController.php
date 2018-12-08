@@ -6,6 +6,7 @@ use App\Bitacora;
 use App\Grupo;
 use App\Linea;
 use App\Tablas;
+use App\Visitas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +20,8 @@ class LineaController extends Controller
             ->where('visible', '=', true)
             ->orderBy('id', 'asc')
             ->paginate(5);
-        return view('suministros.lineas.index',['lineas' => $lineas, 'busqueda' => trim($request['busqueda'])]);
+        Visitas::incrementar(8);
+        return view('suministros.lineas.index',['lineas' => $lineas, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(8)]);
     }
 
 

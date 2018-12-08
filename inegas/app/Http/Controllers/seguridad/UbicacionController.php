@@ -5,6 +5,7 @@ namespace App\Http\Controllers\seguridad;
 use App\Bitacora;
 use App\Tablas;
 use App\Ubicacion;
+use App\Visitas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -18,7 +19,8 @@ class UbicacionController extends Controller
             ->where('visible', '=', true)
             ->orderBy('id', 'asc')
             ->paginate(5);
-        return view('seguridad.ubicaciones.index', ['ubicaciones' => $ubicaciones, 'busqueda' => trim($request['busqueda'])]);
+        Visitas::incrementar(14);
+        return view('seguridad.ubicaciones.index', ['ubicaciones' => $ubicaciones, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(14)]);
     }
 
 

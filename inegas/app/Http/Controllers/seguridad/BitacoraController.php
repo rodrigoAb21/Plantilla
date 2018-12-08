@@ -4,6 +4,7 @@ namespace App\Http\Controllers\seguridad;
 
 use App\Bitacora;
 use App\User;
+use App\Visitas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -19,8 +20,8 @@ class BitacoraController extends Controller
                 ->select('bitacora.id', 'bitacora.inicio', 'users.nombre')
                 ->orderBy('bitacora.id','asc')
                 ->paginate(10);
-
-            return view('seguridad.bitacora.index',['bitacoras' => $bitacoras, 'busqueda' => trim($request['busqueda'])]);
+            Visitas::incrementar(15);
+            return view('seguridad.bitacora.index',['bitacoras' => $bitacoras, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(15)]);
     }
 
     public function show($id){

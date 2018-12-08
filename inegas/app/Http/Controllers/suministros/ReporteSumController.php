@@ -4,6 +4,7 @@ namespace App\Http\Controllers\suministros;
 
 use App\IngresoSuministro;
 use App\SalidaSuministro;
+use App\Visitas;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -27,7 +28,10 @@ class ReporteSumController extends Controller
             ->select('suministro.id','suministro.nombre', 'suministro.stock_minimo','suministro.stock_maximo','suministro.stock','suministro.marca','suministro.descripcion', 'suministro.codigo','grupo_s.nombre as grupo','unidad_medida.nombre as medida', 'linea_s.nombre as linea')
             ->orderBy('suministro.id', 'desc')
             ->paginate(10);
-        return view('suministros.reportes-sum.inventario', ['suministros' => $suministros, 'busqueda' => trim($request['busqueda'])]);
+
+        Visitas::incrementar(20);
+
+        return view('suministros.reportes-sum.inventario', ['suministros' => $suministros, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(20)]);
     }
 
     public static function inventarioPDF(){
@@ -46,7 +50,9 @@ class ReporteSumController extends Controller
     public function ingreso()
     {
         $ingresos = IngresoSuministro::orderBy('id','asc')->paginate(10);
-        return view('suministros.reportes-sum.ingreso', ['ingresos' => $ingresos]);
+        Visitas::incrementar(21);
+
+        return view('suministros.reportes-sum.ingreso', ['ingresos' => $ingresos,'visitas' => Visitas::findOrFail(21)]);
     }
 
     public function ingresoPDF()
@@ -63,7 +69,8 @@ class ReporteSumController extends Controller
             ->select('salida_s.id', 'salida_s.recibe', 'salida_s.fecha', 'salida_s.estado', 'ubicacion.nombre as ubicacion')
             ->orderBy('salida_s.id', 'desc')
             ->paginate(10);
-        return view('suministros.reportes-sum.salida', ['salidas' => $salidas]);
+        Visitas::incrementar(22);
+        return view('suministros.reportes-sum.salida', ['salidas' => $salidas,'visitas' => Visitas::findOrFail(22)]);
     }
 
     public function salidaPDF()

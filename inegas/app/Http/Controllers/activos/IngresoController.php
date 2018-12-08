@@ -9,6 +9,7 @@ use App\Estado;
 use App\GrupoA;
 use App\IngresoActivo;
 use App\Tablas;
+use App\Visitas;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -26,7 +27,9 @@ class IngresoController extends Controller
             ->orderBy('id', 'desc')
             ->paginate(10);
 
-        return view('activos.mov-activos.ingresos.index', ['ingresos' => $ingresos, 'busqueda' => trim($request['busqueda'])]);
+        Visitas::incrementar(5);
+
+        return view('activos.mov-activos.ingresos.index', ['ingresos' => $ingresos, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(5)]);
 
     }
 

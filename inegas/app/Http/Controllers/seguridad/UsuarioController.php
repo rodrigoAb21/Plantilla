@@ -5,6 +5,7 @@ namespace App\Http\Controllers\seguridad;
 use App\Bitacora;
 use App\Tablas;
 use App\User;
+use App\Visitas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -21,7 +22,10 @@ class UsuarioController extends Controller
             ->orWhere('estado','LIKE','%'.trim($request['busqueda']).'%')
             ->orderBy('id', 'asc')
             ->paginate(5);
-        return view('seguridad.usuarios.index', ['usuarios' => $usuarios, 'busqueda' => trim($request['busqueda'])]);
+
+        Visitas::incrementar(13);
+
+        return view('seguridad.usuarios.index', ['usuarios' => $usuarios, 'busqueda' => trim($request['busqueda']), 'visitas' => Visitas::findOrFail(13)]);
     }
 
 
