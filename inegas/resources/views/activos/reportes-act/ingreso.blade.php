@@ -13,7 +13,7 @@
 
                 </div>
                 <div class="card-body">
-                    <form action="">
+                    <form method="GET" action="{{url('/act/reportes/ingresos')}}" autocomplete="off">
                         <div class="form-group form-file-upload form-file-multiple">
                             <div class="input-group">
                                 <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
@@ -37,7 +37,7 @@
                                 <button type="button" class="btn btn-fab btn-round btn-primary">
                                     <i class="fa fa-search"></i>
                                 </button>
-                                    <a href="{{url('/act/reportes/movimientos/ingresosPDF')}}">
+                                    <a href="{{url('/act/reportes/ingresosPDF')}}">
                                         <button type="button" class="btn btn-fab btn-round btn-primary" title="Descargar PDF" >
                                             <i class="fa fa-file-pdf"></i>
                                         </button>

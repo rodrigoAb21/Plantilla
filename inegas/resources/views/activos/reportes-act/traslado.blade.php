@@ -14,7 +14,7 @@
                 </div>
                 <div class="card-body">
 
-                    <form method="GET" action="{{url('/act/reportes/movimientos/traslados')}}" autocomplete="off">
+                    <form method="GET" action="{{url('/act/reportes/traslados')}}" autocomplete="off">
                         <div class="form-group form-file-upload form-file-multiple">
                             <div class="input-group">
                                 <label for="busqueda" class="bmd-label-floating">Buscar</label>
@@ -23,7 +23,7 @@
                                         <button type="submit" class="btn btn-fab btn-round btn-primary">
                                             <i class="fa fa-search"></i>
                                         </button>
-                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('/act/reportes/movimientos/trasladosPDF')}}">
+                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('/act/reportes/trasladosPDF')}}">
                                                 <i class="fa fa-file-pdf"></i>
                                         </a>
                                     </span>

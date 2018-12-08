@@ -81,14 +81,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/act/reportes/inventario', 'activos\ReporteActController@vista_inventario');
         Route::get('/act/reportes/inventarioPDF', 'activos\ReporteActController@inventarioPDF');
 
-        Route::get('/act/reportes/movimientos/ingresos', 'activos\ReporteActController@vista_ingreso');
-        Route::get('/act/reportes/movimientos/ingresosPDF', 'activos\ReporteActController@ingresoPDF');
+        Route::get('/act/reportes/ingresos', 'activos\ReporteActController@vista_ingreso');
+        Route::get('/act/reportes/ingresosPDF', 'activos\ReporteActController@ingresoPDF');
 
-        Route::get('/act/reportes/movimientos/traslados', 'activos\ReporteActController@vista_traslado');
-        Route::get('/act/reportes/movimientos/trasladosPDF', 'activos\ReporteActController@trasladoPDF');
+        Route::get('/act/reportes/traslados', 'activos\ReporteActController@vista_traslado');
+        Route::get('/act/reportes/trasladosPDF', 'activos\ReporteActController@trasladoPDF');
 
-        Route::get('/act/reportes/movimientos/asignaciones', 'activos\ReporteActController@vista_asignacion');
-        Route::get('/act/reportes/movimientos/asignacionesPDF', 'activos\ReporteActController@asignacionPDF');
+        Route::get('/act/reportes/asignaciones', 'activos\ReporteActController@vista_asignacion');
+        Route::get('/act/reportes/asignacionesPDF', 'activos\ReporteActController@asignacionPDF');
     });
 
 
