@@ -6,6 +6,7 @@ use App\Bitacora;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -41,6 +42,13 @@ class LoginController extends Controller
 
     public function authenticated(Request $request, $user)
     {
+        if (Auth::user()-> estado == 'Deshabilitado'){
+            $this->guard()->logout();
+
+            $request->session()->invalidate();
+
+            return redirect('/login');
+        }
         Bitacora::ingreso();
     }
 

@@ -18,45 +18,21 @@
                             <div class="input-group">
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                                         <label>ID</label>
-                                        <p>1</p>
+                                        <p>{{$traslado -> id}}</p>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                        <label>Estado</label>
-                                        <p>Realizado</p>
+                                        <label>Fecha</label>
+                                    <p>{{$traslado -> fecha}}</p>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                        <label >Fecha</label>
-                                        <p>20/11/2018 10:09</p>
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
-
-                                        <label>Origen</label>
-                                        <p>Finanzas</p>
-
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
-
-                                    <label>Destino</label>
-                                    <p>RRHH</p>
-
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
-
-                                        <label>Solicita</label>
-                                        <p>Marina Toledo</p>
-
+                                        <label >Ubicacion</label>
+                                    <p>{{$traslado -> ubicacion}}</p>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
-                                        <label>Observacion</label>
-                                        <p>Ninguna.</p>
-
+                                    <label >Observacion</label>
+                                    <p>{{$traslado -> observacion}}</p>
                                 </div>
                             </div>
-
                     </div>
                 </div>
                 <div class="card ">
@@ -77,18 +53,13 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Escritorio#1</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Mesa#20</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Silla#2</td>
-                                </tr>
+                                @foreach($activos as $activo)
+                                    <tr>
+                                        <td>{{$loop -> iteration}}</td>
+                                        <td>{{'COD: '.$activo -> codigo.', '.$activo -> linea.' - '.$activo -> grupo}}</td>
+                                    </tr>
+                                @endforeach
+
                                 </tbody>
                             </table>
                         </div>
