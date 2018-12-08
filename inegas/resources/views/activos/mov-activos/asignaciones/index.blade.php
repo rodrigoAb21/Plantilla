@@ -8,12 +8,11 @@
                     <div class="card-icon">
                         <i class="fa fa-dolly-flatbed fa-2x"></i>
                     </div>
-                    <h3 class="card-title">Traslados</h3>
-
+                    <h3 class="card-title">Asignaciones</h3>
                 </div>
                 <div class="card-body">
 
-                    <form method="GET" action="{{url('act/mov-activos/traslados')}}" autocomplete="off">
+                    <form method="GET" action="{{url('act/mov-activos/asignaciones')}}" autocomplete="off">
                         <div class="form-group form-file-upload form-file-multiple">
                             <div class="input-group">
                                 <label for="busqueda" class="bmd-label-floating">Buscar</label>
@@ -22,7 +21,7 @@
                                         <button type="submit" class="btn btn-fab btn-round btn-primary">
                                             <i class="fa fa-search"></i>
                                         </button>
-                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('act/mov-activos/traslados/create')}}">
+                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('act/mov-activos/asignaciones/create')}}">
                                                 <i class="fa fa-plus"></i>
                                         </a>
                                     </span>
@@ -30,6 +29,7 @@
                             </div>
                         </div>
                     </form>
+
                     <div class="table-responsive">
                         <table class="table table-hover table-striped ">
                             <thead>
@@ -42,13 +42,13 @@
                             </thead>
                             <tbody>
 
-                                @foreach($traslados as $traslado)
+                                @foreach($asignaciones as $traslado)
                                     <tr>
                                         <td>{{$traslado -> id}}</td>
                                         <td>{{$traslado -> fecha}}</td>
-                                        <td>{{$traslado -> ubicacion}}</td>
+                                        <td>{{$traslado -> responsable}}</td>
                                         <td class="text-right ">
-                                            <a href="{{url('act/mov-activos/traslados/'.$traslado -> id)}}">
+                                            <a href="{{url('act/mov-activos/asignaciones/'.$traslado -> id)}}">
                                                 <button class="btn btn-outline-primary btn-sm">
                                                     <i class="fa fa-eye"></i>
                                                 </button>
@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    {{$traslados -> links('pagination.default')}}
+                    {{$asignaciones -> links('pagination.default')}}
                 </div>
             </div>
 
