@@ -40,7 +40,7 @@ Route::middleware('auth')->group(function () {
 
 
         Route::get('/sum/reportes/inventario', 'suministros\ReporteSumController@inventario');
-        Route::get('/sum/reportes/inventario/PDF', 'suministros\ReporteSumController@inventarioPDF');
+        Route::get('/sum/reportes/inventarioPDF', 'suministros\ReporteSumController@inventarioPDF');
 
         Route::get('/sum/reportes/movimientos/ingresos', 'suministros\ReporteSumController@ingreso');
         Route::get('/sum/reportes/movimientos/ingresosPDF', 'suministros\ReporteSumController@ingresoPDF');
@@ -73,6 +73,20 @@ Route::middleware('auth')->group(function () {
         Route::resource('/act/mov-activos/traslados', 'activos\TrasladoController');
         Route::resource('/act/mov-activos/asignaciones', 'activos\AsignacionController');
         Route::get('/act/reportes/inventario','activos\ReporteActController@inventario');
+
+
+
+        Route::get('/act/reportes/inventario', 'activos\ReporteActController@vista_inventario');
+        Route::get('/act/reportes/inventarioPDF', 'activos\ReporteActController@inventarioPDF');
+
+        Route::get('/act/reportes/movimientos/ingresos', 'activos\ReporteActController@vista_ingreso');
+        Route::get('/act/reportes/movimientos/ingresosPDF', 'activos\ReporteActController@ingresoPDF');
+
+        Route::get('/act/reportes/movimientos/traslados', 'activos\ReporteActController@vista_traslado');
+        Route::get('/act/reportes/movimientos/trasladosPDF', 'activos\ReporteActController@trasladoPDF');
+
+        Route::get('/act/reportes/movimientos/asignaciones', 'activos\ReporteActController@vista_asignacion');
+        Route::get('/act/reportes/movimientos/asignacionesPDF', 'activos\ReporteActController@asignacionPDF');
     });
 
 

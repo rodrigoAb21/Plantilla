@@ -113,10 +113,22 @@
                                     <p> Inventario </p>
                                 </a>
                             </li>
-                            <li class="{{ Request::is('act/reportes/movimientos*') ? 'nav-item active' : 'nav-item' }}">
-                                <a class="nav-link" href="{{url('act/reportes/movimientos')}}">
-                                    <i class="fa fa-truck-loading"></i>
-                                    <p> Movimientos </p>
+                            <li class="{{ Request::is('/act/reportes/movimientos/ingresos*') ? 'nav-item active' : 'nav-item' }}">
+                                <a class="nav-link" href="{{url('/act/reportes/movimientos/ingresos')}}">
+                                    <i class="fa fa-angle-double-right"></i>
+                                    <p> Ingresos </p>
+                                </a>
+                            </li>
+                            <li class="{{ Request::is('/act/reportes/movimientos/traslados*') ? 'nav-item active' : 'nav-item' }}">
+                                <a class="nav-link" href="{{url('/act/reportes/movimientos/traslados')}}">
+                                    <i class="fa fa-dolly-flatbed"></i>
+                                    <p> Traslados </p>
+                                </a>
+                            </li>
+                            <li class="{{ Request::is('/act/reportes/movimientos/asignaciones*') ? 'nav-item active' : 'nav-item' }}">
+                                <a class="nav-link" href="{{url('/act/reportes/movimientos/asignaciones')}}">
+                                    <i class="fa fa-hand-point-right"></i>
+                                    <p> Asignaciones </p>
                                 </a>
                             </li>
 
