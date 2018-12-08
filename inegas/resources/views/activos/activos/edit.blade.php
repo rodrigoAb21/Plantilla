@@ -46,7 +46,7 @@
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                 <div class="form-group">
                                                     <label>Caracteristicas</label>
-                                                    <textarea name="caracteristicas" class="form-control" rows="3">{{$activo -> caracteristicas}}</textarea>
+                                                    <textarea name="caracteristicas" class="form-control" required  rows="3">{{$activo -> caracteristicas}}</textarea>
                                                 </div>
                                             </div>
                                         </div>

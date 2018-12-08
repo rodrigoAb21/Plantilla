@@ -23,6 +23,8 @@ Auth::routes();
 
 Route::middleware('auth')->group(function () {
 
+    Route::get('/config/tema', 'seguridad\UsuarioController@tema');
+
     Route::middleware('suministros')->group(function () {
         Route::get('/sum', function () {
             return view('layouts.dashboard-suministros');

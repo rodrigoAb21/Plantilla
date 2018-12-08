@@ -7,6 +7,7 @@ use App\Tablas;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class UsuarioController extends Controller
@@ -94,5 +95,21 @@ class UsuarioController extends Controller
         return redirect('seg/usuarios');
     }
 
+    public function tema(){
+        $u = User::findOrFail(Auth::user()->id);
+
+        if ($u->color == 'white'){
+            $u->color = 'black';
+        }elseif ($u->color == 'black'){
+            $u->color = 'red';
+        }else{
+            $u->color = 'white';
+        }
+
+        $u -> save();
+
+        return redirect('login');
+
+    }
 
 }

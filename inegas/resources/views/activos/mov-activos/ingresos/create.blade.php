@@ -20,7 +20,7 @@
                                     <div class="mb-1">
                                         <label>Fecha Ingreso</label>
                                     </div>
-                                    <input type="date" class="form-control" name="fecha_ingreso" value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}">
+                                    <input type="date" class="form-control" name="fecha_ingreso" value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}" required >
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -28,7 +28,7 @@
                                     <div class="mb-1">
                                         <label>Fecha Factura</label>
                                     </div>
-                                    <input type="date" class="form-control" name="fecha_factura" value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}">
+                                    <input type="date" class="form-control" name="fecha_factura" value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}" required >
                                 </div>
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
@@ -36,7 +36,7 @@
                                     <div class="mb-1">
                                         <label>Proveedor</label>
                                     </div>
-                                    <input type="text" class="form-control" name="proveedor">
+                                    <input type="text" class="form-control" name="proveedor" required >
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -44,7 +44,7 @@
                                     <div class="mb-1">
                                         <label>Nro. Factura</label>
                                     </div>
-                                    <input type="number" class="form-control" name="nro_factura">
+                                    <input type="number" class="form-control" name="nro_factura" required >
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">

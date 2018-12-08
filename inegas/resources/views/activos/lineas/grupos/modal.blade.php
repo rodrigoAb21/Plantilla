@@ -13,7 +13,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Nombre</label>
-                        <input type="text" class="form-control" id="nombreGrupo" name="nombreGrupo">
+                        <input type="text" class="form-control" id="nombreGrupo" name="nombreGrupo" required >
                     </div>
                 </div>
                 <div class="modal-footer">

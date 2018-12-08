@@ -21,7 +21,7 @@
                                     <div class="mb-1">
                                         <label for="nombre">Nombre</label>
                                     </div>
-                                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{$linea -> nombre}}">
+                                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{$linea -> nombre}}" required >
                                 </div>
                             </div>
                         </div>

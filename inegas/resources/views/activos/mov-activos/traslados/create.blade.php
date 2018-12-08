@@ -20,14 +20,14 @@
                                 <div class="mb-1">
                                     <label>Fecha</label>
                                 </div>
-                                <input type="date" class="form-control" name="fecha" value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}">
+                                <input type="date" class="form-control" name="fecha" value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}" required >
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label>Ubicaciones</label>
                                 <select class="form-control selectpicker" data-live-search="true"
-                                        data-style="btn btn-link" name="ubicacion_id">
+                                        data-style="btn btn-link" name="ubicacion_id" required >
                                     @foreach($ubicaciones as $ubicacion)
                                         <option value="{{$ubicacion -> id}}">{{$ubicacion -> nombre}}</option>
                                     @endforeach
@@ -39,7 +39,7 @@
                                 <div class="mb-1">
                                     <label>Observacion</label>
                                 </div>
-                                <textarea name="observacion" class="form-control" rows="3"></textarea>
+                                <textarea name="observacion" class="form-control" rows="3" required ></textarea>
                             </div>
                         </div>
                     </div>
@@ -132,7 +132,7 @@
                 var fila = ''+
                             '<tr id="fila-'+cont+'">' +
                                 '<td>' +
-                                    '<input type="hidden" value="'+activo_id+'" name="activo_fijo_idT[]">'+
+                                    '<input type="hidden" value="'+activo_id+'" name="activo_fijo_idT[]"  required >'+
                                         activo_nombre+
                                 '</td>' +
                                 '<td class="text-right">' +

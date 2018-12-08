@@ -29,7 +29,7 @@
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label>Motivo</label>
-                                    <textarea name="motivo" class="form-control" rows="3"></textarea>
+                                    <textarea name="motivo" class="form-control" rows="3" required ></textarea>
                                 </div>
                             </div>
                         </div>

@@ -14,7 +14,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group">
                             <label>Fecha</label>
-                            <input type="date" class="form-control" id="fecha" name="fecha">
+                            <input type="date" class="form-control"  required id="fecha" name="fecha">
                         </div>
                     </div>
 
