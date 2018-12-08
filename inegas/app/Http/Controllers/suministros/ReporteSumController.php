@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\suministros;
 
+use App\IngresoSuministro;
+use App\SalidaSuministro;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -29,13 +31,52 @@ class ReporteSumController extends Controller
     }
 
     public static function inventarioPDF(){
-        $pdf = PDF::loadView('suministros.reportes-sum.inventarioPDF',["informe" => "SOY UNA VARIABLE"]);
+        $suministros = DB::table('suministro')
+            ->join('grupo_s','suministro.grupo_s_id','=','grupo_s.id')
+            ->join('linea_s','grupo_s.linea_s_id','=', 'linea_s.id')
+            ->join('unidad_medida','suministro.unidad_medida_id','=','unidad_medida.id')
+            ->where('suministro.visible', '=', true)
+            ->select('suministro.id','suministro.nombre', 'suministro.stock_minimo','suministro.stock_maximo','suministro.stock','suministro.marca','suministro.descripcion', 'suministro.codigo','grupo_s.nombre as grupo','unidad_medida.nombre as medida', 'linea_s.nombre as linea')
+            ->orderBy('suministro.id', 'desc')
+            ->paginate(10);
+        $pdf = PDF::loadView('suministros.reportes-sum.inventarioPDF',["suministros" => $suministros]);
         return $pdf->download('inventario.pdf');
     }
 
-    public function movimientos()
+    public function ingreso()
     {
-        return view('suministros.reportes-sum.movimientos');
+        $ingresos = IngresoSuministro::orderBy('id','asc')->paginate(10);
+        return view('suministros.reportes-sum.ingreso', ['ingresos' => $ingresos]);
     }
+
+    public function ingresoPDF()
+    {
+        $ingresos = IngresoSuministro::orderBy('id','asc')->get();
+        $pdf = PDF::loadView('suministros.reportes-sum.ingresoPDF',['ingresos' => $ingresos]);
+        return $pdf->download('ingresos.pdf');
+    }
+
+    public function salida()
+    {
+        $salidas = DB::table('salida_s')
+            ->join('ubicacion','salida_s.ubicacion_id','=','ubicacion.id')
+            ->select('salida_s.id', 'salida_s.recibe', 'salida_s.fecha', 'salida_s.estado', 'ubicacion.nombre as ubicacion')
+            ->orderBy('salida_s.id', 'desc')
+            ->paginate(10);
+        return view('suministros.reportes-sum.salida', ['salidas' => $salidas]);
+    }
+
+    public function salidaPDF()
+    {
+        $salidas = DB::table('salida_s')
+            ->join('ubicacion','salida_s.ubicacion_id','=','ubicacion.id')
+            ->select('salida_s.id', 'salida_s.recibe', 'salida_s.fecha', 'salida_s.estado', 'ubicacion.nombre as ubicacion')
+            ->orderBy('salida_s.id', 'desc')
+            ->get();
+
+        $pdf = PDF::loadView('suministros.reportes-sum.salidaPDF',['salidas' => $salidas]);
+        return $pdf->download('salidas.pdf');
+    }
+
 
 }

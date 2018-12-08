@@ -25,30 +25,28 @@
     </style>
 </head>
 <body style="font-family: sans-serif";>
-<h2 align="center">Inventario de Suministros</h2>
+<h2 align="center">Movimientos de Ingresos de Suministros</h2>
 <div>
     <div class="table-responsive">
         <table class="table table-hover table-striped ">
             <thead>
             <tr>
-                <th><b>Codigo</b></th>
-                <th><b>Nombre</b></th>
-                <th><b>Marca</b></th>
-                <th><b>Stock</b></th>
-                <th><b>U. Medida</b></th>
-                <th><b>Linea - Grupo</b></th>
+                <th><b>ID</b></th>
+                <th><b>Fecha</b></th>
+                <th><b>Proveedor</b></th>
+                <th><b>Nro Factura</b></th>
+                <th><b>Estado</b></th>
             </tr>
             </thead>
             <tbody>
-            @foreach($suministros as $suministro)
-                    <tr class="table-warning">
-                        <td>{{$suministro -> codigo}}</td>
-                        <td>{{$suministro -> nombre}}</td>
-                        <td>{{$suministro -> marca}}</td>
-                        <td>{{$suministro -> stock}}</td>
-                        <td>{{$suministro -> medida}}</td>
-                        <td>{{$suministro -> linea.' - '.$suministro -> grupo}}</td>
-                    </tr>
+            @foreach($ingresos as $ingreso)
+                <tr>
+                    <td>{{$ingreso -> id}}</td>
+                    <td>{{Carbon\Carbon::parse($ingreso -> fecha_ingreso)->format('d/m/Y h:i A')}}</td>
+                    <td>{{$ingreso -> proveedor}}</td>
+                    <td>{{$ingreso -> nro_factura}}</td>
+                    <td>{{$ingreso -> estado}}</td>
+                </tr>
             @endforeach
             </tbody>
         </table>
