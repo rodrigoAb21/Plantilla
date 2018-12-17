@@ -45,7 +45,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                     <div class="form-group">
                                         <label>Recibe</label>
-                                        <p>{{$salida -> recibe}}</p>
+                                        <p>{{$salida -> recibe}} - {{$salida -> cargo}}</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

@@ -7,6 +7,7 @@ use App\DetalleSalSum;
 use App\SalidaSuministro;
 use App\Suministro;
 use App\Tablas;
+use App\Trabajador;
 use App\Ubicacion;
 use App\Visitas;
 use Illuminate\Http\Request;
@@ -18,11 +19,12 @@ class SalidaController extends Controller
     public function index(Request $request)
     {
         $salidas = DB::table('salida_s')
-            ->join('ubicacion','salida_s.ubicacion_id','=','ubicacion.id')
+            ->join('trabajador','salida_s.trabajador_id','=','trabajador.id')
+            ->join('ubicacion','trabajador.ubicacion_id','=','ubicacion.id')
             ->where('ubicacion.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
-            ->orWhere('salida_s.recibe', 'LIKE','%'.trim($request['busqueda']).'%')
+            ->orWhere('trabajador.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
             ->orWhere('salida_s.estado', 'LIKE','%'.trim($request['busqueda']).'%')
-            ->select('salida_s.id', 'salida_s.recibe', 'salida_s.fecha', 'salida_s.estado', 'ubicacion.nombre as ubicacion')
+            ->select('salida_s.id', 'salida_s.fecha', 'salida_s.estado', 'ubicacion.nombre as ubicacion', 'trabajador.nombre as recibe')
             ->orderBy('salida_s.id', 'desc')
             ->paginate(10);
 
@@ -35,10 +37,6 @@ class SalidaController extends Controller
 
     public function create()
     {
-        $ubicaciones = Ubicacion::
-            where('visible','=', true)
-            ->orderBy('id','asc')
-            ->get();
 
         $suministros = Suministro::
             where('visible','=', true)
@@ -46,7 +44,14 @@ class SalidaController extends Controller
             ->orderBy('nombre','asc')
             ->get();
 
-        return view('suministros.mov-suministros.salidas.create', ['ubicaciones' => $ubicaciones, 'suministros' => $suministros]);
+        $trabajadores = DB::table('trabajador')
+            ->join('ubicacion','trabajador.ubicacion_id','=','ubicacion.id')
+            ->where('trabajador.visible','=', true)
+            ->select('trabajador.id', 'trabajador.nombre', 'trabajador.cargo', 'ubicacion.nombre as ubicacion')
+            ->orderBy('ubicacion.nombre','asc')
+            ->get();
+
+        return view('suministros.mov-suministros.salidas.create', ['suministros' => $suministros, 'trabajadores' => $trabajadores]);
     }
 
 
@@ -74,10 +79,9 @@ class SalidaController extends Controller
             if ($mal == 0){
                 $salida = new SalidaSuministro();
                 $salida -> fecha = $request['fecha'];
-                $salida -> recibe = $request['recibe'];
+                $salida -> trabajador_id = $request['trabajador_id'];
                 $salida -> observacion = $request['observacion'];
                 $salida -> estado = 'Realizado';
-                $salida -> ubicacion_id = $request['ubicacion_id'];
 
                 $salida ->save();
 
@@ -119,8 +123,10 @@ class SalidaController extends Controller
     public function show($id)
     {
         $salida = DB::table('salida_s')
-            ->join('ubicacion', 'salida_s.ubicacion_id','=', 'ubicacion.id')
-            ->select('salida_s.id', 'salida_s.recibe','salida_s.fecha', 'salida_s.observacion', 'salida_s.estado', 'ubicacion.nombre as ubicacion')
+            ->where('salida_s.id','=', $id)
+            ->join('trabajador', 'salida_s.trabajador_id', '=', 'trabajador.id')
+            ->join('ubicacion', 'trabajador.ubicacion_id','=', 'ubicacion.id')
+            ->select('salida_s.id', 'salida_s.fecha', 'salida_s.observacion', 'salida_s.estado', 'ubicacion.nombre as ubicacion', 'trabajador.nombre as recibe', 'trabajador.cargo as cargo')
             ->first();
 
         $detalles = DB::table('detalle_s_s')

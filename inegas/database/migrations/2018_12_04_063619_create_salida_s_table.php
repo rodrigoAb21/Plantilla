@@ -16,11 +16,10 @@ class CreateSalidaSTable extends Migration
         Schema::create('salida_s', function (Blueprint $table) {
             $table->increments('id');
             $table->date('fecha');
-            $table->string('recibe');
             $table->string('observacion');
             $table->string('estado');
-            $table->unsignedInteger('ubicacion_id');
-            $table->foreign('ubicacion_id')->references('id')->on('ubicacion')->onDelete('cascade');
+            $table->unsignedInteger('trabajador_id');
+            $table->foreign('trabajador_id')->references('id')->on('trabajador')->onDelete('cascade');
         });
     }
 

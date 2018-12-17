@@ -11,10 +11,9 @@ class SalidaSuministro extends Model
     public $timestamps = false;
     protected $fillable = [
         'fecha',
-        'recibe',
         'observacion',
         'estado',
-        'ubicacion_id',
+        'trabajador_id',
     ];
 
 }

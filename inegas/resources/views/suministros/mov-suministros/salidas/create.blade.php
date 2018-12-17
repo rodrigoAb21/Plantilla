@@ -15,7 +15,7 @@
                 <div class="card-body ">
                     {{csrf_field()}}
                     <div class="input-group">
-                        <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                             <div class="form-group mt-2">
                                 <div class="mb-1">
                                     <label>Fecha</label>
@@ -23,23 +23,18 @@
                                 <input type="date" class="form-control" name="fecha" value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}" required>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="form-group">
-                                <label>Ubicacion</label>
-                                <select class="form-control selectpicker" data-live-search="true"
-                                        data-style="btn btn-link" name="ubicacion_id">
-                                    @foreach($ubicaciones as $ubicacion)
-                                        <option value="{{$ubicacion->id}}">{{$ubicacion -> nombre}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+
+                        <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
                             <div class="form-group mt-2">
                                 <div class="mb-1">
                                     <label>Recibe</label>
                                 </div>
-                                <input type="text" class="form-control" name="recibe" required>
+                                <select class="form-control selectpicker" data-live-search="true"
+                                        data-style="btn btn-link" name="trabajador_id">
+                                    @foreach($trabajadores as $trabajador)
+                                        <option value="{{$trabajador->id}}">{{$trabajador -> nombre}} // {{$trabajador -> cargo}} // {{$trabajador -> ubicacion}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
