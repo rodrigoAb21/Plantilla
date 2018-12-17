@@ -100,7 +100,14 @@ Route::middleware('auth')->group(function () {
         Route::patch('/seg/usuarios/{id}/habilitar', 'seguridad\UsuarioController@habilitar');
 
         Route::resource('/seg/bitacora', 'seguridad\BitacoraController');
+
         Route::resource('/seg/ubicaciones', 'seguridad\UbicacionController');
+        Route::post('seg/ubicaciones/{id}/trabajadores', 'seguridad\UbicacionController@guardarTrabjador');
+        Route::patch('seg/ubicaciones/{idUbi}/trabajadores/{idTrab}', 'seguridad\UbicacionController@actualizarTrabajador');
+        Route::delete('seg/ubicaciones/{idUbi}/trabajadores/{idTrab}', 'seguridad\UbicacionController@eliminarTrabajador');
+
+
+
         Route::resource('/seg/estadisticas', 'seguridad\EstadisticaController');
     });
 });
