@@ -65,10 +65,12 @@ class ReporteSumController extends Controller
     public function salida()
     {
         $salidas = DB::table('salida_s')
-            ->join('ubicacion','salida_s.ubicacion_id','=','ubicacion.id')
-            ->select('salida_s.id', 'salida_s.recibe', 'salida_s.fecha', 'salida_s.estado', 'ubicacion.nombre as ubicacion')
+            ->join('trabajador','salida_s.trabajador_id','=','trabajador.id')
+            ->join('ubicacion','trabajador.ubicacion_id','=','ubicacion.id')
+            ->select('salida_s.id', 'salida_s.fecha', 'salida_s.estado', 'ubicacion.nombre as ubicacion', 'trabajador.nombre as recibe')
             ->orderBy('salida_s.id', 'desc')
             ->paginate(10);
+
         Visitas::incrementar(22);
         return view('suministros.reportes-sum.salida', ['salidas' => $salidas,'visitas' => Visitas::findOrFail(22)]);
     }
@@ -76,8 +78,9 @@ class ReporteSumController extends Controller
     public function salidaPDF()
     {
         $salidas = DB::table('salida_s')
-            ->join('ubicacion','salida_s.ubicacion_id','=','ubicacion.id')
-            ->select('salida_s.id', 'salida_s.recibe', 'salida_s.fecha', 'salida_s.estado', 'ubicacion.nombre as ubicacion')
+            ->join('trabajador','salida_s.trabajador_id','=','trabajador.id')
+            ->join('ubicacion','trabajador.ubicacion_id','=','ubicacion.id')
+            ->select('salida_s.id', 'salida_s.fecha', 'salida_s.estado', 'ubicacion.nombre as ubicacion', 'trabajador.nombre as recibe')
             ->orderBy('salida_s.id', 'desc')
             ->get();
 
