@@ -21,6 +21,7 @@ Route::get('/home', function () {
 
 Auth::routes();
 
+
 Route::middleware('auth')->group(function () {
 
     Route::get('/config/tema', 'seguridad\UsuarioController@tema');
@@ -108,10 +109,10 @@ Route::middleware('auth')->group(function () {
 
         Route::resource('/seg/bitacora', 'seguridad\BitacoraController');
 
-        Route::resource('/seg/ubicaciones', 'seguridad\UbicacionController');
-        Route::post('seg/ubicaciones/{id}/trabajadores', 'seguridad\UbicacionController@guardarTrabjador');
-        Route::patch('seg/ubicaciones/{idUbi}/trabajadores/{idTrab}', 'seguridad\UbicacionController@actualizarTrabajador');
-        Route::delete('seg/ubicaciones/{idUbi}/trabajadores/{idTrab}', 'seguridad\UbicacionController@eliminarTrabajador');
+        Route::resource('/seg/departamentos', 'seguridad\UbicacionController');
+        Route::post('seg/departamentos/{id}/trabajadores', 'seguridad\UbicacionController@guardarTrabjador');
+        Route::patch('seg/departamentos/{idUbi}/trabajadores/{idTrab}', 'seguridad\UbicacionController@actualizarTrabajador');
+        Route::delete('seg/departamentos/{idUbi}/trabajadores/{idTrab}', 'seguridad\UbicacionController@eliminarTrabajador');
 
 
 

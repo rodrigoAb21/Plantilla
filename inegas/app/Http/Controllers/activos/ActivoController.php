@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use LaravelQRCode\Facades\QRCode;
 
 class ActivoController extends Controller
 {
@@ -77,6 +78,10 @@ class ActivoController extends Controller
         if ($asignacion == null){
             return view('activos.activos.show2', ['activo' => $activo]);
         }else{
+            $qr = public_path('img/activos/activos/codigos/qr-activo-'.$id.'.png');
+            $datos = 'Codigo:'.$activo->codigo.'//Linea:'.$activo->linea.'//Grupo:'.$activo->grupo.'//Ubicacion:'.$asignacion->ubicacion.'//Responsable:'.$asignacion->responsable.'//';
+            QRCode::text($datos)->setSize(6)->setOutfile($qr)->png();
+
             return view('activos.activos.show', ['activo' => $activo, 'asignacion' => $asignacion]);
         }
 

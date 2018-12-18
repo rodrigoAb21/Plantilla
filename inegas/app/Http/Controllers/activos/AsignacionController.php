@@ -11,6 +11,7 @@ use App\Visitas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use LaravelQRCode\Facades\QRCode;
 
 class AsignacionController extends Controller
 {
@@ -86,8 +87,12 @@ class AsignacionController extends Controller
             DB::rollback();
         }
 
+
+
         return redirect('/act/mov-activos/asignaciones');
     }
+
+
 
     public function show($id){
         $asignacion = DB::table('asignacion')
@@ -107,6 +112,7 @@ class AsignacionController extends Controller
             ->orderBy('linea_a.id', 'asc')
             ->orderBy('grupo_a.id', 'asc')
             ->get();
+
 
         return view('activos.mov-activos.asignaciones.show',['asignacion' => $asignacion, 'activos' => $activos]);
 

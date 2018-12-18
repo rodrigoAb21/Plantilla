@@ -48,10 +48,10 @@
                     </a>
                 </li>
 
-                <li class="{{ Request::is('seg/ubicaciones*') ? 'nav-item active' : 'nav-item' }}">
-                    <a class="nav-link" href="{{url('seg/ubicaciones')}}">
+                <li class="{{ Request::is('seg/departamentos*') ? 'nav-item active' : 'nav-item' }}">
+                    <a class="nav-link" href="{{url('seg/departamentos')}}">
                         <i class="fa fa-sitemap"></i>
-                        <p> Ubicaciones </p>
+                        <p> Departamentos </p>
                     </a>
                 </li>
 

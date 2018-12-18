@@ -21,6 +21,11 @@
                                         <img src="{{asset('img/activos/activos/'.$activo -> foto)}}"  alt="...">
                                     </div>
                                 </div>
+                                <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                    <div class="fileinput-new thumbnail img-raised" style="height: 80%; width: 80%">
+                                        <img src="{{asset('img/activos/activos/codigos/qr-activo-'.$activo -> id.'.png')}}"  alt="...">
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                                 <div class="row">

@@ -9,12 +9,12 @@
                     <div class="card-icon">
                         <i class="fa fa-sitemap fa-2x"></i>
                     </div>
-                    <h3 class="card-title">Ubicaciones</h3>
+                    <h3 class="card-title">Departamentos</h3>
 
                 </div>
                 <div class="card-body">
 
-                    <form method="GET" action="{{url('seg/ubicaciones')}}" autocomplete="off">
+                    <form method="GET" action="{{url('seg/departamentos')}}" autocomplete="off">
                         <div class="form-group form-file-upload form-file-multiple">
                             <div class="input-group">
                                 <label for="busqueda" class="bmd-label-floating">Buscar</label>
@@ -23,7 +23,7 @@
                                         <button type="submit" class="btn btn-fab btn-round btn-primary">
                                             <i class="fa fa-search"></i>
                                         </button>
-                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('seg/ubicaciones/create')}}">
+                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('seg/departamentos/create')}}">
                                                 <i class="fa fa-plus"></i>
                                         </a>
                                     </span>
@@ -47,12 +47,12 @@
                                         <td>{{$ubi -> id}}</td>
                                         <td>{{$ubi -> nombre}}</td>
                                         <td class="text-right ">
-                                            <a href="{{url('seg/ubicaciones/'.$ubi -> id.'/edit')}}">
+                                            <a href="{{url('seg/departamentos/'.$ubi -> id.'/edit')}}">
                                                 <button class="btn btn-outline-primary btn-sm">
                                                     <i class="fa fa-pen"></i>
                                                 </button>
                                             </a>
-                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="modalEliminar('{{$ubi -> nombre}}', '{{url('seg/ubicaciones/'.$ubi -> id)}}')">
+                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="modalEliminar('{{$ubi -> nombre}}', '{{url('seg/departamentos/'.$ubi -> id)}}')">
                                                 <i class="fa fa-times"></i>
                                             </button>
                                         </td>
@@ -80,8 +80,8 @@
             function modalEliminar(nombre, url) {
                 $('#modalEliminarForm').attr("action", url);
                 $('#metodo').val("delete");
-                $('#modalEliminarTitulo').html("Eliminar Ubicacion");
-                $('#modalEliminarEnunciado').html("Realmente desea eliminar la ubicacion: " + nombre + "?");
+                $('#modalEliminarTitulo').html("Eliminar Departamento");
+                $('#modalEliminarEnunciado').html("Realmente desea eliminar el departamento: " + nombre + "?");
                 $('#modalEliminar').modal('show');
 
             }

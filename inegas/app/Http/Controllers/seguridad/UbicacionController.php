@@ -40,7 +40,7 @@ class UbicacionController extends Controller
             Bitacora::registrar_accion(Tablas::$ubicacion, 'Creó la ubicación con ID:'.$ubi->id);
         }
 
-        return redirect('seg/ubicaciones');
+        return redirect('seg/departamentos');
     }
 
 
@@ -65,7 +65,7 @@ class UbicacionController extends Controller
             Bitacora::registrar_accion(Tablas::$ubicacion, 'Editó la ubicación con ID:'.$ubi->id);
         }
 
-        return redirect('seg/ubicaciones');
+        return redirect('seg/departamentos');
     }
 
 
@@ -77,7 +77,7 @@ class UbicacionController extends Controller
             Bitacora::registrar_accion(Tablas::$ubicacion, 'Eliminó la ubicación con ID:'.$ubi->id);
         }
 
-        return redirect('seg/ubicaciones');
+        return redirect('seg/departamentos');
     }
 
 
@@ -91,7 +91,7 @@ class UbicacionController extends Controller
             Bitacora::registrar_accion(Tablas::$trabajador, 'Registro al trabajador con ID: '.$trabajador->id);
         }
 
-        return redirect('seg/ubicaciones/'.$id.'/edit');
+        return redirect('seg/departamentos/'.$id.'/edit');
     }
 
     public function actualizarTrabajador(Request $request, $idUbi, $idTrab){
@@ -102,7 +102,7 @@ class UbicacionController extends Controller
             Bitacora::registrar_accion(Tablas::$trabajador, 'Edito al trabajador con ID: '.$trabajador->id);
         }
 
-        return redirect('seg/ubicaciones/'.$idUbi.'/edit');
+        return redirect('seg/departamentos/'.$idUbi.'/edit');
     }
 
     public function eliminarTrabajador($idUbi, $idTrab){
@@ -112,7 +112,7 @@ class UbicacionController extends Controller
             Bitacora::registrar_accion(Tablas::$trabajador, 'Elimino al trabajador con ID: '.$trabajador->id);
         }
 
-        return redirect('seg/ubicaciones/'.$idUbi.'/edit');
+        return redirect('seg/departamentos/'.$idUbi.'/edit');
     }
 
 
