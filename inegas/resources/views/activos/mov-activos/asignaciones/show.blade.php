@@ -9,7 +9,7 @@
                         <div class="card-icon">
                             <i class="fa fa-dolly-flatbed fa-2x"></i>
                         </div>
-                        <h3 class="card-title">Traslados</h3>
+                        <h3 class="card-title">Asignacion</h3>
                     </div>
 
                     <div class="card-body ">

@@ -89,6 +89,13 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/act/reportes/asignaciones', 'activos\ReporteActController@vista_asignacion');
         Route::get('/act/reportes/asignacionesPDF', 'activos\ReporteActController@asignacionPDF');
+
+        Route::get('/act/reportes/asignaciones/{id}', 'activos\ReporteActController@ver_asignacion');
+        Route::get('/act/reportes/asignaciones/{id}/PDF', 'activos\ReporteActController@ver_asignacion_pdf');
+
+
+
+
     });
 
 

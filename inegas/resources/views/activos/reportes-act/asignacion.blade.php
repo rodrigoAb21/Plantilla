@@ -55,6 +55,7 @@
                                 <th><b>ID</b></th>
                                 <th><b>Fecha</b></th>
                                 <th><b>Responsable</b></th>
+                                <th class="text-right w-25"><b>Opciones</b></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -64,6 +65,18 @@
                                     <td>{{$traslado -> id}}</td>
                                     <td>{{$traslado -> fecha}}</td>
                                     <td>{{$traslado -> responsable}}</td>
+                                    <td class="text-right ">
+                                        <a href="{{url('act/reportes/asignaciones/'.$traslado -> id)}}">
+                                            <button class="btn btn-outline-primary btn-sm">
+                                                <i class="fa fa-eye"></i>
+                                            </button>
+                                        </a>
+                                        <a href="{{url('act/reportes/asignaciones/'.$traslado -> id.'/PDF')}}">
+                                            <button class="btn btn-outline-primary btn-sm">
+                                                <i class="fa fa-file-pdf"></i>
+                                            </button>
+                                        </a>
+                                    </td>
                                 </tr>
                             @endforeach
 
