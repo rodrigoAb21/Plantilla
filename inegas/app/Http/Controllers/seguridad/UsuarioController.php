@@ -44,6 +44,7 @@ class UsuarioController extends Controller
         $usuario -> email = $request['email'];
         $usuario -> area = $request['area'];
         $usuario -> estado = "Habilitado";
+        $usuario -> color = "white";
         $usuario -> password = bcrypt($request['password']);
         if ($usuario -> save()){
             Bitacora::registrar_accion(Tablas::$usuario, 'Creó al usuario con ID:'.$usuario->id);
