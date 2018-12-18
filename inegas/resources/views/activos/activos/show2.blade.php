@@ -66,24 +66,6 @@
                                             <p>{{$activo -> color}}</p>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                        <div class="form-group">
-                                            <label>Ubicacion</label>
-                                            <p>{{$asignacion -> ubicacion}}</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                        <div class="form-group">
-                                            <label>Responsable</label>
-                                            <p>{{$asignacion -> responsable}}</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                        <div class="form-group">
-                                            <label>Cargo</label>
-                                            <p>{{$asignacion -> cargo}}</p>
-                                        </div>
-                                    </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <div class="form-group">
                                             <label>Caracteristicas</label>

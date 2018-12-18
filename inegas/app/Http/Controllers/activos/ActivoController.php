@@ -63,7 +63,24 @@ class ActivoController extends Controller
             ->select('activo_fijo.id', 'activo_fijo.marca', 'activo_fijo.modelo', 'activo_fijo.color', 'activo_fijo.foto','activo_fijo.codigo', 'activo_fijo.caracteristicas', 'activo_fijo.serie', 'activo_fijo.costo_actual','activo_fijo.costo_ingreso', 'grupo_a.nombre as grupo', 'linea_a.nombre as linea')
             ->orderBy('activo_fijo.id', 'asc')
             ->first();
-        return view('activos.activos.show', ['activo' => $activo]);
+
+        $asignacion = DB::table('asignacion')
+            ->join('detalle_asig', 'asignacion.id', '=', 'detalle_asig.asignacion_id')
+            ->join('trabajador', 'asignacion.trabajador_id', '=', 'trabajador.id')
+            ->join('ubicacion', 'trabajador.ubicacion_id', '=', 'ubicacion.id')
+            ->where('detalle_asig.activo_fijo_id','=',$activo->id)
+            ->orderBy('detalle_asig.id', 'desc')
+            ->select('asignacion.fecha', 'trabajador.nombre as responsable', 'detalle_asig.activo_fijo_id', 'trabajador.cargo', 'ubicacion.nombre as ubicacion')
+            ->first();
+
+
+        if ($asignacion == null){
+            return view('activos.activos.show2', ['activo' => $activo]);
+        }else{
+            return view('activos.activos.show', ['activo' => $activo, 'asignacion' => $asignacion]);
+        }
+
+
     }
 
     public function destroy(Request $request, $id)
