@@ -28,7 +28,12 @@
                                 <div class="mb-1">
                                     <label>Responsable</label>
                                 </div>
-                                <input type="text" class="form-control" name="responsable" required >
+                                <select class="form-control selectpicker" data-live-search="true"
+                                        data-style="btn btn-link" name="trabajador_id">
+                                    @foreach($trabajadores as $trabajador)
+                                        <option value="{{$trabajador->id}}">{{$trabajador -> nombre}} // {{$trabajador -> cargo}} // {{$trabajador -> ubicacion}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">

@@ -16,8 +16,9 @@ class CreateAsignacionTable extends Migration
         Schema::create('asignacion', function (Blueprint $table) {
             $table->increments('id');
             $table->date('fecha');
-            $table->string('responsable');
             $table->string('observacion');
+            $table->unsignedInteger('trabajador_id');
+            $table->foreign('trabajador_id')->references('id')->on('trabajador')->onDelete('cascade');
         });
     }
 

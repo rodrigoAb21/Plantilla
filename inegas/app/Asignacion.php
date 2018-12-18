@@ -12,6 +12,6 @@ class Asignacion extends Model
     protected $fillable = [
         'fecha',
         'observacion',
-        'responsable',
+        'trabajador_id',
     ];
 }

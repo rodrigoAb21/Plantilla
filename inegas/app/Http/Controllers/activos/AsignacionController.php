@@ -15,8 +15,11 @@ use Illuminate\Support\Facades\DB;
 class AsignacionController extends Controller
 {
     public function index(Request $request){
-        $asignaciones = Asignacion::orderBy('asignacion.id','desc')
-            ->where('responsable', 'LIKE','%'.trim($request['busqueda']).'%')
+        $asignaciones = DB::table('asignacion')
+            ->join('trabajador','asignacion.trabajador_id','=','trabajador.id')
+            ->orderBy('asignacion.id','desc')
+            ->where('trabajador.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
+            ->select('asignacion.id', 'asignacion.fecha', 'asignacion.observacion', 'trabajador.nombre as responsable')
             ->paginate(10);
 
         Visitas::incrementar(7);
@@ -34,9 +37,16 @@ class AsignacionController extends Controller
             ->orderBy('grupo_a.id', 'asc')
             ->get();
 
+        $trabajadores = DB::table('trabajador')
+            ->join('ubicacion','trabajador.ubicacion_id','=','ubicacion.id')
+            ->where('trabajador.visible','=', true)
+            ->select('trabajador.id', 'trabajador.nombre', 'trabajador.cargo', 'ubicacion.nombre as ubicacion')
+            ->orderBy('ubicacion.nombre','asc')
+            ->get();
 
 
-        return view('activos.mov-activos.asignaciones.create',['activos' => $activos]);
+
+        return view('activos.mov-activos.asignaciones.create',['activos' => $activos, 'trabajadores' => $trabajadores]);
     }
 
     public function store(Request $request){
@@ -47,7 +57,7 @@ class AsignacionController extends Controller
             $asignacion = new Asignacion();
             $asignacion -> fecha = $request['fecha'];
             $asignacion -> observacion = $request['observacion'];
-            $asignacion -> responsable = $request['responsable'];
+            $asignacion -> trabajador_id = $request['trabajador_id'];
             if ($asignacion -> save()){
 
                 $act_ids = $request['activo_fijo_idT'];
@@ -80,7 +90,12 @@ class AsignacionController extends Controller
     }
 
     public function show($id){
-        $asignacion = Asignacion::findOrFail($id);
+        $asignacion = DB::table('asignacion')
+            ->where('asignacion.id', '=', $id)
+            ->join('trabajador','asignacion.trabajador_id','=','trabajador.id')
+            ->join('ubicacion','trabajador.ubicacion_id','=','ubicacion.id')
+            ->select('asignacion.id', 'asignacion.fecha', 'asignacion.observacion', 'trabajador.nombre as responsable', 'trabajador.cargo', 'ubicacion.nombre as ubicacion')
+            ->first();
         
         $activos = DB::table('activo_fijo')
             ->join('grupo_a','activo_fijo.grupo_a_id','=','grupo_a.id')

@@ -83,12 +83,12 @@
                                     <p> Ingresos </p>
                                 </a>
                             </li>
-                            <li class="{{ Request::is('act/mov-activos/traslados*') ? 'nav-item active' : 'nav-item' }}">
+                            {{--<li class="{{ Request::is('act/mov-activos/traslados*') ? 'nav-item active' : 'nav-item' }}">
                                 <a class="nav-link" href="{{url('act/mov-activos/traslados')}}">
                                     <i class="fa fa-dolly-flatbed"></i>
                                     <p> Traslados </p>
                                 </a>
-                            </li>
+                            </li>--}}
                             <li class="{{ Request::is('act/mov-activos/asignaciones*') ? 'nav-item active' : 'nav-item' }}">
                                 <a class="nav-link" href="{{url('act/mov-activos/asignaciones')}}">
                                     <i class="fa fa-hand-point-right"></i>
@@ -119,12 +119,12 @@
                                     <p> Ingresos </p>
                                 </a>
                             </li>
-                            <li class="{{ Request::is('act/reportes/traslados*') ? 'nav-item active' : 'nav-item' }}">
+                            {{--<li class="{{ Request::is('act/reportes/traslados*') ? 'nav-item active' : 'nav-item' }}">
                                 <a class="nav-link" href="{{url('/act/reportes/traslados')}}">
                                     <i class="fa fa-dolly-flatbed"></i>
                                     <p> Traslados </p>
                                 </a>
-                            </li>
+                            </li>--}}
                             <li class="{{ Request::is('act/reportes/asignaciones*') ? 'nav-item active' : 'nav-item' }}">
                                 <a class="nav-link" href="{{url('/act/reportes/asignaciones')}}">
                                     <i class="fa fa-hand-point-right"></i>
