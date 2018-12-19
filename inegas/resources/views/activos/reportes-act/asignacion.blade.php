@@ -13,30 +13,15 @@
 
                 </div>
                 <div class="card-body">
-                    <form method="GET" action="{{url('/act/reportes/asignaciones')}}" autocomplete="off">
+                    <form method="GET" action="{{url('act/reportes/asignaciones')}}" autocomplete="off">
                         <div class="form-group form-file-upload form-file-multiple">
                             <div class="input-group">
-                                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                    <div class="form-group mt-2">
-                                        <div class="mb-1">
-                                            <label for="inicio">Desde</label>
-                                        </div>
-                                        <input type="date" class="form-control" id="inicio" name="inicio">
-                                    </div>
-                                </div>
-                                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                    <div class="form-group mt-2">
-                                        <div class="mb-1">
-                                            <label for="fin">Hasta</label>
-                                        </div>
-                                        <input type="date" class="form-control" id="fin" name="fin">
-                                    </div>
-                                </div>
-
-                                <span class="input-group-btn pt-4 ml-auto mr-0">
-                                <button type="button" class="btn btn-fab btn-round btn-primary">
-                                    <i class="fa fa-search"></i>
-                                </button>
+                                <label for="busqueda" class="bmd-label-floating">Buscar</label>
+                                <input type="text" class="form-control" id="busqueda" name="busqueda" value="{{$busqueda}}" >
+                                <span class="input-group-btn">
+                                        <button type="submit" class="btn btn-fab btn-round btn-primary">
+                                            <i class="fa fa-search"></i>
+                                        </button>
                                     <a href="{{url('/act/reportes/asignacionesPDF')}}">
                                         <button type="button" class="btn btn-fab btn-round btn-primary" title="Descargar PDF" >
                                             <i class="fa fa-file-pdf"></i>
@@ -54,6 +39,7 @@
                             <tr>
                                 <th><b>ID</b></th>
                                 <th><b>Fecha</b></th>
+                                <th><b>Ubicacion</b></th>
                                 <th><b>Responsable</b></th>
                                 <th class="text-right w-25"><b>Opciones</b></th>
                             </tr>
@@ -64,6 +50,7 @@
                                 <tr>
                                     <td>{{$traslado -> id}}</td>
                                     <td>{{$traslado -> fecha}}</td>
+                                    <td>{{$traslado -> ubicacion}}</td>
                                     <td>{{$traslado -> responsable}}</td>
                                     <td class="text-right ">
                                         <a href="{{url('act/reportes/asignaciones/'.$traslado -> id)}}">

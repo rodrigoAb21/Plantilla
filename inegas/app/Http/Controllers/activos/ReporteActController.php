@@ -17,9 +17,10 @@ class ReporteActController extends Controller
         $asignaciones = DB::table('asignacion')
             ->join('trabajador','asignacion.trabajador_id','=','trabajador.id')
             ->join('ubicacion','trabajador.ubicacion_id','=','ubicacion.id')
-            ->orderBy('asignacion.id','asc')
-            ->select('asignacion.id', 'asignacion.fecha', 'asignacion.observacion', 'trabajador.nombre as responsable', 'trabajador.cargo', 'ubicacion.nombre as ubicacion')
+            ->orderBy('asignacion.id','desc')
             ->where('trabajador.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
+            ->orWhere('ubicacion.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
+            ->select('asignacion.id', 'asignacion.fecha', 'asignacion.observacion', 'trabajador.nombre as responsable', 'ubicacion.nombre as ubicacion')
             ->paginate(10);
 
         Visitas::incrementar(19);
@@ -113,6 +114,10 @@ class ReporteActController extends Controller
         $activos = DB::table('activo_fijo')
             ->join('grupo_a', 'activo_fijo.grupo_a_id', '=', 'grupo_a.id')
             ->join('linea_a', 'grupo_a.linea_a_id', '=', 'linea_a.id')
+            ->where('activo_fijo.codigo', 'LIKE','%'.trim($request['busqueda']).'%')
+            ->orWhere('activo_fijo.serie', 'LIKE','%'.trim($request['busqueda']).'%')
+            ->orWhere('grupo_a.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
+            ->orWhere('linea_a.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
             ->select('activo_fijo.id', 'activo_fijo.codigo','activo_fijo.serie', 'grupo_a.nombre as grupo', 'linea_a.nombre as linea','activo_fijo.disponibilidad')
             ->orderBy('activo_fijo.codigo', 'asc')
             ->paginate(10);

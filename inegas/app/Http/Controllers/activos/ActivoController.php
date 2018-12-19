@@ -23,13 +23,17 @@ class ActivoController extends Controller
         $activos = DB::table('activo_fijo')
             ->join('grupo_a', 'activo_fijo.grupo_a_id', '=', 'grupo_a.id')
             ->join('linea_a', 'grupo_a.linea_a_id', '=', 'linea_a.id')
+            ->where('activo_fijo.codigo', 'LIKE','%'.trim($request['busqueda']).'%')
+            ->orWhere('activo_fijo.serie', 'LIKE','%'.trim($request['busqueda']).'%')
+            ->orWhere('grupo_a.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
+            ->orWhere('linea_a.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
             ->select('activo_fijo.id', 'activo_fijo.codigo','activo_fijo.serie', 'grupo_a.nombre as grupo', 'linea_a.nombre as linea','activo_fijo.disponibilidad')
             ->orderBy('activo_fijo.codigo', 'asc')
             ->paginate(10);
         $hoy = Carbon::now('America/La_Paz')->toDateString();
         Visitas::incrementar(3);
 
-        return view('activos.activos.index', ['activos' => $activos, 'hoy' => $hoy,'visitas' => Visitas::findOrFail(3)]);
+        return view('activos.activos.index', ['activos' => $activos, 'hoy' => $hoy,'visitas' => Visitas::findOrFail(3), 'busqueda' => trim($request['busqueda'])]);
     }
 
 

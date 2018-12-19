@@ -18,9 +18,11 @@ class AsignacionController extends Controller
     public function index(Request $request){
         $asignaciones = DB::table('asignacion')
             ->join('trabajador','asignacion.trabajador_id','=','trabajador.id')
+            ->join('ubicacion','trabajador.ubicacion_id','=','ubicacion.id')
             ->orderBy('asignacion.id','desc')
             ->where('trabajador.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
-            ->select('asignacion.id', 'asignacion.fecha', 'asignacion.observacion', 'trabajador.nombre as responsable')
+            ->orWhere('ubicacion.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
+            ->select('asignacion.id', 'asignacion.fecha', 'asignacion.observacion', 'trabajador.nombre as responsable', 'ubicacion.nombre as ubicacion')
             ->paginate(10);
 
         Visitas::incrementar(7);

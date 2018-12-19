@@ -20,7 +20,7 @@
                                     <label for="activo">Codigo / Grupo</label>
                                     <select id="selector" class="form-control selectpicker" data-live-search="true" data-style="btn btn-link" name="activo_fijo_id" required >
                                         @foreach($activos as $activo)
-                                            <option value="{{$activo -> id}}">{{$activo -> codigo.' / '.$activo -> grupo}}</option>
+                                            <option value="{{$activo -> id}}">{{$activo -> codigo.' / '.$activo -> grupo.' - '.$activo -> serie}}</option>
                                         @endforeach
 
                                     </select>

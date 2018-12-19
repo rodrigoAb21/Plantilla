@@ -35,7 +35,7 @@ class RevaluoController extends Controller
     {
         $activos = DB::table('activo_fijo')
             ->join('grupo_a', 'activo_fijo.grupo_a_id','=','grupo_a.id')
-            ->select('activo_fijo.id', 'activo_fijo.codigo', 'activo_fijo.costo_actual', 'grupo_a.nombre as grupo','grupo_a.id as grupo_id')
+            ->select('activo_fijo.id','activo_fijo.serie', 'activo_fijo.codigo', 'activo_fijo.costo_actual', 'grupo_a.nombre as grupo','grupo_a.id as grupo_id')
             ->orderBy('grupo_a.id', 'asc')
             ->get();
         return view('activos.revaluos.create', ['activos' => $activos]);
