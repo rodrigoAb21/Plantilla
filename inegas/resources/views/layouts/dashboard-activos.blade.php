@@ -241,6 +241,7 @@
 <script src="{{asset('js/plugins/jasny-bootstrap.min.js')}}"></script>
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="{{asset('js/material-dashboard.minf066.js?v=2.1.0')}}" type="text/javascript"></script>
+<script src="{{asset('js/validador.js')}}" type="text/javascript"></script>
 <script>
     $(document).ready(function() {
         $().ready(function() {
