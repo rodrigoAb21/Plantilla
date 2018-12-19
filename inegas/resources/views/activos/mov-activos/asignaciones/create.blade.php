@@ -67,7 +67,7 @@
                                         <select class="form-control selectpicker" data-live-search="true"
                                                 data-style="btn btn-link" id="activo_cab">
                                             @foreach($activos as $activo)
-                                                <option value="{{$activo->id}}">{{'COD:'.$activo -> codigo.', '.$activo -> linea.' - '.$activo -> grupo}}</option>
+                                                <option value="{{$activo->id}}">{{'COD:'.$activo -> codigo.', '.$activo -> linea.' - '.$activo -> grupo.' - '.$activo -> serie}}</option>
                                             @endforeach
                                         </select>
                                     </div>

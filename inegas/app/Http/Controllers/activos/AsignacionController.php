@@ -32,7 +32,7 @@ class AsignacionController extends Controller
         $activos = DB::table('activo_fijo')
             ->join('grupo_a','activo_fijo.grupo_a_id','=','grupo_a.id')
             ->join('linea_a','grupo_a.linea_a_id','=','linea_a.id')
-            ->select('activo_fijo.id', 'activo_fijo.codigo', 'grupo_a.nombre as grupo', 'linea_a.nombre as linea')
+            ->select('activo_fijo.id', 'activo_fijo.codigo', 'grupo_a.nombre as grupo', 'linea_a.nombre as linea', 'activo_fijo.serie')
             ->where('activo_fijo.disponibilidad', '!=', 'Baja')
             ->orderBy('linea_a.id', 'asc')
             ->orderBy('grupo_a.id', 'asc')

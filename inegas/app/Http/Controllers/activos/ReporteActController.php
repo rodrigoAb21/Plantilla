@@ -28,7 +28,7 @@ class ReporteActController extends Controller
     }
 
     public function vista_ingreso(Request $request){
-        $ingresos = DB::table('ingreso_s')
+        $ingresos = DB::table('ingreso_a')
             ->where('nro_factura', 'LIKE','%'.trim($request['busqueda']).'%')
             ->orWhere('proveedor', 'LIKE','%'.trim($request['busqueda']).'%')
             ->orWhere('estado', 'LIKE','%'.trim($request['busqueda']).'%')
@@ -169,6 +169,13 @@ class ReporteActController extends Controller
         $pdf = PDF::loadView('activos.reportes-act.trasladoPDF',['traslados' => $traslados]);
         return $pdf->download('traslados.pdf');
     }
+
+
+
+    // --------------------------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------------------------
 
 
 
