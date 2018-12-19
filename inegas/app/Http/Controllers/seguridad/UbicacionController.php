@@ -48,6 +48,7 @@ class UbicacionController extends Controller
     {
         $trabajadores = DB::table('trabajador')
             ->where('nombre', 'LIKE','%'.trim($request['busqueda']).'%')
+            ->orWhere('cargo', 'LIKE','%'.trim($request['busqueda']).'%')
             ->where('visible', '=', true)
             ->where('ubicacion_id','=',$id)
             ->orderBy('id', 'asc')

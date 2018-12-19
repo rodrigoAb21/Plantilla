@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="card-body ">
-                    <form method="GET" action="{{url('seg/ubicaciones/'.$ubicacion -> id.'/edit')}}" autocomplete="off">
+                    <form method="GET" action="{{url('seg/departamentos/'.$ubicacion -> id.'/edit')}}" autocomplete="off">
                         <div class="form-group form-file-upload form-file-multiple">
                             <div class="input-group">
                                 <label for="busqueda" class="bmd-label-floating">Buscar</label>

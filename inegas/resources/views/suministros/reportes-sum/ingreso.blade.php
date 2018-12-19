@@ -13,30 +13,15 @@
 
                 </div>
                 <div class="card-body">
-                    <form action="">
+                    <form method="GET" action="{{url('sum/reportes/movimientos/ingresos')}}" autocomplete="off">
                         <div class="form-group form-file-upload form-file-multiple">
                             <div class="input-group">
-                                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                    <div class="form-group mt-2">
-                                        <div class="mb-1">
-                                            <label for="inicio">Desde</label>
-                                        </div>
-                                        <input type="date" class="form-control" id="inicio" name="inicio">
-                                    </div>
-                                </div>
-                                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                    <div class="form-group mt-2">
-                                        <div class="mb-1">
-                                            <label for="fin">Hasta</label>
-                                        </div>
-                                        <input type="date" class="form-control" id="fin" name="fin">
-                                    </div>
-                                </div>
-
-                                <span class="input-group-btn pt-4 ml-auto mr-0">
-                                <button type="button" class="btn btn-fab btn-round btn-primary">
-                                    <i class="fa fa-search"></i>
-                                </button>
+                                <label for="busqueda" class="bmd-label-floating">Buscar</label>
+                                <input type="text" class="form-control" id="busqueda" name="busqueda" value="{{$busqueda}}" >
+                                <span class="input-group-btn">
+                                        <button type="submit" class="btn btn-fab btn-round btn-primary">
+                                            <i class="fa fa-search"></i>
+                                        </button>
                                     <a href="{{url('sum/reportes/movimientos/ingresosPDF')}}">
                                         <button type="button" class="btn btn-fab btn-round btn-primary" title="Descargar PDF" >
                                             <i class="fa fa-file-pdf"></i>

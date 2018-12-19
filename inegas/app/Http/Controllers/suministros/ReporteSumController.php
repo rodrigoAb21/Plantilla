@@ -47,12 +47,17 @@ class ReporteSumController extends Controller
         return $pdf->download('inventario.pdf');
     }
 
-    public function ingreso()
+    public function ingreso(Request $request)
     {
-        $ingresos = IngresoSuministro::orderBy('id','asc')->paginate(10);
+        $ingresos =  DB::table('ingreso_s')
+            ->where('nro_factura', 'LIKE','%'.trim($request['busqueda']).'%')
+            ->orWhere('proveedor', 'LIKE','%'.trim($request['busqueda']).'%')
+            ->orWhere('estado', 'LIKE','%'.trim($request['busqueda']).'%')
+            ->orderBy('id', 'desc')
+            ->paginate(10);
         Visitas::incrementar(21);
 
-        return view('suministros.reportes-sum.ingreso', ['ingresos' => $ingresos,'visitas' => Visitas::findOrFail(21)]);
+        return view('suministros.reportes-sum.ingreso', ['ingresos' => $ingresos,'visitas' => Visitas::findOrFail(21), 'busqueda' => trim($request['busqueda'])]);
     }
 
     public function ingresoPDF()
@@ -62,17 +67,20 @@ class ReporteSumController extends Controller
         return $pdf->download('ingresos.pdf');
     }
 
-    public function salida()
+    public function salida(Request $request)
     {
         $salidas = DB::table('salida_s')
             ->join('trabajador','salida_s.trabajador_id','=','trabajador.id')
             ->join('ubicacion','trabajador.ubicacion_id','=','ubicacion.id')
+            ->where('ubicacion.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
+            ->orWhere('trabajador.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
+            ->orWhere('salida_s.estado', 'LIKE','%'.trim($request['busqueda']).'%')
             ->select('salida_s.id', 'salida_s.fecha', 'salida_s.estado', 'ubicacion.nombre as ubicacion', 'trabajador.nombre as recibe')
             ->orderBy('salida_s.id', 'desc')
             ->paginate(10);
 
         Visitas::incrementar(22);
-        return view('suministros.reportes-sum.salida', ['salidas' => $salidas,'visitas' => Visitas::findOrFail(22)]);
+        return view('suministros.reportes-sum.salida', ['salidas' => $salidas,'visitas' => Visitas::findOrFail(22), 'busqueda' => trim($request['busqueda'])]);
     }
 
     public function salidaPDF()

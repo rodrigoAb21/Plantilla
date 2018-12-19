@@ -14,37 +14,6 @@
                 </div>
                 <div class="card-body">
 
-                    <form action="">
-                        <div class="form-group form-file-upload form-file-multiple">
-                            <div class="input-group">
-                                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                    <div class="form-group mt-2">
-                                        <div class="mb-1">
-                                            <label for="inicio">Desde</label>
-                                        </div>
-                                        <input type="date" class="form-control" id="inicio" name="inicio">
-                                    </div>
-                                </div>
-                                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                    <div class="form-group mt-2">
-                                        <div class="mb-1">
-                                            <label>Usuario</label>
-                                        </div>
-                                        <input type="text" class="form-control" name="busqueda" value="{{$busqueda}}">
-                                    </div>
-                                </div>
-
-                                <span class="input-group-btn pt-4 ml-auto mr-0">
-                                <button type="button" class="btn btn-fab btn-round btn-primary">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-
-
-                            </div>
-                        </div>
-                    </form>
-
                     <div class="table-responsive">
                         <table class="table table-hover table-striped ">
                             <thead>
