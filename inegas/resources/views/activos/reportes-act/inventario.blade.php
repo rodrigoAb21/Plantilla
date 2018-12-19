@@ -44,11 +44,19 @@
                             </thead>
                             <tbody>
                             @foreach($activos as $activo)
-                                <tr>
-                                    <td>{{$activo -> codigo}}</td>
-                                    <td>{{$activo -> serie}}</td>
-                                    <td>{{$activo -> linea.' - '.$activo -> grupo}}</td>
-                                </tr>
+                                @if($activo -> disponibilidad != 'Baja')
+                                    <tr>
+                                        <td>{{$activo -> codigo}}</td>
+                                        <td>{{$activo -> serie}}</td>
+                                        <td>{{$activo -> linea.' - '.$activo -> grupo}}</td>
+                                    </tr>
+                                @else
+                                    <tr class="table-danger">
+                                        <td>{{$activo -> codigo}}</td>
+                                        <td>{{$activo -> serie}}</td>
+                                        <td>{{$activo -> linea.' - '.$activo -> grupo}}</td>
+                                    </tr>
+                                @endif
                             @endforeach
 
 
