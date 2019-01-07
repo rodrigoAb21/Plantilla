@@ -23,9 +23,7 @@ class ReporteActController extends Controller
             ->select('asignacion.id', 'asignacion.fecha', 'asignacion.observacion', 'trabajador.nombre as responsable', 'ubicacion.nombre as ubicacion')
             ->paginate(10);
 
-        Visitas::incrementar(19);
-
-        return view('activos.reportes-act.asignacion', ['asignaciones' => $asignaciones, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(19)]);
+        return view('activos.reportes-act.asignacion', ['asignaciones' => $asignaciones, 'busqueda' => trim($request['busqueda'])]);
     }
 
 
@@ -123,9 +121,8 @@ class ReporteActController extends Controller
             ->paginate(10);
         $hoy = Carbon::now('America/La_Paz')->toDateString();
 
-        Visitas::incrementar(16);
 
-        return view('activos.reportes-act.inventario', ['activos' => $activos, 'hoy' => $hoy, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(16)]);
+        return view('activos.reportes-act.inventario', ['activos' => $activos, 'hoy' => $hoy, 'busqueda' => trim($request['busqueda'])]);
     }
 
 
@@ -158,15 +155,14 @@ class ReporteActController extends Controller
             ->orderBy('id', 'asc')
             ->paginate(10);
 
-        Visitas::incrementar(17);
 
-        return view('activos.reportes-act.ingreso', ['ingresos' => $ingresos, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(17)]);
+        return view('activos.reportes-act.ingreso', ['ingresos' => $ingresos, 'busqueda' => trim($request['busqueda'])]);
     }
 
 
 
     public function ingresoPDF(){
-        $ingresos = DB::table('ingreso_s')
+        $ingresos = DB::table('ingreso_a')
             ->orderBy('id', 'asc')
             ->paginate(10);
 
@@ -203,9 +199,8 @@ class ReporteActController extends Controller
             ->orderBy('traslado.id','asc')
             ->paginate(10);
 
-        Visitas::incrementar(18);
 
-        return view('activos.reportes-act.traslado', ['traslados' => $traslados, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(18)]);
+        return view('activos.reportes-act.traslado', ['traslados' => $traslados, 'busqueda' => trim($request['busqueda'])]);
     }
 
 

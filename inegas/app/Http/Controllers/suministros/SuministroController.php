@@ -29,9 +29,7 @@ class SuministroController extends Controller
             ->orderBy('suministro.id', 'desc')
             ->paginate(10);
 
-        Visitas::incrementar(10);
-
-        return view('suministros.suministros.index', ['suministros' => $suministros, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(10)]);
+        return view('suministros.suministros.index', ['suministros' => $suministros, 'busqueda' => trim($request['busqueda'])]);
     }
 
 

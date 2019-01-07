@@ -29,9 +29,7 @@ class ReporteSumController extends Controller
             ->orderBy('suministro.id', 'desc')
             ->paginate(10);
 
-        Visitas::incrementar(20);
-
-        return view('suministros.reportes-sum.inventario', ['suministros' => $suministros, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(20)]);
+        return view('suministros.reportes-sum.inventario', ['suministros' => $suministros, 'busqueda' => trim($request['busqueda'])]);
     }
 
     public static function inventarioPDF(){
@@ -55,9 +53,8 @@ class ReporteSumController extends Controller
             ->orWhere('estado', 'LIKE','%'.trim($request['busqueda']).'%')
             ->orderBy('id', 'desc')
             ->paginate(10);
-        Visitas::incrementar(21);
 
-        return view('suministros.reportes-sum.ingreso', ['ingresos' => $ingresos,'visitas' => Visitas::findOrFail(21), 'busqueda' => trim($request['busqueda'])]);
+        return view('suministros.reportes-sum.ingreso', ['ingresos' => $ingresos, 'busqueda' => trim($request['busqueda'])]);
     }
 
     public function ingresoPDF()
@@ -79,8 +76,7 @@ class ReporteSumController extends Controller
             ->orderBy('salida_s.id', 'desc')
             ->paginate(10);
 
-        Visitas::incrementar(22);
-        return view('suministros.reportes-sum.salida', ['salidas' => $salidas,'visitas' => Visitas::findOrFail(22), 'busqueda' => trim($request['busqueda'])]);
+        return view('suministros.reportes-sum.salida', ['salidas' => $salidas, 'busqueda' => trim($request['busqueda'])]);
     }
 
     public function salidaPDF()

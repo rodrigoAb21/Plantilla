@@ -20,8 +20,8 @@ class LineaController extends Controller
             ->where('visible', '=', true)
             ->orderBy('id', 'asc')
             ->paginate(5);
-        Visitas::incrementar(8);
-        return view('suministros.lineas.index',['lineas' => $lineas, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(8)]);
+
+        return view('suministros.lineas.index',['lineas' => $lineas, 'busqueda' => trim($request['busqueda'])]);
     }
 
 

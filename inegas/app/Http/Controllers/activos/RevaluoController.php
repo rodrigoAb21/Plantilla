@@ -25,9 +25,7 @@ class RevaluoController extends Controller
             ->orderBy('revaluo.id','desc')
             ->paginate(10);
 
-        Visitas::incrementar(4);
-
-        return view('activos.revaluos.index',['revaluos' => $revaluos, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(4)]);
+        return view('activos.revaluos.index',['revaluos' => $revaluos, 'busqueda' => trim($request['busqueda'])]);
     }
 
 

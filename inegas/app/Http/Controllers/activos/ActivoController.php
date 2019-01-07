@@ -31,9 +31,8 @@ class ActivoController extends Controller
             ->orderBy('activo_fijo.codigo', 'asc')
             ->paginate(10);
         $hoy = Carbon::now('America/La_Paz')->toDateString();
-        Visitas::incrementar(3);
 
-        return view('activos.activos.index', ['activos' => $activos, 'hoy' => $hoy,'visitas' => Visitas::findOrFail(3), 'busqueda' => trim($request['busqueda'])]);
+        return view('activos.activos.index', ['activos' => $activos, 'hoy' => $hoy, 'busqueda' => trim($request['busqueda'])]);
     }
 
 

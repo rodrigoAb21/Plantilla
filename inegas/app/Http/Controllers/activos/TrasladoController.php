@@ -22,8 +22,8 @@ class TrasladoController extends Controller
             ->select('traslado.id','traslado.fecha', 'ubicacion.nombre as ubicacion')
             ->orderBy('traslado.id','desc')
             ->paginate(10);
-        Visitas::incrementar(6);
-        return view('activos.mov-activos.traslados.index',['traslados' => $traslados, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(6)]);
+
+        return view('activos.mov-activos.traslados.index',['traslados' => $traslados, 'busqueda' => trim($request['busqueda'])]);
     }
 
     public function create(){

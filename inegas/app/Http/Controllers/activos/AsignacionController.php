@@ -25,9 +25,7 @@ class AsignacionController extends Controller
             ->select('asignacion.id', 'asignacion.fecha', 'asignacion.observacion', 'trabajador.nombre as responsable', 'ubicacion.nombre as ubicacion')
             ->paginate(10);
 
-        Visitas::incrementar(7);
-
-        return view('activos.mov-activos.asignaciones.index',['asignaciones' => $asignaciones, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(7)]);
+        return view('activos.mov-activos.asignaciones.index',['asignaciones' => $asignaciones, 'busqueda' => trim($request['busqueda'])]);
     }
 
     public function create(){

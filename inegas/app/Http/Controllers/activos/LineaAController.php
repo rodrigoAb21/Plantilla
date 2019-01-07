@@ -21,9 +21,7 @@ class LineaAController extends Controller
             ->orderBy('id', 'asc')
             ->paginate(10);
 
-        Visitas::incrementar(1);
-
-        return view('activos.lineas.index',['lineas' => $lineas, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(1)]);
+        return view('activos.lineas.index',['lineas' => $lineas, 'busqueda' => trim($request['busqueda'])]);
     }
 
 

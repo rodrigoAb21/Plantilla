@@ -27,9 +27,7 @@ class IngresoController extends Controller
             ->orderBy('id', 'desc')
             ->paginate(10);
 
-        Visitas::incrementar(5);
-
-        return view('activos.mov-activos.ingresos.index', ['ingresos' => $ingresos, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(5)]);
+        return view('activos.mov-activos.ingresos.index', ['ingresos' => $ingresos, 'busqueda' => trim($request['busqueda'])]);
 
     }
 

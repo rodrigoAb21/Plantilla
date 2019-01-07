@@ -20,7 +20,7 @@
                                     <div class="mb-1">
                                         <label for="nombre" >Nombre</label>
                                     </div>
-                                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{$suministro -> nombre}}">
+                                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{$suministro -> nombre}}" required>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -28,7 +28,7 @@
                                     <div class="mb-1">
                                         <label for="marca" >Marca</label>
                                     </div>
-                                    <input type="text" class="form-control" id="marca" name="marca" value="{{$suministro -> marca}}">
+                                    <input type="text" class="form-control" id="marca" name="marca" value="{{$suministro -> marca}}" required>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -66,7 +66,7 @@
                                     <div class="mb-1">
                                         <label for="min" >Stock Min.</label>
                                     </div>
-                                    <input type="number" class="form-control" id="min" name="stock_minimo" value="{{$suministro -> stock_minimo}}">
+                                    <input type="number" class="form-control" id="min" name="stock_minimo" value="{{$suministro -> stock_minimo}}" required>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
@@ -74,13 +74,13 @@
                                     <div class="mb-1">
                                         <label for="max" >Stock Max.</label>
                                     </div>
-                                    <input type="number" class="form-control" id="max" name="stock_maximo"  value="{{$suministro -> stock_maximo}}">
+                                    <input type="number" class="form-control" id="max" name="stock_maximo"  value="{{$suministro -> stock_maximo}}" required>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label for="max" >Descripcion</label>
-                                    <textarea class="form-control" name="descripcion" id="descripcion" rows="3"> {{$suministro -> descripcion}}</textarea>
+                                    <textarea class="form-control" name="descripcion" id="descripcion" rows="3" required> {{$suministro -> descripcion}}</textarea>
                                 </div>
                             </div>
 

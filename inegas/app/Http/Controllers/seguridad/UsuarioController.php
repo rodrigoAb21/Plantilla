@@ -23,9 +23,7 @@ class UsuarioController extends Controller
             ->orderBy('id', 'asc')
             ->paginate(5);
 
-        Visitas::incrementar(13);
-
-        return view('seguridad.usuarios.index', ['usuarios' => $usuarios, 'busqueda' => trim($request['busqueda']), 'visitas' => Visitas::findOrFail(13)]);
+        return view('seguridad.usuarios.index', ['usuarios' => $usuarios, 'busqueda' => trim($request['busqueda'])]);
     }
 
 

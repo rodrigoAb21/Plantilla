@@ -19,8 +19,8 @@ class BitacoraController extends Controller
                 ->select('bitacora.id', 'bitacora.inicio', 'users.nombre')
                 ->orderBy('bitacora.id','desc')
                 ->paginate(10);
-            Visitas::incrementar(15);
-            return view('seguridad.bitacora.index',['bitacoras' => $bitacoras,'visitas' => Visitas::findOrFail(15)]);
+
+            return view('seguridad.bitacora.index',['bitacoras' => $bitacoras]);
     }
 
     public function show($id){

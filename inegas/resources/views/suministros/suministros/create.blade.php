@@ -19,7 +19,7 @@
                                     <div class="mb-1">
                                         <label for="nombre" >Nombre</label>
                                     </div>
-                                    <input type="text" class="form-control" id="nombre" name="nombre">
+                                    <input type="text" class="form-control" id="nombre" name="nombre" required>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -27,7 +27,7 @@
                                     <div class="mb-1">
                                         <label for="marca" >Marca</label>
                                     </div>
-                                    <input type="text" class="form-control" id="marca" name="marca">
+                                    <input type="text" class="form-control" id="marca" name="marca" required>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -55,7 +55,7 @@
                                     <div class="mb-1">
                                         <label for="min" >Stock Min.</label>
                                     </div>
-                                    <input type="number" class="form-control" id="min" name="stock_minimo">
+                                    <input type="number" class="form-control" id="min" name="stock_minimo" required>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
@@ -63,13 +63,13 @@
                                     <div class="mb-1">
                                         <label for="max" >Stock Max.</label>
                                     </div>
-                                    <input type="number" class="form-control" id="max" name="stock_maximo">
+                                    <input type="number" class="form-control" id="max" name="stock_maximo" required>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label for="max" >Descripcion</label>
-                                    <textarea class="form-control" name="descripcion" id="descripcion" rows="3"></textarea>
+                                    <textarea class="form-control" name="descripcion" id="descripcion" rows="3" required></textarea>
                                 </div>
                             </div>
 

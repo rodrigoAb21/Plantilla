@@ -20,8 +20,8 @@ class UbicacionController extends Controller
             ->where('visible', '=', true)
             ->orderBy('id', 'asc')
             ->paginate(5);
-        Visitas::incrementar(14);
-        return view('seguridad.ubicaciones.index', ['ubicaciones' => $ubicaciones, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(14)]);
+
+        return view('seguridad.ubicaciones.index', ['ubicaciones' => $ubicaciones, 'busqueda' => trim($request['busqueda'])]);
     }
 
 

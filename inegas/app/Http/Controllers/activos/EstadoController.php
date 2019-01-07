@@ -20,9 +20,7 @@ class EstadoController extends Controller
             ->orderBy('id', 'asc')
             ->paginate(10);
 
-        Visitas::incrementar(2);
-
-        return view('activos.estados.index', ['estados' => $estados, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(2)]);
+        return view('activos.estados.index', ['estados' => $estados, 'busqueda' => trim($request['busqueda'])]);
     }
 
 

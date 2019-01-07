@@ -28,9 +28,8 @@ class SalidaController extends Controller
             ->orderBy('salida_s.id', 'desc')
             ->paginate(10);
 
-        Visitas::incrementar(12);
 
-        return view('suministros.mov-suministros.salidas.index', ['salidas' => $salidas, 'busqueda' => trim($request['busqueda']),'visitas' => Visitas::findOrFail(12)]);
+        return view('suministros.mov-suministros.salidas.index', ['salidas' => $salidas, 'busqueda' => trim($request['busqueda'])]);
 
     }
 
