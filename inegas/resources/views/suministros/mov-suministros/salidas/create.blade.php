@@ -30,7 +30,7 @@
                                     <label>Recibe</label>
                                 </div>
                                 <select class="form-control selectpicker" data-live-search="true"
-                                        data-style="btn btn-link" name="trabajador_id">
+                                        data-style="btn btn-link" name="trabajador_id" required>
                                     @foreach($trabajadores as $trabajador)
                                         <option value="{{$trabajador->id}}">{{$trabajador -> nombre}} // {{$trabajador -> cargo}} // {{$trabajador -> ubicacion}}</option>
                                     @endforeach
@@ -190,8 +190,8 @@
                 if (sum_id != "" && cant != "" && cant > 0 && suministro.stock >= cant) {
                     var fila = '' +
                         '<tr id="fila-'+cont+'">' +
-                            '<td><input type="hidden" name="sumiT[]" value="'+sum_id+'">'+sum_nombre+'</td>' +
-                            '<td><input class="form-control" type="hidden" name="cantT[]" value="'+cant+'">'+cant+'</td>' +
+                            '<td><input required type="hidden" name="sumiT[]" value="'+sum_id+'">'+sum_nombre+'</td>' +
+                            '<td><input required class="form-control" type="hidden" name="cantT[]" value="'+cant+'">'+cant+'</td>' +
                             '<td class="text-right">' +
                                 '<button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminar('+cont+')">' +
                                     '<i class="fa fa-times"></i>' +

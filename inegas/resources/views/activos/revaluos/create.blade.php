@@ -39,7 +39,7 @@
                                     <div class="mb-1">
                                         <label>Monto Bs</label>
                                     </div>
-                                    <input id="monto" type="number" onblur="calcular_costo_final()" step="any" class="form-control" name="monto" value="0">
+                                    <input required id="monto" type="number" onblur="calcular_costo_final()" step="any" class="form-control" name="monto" value="0">
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
@@ -47,7 +47,7 @@
                                     <div class="mb-1">
                                         <label>Costo Final Bs</label>
                                     </div>
-                                    <input type="number" onblur="calcular_monto()" id="costo_final" step="any" class="form-control">
+                                    <input required type="number" onblur="calcular_monto()" id="costo_final" step="any" class="form-control">
                                 </div>
                             </div>
 

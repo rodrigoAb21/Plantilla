@@ -42,7 +42,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label>Area de trabajo</label>
-                                <select class="form-control selectpicker" data-style="btn btn-link" name="area">
+                                <select class="form-control selectpicker" data-style="btn btn-link" name="area" required>
                                     @foreach($areas as $area)
                                         <option value="{{$area}}">{{$area}}</option>
                                     @endforeach
