@@ -72,6 +72,7 @@
             </div>
 
 
+
             <div class="card ">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">
@@ -212,9 +213,9 @@
                 if (sum_id != "" && cant != "" && cant > 0 && prec != "" && prec > 0) {
                     var fila = '' +
                         '<tr id="fila-'+cont+'">' +
-                            '<td><input type="hidden" name="sumiT[]" value="'+sum_id+'">'+sum_nombre+'</td>' +
-                            '<td><input class="form-control" type="hidden" name="cantT[]" value="'+cant+'">'+cant+'</td>' +
-                            '<td><input type="hidden" name="precioT[]" value="'+prec+'">'+prec+'</td>' +
+                            '<td><input required type="hidden" name="sumiT[]" value="'+sum_id+'">'+sum_nombre+'</td>' +
+                            '<td><input required class="form-control" type="hidden" name="cantT[]" value="'+cant+'">'+cant+'</td>' +
+                            '<td><input required type="hidden" name="precioT[]" value="'+prec+'">'+prec+'</td>' +
                             '<td class="text-right">' +
                                 '<button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminar('+cont+')">' +
                                     '<i class="fa fa-times"></i>' +

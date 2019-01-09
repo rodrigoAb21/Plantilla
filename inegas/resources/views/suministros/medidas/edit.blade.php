@@ -16,7 +16,7 @@
                         {{method_field('PATCH')}}
                         <div class="form-group">
                             <label for="nombre" class="bmd-label-floating">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" value="{{$unidad -> nombre}}">
+                            <input type="text" class="form-control" required id="nombre" name="nombre" value="{{$unidad -> nombre}}">
                         </div>
                     </div>
                     <div class="card-footer ">

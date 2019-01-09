@@ -31,12 +31,13 @@
         <table class="table table-hover table-striped ">
             <thead>
             <tr>
-                <th><b>Codigo</b></th>
+                <th><b>COD</b></th>
                 <th><b>Nombre</b></th>
                 <th><b>Marca</b></th>
                 <th><b>Stock</b></th>
                 <th><b>Presentacion</b></th>
-                <th><b>Linea - Grupo</b></th>
+                <th><b>Linea-Grupo</b></th>
+                <th><b>Observacion</b></th>
             </tr>
             </thead>
             <tbody>
