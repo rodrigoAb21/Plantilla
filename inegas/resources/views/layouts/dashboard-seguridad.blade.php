@@ -94,15 +94,7 @@
                     <span class="navbar-toggler-icon icon-bar"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end">
-                    <form class="navbar-form">
-                        <div class="input-group no-border">
-                            <input type="text" value="" class="form-control" placeholder="Buscar...">
-                            <button type="button" class="btn btn-white btn-round btn-just-icon">
-                                <i class="material-icons">search</i>
-                                <div class="ripple-container"></div>
-                            </button>
-                        </div>
-                    </form>
+                    <div class="navbar-form" hidden></div>
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('config/tema')}}">
