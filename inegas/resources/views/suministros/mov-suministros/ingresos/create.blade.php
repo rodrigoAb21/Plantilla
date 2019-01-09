@@ -50,7 +50,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                             <div class="form-group form-file-upload form-file-multiple mt-2">
                                 <div class="mb-1">
-                                    <label>Adjuntar Imagen</label>
+                                    <label>Adjuntar Factura</label>
                                 </div>
                                 <input type="file" name="foto_factura" accept="image/*" class="inputFileHidden" required>
                                 <div class="input-group">
@@ -70,14 +70,6 @@
 
                 </div>
             </div>
-
-
-
-
-
-
-
-
 
 
             <div class="card ">

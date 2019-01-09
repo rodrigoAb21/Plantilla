@@ -48,10 +48,10 @@
                     </a>
                 </li>
 
-                <li class="{{ Request::is('sum/medidas*') ? 'nav-item active' : 'nav-item' }}">
-                    <a class="nav-link" href="{{url('sum/medidas')}}">
+                <li class="{{ Request::is('sum/presentaciones*') ? 'nav-item active' : 'nav-item' }}">
+                    <a class="nav-link" href="{{url('sum/presentaciones')}}">
                         <i class="fa fa-ruler"></i>
-                        <p> Unidades Medida </p>
+                        <p> Presentaciones </p>
                     </a>
                 </li>
 

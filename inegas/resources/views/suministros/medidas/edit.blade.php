@@ -8,9 +8,9 @@
                     <div class="card-icon">
                         <i class="fa fa-ruler fa-2x"></i>
                     </div>
-                    <h3 class="card-title">Editar Unidad de medida</h3>
+                    <h3 class="card-title">Editar Presentacion</h3>
                 </div>
-                <form method="POST" action="{{url('sum/medidas/'.$unidad -> id)}}" autocomplete="off">
+                <form method="POST" action="{{url('sum/presentaciones/'.$unidad -> id)}}" autocomplete="off">
                     <div class="card-body ">
                         {{csrf_field()}}
                         {{method_field('PATCH')}}

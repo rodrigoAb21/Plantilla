@@ -39,7 +39,7 @@ class UnidadMedidaController extends Controller
             Bitacora::registrar_accion(Tablas::$unidad_medida, 'Creó la unidad de medida con ID: '.$unidad ->id);
         }
 
-        return redirect('sum/medidas');
+        return redirect('sum/presentaciones');
     }
 
 
@@ -56,7 +56,7 @@ class UnidadMedidaController extends Controller
             Bitacora::registrar_accion(Tablas::$unidad_medida, 'Editó la unidad de medida con ID: '.$unidad ->id);
         }
 
-        return redirect('sum/medidas');
+        return redirect('sum/presentaciones');
     }
 
 
@@ -67,7 +67,7 @@ class UnidadMedidaController extends Controller
         if ($unidad -> save()){
             Bitacora::registrar_accion(Tablas::$unidad_medida, 'Eliminó la unidad de medida con ID: '.$unidad ->id);
         }
-        return redirect('sum/medidas');
+        return redirect('sum/presentaciones');
     }
 
 

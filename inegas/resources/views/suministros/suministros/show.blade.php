@@ -22,7 +22,7 @@
                         <p id="p_marca">xxx</p>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <label>U. Medida</label>
+                        <label>Presentacion</label>
                         <p id="p_medida">xxx</p>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">

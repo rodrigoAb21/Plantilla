@@ -35,7 +35,7 @@
                 <th><b>Nombre</b></th>
                 <th><b>Marca</b></th>
                 <th><b>Stock</b></th>
-                <th><b>U. Medida</b></th>
+                <th><b>Presentacion</b></th>
                 <th><b>Linea - Grupo</b></th>
             </tr>
             </thead>

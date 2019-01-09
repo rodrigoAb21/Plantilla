@@ -8,9 +8,9 @@
                     <div class="card-icon">
                         <i class="fa fa-sitemap fa-2x"></i>
                     </div>
-                    <h3 class="card-title">Editar Departamento</h3>
+                    <h3 class="card-title">Editar Ubicacion</h3>
                 </div>
-                <form method="POST" action="{{url('seg/departamentos/'.$ubicacion -> id)}}" autocomplete="off">
+                <form method="POST" action="{{url('seg/ubicaciones/'.$ubicacion -> id)}}" autocomplete="off">
                     <div class="card-body ">
                         {{csrf_field()}}
                         {{method_field('PATCH')}}
@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="card-body ">
-                    <form method="GET" action="{{url('seg/departamentos/'.$ubicacion -> id.'/edit')}}" autocomplete="off">
+                    <form method="GET" action="{{url('seg/ubicaciones/'.$ubicacion -> id.'/edit')}}" autocomplete="off">
                         <div class="form-group form-file-upload form-file-multiple">
                             <div class="input-group">
                                 <label for="busqueda" class="bmd-label-floating">Buscar</label>
@@ -46,7 +46,7 @@
                                         <button type="submit" class="btn btn-fab btn-round btn-primary">
                                             <i class="fa fa-search"></i>
                                         </button>
-                                        <button type="button" class="btn btn-fab btn-round btn-primary" onclick="modalCreate('{{url('seg/departamentos/'.$ubicacion -> id.'/trabajadores')}}')">
+                                        <button type="button" class="btn btn-fab btn-round btn-primary" onclick="modalCreate('{{url('seg/ubicaciones/'.$ubicacion -> id.'/trabajadores')}}')">
                                             <i class="fa fa-plus"></i>
                                         </button>
                                     </span>
@@ -71,10 +71,10 @@
                                     <td>{{$trabajador -> nombre}}</td>
                                     <td>{{$trabajador -> cargo}}</td>
                                     <td class="text-right ">
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="modalEdit('{{$trabajador -> nombre}}','{{$trabajador -> cargo}}','{{url('seg/departamentos/'.$ubicacion -> id.'/trabajadores/'.$trabajador -> id)}}' )">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="modalEdit('{{$trabajador -> nombre}}','{{$trabajador -> cargo}}','{{url('seg/ubicaciones/'.$ubicacion -> id.'/trabajadores/'.$trabajador -> id)}}' )">
                                             <i class="fa fa-pen"></i>
                                         </button>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="modalEliminar('{{$trabajador -> nombre}}','{{url('seg/departamentos/'.$ubicacion -> id.'/trabajadores/'.$trabajador -> id)}}')">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="modalEliminar('{{$trabajador -> nombre}}','{{url('seg/ubicaciones/'.$ubicacion -> id.'/trabajadores/'.$trabajador -> id)}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
