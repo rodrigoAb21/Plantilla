@@ -73,7 +73,7 @@ Route::middleware('auth')->group(function () {
 
         Route::resource('/act/revaluos', 'activos\RevaluoController');
         Route::resource('/act/mov-activos/ingresos', 'activos\IngresoController');
-//        Route::resource('/act/mov-activos/traslados', 'activos\TrasladoController');
+        Route::resource('/act/mov-activos/traslados', 'activos\TrasladoController');
         Route::resource('/act/mov-activos/asignaciones', 'activos\AsignacionController');
         Route::get('/act/reportes/inventario','activos\ReporteActController@inventario');
 

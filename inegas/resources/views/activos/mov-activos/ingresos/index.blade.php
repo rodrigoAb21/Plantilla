@@ -3,7 +3,6 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <p class="text-right">Visitas: {{$visitas -> cant}}</p>
             <div class="card">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">

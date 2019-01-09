@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -25,6 +26,16 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        $usuario = new User();
+        $usuario -> nombre = 'Juan Perez';
+        $usuario -> cargo = 'Encargado';
+        $usuario -> email = 'admin@gmail.com';
+        $usuario -> area = 'Activos Fijos - Suministros';
+        $usuario -> estado = "Habilitado";
+        $usuario -> color = "white";
+        $usuario -> password = bcrypt('admin');
+        $usuario -> save();
     }
 
     /**
