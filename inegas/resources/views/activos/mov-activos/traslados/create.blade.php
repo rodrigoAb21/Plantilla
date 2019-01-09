@@ -126,7 +126,7 @@
         }
 
         function agregar() {
-            if (!agregados.includes(activo_id)){
+            if (!agregados.includes(activo_id) && activo_nombre != ''){
                 agregados.push(activo_id);
 
                 var fila = ''+

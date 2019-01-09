@@ -210,7 +210,7 @@
                 var grupo_id = grupos[0];
                 var grupo_nombre = grupos[1];
                 var cant = parseInt($('#cant_cab').val());
-                if (cant > 0 && costo > 0){
+                if (cant > 0 && costo > 0 && grupos[0] != ''){
                     var i;
                     for (i = 0; i < cant; i++) {
                         var fila = '' +
