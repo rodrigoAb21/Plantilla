@@ -41,6 +41,8 @@ class IngresoController extends Controller
 
     public function store(Request $request)
     {
+
+
         try {
             DB::beginTransaction();
 

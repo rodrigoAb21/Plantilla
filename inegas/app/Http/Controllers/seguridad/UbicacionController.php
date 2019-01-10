@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\seguridad;
 
 use App\Bitacora;
+use App\Http\Requests\seguridad\UbicacionRequest;
 use App\Tablas;
 use App\Trabajador;
 use App\Ubicacion;
@@ -31,11 +32,8 @@ class UbicacionController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(UbicacionRequest $request)
     {
-        $this->validate($request, [
-           'nombre' => 'required|max:255'
-        ]);
 
         $ubi = new Ubicacion();
         $ubi -> nombre = $request['nombre'];
@@ -61,11 +59,8 @@ class UbicacionController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(UbicacionRequest $request, $id)
     {
-        $this->validate($request, [
-            'nombre' => 'required|max:255'
-        ]);
 
         $ubi = Ubicacion::findOrFail($id);
         $ubi -> nombre = $request['nombre'];

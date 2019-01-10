@@ -18,15 +18,6 @@
                         <i class="fa fa-users fa-2x"></i>
                     </div>
                     <h3 class="card-title">Nuevo Usuario</h3>
-                    @if($errors -> any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach($errors -> all() as $error)
-                                    <li>{{$error}}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
                 </div>
                 <form method="POST" action="{{url('seg/usuarios')}}" autocomplete="off">
                 <div class="card-body ">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\seguridad;
 
 use App\Bitacora;
+use App\Http\Requests\seguridad\UsuarioRequest;
 use App\Tablas;
 use App\User;
 use App\Visitas;
@@ -10,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class UsuarioController extends Controller
 {
@@ -34,15 +36,8 @@ class UsuarioController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(UsuarioRequest $request)
     {
-        $this -> validate($request, [
-            'nombre' => 'required|max:255|string',
-            'cargo' => 'required|max:255|string',
-            'email' => 'required|string|email|max:255|unique:users',
-            'area' => 'required|max:255|string',
-            'password' => 'required|max:255|string|min:6'
-        ]);
 
         $usuario = new User();
         $usuario -> nombre = $request['nombre'];
@@ -73,7 +68,8 @@ class UsuarioController extends Controller
             'nombre' => 'required|max:255|string',
             'cargo' => 'required|max:255|string',
             'email' => 'required|string|email|max:255|unique:users',
-            'area' => 'required|max:255|string',
+            'area' => ['required','max:255|string', Rule::in(['Activos Fijos', 'Suministros',
+                'Activos Fijos - Suministros'])],
             'password' => 'nullable|max:255|string|min:6'
         ]);
 
