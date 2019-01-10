@@ -21,10 +21,9 @@
     <div class="sidebar" data-color="purple" data-background-color="{{Auth::user()->color}}" data-image="{{asset('img/sidebar-1.jpg')}}">
         <div class="logo">
             <a href="" class="simple-text logo-mini">
-                <i class="material-icons">laptop</i>
             </a>
             <a href="" class="simple-text logo-normal">
-                INEGAS
+                <img style="height: 65px" src="{{asset('img/inegas-logo.png')}}"/>
             </a>
         </div>
         <div class="sidebar-wrapper">

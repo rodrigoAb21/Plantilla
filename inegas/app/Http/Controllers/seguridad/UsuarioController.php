@@ -103,9 +103,7 @@ class UsuarioController extends Controller
 
         if ($u->color == 'white'){
             $u->color = 'black';
-        }elseif ($u->color == 'black'){
-            $u->color = 'red';
-        }else{
+        }else {
             $u->color = 'white';
         }
 
