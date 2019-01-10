@@ -33,6 +33,10 @@ class UbicacionController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+           'nombre' => 'required|max:255'
+        ]);
+
         $ubi = new Ubicacion();
         $ubi -> nombre = $request['nombre'];
         $ubi -> visible = true;
@@ -59,6 +63,10 @@ class UbicacionController extends Controller
 
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'nombre' => 'required|max:255'
+        ]);
+
         $ubi = Ubicacion::findOrFail($id);
         $ubi -> nombre = $request['nombre'];
         if ($ubi -> save()){
@@ -82,6 +90,12 @@ class UbicacionController extends Controller
 
 
     public function guardarTrabjador(Request $request, $id){
+
+        $this->validate($request, [
+            'nombreT' => 'required|max:255',
+            'cargoT' => 'required|max:255',
+        ]);
+
         $trabajador = new Trabajador();
         $trabajador -> nombre = $request['nombreT'];
         $trabajador -> cargo = $request['cargoT'];

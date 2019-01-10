@@ -36,6 +36,14 @@ class UsuarioController extends Controller
 
     public function store(Request $request)
     {
+        $this -> validate($request, [
+            'nombre' => 'required|max:255|string',
+            'cargo' => 'required|max:255|string',
+            'email' => 'required|string|email|max:255|unique:users',
+            'area' => 'required|max:255|string',
+            'password' => 'required|max:255|string|min:6'
+        ]);
+
         $usuario = new User();
         $usuario -> nombre = $request['nombre'];
         $usuario -> cargo = $request['cargo'];
@@ -61,6 +69,14 @@ class UsuarioController extends Controller
 
     public function update(Request $request, $id)
     {
+        $this -> validate($request, [
+            'nombre' => 'required|max:255|string',
+            'cargo' => 'required|max:255|string',
+            'email' => 'required|string|email|max:255|unique:users',
+            'area' => 'required|max:255|string',
+            'password' => 'nullable|max:255|string|min:6'
+        ]);
+
         $usuario = User::findOrFail($id);
         $usuario -> nombre = $request['nombre'];
         $usuario -> cargo = $request['cargo'];
