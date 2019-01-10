@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\suministros;
 
 use App\Bitacora;
+use App\Http\Requests\suministro\UnidadMedidaRequest;
 use App\Tablas;
 use App\UnidadMedida;
 use App\Visitas;
@@ -30,7 +31,7 @@ class UnidadMedidaController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(UnidadMedidaRequest $request)
     {
         $unidad = new UnidadMedida();
         $unidad -> nombre = $request['nombre'];
@@ -48,7 +49,7 @@ class UnidadMedidaController extends Controller
         return view('suministros.medidas.edit', ['unidad' => UnidadMedida::findOrFail($id)]);
     }
 
-    public function update(Request $request, $id)
+    public function update(UnidadMedidaRequest $request, $id)
     {
         $unidad = UnidadMedida::findOrFail($id);
         $unidad -> nombre = $request['nombre'];

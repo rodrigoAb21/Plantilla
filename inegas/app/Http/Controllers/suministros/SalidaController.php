@@ -4,6 +4,7 @@ namespace App\Http\Controllers\suministros;
 
 use App\Bitacora;
 use App\DetalleSalSum;
+use App\Http\Requests\suministro\SalidaSumRequest;
 use App\SalidaSuministro;
 use App\Suministro;
 use App\Tablas;
@@ -54,7 +55,7 @@ class SalidaController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(SalidaSumRequest $request)
     {
         try {
             DB::beginTransaction();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\suministros;
 
 use App\Bitacora;
 use App\DetalleIngSum;
+use App\Http\Requests\suministro\IngresoSumRequest;
 use App\IngresoSuministro;
 use App\Suministro;
 use App\Tablas;
@@ -39,7 +40,7 @@ class IngresoController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(IngresoSumRequest $request)
     {
 
 

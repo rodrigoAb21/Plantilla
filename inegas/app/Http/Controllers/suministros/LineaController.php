@@ -4,6 +4,8 @@ namespace App\Http\Controllers\suministros;
 
 use App\Bitacora;
 use App\Grupo;
+use App\Http\Requests\suministro\GrupoRequest;
+use App\Http\Requests\suministro\LineaRequest;
 use App\Linea;
 use App\Tablas;
 use App\Visitas;
@@ -31,7 +33,7 @@ class LineaController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(LineaRequest $request)
     {
         $linea = new Linea();
         $linea -> nombre = $request['nombre'];
@@ -56,7 +58,7 @@ class LineaController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(LineaRequest $request, $id)
     {
         $linea = Linea::findOrFail($id);
         $linea -> nombre = $request['nombre'];
@@ -89,7 +91,7 @@ class LineaController extends Controller
         return redirect('sum/lineas');
     }
 
-    public function guardarGrupo(Request $request, $id){
+    public function guardarGrupo(GrupoRequest $request, $id){
         $grupo = new Grupo();
         $grupo -> nombre = $request['nombreGrupo'];
         $grupo -> visible = true;
@@ -102,7 +104,7 @@ class LineaController extends Controller
 
     }
 
-    public function actualizarGrupo(Request $request, $idLinea, $idGrupo){
+    public function actualizarGrupo(GrupoRequest $request, $idLinea, $idGrupo){
         $grupo = Grupo::findOrFail($idGrupo);
         $grupo -> nombre = $request['nombreGrupo'];
         if ($grupo -> save()){

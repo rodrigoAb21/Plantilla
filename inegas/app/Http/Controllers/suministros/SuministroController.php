@@ -4,6 +4,7 @@ namespace App\Http\Controllers\suministros;
 
 use App\Bitacora;
 use App\Grupo;
+use App\Http\Requests\suministro\SuministroRequest;
 use App\Suministro;
 use App\Tablas;
 use App\UnidadMedida;
@@ -47,7 +48,7 @@ class SuministroController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(SuministroRequest $request)
     {
         $grupo = Grupo::findOrFail($request['grupo_s_id']);
 
@@ -86,7 +87,7 @@ class SuministroController extends Controller
         return view('suministros.suministros.edit',['suministro' => Suministro::findOrFail($id),'medidas' => $medidas, 'grupos' => $grupos]);
     }
 
-    public function update(Request $request, $id)
+    public function update(SuministroRequest $request, $id)
     {
         $suministro = Suministro::findOrFail($id);
         $suministro -> nombre = $request['nombre'];
