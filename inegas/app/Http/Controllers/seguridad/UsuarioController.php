@@ -67,7 +67,7 @@ class UsuarioController extends Controller
         $this -> validate($request, [
             'nombre' => 'required|max:255|string',
             'cargo' => 'required|max:255|string',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email',
             'area' => ['required','max:255|string', Rule::in(['Activos Fijos', 'Suministros',
                 'Activos Fijos - Suministros'])],
             'password' => 'nullable|max:255|string|min:6'

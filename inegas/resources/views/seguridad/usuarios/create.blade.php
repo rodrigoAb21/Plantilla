@@ -28,7 +28,7 @@
                                 <div class="mb-1">
                                     <label>Nombre Completo</label>
                                 </div>
-                                <input type="text" class="form-control"  name="nombre" required>
+                                <input type="text" class="form-control" value="{{old('nombre')}}"  name="nombre" required>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -36,7 +36,7 @@
                                 <div class="mb-1">
                                     <label>Cargo</label>
                                 </div>
-                                <input type="text" class="form-control"  name="cargo" required>
+                                <input type="text" class="form-control" value="{{old('cargo')}}"    name="cargo" required>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -54,7 +54,7 @@
                                 <div class="mb-1">
                                      <label>Email</label>
                                 </div>
-                                <input type="email" class="form-control"  name="email" required>
+                                <input type="email" class="form-control" value="{{old('email')}}"   name="email" required>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -62,7 +62,7 @@
                                 <div class="mb-1">
                                      <label>Password</label>
                                 </div>
-                                <input type="password" class="form-control"  name="password" required>
+                                <input type="password" class="form-control" value="{{old('password')}}"   name="password" required>
                             </div>
                         </div>
 
