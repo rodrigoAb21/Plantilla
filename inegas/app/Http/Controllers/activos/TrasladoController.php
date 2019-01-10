@@ -5,6 +5,7 @@ namespace App\Http\Controllers\activos;
 use App\ActivoFijo;
 use App\Bitacora;
 use App\DetalleTraslado;
+use App\Http\Requests\activos\TrasladoRequest;
 use App\Tablas;
 use App\Traslado;
 use App\Ubicacion;
@@ -41,7 +42,7 @@ class TrasladoController extends Controller
         return view('activos.mov-activos.traslados.create',['ubicaciones' => Ubicacion::where('visible','=', true)->get(), 'activos' => $activos]);
     }
 
-    public function store(Request $request){
+    public function store(TrasladoRequest $request){
 
         try {
             DB::beginTransaction();

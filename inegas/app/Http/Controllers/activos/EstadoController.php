@@ -4,6 +4,7 @@ namespace App\Http\Controllers\activos;
 
 use App\Bitacora;
 use App\Estado;
+use App\Http\Requests\activos\EstadoRequest;
 use App\Tablas;
 use App\Visitas;
 use Illuminate\Http\Request;
@@ -30,7 +31,7 @@ class EstadoController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(EstadoRequest $request)
     {
         $estado = new Estado();
         $estado -> nombre = $request['nombre'];
@@ -49,7 +50,7 @@ class EstadoController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(EstadoRequest $request, $id)
     {
         $estado = Estado::findOrFail($id);
         $estado -> nombre = $request['nombre'];

@@ -6,6 +6,7 @@ use App\ActivoFijo;
 use App\Asignacion;
 use App\Bitacora;
 use App\DetalleAsignacion;
+use App\Http\Requests\activos\AsignacionRequest;
 use App\Tablas;
 use App\Visitas;
 use Illuminate\Http\Request;
@@ -50,7 +51,7 @@ class AsignacionController extends Controller
         return view('activos.mov-activos.asignaciones.create',['activos' => $activos, 'trabajadores' => $trabajadores]);
     }
 
-    public function store(Request $request){
+    public function store(AsignacionRequest $request){
 
         try {
             DB::beginTransaction();

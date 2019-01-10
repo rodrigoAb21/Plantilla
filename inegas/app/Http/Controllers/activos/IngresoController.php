@@ -7,6 +7,7 @@ use App\Bitacora;
 use App\DetalleEstado;
 use App\Estado;
 use App\GrupoA;
+use App\Http\Requests\activos\IngresoRequest;
 use App\IngresoActivo;
 use App\Tablas;
 use App\Visitas;
@@ -43,7 +44,7 @@ class IngresoController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(IngresoRequest $request)
     {
         try {
             DB::beginTransaction();

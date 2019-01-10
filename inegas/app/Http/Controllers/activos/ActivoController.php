@@ -7,6 +7,7 @@ use App\Bitacora;
 use App\DetalleEstado;
 use App\Estado;
 use App\FormularioBaja;
+use App\Http\Requests\activos\ActivoRequest;
 use App\Tablas;
 use App\Visitas;
 use Carbon\Carbon;
@@ -42,7 +43,7 @@ class ActivoController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(ActivoRequest $request, $id)
     {
         $activo = ActivoFijo::findOrFail($id);
         if (Input::hasFile('foto')) {
@@ -50,6 +51,10 @@ class ActivoController extends Controller
             $file->move(public_path() . '/img/activos/activos/', $file->getClientOriginalName());
             $activo -> foto = $file->getClientOriginalName();
         }
+        $activo -> serie = $request['serie'];
+        $activo -> modelo = $request['modelo'];
+        $activo -> color = $request['color'];
+        $activo -> marca = $request['marca'];
         $activo -> caracteristicas = $request['caracteristicas'];
         if($activo -> save()){
             Bitacora::registrar_accion(Tablas::$activo, 'Editó el activo fijo con el ID: '.$id);
@@ -95,6 +100,11 @@ class ActivoController extends Controller
     {
         $activo = ActivoFijo::findOrFail($id);
 
+        $this -> validate($request,[
+            'fecha' => 'required|date',
+            'motivo' => 'required|string|max:255'
+        ]);
+
         $baja = FormularioBaja::where('activo_fijo_id', '=', $id)->first();
         if ($baja == null){
             $baja = new FormularioBaja();
@@ -131,6 +141,12 @@ class ActivoController extends Controller
     }
 
     public function guardar_asignacion(Request $request, $id){
+
+        $this -> validate($request,[
+            'estado_id' => 'required|numeric',
+            'motivo' => 'required|string|max:255'
+        ]);
+
         $detalle = new DetalleEstado();
         $detalle -> fecha = Carbon::now('America/La_Paz');
         $detalle -> motivo = $request['motivo'];

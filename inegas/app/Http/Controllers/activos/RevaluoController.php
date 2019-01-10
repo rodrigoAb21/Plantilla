@@ -4,6 +4,7 @@ namespace App\Http\Controllers\activos;
 
 use App\ActivoFijo;
 use App\Bitacora;
+use App\Http\Requests\activos\RevaluoRequest;
 use App\Revaluo;
 use App\Tablas;
 use App\Visitas;
@@ -40,7 +41,7 @@ class RevaluoController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(RevaluoRequest $request)
     {
         $revaluo = new Revaluo();
         $revaluo -> fecha = Carbon::now('America/La_Paz');

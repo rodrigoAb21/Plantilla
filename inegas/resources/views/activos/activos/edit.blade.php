@@ -3,6 +3,15 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="card ">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">
@@ -36,14 +45,30 @@
                                                     <div class="input-group">
                                                         <input type="text" class="form-control inputFileVisible" name="foto">
                                                         <span class="input-group-btn">
-                                            <button type="button" class="btn btn-fab btn-round btn-primary">
-                                                <i class="material-icons">attach_file</i>
-                                            </button>
-                                        </span>
+                                                            <button type="button" class="btn btn-fab btn-round btn-primary">
+                                                                <i class="material-icons">attach_file</i>
+                                                            </button>
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label>Serie</label>
+                                                    <input type="text" name="serie" class="form-control" value="{{$activo -> serie}}" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Marca</label>
+                                                    <input type="text" name="marca" class="form-control"  value="{{$activo -> marca}}" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Color</label>
+                                                    <input type="text" name="color" class="form-control"  value="{{$activo -> color}}" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Modelo</label>
+                                                    <input type="text" name="modelo" class="form-control"  value="{{$activo -> modelo}}" required>
+                                                </div>
                                                 <div class="form-group">
                                                     <label>Caracteristicas</label>
                                                     <textarea name="caracteristicas" class="form-control" required  rows="3">{{$activo -> caracteristicas}}</textarea>
