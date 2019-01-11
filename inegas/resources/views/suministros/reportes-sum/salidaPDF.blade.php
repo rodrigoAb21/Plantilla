@@ -6,6 +6,7 @@
     <style>
         body{
             padding-top: 15px;
+            font-family: "Helvetica";
         }
         table{
             width: 100%;
@@ -26,7 +27,7 @@
 </head>
 <body style="font-family: sans-serif";>
 <h2 align="center">Movimiento de salidas de Suministros</h2>
-<div>
+<div style="font-size: 12px">
     <div class="table-responsive">
         <table class="table table-hover table-striped ">
             <thead>

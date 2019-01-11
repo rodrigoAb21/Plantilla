@@ -124,7 +124,7 @@
 
                     </div>
                     <div class="card-footer ">
-                        <button id="guardar" type="submit" class="btn btn-primary">Guardar</button>
+                        <button id="guardar" type="submit"Recibe>Guardar</button>
                     </div>
 
             </div>

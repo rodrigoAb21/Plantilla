@@ -8,8 +8,7 @@ use App\Http\Requests\suministro\SalidaSumRequest;
 use App\SalidaSuministro;
 use App\Suministro;
 use App\Tablas;
-use App\Trabajador;
-use App\Ubicacion;
+use Barryvdh\DomPDF\Facade as PDF;
 use App\Visitas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -139,6 +138,26 @@ class SalidaController extends Controller
         return view('suministros.mov-suministros.salidas.show',['salida' => $salida, 'detalles' => $detalles]);
     }
 
+   public function salidasPDF($id)
+    {
+        $salida = DB::table('salida_s')
+            ->where('salida_s.id','=', $id)
+            ->join('trabajador', 'salida_s.trabajador_id', '=', 'trabajador.id')
+            ->join('ubicacion', 'trabajador.ubicacion_id','=', 'ubicacion.id')
+            ->select('salida_s.id', 'salida_s.fecha', 'salida_s.observacion', 'salida_s.estado', 'ubicacion.nombre as ubicacion', 'trabajador.nombre as recibe', 'trabajador.cargo as cargo')
+            ->first();
+
+        $detalles = DB::table('detalle_s_s')
+            ->join('suministro','detalle_s_s.suministro_id','=','suministro.id')
+            ->where('detalle_s_s.salida_s_id', '=', $id)
+            ->select('detalle_s_s.id', 'detalle_s_s.cantidad', 'suministro.nombre' )
+            ->orderBy('detalle_s_s.id', 'asc')
+            ->get();
+
+        $pdf = PDF::loadView('suministros.mov-suministros.salidas.salidaPDF',['salida' => $salida, 'detalles' => $detalles]);
+        return $pdf->download('salidasPDF.pdf');
+    }
+
     public function destroy($id)
     {
         $salida = SalidaSuministro::findOrFail($id);
@@ -160,4 +179,6 @@ class SalidaController extends Controller
         
         return redirect('sum/mov-suministros/salidas');
     }
+
+
 }

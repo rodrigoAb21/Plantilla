@@ -89,6 +89,12 @@
 
                     </div>
 
+                    <div class="card-footer">
+                        <div class="mr-0 ml-auto">
+                            <a href="{{url('sum/mov-suministros/salidasPDF/'.$salida -> id)}}" class="btn btn-primary">Generar PDF</a>
+                        </div>
+                    </div>
+
                 </div>
                 <!--  end card  -->
             </div>

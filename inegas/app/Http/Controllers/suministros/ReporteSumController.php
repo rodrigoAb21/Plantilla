@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\suministros;
 
 use App\IngresoSuministro;
-use App\SalidaSuministro;
-use App\Visitas;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

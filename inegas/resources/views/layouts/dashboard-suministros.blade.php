@@ -101,7 +101,7 @@
                             </li>
                             <li class="{{ Request::is('sum/reportes/faltantes*') ? 'nav-item active' : 'nav-item' }}">
                                 <a class="nav-link" href="{{url('sum/reportes/faltantes')}}">
-                                    <i class="fa fa-boxes"></i>
+                                    <i class="fa fa-minus-circle"></i>
                                     <p> Faltantes </p>
                                 </a>
                             </li>
