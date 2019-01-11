@@ -51,7 +51,7 @@
                                 <div class="mb-1">
                                     <label>Observacion</label>
                                 </div>
-                                <textarea class="form-control" name="observacion" required> {{old('observacion')}} </textarea>
+                                <textarea class="form-control" name="observacion" required>{{old('observacion')}}</textarea>
                             </div>
                         </div>
 
@@ -124,7 +124,7 @@
 
                     </div>
                     <div class="card-footer ">
-                        <button id="guardar" type="submit"Recibe>Guardar</button>
+                        <button id="guardar" class="btn btn-primary" type="submit"Recibe>Guardar</button>
                     </div>
 
             </div>
@@ -189,6 +189,7 @@
             );
 
             var cont = 0;
+            var agregados = [];
 
             function agregar() {
                 var suministro = JSON.parse($('#sumi_cab').val());
@@ -196,13 +197,15 @@
                 sum_nombre = suministro.nombre;
                 cant = $('#cant_cab').val();
 
-                if (sum_id != "" && cant != "" && cant > 0 && suministro.stock >= cant) {
+                if (!agregados.includes(String(sum_id)) && sum_id != "" && cant != "" && cant > 0 && suministro.stock >= cant) {
+                    agregados.push(String(sum_id));
+                    console.log(agregados);
                     var fila = '' +
                         '<tr id="fila-'+cont+'">' +
                             '<td><input required type="hidden" name="sumiT[]" value="'+sum_id+'">'+sum_nombre+'</td>' +
                             '<td><input required class="form-control" type="hidden" name="cantT[]" value="'+cant+'">'+cant+'</td>' +
                             '<td class="text-right">' +
-                                '<button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminar('+cont+')">' +
+                                '<button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminar('+cont+','+sum_id+')">' +
                                     '<i class="fa fa-times"></i>' +
                                 '</button>' +
                             '</td>' +
@@ -218,7 +221,12 @@
                 $('#cant_cab').val("");
             }
 
-            function eliminar(index){
+            function eliminar(index, id){
+                var i = agregados.indexOf(String(id));
+                if (i > -1) {
+                    agregados.splice(i, 1);
+                }
+                console.log(agregados);
                 cont--;
                 $("#fila-" + index).remove();
                 evaluar();

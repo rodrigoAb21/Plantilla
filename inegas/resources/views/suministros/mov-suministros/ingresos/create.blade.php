@@ -65,10 +65,10 @@
                                 <div class="input-group">
                                     <input type="text" class="form-control inputFileVisible" value="{{old('foto_factura')}}" name="foto_factura"  required>
                                     <span class="input-group-btn">
-                                            <button type="button" class="btn btn-fab btn-round btn-primary">
-                                                <i class="material-icons">attach_file</i>
-                                            </button>
-                                        </span>
+                                        <button type="button" class="btn btn-fab btn-round btn-primary">
+                                            <i class="material-icons">attach_file</i>
+                                        </button>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -212,6 +212,7 @@
             );
 
             var cont = 0;
+            var agregados = [];
 
             function agregar() {
                 sum_id = $('#sumi_cab').val();
@@ -219,14 +220,15 @@
                 cant = $('#cant_cab').val();
                 prec = $('#pre_cab').val();
 
-                if (sum_id != "" && cant != "" && cant > 0 && prec != "" && prec > 0) {
+                if (!agregados.includes(sum_id) && sum_id != "" && cant != "" && cant > 0 && prec != "" && prec > 0) {
+                    agregados.push(sum_id);
                     var fila = '' +
                         '<tr id="fila-'+cont+'">' +
                             '<td><input required type="hidden" name="sumiT[]" value="'+sum_id+'">'+sum_nombre+'</td>' +
                             '<td><input required class="form-control" type="hidden" name="cantT[]" value="'+cant+'">'+cant+'</td>' +
                             '<td><input required type="hidden" name="precioT[]" value="'+prec+'">'+prec+'</td>' +
                             '<td class="text-right">' +
-                                '<button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminar('+cont+')">' +
+                                '<button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminar('+cont+','+sum_id+')">' +
                                     '<i class="fa fa-times"></i>' +
                                 '</button>' +
                             '</td>' +
@@ -243,7 +245,11 @@
                 $('#pre_cab').val("");
             }
 
-            function eliminar(index){
+            function eliminar(index, id){
+                var i = agregados.indexOf(String(id));
+                if (i > -1) {
+                    agregados.splice(i, 1);
+                }
                 cont--;
                 $("#fila-" + index).remove();
                 evaluar();
