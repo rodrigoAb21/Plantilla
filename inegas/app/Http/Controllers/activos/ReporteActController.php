@@ -132,7 +132,7 @@ class ReporteActController extends Controller
             ->join('linea_a', 'grupo_a.linea_a_id', '=', 'linea_a.id')
             ->select('activo_fijo.id', 'activo_fijo.codigo','activo_fijo.serie', 'grupo_a.nombre as grupo', 'linea_a.nombre as linea','activo_fijo.disponibilidad')
             ->orderBy('activo_fijo.codigo', 'asc')
-            ->paginate(10);
+            ->get();
         $hoy = Carbon::now('America/La_Paz')->toDateString();
 
         $pdf = PDF::loadView('activos.reportes-act.inventarioPDF',['activos' => $activos, 'hoy' => $hoy]);
@@ -164,7 +164,7 @@ class ReporteActController extends Controller
     public function ingresoPDF(){
         $ingresos = DB::table('ingreso_a')
             ->orderBy('id', 'asc')
-            ->paginate(10);
+            ->get();
 
         $pdf = PDF::loadView('activos.reportes-act.ingresoPDF',['ingresos' => $ingresos]);
         return $pdf->download('ingresos.pdf');

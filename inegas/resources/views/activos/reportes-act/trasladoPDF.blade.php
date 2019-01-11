@@ -6,6 +6,7 @@
     <style>
         body{
             padding-top: 15px;
+            font-family: "Helvetica";
         }
         table{
             width: 100%;
@@ -24,9 +25,9 @@
         }
     </style>
 </head>
-<body style="font-family: sans-serif";>
+<body>
 <h2 align="center">Traslados de Activos</h2>
-<div>
+<div style="font-size: 12px">
     <div class="table-responsive">
         <table class="table table-hover table-striped ">
             <thead>

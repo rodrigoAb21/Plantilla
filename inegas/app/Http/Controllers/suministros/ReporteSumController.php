@@ -39,7 +39,7 @@ class ReporteSumController extends Controller
             ->select('suministro.id','suministro.nombre', 'suministro.stock_minimo','suministro.stock_maximo','suministro.stock','suministro.marca','suministro.descripcion', 'suministro.codigo','grupo_s.nombre as grupo','unidad_medida.nombre as medida', 'linea_s.nombre as linea')
             ->orderBy('linea_s.nombre', 'desc')
             ->orderBy('grupo_s.nombre', 'desc')
-            ->paginate(10);
+            ->get();
         $pdf = PDF::loadView('suministros.reportes-sum.faltantesPDF',["suministros" => $suministros])->setPaper('letter', 'landscape');
         return $pdf->download('faltantes.pdf');
     }
@@ -100,7 +100,7 @@ class ReporteSumController extends Controller
             ->select('suministro.id','suministro.nombre', 'suministro.stock_minimo','suministro.stock_maximo','suministro.stock','suministro.marca','suministro.descripcion', 'suministro.codigo','grupo_s.nombre as grupo','unidad_medida.nombre as medida', 'linea_s.nombre as linea')
             ->orderBy('linea_s.nombre', 'desc')
             ->orderBy('grupo_s.nombre', 'desc')
-            ->paginate(10);
+            ->get();
         $pdf = PDF::loadView('suministros.reportes-sum.inventarioPDF',["suministros" => $suministros])->setPaper('letter', 'landscape');
         return $pdf->download('inventario.pdf');
     }

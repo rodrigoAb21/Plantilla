@@ -4,6 +4,7 @@
     <style>
         body{
             padding-top: 15px;
+            font-family: "Helvetica";
         }
         table{
             width: 100%;
@@ -23,7 +24,7 @@
 </head>
 <body>
 <h2 align="center">Asignacion</h2>
-<div class="content">
+<div style="font-size: 12px" class="content">
     <div class="content">
         <div class="container">
             <div class="row">
