@@ -45,7 +45,7 @@
                                 <div class="mb-1">
                                     <label>Proveedor</label>
                                 </div>
-                                <input type="text" class="form-control" name="proveedor" required>
+                                <input type="text" class="form-control" value="{{old('proveedor')}}"  name="proveedor" required>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -53,7 +53,7 @@
                                 <div class="mb-1">
                                     <label>Nro. Factura</label>
                                 </div>
-                                <input type="number" class="form-control" name="nro_factura" required>
+                                <input type="number" class="form-control"  value="{{old('nro_factura')}}"  name="nro_factura" required>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -61,9 +61,9 @@
                                 <div class="mb-1">
                                     <label>Adjuntar Factura</label>
                                 </div>
-                                <input type="file" name="foto_factura" accept="image/*" class="inputFileHidden" required>
+                                <input type="file" name="foto_factura" accept="image/*" value="{{old('foto_factura')}}" class="inputFileHidden" required>
                                 <div class="input-group">
-                                    <input type="text" class="form-control inputFileVisible" name="foto_factura"  required>
+                                    <input type="text" class="form-control inputFileVisible" value="{{old('foto_factura')}}" name="foto_factura"  required>
                                     <span class="input-group-btn">
                                             <button type="button" class="btn btn-fab btn-round btn-primary">
                                                 <i class="material-icons">attach_file</i>

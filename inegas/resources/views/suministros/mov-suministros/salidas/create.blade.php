@@ -51,7 +51,7 @@
                                 <div class="mb-1">
                                     <label>Observacion</label>
                                 </div>
-                                <textarea class="form-control" name="observacion" required></textarea>
+                                <textarea class="form-control" name="observacion" required> {{old('observacion')}} </textarea>
                             </div>
                         </div>
 

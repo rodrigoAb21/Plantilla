@@ -24,7 +24,7 @@ class ActivoRequest extends FormRequest
     public function rules()
     {
         return [
-            'foto' => 'required|image|mimes:jpg,jpeg,bmp,png',
+            'foto' => 'nullable|image|mimes:jpg,jpeg,bmp,png',
             'serie' => 'required|string|max:255',
             'modelo' => 'required|string|max:255',
             'marca' => 'required|string|max:255',
