@@ -48,7 +48,7 @@
                                 <div class="mb-1">
                                     <label>Observacion</label>
                                 </div>
-                                <textarea name="observacion" class="form-control" rows="3" required ></textarea>
+                                <textarea name="observacion" class="form-control" rows="3" required >{{old('observacion')}}</textarea>
                             </div>
                         </div>
                     </div>

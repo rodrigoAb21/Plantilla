@@ -24,7 +24,7 @@
                         {{csrf_field()}}
                         <div class="form-group">
                             <label for="nombre" class="bmd-label-floating">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" required>
+                            <input type="text" class="form-control"  value="{{old('nombre')}}" name="nombre" required>
                         </div>
                 </div>
                 <div class="card-footer ">
