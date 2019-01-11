@@ -19,7 +19,6 @@
         }
         table {
             border-spacing: 5px;
-            font-size: 12px;
 
         }
 
@@ -27,21 +26,17 @@
 </head>
 <body>
 <h2 align="center">Salida de Suministro</h2>
-<div class="content">
+<div class="content" style="font-size: 12px">
     <div class="content">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card ">
                         <div class="card-body ">
-                            <div style="border-radius: 5px; border: 2px solid #687578; padding: 10px; font-size: 12px">
+                            <div style="border-radius: 5px; border: 2px solid #687578; padding: 10px;">
                                 <div style="width: 10%; float: left">
                                     <label><b>ID</b></label>
                                     <p>{{$salida -> id}}</p>
-                                </div>
-                                <div style="width: 20%; float: left">
-                                    <label><b>Estado</b></label>
-                                    <p>{{$salida -> estado}}</p>
                                 </div>
                                 <div style="width: 20%; float: left">
                                     <label><b>Fecha</b></label>
@@ -51,7 +46,7 @@
                                     <label><b>Ubicacion</b></label>
                                     <p>{{$salida -> ubicacion}}</p>
                                 </div>
-                                <div style="width: 20%; float: left">
+                                <div style="width: 40%; float: left">
                                     <label><b>Recibe</b></label>
                                     <p>{{$salida -> recibe}} - {{$salida -> cargo}}</p>
                                 </div>
@@ -87,6 +82,20 @@
                             </div>
                         </div>
 
+                        {{--Pie de firma--}}
+                        <div style="width: 100%;padding-top: 5em; align-items: center; margin: auto">
+                            <div style="width: 10%;float: left;"></div>
+                            <div align="center" style="width: 30%; float: left;">
+                                <hr>
+                                <p>{{\Illuminate\Support\Facades\Auth::user()->nombre}} <br> Entrega </p>
+                            </div>
+                            <div style="width: 20%;float: left;"></div>
+                            <div align="center" style="width: 30%; float: left;">
+                                <hr>
+                                <p>{{$salida -> recibe}} <br>Recibe</p>
+                            </div>
+                            <div style="width: 10%;float: left;"></div>
+                        </div>
 
                     </div>
                     <!--  end card  -->

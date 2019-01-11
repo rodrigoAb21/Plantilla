@@ -16,33 +16,27 @@
 
                         <div class="form-group form-file-upload form-file-multiple">
                             <div class="input-group">
-                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                                <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                     <div class="form-group">
                                         <label>ID</label>
                                         <p>{{$salida -> id}}</p>
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
-                                    <div class="form-group">
-                                        <label>Estado</label>
-                                        <p>{{$salida -> estado}}</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                                <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                     <div class="form-group">
                                         <label >Fecha</label>
                                         <p>{{$salida -> fecha}}</p>
                                     </div>
                                 </div>
 
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                                     <div class="form-group">
                                         <label>Ubicacion</label>
                                         <p>{{$salida -> ubicacion}}</p>
                                     </div>
                                 </div>
 
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
                                     <div class="form-group">
                                         <label>Recibe</label>
                                         <p>{{$salida -> recibe}} - {{$salida -> cargo}}</p>
