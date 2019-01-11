@@ -42,6 +42,11 @@ Route::middleware('auth')->group(function () {
         Route::resource('/sum/presentaciones', 'suministros\UnidadMedidaController');
 
 
+
+
+        Route::get('sum/reportes/faltantes', 'suministros\ReporteSumController@faltantes');
+        Route::get('sum/reportes/faltantesPDF', 'suministros\ReporteSumController@faltantesPDF');
+
         Route::get('/sum/reportes/inventario', 'suministros\ReporteSumController@inventario');
         Route::get('/sum/reportes/inventarioPDF', 'suministros\ReporteSumController@inventarioPDF');
 

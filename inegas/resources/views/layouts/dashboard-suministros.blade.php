@@ -99,6 +99,12 @@
                                     <p> Inventario </p>
                                 </a>
                             </li>
+                            <li class="{{ Request::is('sum/reportes/faltantes*') ? 'nav-item active' : 'nav-item' }}">
+                                <a class="nav-link" href="{{url('sum/reportes/faltantes')}}">
+                                    <i class="fa fa-boxes"></i>
+                                    <p> Faltantes </p>
+                                </a>
+                            </li>
                             <li class="{{ Request::is('sum/reportes/movimientos/ingresos*') ? 'nav-item active' : 'nav-item' }}">
                                 <a class="nav-link" href="{{url('sum/reportes/movimientos/ingresos')}}">
                                     <i class="fa fa-truck-loading"></i>
