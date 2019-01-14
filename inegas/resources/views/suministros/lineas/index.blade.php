@@ -13,7 +13,7 @@
                 </div>
                 <div class="card-body">
 
-                    <form method="GET" action="{{url('sum/lineas')}}" autocomplete="off">
+                    <form method="GET" action="{{url('sum/administracion/lineas')}}" autocomplete="off">
                         <div class="form-group form-file-upload form-file-multiple">
                             <div class="input-group">
                                 <label for="busqueda" class="bmd-label-floating">Buscar</label>
@@ -22,7 +22,7 @@
                                         <button type="submit" class="btn btn-fab btn-round btn-primary">
                                             <i class="fa fa-search"></i>
                                         </button>
-                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('sum/lineas/create')}}">
+                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('sum/administracion/lineas/create')}}">
                                                 <i class="fa fa-plus"></i>
                                         </a>
                                     </span>
@@ -46,12 +46,12 @@
                                         <td>{{$linea -> id}}</td>
                                         <td>{{$linea -> nombre}}</td>
                                         <td class="text-right ">
-                                            <a href="{{url('sum/lineas/'.$linea -> id.'/edit')}}">
+                                            <a href="{{url('sum/administracion/lineas/'.$linea -> id.'/edit')}}">
                                                 <button class="btn btn-outline-primary btn-sm">
                                                     <i class="fa fa-pen"></i>
                                                 </button>
                                             </a>
-                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="modalEliminar('{{$linea -> nombre}}', '{{url('sum/lineas/'.$linea -> id)}}')">
+                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="modalEliminar('{{$linea -> nombre}}', '{{url('sum/administracion/lineas/'.$linea -> id)}}')">
                                                 <i class="fa fa-times"></i>
                                             </button>
                                         </td>

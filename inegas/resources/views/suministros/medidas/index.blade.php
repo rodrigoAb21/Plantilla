@@ -8,12 +8,12 @@
                     <div class="card-icon">
                         <i class="fa fa-ruler fa-2x"></i>
                     </div>
-                    <h3 class="card-title">Presentaciones</h3>
+                    <h3 class="card-title">Unidades de Medida</h3>
 
                 </div>
                 <div class="card-body">
 
-                    <form method="GET" action="{{url('sum/presentaciones')}}" autocomplete="off">
+                    <form method="GET" action="{{url('sum/administracion/u_medidas')}}" autocomplete="off">
                         <div class="form-group form-file-upload form-file-multiple">
                             <div class="input-group">
                                 <label for="busqueda" class="bmd-label-floating">Buscar</label>
@@ -22,7 +22,7 @@
                                         <button type="submit" class="btn btn-fab btn-round btn-primary">
                                             <i class="fa fa-search"></i>
                                         </button>
-                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('sum/presentaciones/create')}}">
+                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('sum/administracion/u_medidas/create')}}">
                                                 <i class="fa fa-plus"></i>
                                         </a>
                                     </span>
@@ -46,12 +46,12 @@
                                         <td>{{$unidad -> id}}</td>
                                         <td>{{$unidad -> nombre}}</td>
                                         <td class="text-right ">
-                                            <a href="{{url('sum/presentaciones/'.$unidad -> id.'/edit')}}">
+                                            <a href="{{url('sum/administracion/u_medidas/'.$unidad -> id.'/edit')}}">
                                                 <button class="btn btn-outline-primary btn-sm">
                                                     <i class="fa fa-pen"></i>
                                                 </button>
                                             </a>
-                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="modalEliminar('{{$unidad -> nombre}}', '{{url('sum/presentaciones/'.$unidad -> id)}}')">
+                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="modalEliminar('{{$unidad -> nombre}}', '{{url('sum/administracion/u_medidas/'.$unidad -> id)}}')">
                                                 <i class="fa fa-times"></i>
                                             </button>
                                         </td>
@@ -78,8 +78,8 @@
 
             function modalEliminar(nombre, url) {
                 $('#modalEliminarForm').attr("action", url);
-                $('#modalEliminarTitulo').html("Eliminar Presentacion");
-                $('#modalEliminarEnunciado').html("Realmente desea eliminar la presentacion: " + nombre + "?");
+                $('#modalEliminarTitulo').html("Eliminar Unidad de Medida");
+                $('#modalEliminarEnunciado').html("Realmente desea eliminar la unidad de medida: " + nombre + "?");
                 $('#modalEliminar').modal('show');
             }
 

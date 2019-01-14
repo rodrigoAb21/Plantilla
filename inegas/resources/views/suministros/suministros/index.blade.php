@@ -38,7 +38,7 @@
                                     <th><b>Codigo</b></th>
                                     <th><b>Nombre</b></th>
                                     <th><b>Marca</b></th>
-                                    <th><b>Presentacion</b></th>
+                                    <th><b>Unidad de Medida</b></th>
                                     <th class="text-right"><b>Opciones</b></th>
                                 </tr>
                             </thead>

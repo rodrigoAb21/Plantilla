@@ -36,7 +36,7 @@
                 <th><b>Nombre</b></th>
                 <th><b>Marca</b></th>
                 <th><b>Stock</b></th>
-                <th><b>Presentacion</b></th>
+                <th><b>Unidad de Medida</b></th>
                 <th><b>Linea-Grupo</b></th>
                 <th><b>Observacion</b></th>
             </tr>

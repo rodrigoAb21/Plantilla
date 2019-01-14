@@ -32,15 +32,15 @@ Route::middleware('auth')->group(function () {
         });
 
 
-        Route::resource('/sum/lineas', 'suministros\LineaController');
-        Route::post('sum/lineas/{id}/grupo', 'suministros\LineaController@guardarGrupo');
-        Route::patch('sum/lineas/{idLinea}/grupo/{idGrupo}', 'suministros\LineaController@actualizarGrupo');
-        Route::delete('sum/lineas/{idLinea}/grupo/{idGrupo}', 'suministros\LineaController@eliminarGrupo');
+        Route::resource('sum/administracion/lineas', 'suministros\LineaController');
+        Route::post('sum/administracion/lineas/{id}/grupo', 'suministros\LineaController@guardarGrupo');
+        Route::patch('sum/administracion/lineas/{idLinea}/grupo/{idGrupo}', 'suministros\LineaController@actualizarGrupo');
+        Route::delete('sum/administracion/lineas/{idLinea}/grupo/{idGrupo}', 'suministros\LineaController@eliminarGrupo');
         Route::resource('/sum/suministros', 'suministros\SuministroController');
         Route::resource('/sum/mov-suministros/ingresos', 'suministros\IngresoController');
         Route::resource('/sum/mov-suministros/salidas', 'suministros\SalidaController');
         Route::get('sum/mov-suministros/salidasPDF/{id}', 'suministros\SalidaController@salidasPDF');
-        Route::resource('/sum/presentaciones', 'suministros\UnidadMedidaController');
+        Route::resource('sum/administracion/u_medidas', 'suministros\UnidadMedidaController');
 
 
 

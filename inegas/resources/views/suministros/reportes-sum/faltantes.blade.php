@@ -41,7 +41,7 @@
                                     <th><b>Marca</b></th>
                                     <th><b>Stock</b></th>
                                     <th><b>Stock Min</b></th>
-                                    <th><b>Presentacion</b></th>
+                                    <th><b>Unidad de Medida</b></th>
                                     <th><b>Linea - Grupo</b></th>
                                 </tr>
                             </thead>

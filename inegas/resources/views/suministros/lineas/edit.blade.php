@@ -19,7 +19,7 @@
                     </div>
                     <h3 class="card-title">Editar Linea</h3>
                 </div>
-                <form method="POST" action="{{url('sum/lineas/'.$linea -> id)}}" autocomplete="off">
+                <form method="POST" action="{{url('sum/administracion/lineas/'.$linea -> id)}}" autocomplete="off">
                     <div class="card-body ">
                         {{method_field('patch')}}
                         {{csrf_field()}}
@@ -53,7 +53,7 @@
                 </div>
 
                 <div class="card-body ">
-                    <form method="GET" action="{{url('sum/lineas/'.$linea -> id.'/edit')}}" autocomplete="off">
+                    <form method="GET" action="{{url('sum/administracion/lineas/'.$linea -> id.'/edit')}}" autocomplete="off">
                         <div class="form-group form-file-upload form-file-multiple">
                             <div class="input-group">
                                 <label for="busqueda" class="bmd-label-floating">Buscar</label>
@@ -62,7 +62,7 @@
                                         <button type="submit" class="btn btn-fab btn-round btn-primary">
                                             <i class="fa fa-search"></i>
                                         </button>
-                                        <button type="button" class="btn btn-fab btn-round btn-primary" onclick="modalCreate('{{url('sum/lineas/'.$linea -> id.'/grupo')}}')">
+                                        <button type="button" class="btn btn-fab btn-round btn-primary" onclick="modalCreate('{{url('sum/administracion/lineas/'.$linea -> id.'/grupo')}}')">
                                             <i class="fa fa-plus"></i>
                                         </button>
                                     </span>
@@ -85,10 +85,10 @@
                                         <td>{{$grupo -> id}}</td>
                                         <td>{{$grupo -> nombre}}</td>
                                         <td class="text-right ">
-                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="modalEdit('{{$grupo -> nombre}}','{{url('sum/lineas/'.$linea -> id.'/grupo/'.$grupo -> id)}}' )">
+                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="modalEdit('{{$grupo -> nombre}}','{{url('sum/administracion/lineas/'.$linea -> id.'/grupo/'.$grupo -> id)}}' )">
                                                 <i class="fa fa-pen"></i>
                                             </button>
-                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarGrupo('{{$grupo -> nombre}}','{{url('sum/lineas/'.$linea -> id.'/grupo/'.$grupo -> id)}}')">
+                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarGrupo('{{$grupo -> nombre}}','{{url('sum/administracion/lineas/'.$linea -> id.'/grupo/'.$grupo -> id)}}')">
                                                 <i class="fa fa-times"></i>
                                             </button>
                                         </td>

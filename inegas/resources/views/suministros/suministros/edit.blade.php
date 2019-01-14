@@ -33,7 +33,7 @@
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label>Presentacion</label>
+                                    <label>Unidad de Medida</label>
                                     <select class="form-control selectpicker" data-live-search="true" data-style="btn btn-link" name="unidad_medida_id">
                                         @foreach($medidas as $medida)
                                             @if($medida -> id == $suministro -> unidad_medida_id)

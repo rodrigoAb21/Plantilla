@@ -42,7 +42,8 @@ class LineaController extends Controller
             Bitacora::registrar_accion(Tablas::$linea, 'Creó la linea con ID: '.$linea -> id);
         }
 
-        return redirect('sum/lineas');
+        return redirect('sum/administracion/lineas');
+
     }
 
 
@@ -66,7 +67,7 @@ class LineaController extends Controller
             Bitacora::registrar_accion(Tablas::$linea, 'Editó la linea con ID: '.$linea -> id);
         }
 
-        return redirect('sum/lineas');
+        return redirect('sum/administracion/lineas');
     }
 
 
@@ -88,7 +89,7 @@ class LineaController extends Controller
             $g -> save();
         }
 
-        return redirect('sum/lineas');
+        return redirect('sum/administracion/lineas');
     }
 
     public function guardarGrupo(GrupoRequest $request, $id){
@@ -100,7 +101,7 @@ class LineaController extends Controller
             Bitacora::registrar_accion(Tablas::$grupo, 'Creó el grupo con ID: '.$grupo -> id);
         }
 
-        return redirect('sum/lineas/'.$id.'/edit');
+        return redirect('sum/administracion/lineas/'.$id.'/edit');
 
     }
 
@@ -111,7 +112,7 @@ class LineaController extends Controller
             Bitacora::registrar_accion(Tablas::$grupo, 'Editó el grupo con ID: '.$grupo -> id);
         }
 
-        return redirect('sum/lineas/'.$idLinea.'/edit');
+        return redirect('sum/administracion/lineas/'.$idLinea.'/edit');
     }
 
     public function eliminarGrupo($idLinea, $idGrupo){
@@ -121,7 +122,7 @@ class LineaController extends Controller
             Bitacora::registrar_accion(Tablas::$grupo, 'Eliminó el grupo con ID: '.$grupo -> id);
         }
 
-        return redirect('sum/lineas/'.$idLinea.'/edit');
+        return redirect('sum/administracion/lineas/'.$idLinea.'/edit');
     }
 
 }

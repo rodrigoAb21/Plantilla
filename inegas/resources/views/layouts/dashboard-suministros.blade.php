@@ -39,20 +39,11 @@
                     </a>
                 </div>
             </div>
-            <ul class="nav">
-                <li class="{{ Request::is('sum/lineas*') ? 'nav-item active' : 'nav-item' }}">
-                    <a class="nav-link" href="{{url('sum/lineas')}}">
-                        <i class="fa fa-tags"></i>
-                        <p> Lineas - Grupos </p>
-                    </a>
-                </li>
 
-                <li class="{{ Request::is('sum/presentaciones*') ? 'nav-item active' : 'nav-item' }}">
-                    <a class="nav-link" href="{{url('sum/presentaciones')}}">
-                        <i class="fa fa-ruler"></i>
-                        <p> Presentaciones </p>
-                    </a>
-                </li>
+
+            <ul class="nav">
+
+
 
                 <li class="{{ Request::is('sum/suministros*') ? 'nav-item active' : 'nav-item' }}">
                     <a class="nav-link" href="{{url('sum/suministros')}}">
@@ -123,6 +114,32 @@
                 </li>
 
 
+                <li class="{{ Request::is('sum/administracion*') ? 'nav-item active' : 'nav-item' }}">
+                    <a class="{{ Request::is('sum/administracion*') ? 'nav-link collapse collapsed' : 'nav-link collapse' }}" data-toggle="collapse" href="#admin" aria-expanded="{{ Request::is('sum/administracion*') ? 'true' : 'false' }}" >
+                        <i class="fa fa-cogs"></i>
+                        <p> Administracion <b class="caret"></b></p>
+                    </a>
+                    <div class="{{ Request::is('sum/administracion*') ? 'collapse show' : 'collapse' }}" id="admin">
+                        <ul class="nav">
+                            <li class="{{ Request::is('sum/administracion/lineas*') ? 'nav-item active' : 'nav-item' }}">
+                                <a class="nav-link" href="{{url('sum/administracion/lineas')}}">
+                                    <i class="fa fa-tags"></i>
+                                    <p> Lineas - Grupos </p>
+                                </a>
+                            </li>
+
+                            <li class="{{ Request::is('sum/administracion/u_medidas*') ? 'nav-item active' : 'nav-item' }}">
+                                <a class="nav-link" href="{{url('sum/administracion/u_medidas')}}">
+                                    <i class="fa fa-ruler"></i>
+                                    <p> Unidades de Medida </p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+
+
 
 
 
@@ -136,8 +153,8 @@
                 <div class="navbar-wrapper">
                     <div class="navbar-minimize">
                         <button id="minimizeSidebar" class="btn btn-just-icon btn-white btn-fab btn-round">
-                            <i class="material-icons text_align-center visible-on-sidebar-regular">more_vert</i>
-                            <i class="material-icons design_bullet-list-67 visible-on-sidebar-mini">view_list</i>
+                            <i class="fa fa-ellipsis-v text_align-center visible-on-sidebar-regular"></i>
+                            <i class="fa fa-th-list visible-on-sidebar-mini"></i>
                         </button>
                     </div>
                     <a class="navbar-brand" href="{{url('sum')}}">Area de Suministros</a>

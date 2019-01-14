@@ -19,7 +19,7 @@
                     </div>
                     <h3 class="card-title">Nueva Linea</h3>
                 </div>
-                <form method="POST" action="{{url('sum/lineas')}}" autocomplete="off">
+                <form method="POST" action="{{url('sum/administracion/lineas')}}" autocomplete="off">
                 <div class="card-body ">
                     {{csrf_field()}}
                         <div class="row">
