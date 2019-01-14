@@ -85,6 +85,23 @@
                             </div>
                         </div>
 
+                        <div style="width: 100%;padding-top: 7em; align-items: center; margin: auto">
+                            <div style="width: 10%;float: left;"></div>
+                            <div align="center" style="width: 20%; float: left;">
+                                <hr>
+                                <p><br> Entrega </p>
+                            </div>
+                            <div style="width: 10%;float: left;"></div>
+                            <div align="center" style="width: 20%; float: left;">
+                                <hr>
+                                <p><br>Recibe</p>
+                            </div><div style="width: 10%;float: left;"></div>
+                            <div align="center" style="width: 20%; float: left;">
+                                <hr>
+                                <p><br>Autoriza</p>
+                            </div>
+                            <div style="width: 10%;float: left;"></div>
+                        </div>
 
                     </div>
                     <!--  end card  -->

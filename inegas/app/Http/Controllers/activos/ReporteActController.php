@@ -92,7 +92,7 @@ class ReporteActController extends Controller
             ->get();
 
         $pdf = PDF::loadView('activos.reportes-act.ver-asignacionPDF',['asignacion' => $asignacion, 'activos' => $activos]);
-        return $pdf->download('asignacion-'.$id.'pdf');
+        return $pdf->download('asignacion-'.$id.'.pdf');
     }
 
 
