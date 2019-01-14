@@ -87,7 +87,7 @@ class ActivoController extends Controller
             return view('activos.activos.show2', ['activo' => $activo]);
         }else{
             $qr = public_path('img/activos/activos/codigos/qr-activo-'.$id.'.png');
-            $datos = 'Codigo:'.$activo->codigo.'//Linea:'.$activo->linea.'//Grupo:'.$activo->grupo.'//Ubicacion:'.$asignacion->ubicacion.'//Responsable:'.$asignacion->responsable.'//';
+            $datos = "\r\nCODIGO: ".$activo->codigo." \r\nMARCA: ".$activo->marca." \r\nMODELO: ".$activo->modelo." \r\nNRO. SERIE: ".$activo->serie." \r\nCOLOR: ".$activo->color." \r\nUBICACION: ".$asignacion->ubicacion;
             QRCode::text($datos)->setSize(6)->setOutfile($qr)->png();
 
             return view('activos.activos.show', ['activo' => $activo, 'asignacion' => $asignacion]);
