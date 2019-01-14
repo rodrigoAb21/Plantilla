@@ -26,6 +26,11 @@
                                                 <i class="fa fa-file-pdf"></i>
                                             </button>
                                         </a>
+                                        <a href="{{url('/act/reportes/inventario2PDF')}}">
+                                            <button type="button" class="btn btn-fab btn-round btn-primary" title="Descargar PDF" >
+                                                <i class="fa fa-clipboard-list"></i>
+                                            </button>
+                                        </a>
                                     </span>
 
                             </div>
@@ -37,8 +42,12 @@
                             <thead>
                             <tr>
                                 <th><b>Codigo</b></th>
-                                <th><b>Serie</b></th>
-                                <th><b>Linea - Grupo</b></th>
+                                <th><b>Marca</b></th>
+                                <th><b>Modelo</b></th>
+                                <th><b>Color</b></th>
+                                <th><b>N. Serie</b></th>
+                                <th><b>Ubicacion</b></th>
+                                <th><b>Responsable</b></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -46,14 +55,22 @@
                                 @if($activo -> disponibilidad != 'Baja')
                                     <tr>
                                         <td>{{$activo -> codigo}}</td>
+                                        <td>{{$activo -> marca}}</td>
+                                        <td>{{$activo -> modelo}}</td>
+                                        <td>{{$activo -> color}}</td>
                                         <td>{{$activo -> serie}}</td>
-                                        <td>{{$activo -> linea.' - '.$activo -> grupo}}</td>
+                                        <td>{{$activo -> ubicacion}}</td>
+                                        <td>{{$activo -> responsable}}</td>
                                     </tr>
                                 @else
                                     <tr class="table-danger">
                                         <td>{{$activo -> codigo}}</td>
+                                        <td>{{$activo -> marca}}</td>
+                                        <td>{{$activo -> modelo}}</td>
+                                        <td>{{$activo -> color}}</td>
                                         <td>{{$activo -> serie}}</td>
-                                        <td>{{$activo -> linea.' - '.$activo -> grupo}}</td>
+                                        <td>{{$activo -> ubicacion}}</td>
+                                        <td>{{$activo -> responsable}}</td>
                                     </tr>
                                 @endif
                             @endforeach

@@ -65,8 +65,6 @@ class ReporteActController extends Controller
             ->where('detalle_asig.asignacion_id', '=', $id)
             ->select('activo_fijo.id', 'activo_fijo.codigo', 'grupo_a.nombre as grupo', 'linea_a.nombre as linea')
             ->where('activo_fijo.disponibilidad', '!=', 'Baja')
-            ->orderBy('linea_a.id', 'asc')
-            ->orderBy('grupo_a.id', 'asc')
             ->get();
 
         return view('activos.reportes-act.ver-asignacion',['asignacion' => $asignacion, 'activos' => $activos]);
@@ -87,8 +85,6 @@ class ReporteActController extends Controller
             ->where('detalle_asig.asignacion_id', '=', $id)
             ->select('activo_fijo.id', 'activo_fijo.codigo', 'grupo_a.nombre as grupo', 'linea_a.nombre as linea')
             ->where('activo_fijo.disponibilidad', '!=', 'Baja')
-            ->orderBy('linea_a.id', 'asc')
-            ->orderBy('grupo_a.id', 'asc')
             ->get();
 
         $pdf = PDF::loadView('activos.reportes-act.ver-asignacionPDF',['asignacion' => $asignacion, 'activos' => $activos]);
@@ -110,13 +106,10 @@ class ReporteActController extends Controller
     public function vista_inventario(Request $request){
 
         $activos = DB::table('activo_fijo')
-            ->join('grupo_a', 'activo_fijo.grupo_a_id', '=', 'grupo_a.id')
-            ->join('linea_a', 'grupo_a.linea_a_id', '=', 'linea_a.id')
+            ->join('trabajador','asignacion.trabajador_id','=','trabajador.id')
+            ->join('ubicacion','trabajador.ubicacion_id','=','ubicacion.id')
             ->where('activo_fijo.codigo', 'LIKE','%'.trim($request['busqueda']).'%')
-            ->orWhere('activo_fijo.serie', 'LIKE','%'.trim($request['busqueda']).'%')
-            ->orWhere('grupo_a.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
-            ->orWhere('linea_a.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
-            ->select('activo_fijo.id', 'activo_fijo.codigo','activo_fijo.serie', 'grupo_a.nombre as grupo', 'linea_a.nombre as linea','activo_fijo.disponibilidad')
+            ->select('activo_fijo.id', 'activo_fijo.codigo','activo_fijo.marca','activo_fijo.color','activo_fijo.modelo','activo_fijo.serie', 'activo_fijo.disponibilidad', 'trabajador.nombre as responsable', 'ubicacion.nombre as ubicacion')
             ->orderBy('activo_fijo.codigo', 'asc')
             ->paginate(10);
         $hoy = Carbon::now('America/La_Paz')->toDateString();
@@ -128,14 +121,13 @@ class ReporteActController extends Controller
 
     public function inventarioPDF(){
         $activos = DB::table('activo_fijo')
-            ->join('grupo_a', 'activo_fijo.grupo_a_id', '=', 'grupo_a.id')
-            ->join('linea_a', 'grupo_a.linea_a_id', '=', 'linea_a.id')
-            ->select('activo_fijo.id', 'activo_fijo.codigo','activo_fijo.serie', 'grupo_a.nombre as grupo', 'linea_a.nombre as linea','activo_fijo.disponibilidad')
+            ->join('trabajador','asignacion.trabajador_id','=','trabajador.id')
+            ->join('ubicacion','trabajador.ubicacion_id','=','ubicacion.id')
+            ->select('activo_fijo.id', 'activo_fijo.codigo','activo_fijo.marca','activo_fijo.color','activo_fijo.modelo','activo_fijo.serie', 'activo_fijo.disponibilidad', 'trabajador.nombre as responsable', 'ubicacion.nombre as ubicacion')
             ->orderBy('activo_fijo.codigo', 'asc')
             ->get();
-        $hoy = Carbon::now('America/La_Paz')->toDateString();
 
-        $pdf = PDF::loadView('activos.reportes-act.inventarioPDF',['activos' => $activos, 'hoy' => $hoy]);
+        $pdf = PDF::loadView('activos.reportes-act.inventarioPDF',['activos' => $activos])->setPaper('letter', 'landscape');
         return $pdf->download('inventario.pdf');
     }
 

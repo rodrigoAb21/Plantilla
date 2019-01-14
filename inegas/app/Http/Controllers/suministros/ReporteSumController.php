@@ -17,7 +17,7 @@ class ReporteSumController extends Controller
             ->join('linea_s','grupo_s.linea_s_id','=', 'linea_s.id')
             ->join('unidad_medida','suministro.unidad_medida_id','=','unidad_medida.id')
             ->where('suministro.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
-            ->whereColumn('suministro.stock_minimo', '>=', 'suministro.stock')
+            ->whereColumn('suministro.stock_minimo', '>', 'suministro.stock')
             ->where('suministro.visible', '=', true)
             ->select('suministro.id','suministro.nombre', 'suministro.stock_minimo','suministro.stock_maximo','suministro.stock','suministro.marca','suministro.descripcion', 'suministro.codigo','grupo_s.nombre as grupo','unidad_medida.nombre as medida', 'linea_s.nombre as linea')
             ->orderBy('suministro.id', 'desc')
@@ -34,7 +34,7 @@ class ReporteSumController extends Controller
             ->join('grupo_s','suministro.grupo_s_id','=','grupo_s.id')
             ->join('linea_s','grupo_s.linea_s_id','=', 'linea_s.id')
             ->join('unidad_medida','suministro.unidad_medida_id','=','unidad_medida.id')
-            ->whereColumn('suministro.stock_minimo', '>=', 'suministro.stock')
+            ->whereColumn('suministro.stock_minimo', '>', 'suministro.stock')
             ->where('suministro.visible', '=', true)
             ->select('suministro.id','suministro.nombre', 'suministro.stock_minimo','suministro.stock_maximo','suministro.stock','suministro.marca','suministro.descripcion', 'suministro.codigo','grupo_s.nombre as grupo','unidad_medida.nombre as medida', 'linea_s.nombre as linea')
             ->orderBy('linea_s.nombre', 'desc')
@@ -71,19 +71,13 @@ class ReporteSumController extends Controller
     public function inventario(Request $request)
     {
         $suministros = DB::table('suministro')
-            ->join('grupo_s','suministro.grupo_s_id','=','grupo_s.id')
-            ->join('linea_s','grupo_s.linea_s_id','=', 'linea_s.id')
             ->join('unidad_medida','suministro.unidad_medida_id','=','unidad_medida.id')
             ->where('suministro.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
             ->orWhere('suministro.codigo', 'LIKE','%'.trim($request['busqueda']).'%')
             ->orWhere('suministro.marca', 'LIKE','%'.trim($request['busqueda']).'%')
             ->orWhere('unidad_medida.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
-            ->orWhere('grupo_s.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
-            ->orWhere('linea_s.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
             ->where('suministro.visible', '=', true)
-            ->select('suministro.id','suministro.nombre', 'suministro.stock_minimo','suministro.stock_maximo','suministro.stock','suministro.marca','suministro.descripcion', 'suministro.codigo','grupo_s.nombre as grupo','unidad_medida.nombre as medida', 'linea_s.nombre as linea')
-            ->orderBy('linea_s.nombre', 'desc')
-            ->orderBy('grupo_s.nombre', 'desc')
+            ->select('suministro.id','suministro.nombre', 'suministro.stock_minimo','suministro.stock_maximo','suministro.stock','suministro.marca','suministro.descripcion', 'suministro.codigo','unidad_medida.nombre as medida')
             ->paginate(10);
 
         return view('suministros.reportes-sum.inventario', ['suministros' => $suministros, 'busqueda' => trim($request['busqueda'])]);
@@ -93,13 +87,9 @@ class ReporteSumController extends Controller
 
     public static function inventarioPDF(){
         $suministros = DB::table('suministro')
-            ->join('grupo_s','suministro.grupo_s_id','=','grupo_s.id')
-            ->join('linea_s','grupo_s.linea_s_id','=', 'linea_s.id')
             ->join('unidad_medida','suministro.unidad_medida_id','=','unidad_medida.id')
             ->where('suministro.visible', '=', true)
-            ->select('suministro.id','suministro.nombre', 'suministro.stock_minimo','suministro.stock_maximo','suministro.stock','suministro.marca','suministro.descripcion', 'suministro.codigo','grupo_s.nombre as grupo','unidad_medida.nombre as medida', 'linea_s.nombre as linea')
-            ->orderBy('linea_s.nombre', 'desc')
-            ->orderBy('grupo_s.nombre', 'desc')
+            ->select('suministro.id','suministro.nombre', 'suministro.stock_minimo','suministro.stock_maximo','suministro.stock','suministro.marca','suministro.descripcion', 'suministro.codigo','unidad_medida.nombre as medida')
             ->get();
         $pdf = PDF::loadView('suministros.reportes-sum.inventarioPDF',["suministros" => $suministros])->setPaper('letter', 'landscape');
         return $pdf->download('inventario.pdf');

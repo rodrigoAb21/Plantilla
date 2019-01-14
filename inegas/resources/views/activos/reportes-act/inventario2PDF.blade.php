@@ -25,30 +25,38 @@
         }
     </style>
 </head>
-<body style="font-family: sans-serif";>
-<h2 align="center">Movimiento de salidas de Suministros</h2>
+<body>
+<h2 align="center">Toma de inventario de Activos Fijos</h2>
 <div style="font-size: 12px">
     <div class="table-responsive">
         <table class="table table-hover table-striped ">
             <thead>
             <tr>
-                <th><b>N. Documento</b></th>
-                <th><b>Fecha</b></th>
+                <th><b>Codigo</b></th>
+                <th><b>Marca</b></th>
+                <th><b>Modelo</b></th>
+                <th><b>Color</b></th>
+                <th><b>N. Serie</b></th>
                 <th><b>Ubicacion</b></th>
-                <th><b>Recibe</b></th>
-                <th><b>Estado</b></th>
+                <th><b>Responsable</b></th>
+                <th><b>Observaciones</b></th>
             </tr>
             </thead>
             <tbody>
-            @foreach($salidas as $salida)
+            @foreach($activos as $activo)
                 <tr>
-                    <td>{{$salida -> id}}</td>
-                    <td>{{Carbon\Carbon::parse($salida -> fecha)->format('d/m/Y h:i A')}}</td>
-                    <td>{{$salida -> ubicacion}}</td>
-                    <td>{{$salida -> recibe}}</td>
-                    <td>{{$salida -> estado}}</td>
+                    <td>{{$activo -> codigo}}</td>
+                    <td>{{$activo -> marca}}</td>
+                    <td>{{$activo -> modelo}}</td>
+                    <td>{{$activo -> color}}</td>
+                    <td>{{$activo -> serie}}</td>
+                    <td>{{$activo -> ubicacion}}</td>
+                    <td>{{$activo -> responsable}}</td>
+                    <td></td>
                 </tr>
             @endforeach
+
+
             </tbody>
         </table>
     </div>

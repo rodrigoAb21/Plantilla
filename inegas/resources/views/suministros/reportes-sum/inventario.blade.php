@@ -41,30 +41,19 @@
                                     <th><b>Marca</b></th>
                                     <th><b>Stock</b></th>
                                     <th><b>Unidad de Medida</b></th>
-                                    <th><b>Linea - Grupo</b></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($suministros as $suministro)
-                                    @if($suministro -> stock < $suministro -> stock_minimo)
-                                        <tr class="table-warning">
-                                            <td>{{$suministro -> codigo}}</td>
-                                            <td>{{$suministro -> nombre}}</td>
-                                            <td>{{$suministro -> marca}}</td>
-                                            <td>{{$suministro -> stock}}</td>
-                                            <td>{{$suministro -> medida}}</td>
-                                            <td>{{$suministro -> linea.' - '.$suministro -> grupo}}</td>
-                                        </tr>
-                                    @else
+
                                         <tr>
                                             <td>{{$suministro -> codigo}}</td>
                                             <td>{{$suministro -> nombre}}</td>
                                             <td>{{$suministro -> marca}}</td>
                                             <td>{{$suministro -> stock}}</td>
                                             <td>{{$suministro -> medida}}</td>
-                                            <td>{{$suministro -> linea.' - '.$suministro -> grupo}}</td>
                                         </tr>
-                                    @endif
+
                                 @endforeach
                             </tbody>
                         </table>

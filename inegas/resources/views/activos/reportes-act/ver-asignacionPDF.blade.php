@@ -23,7 +23,7 @@
     </style>
 </head>
 <body>
-<h2 align="center">Asignacion</h2>
+<h2 align="center">Asignacion de Activos Fijos</h2>
 <div style="font-size: 12px" class="content">
     <div class="content">
         <div class="container">
@@ -32,19 +32,15 @@
                     <div class="card ">
                         <div class="card-body ">
                             <div style="border-radius: 5px; border: 2px solid #687578; padding: 10px">
-                                <div style="width: 10%; float: left">
-                                    <label><b>ID</b></label>
-                                    <p>{{$asignacion -> id}}</p>
-                                </div>
                                 <div style="width: 20%; float: left">
                                     <label><b>Fecha</b></label>
                                     <p>{{$asignacion -> fecha}}</p>
                                 </div>
-                                <div style="width: 20%; float: left">
+                                <div style="width: 25%; float: left">
                                     <label><b>Ubicacion</b></label>
                                     <p>{{$asignacion -> ubicacion}}</p>
                                 </div>
-                                <div style="width: 30%; float: left">
+                                <div style="width: 35%; float: left">
                                     <label ><b>Responsable</b></label>
                                     <p>{{$asignacion -> responsable}}</p>
                                 </div>
