@@ -127,8 +127,14 @@ class ActivoController extends Controller
             ->join('detalle_estado', 'estado.id', '=', 'detalle_estado.estado_id')
             ->select('detalle_estado.id','detalle_estado.activo_fijo_id', 'detalle_estado.fecha','detalle_estado.motivo', 'estado.nombre')
             ->where('detalle_estado.activo_fijo_id', '=', $id)
-            ->where('estado.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
-            ->where('detalle_estado.visible', '=', true)
+            ->where(function ($query) use ($request) {
+                $query ->where('detalle_estado.motivo', 'LIKE','%'.trim($request['busqueda']).'%')
+                    ->where('detalle_estado.visible', '=', true);
+            })
+            ->orWhere(function ($query) use ($request) {
+                $query ->where('estado.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
+                    ->where('detalle_estado.visible', '=', true);
+            })
             ->orderBy('detalle_estado.id', 'desc')
             ->paginate(10);
 

@@ -80,7 +80,7 @@
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <label for="max" >Descripcion</label>
-                                    <textarea class="form-control" name="descripcion" id="descripcion" rows="3" required> {{$suministro -> descripcion}}</textarea>
+                                    <textarea class="form-control" name="descripcion" id="descripcion" rows="3" required>{{$suministro -> descripcion}}</textarea>
                                 </div>
                             </div>
 
