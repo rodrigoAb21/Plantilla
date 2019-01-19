@@ -16,11 +16,11 @@
             <div class="card ">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">
-                        <i class="fa fa-sitemap fa-2x"></i>
+                        <i class="fa fa-landmark fa-2x"></i>
                     </div>
-                    <h3 class="card-title">Nueva Ubicacion</h3>
+                    <h3 class="card-title">Nueva Area</h3>
                 </div>
-                <form method="POST" action="{{url('seg/ubicaciones')}}" autocomplete="off">
+                <form method="POST" action="{{url('seg/areas')}}" autocomplete="off">
                 <div class="card-body ">
                         {{csrf_field()}}
                         <div class="form-group">

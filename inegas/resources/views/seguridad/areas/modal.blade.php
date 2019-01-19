@@ -15,10 +15,6 @@
                         <label>Nombre</label>
                         <input type="text" class="form-control" id="nombreT" name="nombreT" required >
                     </div>
-                    <div class="form-group">
-                        <label>Cargo</label>
-                        <input type="text" class="form-control" id="cargoT" name="cargoT" required >
-                    </div>
                 </div>
                 <div class="modal-footer">
                     <input id="metodo" type="hidden" name="_method">

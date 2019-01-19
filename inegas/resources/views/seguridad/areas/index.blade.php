@@ -6,14 +6,14 @@
             <div class="card">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">
-                        <i class="fa fa-sitemap fa-2x"></i>
+                        <i class="fa fa-landmark fa-2x"></i>
                     </div>
-                    <h3 class="card-title">Ubicaciones</h3>
+                    <h3 class="card-title">Areas</h3>
 
                 </div>
                 <div class="card-body">
 
-                    <form method="GET" action="{{url('seg/ubicaciones')}}" autocomplete="off">
+                    <form method="GET" action="{{url('seg/areas')}}" autocomplete="off">
                         <div class="form-group form-file-upload form-file-multiple">
                             <div class="input-group">
                                 <label for="busqueda" class="bmd-label-floating">Buscar</label>
@@ -22,7 +22,7 @@
                                         <button type="submit" class="btn btn-fab btn-round btn-primary">
                                             <i class="fa fa-search"></i>
                                         </button>
-                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('seg/ubicaciones/create')}}">
+                                        <a class="btn btn-fab btn-round btn-primary" href="{{url('seg/areas/create')}}">
                                                 <i class="fa fa-plus"></i>
                                         </a>
                                     </span>
@@ -41,17 +41,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($ubicaciones as $ubi)
+                                @foreach($areas as $area)
                                     <tr>
-                                        <td>{{$ubi -> id}}</td>
-                                        <td>{{$ubi -> nombre}}</td>
+                                        <td>{{$area -> id}}</td>
+                                        <td>{{$area -> nombre}}</td>
                                         <td class="text-right ">
-                                            <a href="{{url('seg/ubicaciones/'.$ubi -> id.'/edit')}}">
+                                            <a href="{{url('seg/areas/'.$area -> id.'/edit')}}">
                                                 <button class="btn btn-outline-primary btn-sm">
                                                     <i class="fa fa-pen"></i>
                                                 </button>
                                             </a>
-                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="modalEliminar('{{$ubi -> nombre}}', '{{url('seg/ubicaciones/'.$ubi -> id)}}')">
+                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="modalEliminar('{{$area -> nombre}}', '{{url('seg/areas/'.$area -> id)}}')">
                                                 <i class="fa fa-times"></i>
                                             </button>
                                         </td>
@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    {{$ubicaciones->links('pagination.default')}}
+                    {{$areas->links('pagination.default')}}
                 </div>
             </div>
 
@@ -79,8 +79,8 @@
             function modalEliminar(nombre, url) {
                 $('#modalEliminarForm').attr("action", url);
                 $('#metodo').val("delete");
-                $('#modalEliminarTitulo').html("Eliminar Ubicacion");
-                $('#modalEliminarEnunciado').html("Realmente desea eliminar la ubicacion: " + nombre + "?");
+                $('#modalEliminarTitulo').html("Eliminar Area");
+                $('#modalEliminarEnunciado').html("Realmente desea eliminar la area: " + nombre + "?");
                 $('#modalEliminar').modal('show');
 
             }

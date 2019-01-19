@@ -11,6 +11,7 @@ class Ubicacion extends Model
     public $timestamps = false;
     protected $fillable = [
         'nombre',
-        'visible'
+        'visible',
+        'area_id'
     ];
 }

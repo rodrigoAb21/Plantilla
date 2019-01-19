@@ -18,8 +18,8 @@ class CreateTrabajadorTable extends Migration
             $table->string('nombre');
             $table->string('cargo');
             $table->boolean('visible');
-            $table->unsignedInteger('ubicacion_id');
-            $table->foreign('ubicacion_id')->references('id')->on('ubicacion')->onDelete('cascade');
+            $table->unsignedInteger('area_id');
+            $table->foreign('area_id')->references('id')->on('area')->onDelete('cascade');
             $table->timestamps();
         });
     }

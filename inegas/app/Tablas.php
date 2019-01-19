@@ -7,6 +7,7 @@ class Tablas
     public static $usuario = 'Usuarios';
     public static $ubicacion = 'Ubicaciones';
     public static $trabajador = 'Trabajadores';
+    public static $area = 'Areas';
 
     public static $linea = 'Lineas';
     public static $grupo = 'Grupos de Suministro';

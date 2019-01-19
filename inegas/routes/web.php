@@ -115,11 +115,12 @@ Route::middleware('auth')->group(function () {
 
         Route::resource('/seg/bitacora', 'seguridad\BitacoraController');
 
-        Route::resource('/seg/ubicaciones', 'seguridad\UbicacionController');
-        Route::post('seg/ubicaciones/{id}/trabajadores', 'seguridad\UbicacionController@guardarTrabjador');
-        Route::patch('seg/ubicaciones/{idUbi}/trabajadores/{idTrab}', 'seguridad\UbicacionController@actualizarTrabajador');
-        Route::delete('seg/ubicaciones/{idUbi}/trabajadores/{idTrab}', 'seguridad\UbicacionController@eliminarTrabajador');
+        Route::resource('/seg/areas', 'seguridad\AreaController');
+        Route::post('seg/areas/{id}/ubicaciones', 'seguridad\AreaController@guardarUbicacion');
+        Route::patch('seg/areas/{idArea}/ubicaciones/{idUbi}', 'seguridad\AreaController@actualizarUbicacion');
+        Route::delete('seg/areas/{idArea}/ubicaciones/{idUbi}', 'seguridad\AreaController@eliminarUbicacion');
 
+        Route::resource('/seg/trabajadores', 'seguridad\TrabajadorController');
 
 
         Route::resource('/seg/estadisticas', 'seguridad\EstadisticaController');

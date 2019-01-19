@@ -47,10 +47,17 @@
                     </a>
                 </li>
 
-                <li class="{{ Request::is('seg/ubicaciones*') ? 'nav-item active' : 'nav-item' }}">
-                    <a class="nav-link" href="{{url('seg/ubicaciones')}}">
-                        <i class="fa fa-sitemap"></i>
-                        <p> Ubicaciones </p>
+                <li class="{{ Request::is('seg/areas*') ? 'nav-item active' : 'nav-item' }}">
+                    <a class="nav-link" href="{{url('seg/areas')}}">
+                        <i class="fa fa-landmark"></i>
+                        <p> Areas </p>
+                    </a>
+                </li>
+
+                <li class="{{ Request::is('seg/trabajadores*') ? 'nav-item active' : 'nav-item' }}">
+                    <a class="nav-link" href="{{url('seg/trabajadores')}}">
+                        <i class="fa fa-user-tie"></i>
+                        <p> Trabajadores </p>
                     </a>
                 </li>
 
