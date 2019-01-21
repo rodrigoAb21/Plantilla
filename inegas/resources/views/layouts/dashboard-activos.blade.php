@@ -112,12 +112,12 @@
                                     <p> Inventario </p>
                                 </a>
                             </li>
-                            <li class="{{ Request::is('act/reportes/ingresos*') ? 'nav-item active' : 'nav-item' }}">
+                            {{--<li class="{{ Request::is('act/reportes/ingresos*') ? 'nav-item active' : 'nav-item' }}">
                                 <a class="nav-link" href="{{url('/act/reportes/ingresos')}}">
                                     <i class="fa fa-angle-double-right"></i>
                                     <p> Ingresos </p>
                                 </a>
-                            </li>
+                            </li>--}}
                          {{--   <li class="{{ Request::is('act/reportes/traslados*') ? 'nav-item active' : 'nav-item' }}">
                                 <a class="nav-link" href="{{url('/act/reportes/traslados')}}">
                                     <i class="fa fa-dolly-flatbed"></i>
