@@ -129,11 +129,11 @@ class ReporteSumController extends Controller
     {
         $salidas = DB::table('salida_s')
             ->join('trabajador','salida_s.trabajador_id','=','trabajador.id')
-            ->join('ubicacion','trabajador.ubicacion_id','=','ubicacion.id')
-            ->where('ubicacion.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
+            ->join('area','trabajador.area_id','=','area.id')
+            ->where('area.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
             ->orWhere('trabajador.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
             ->orWhere('salida_s.estado', 'LIKE','%'.trim($request['busqueda']).'%')
-            ->select('salida_s.id', 'salida_s.fecha', 'salida_s.estado', 'ubicacion.nombre as ubicacion', 'trabajador.nombre as recibe')
+            ->select('salida_s.id', 'salida_s.fecha', 'salida_s.estado', 'area.nombre as area', 'trabajador.nombre as recibe')
             ->orderBy('salida_s.id', 'desc')
             ->paginate(10);
 
