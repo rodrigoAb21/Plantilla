@@ -12,7 +12,7 @@
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+  <link rel="stylesheet" href="{{asset('css/all.css')}}">
   <!-- CSS Files -->
   <link href="{{asset('css/material-dashboard.minf066.css?v=2.1.0')}}" rel="stylesheet" />
   <style>
@@ -42,7 +42,7 @@
                     <div class="input-group">
                       <div class="input-group-prepend">
                         <span class="input-group-text">
-                          <i class="material-icons">email</i>
+                          <i class="fa fa-envelope"></i>
                         </span>
                       </div>
                       <input name="email" type="email" class="form-control" placeholder="Email...">
@@ -52,7 +52,7 @@
                     <div class="input-group">
                       <div class="input-group-prepend">
                         <span class="input-group-text">
-                          <i class="material-icons">lock_outline</i>
+                          <i class="fa fa-lock"></i>
                         </span>
                       </div>
                       <input name="password" type="password" class="form-control" placeholder="Password...">
