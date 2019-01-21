@@ -96,7 +96,7 @@
                                     <p> Faltantes </p>
                                 </a>
                             </li>
-                            <li class="{{ Request::is('sum/reportes/movimientos/ingresos*') ? 'nav-item active' : 'nav-item' }}">
+                           {{-- <li class="{{ Request::is('sum/reportes/movimientos/ingresos*') ? 'nav-item active' : 'nav-item' }}">
                                 <a class="nav-link" href="{{url('sum/reportes/movimientos/ingresos')}}">
                                     <i class="fa fa-truck-loading"></i>
                                     <p> Ingresos </p>
@@ -107,7 +107,7 @@
                                     <i class="fa fa-truck-loading"></i>
                                     <p> Salidas </p>
                                 </a>
-                            </li>
+                            </li>--}}
 
                         </ul>
                     </div>

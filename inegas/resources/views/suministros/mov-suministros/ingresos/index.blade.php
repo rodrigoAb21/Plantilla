@@ -22,6 +22,11 @@
                                         <button type="submit" class="btn btn-fab btn-round btn-primary">
                                             <i class="fa fa-search"></i>
                                         </button>
+                                        <a href="{{url('sum/reportes/movimientos/ingresosPDF')}}">
+                                            <button type="button" class="btn btn-fab btn-round btn-primary" title="Descargar PDF" >
+                                                <i class="fa fa-file-pdf"></i>
+                                            </button>
+                                        </a>
                                         <a class="btn btn-fab btn-round btn-primary" href="{{url('sum/mov-suministros/ingresos/create')}}">
                                                 <i class="fa fa-plus"></i>
                                         </a>
@@ -35,7 +40,7 @@
                         <table class="table table-hover table-striped ">
                             <thead>
                                 <tr>
-                                    <th><b>ID</b></th>
+                                    <th><b>N. Documento</b></th>
                                     <th><b>Fecha</b></th>
                                     <th><b>Proveedor</b></th>
                                     <th><b>Nro Factura</b></th>

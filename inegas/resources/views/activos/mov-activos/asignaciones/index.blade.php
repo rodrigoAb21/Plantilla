@@ -34,7 +34,7 @@
                         <table class="table table-hover table-striped ">
                             <thead>
                                 <tr>
-                                    <th><b>ID</b></th>
+                                    <th><b>N. Documento</b></th>
                                     <th><b>Fecha</b></th>
                                     <th><b>Ubicacion</b></th>
                                     <th><b>Responsable</b></th>
