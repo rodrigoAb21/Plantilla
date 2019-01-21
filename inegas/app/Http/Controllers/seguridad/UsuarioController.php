@@ -45,7 +45,6 @@ class UsuarioController extends Controller
         $usuario -> email = $request['email'];
         $usuario -> area = $request['area'];
         $usuario -> estado = "Habilitado";
-        $usuario -> color = "white";
         $usuario -> password = bcrypt($request['password']);
         if ($usuario -> save()){
             Bitacora::registrar_accion(Tablas::$usuario, 'Creó al usuario con ID:'.$usuario->id);
@@ -108,21 +107,6 @@ class UsuarioController extends Controller
         }
 
         return redirect('seg/usuarios');
-    }
-
-    public function tema(){
-        $u = User::findOrFail(Auth::user()->id);
-
-        if ($u->color == 'white'){
-            $u->color = 'black';
-        }else {
-            $u->color = 'white';
-        }
-
-        $u -> save();
-
-        return redirect('login');
-
     }
 
 }

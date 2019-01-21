@@ -21,7 +21,6 @@ class CreateUsersTable extends Migration
             $table->string('area');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('color');
             $table->string('estado');
             $table->rememberToken();
             $table->timestamps();
@@ -33,7 +32,6 @@ class CreateUsersTable extends Migration
         $usuario -> email = 'admin@gmail.com';
         $usuario -> area = 'Activos Fijos - Suministros';
         $usuario -> estado = "Habilitado";
-        $usuario -> color = "white";
         $usuario -> password = bcrypt('admin');
         $usuario -> save();
     }

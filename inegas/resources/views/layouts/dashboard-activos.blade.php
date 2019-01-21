@@ -18,7 +18,7 @@
 
 <body class="">
 <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="{{Auth::user()->color}}" data-image="{{asset('img/sidebar-1.jpg')}}">
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="{{asset('img/sidebar-1.jpg')}}">
         <div class="logo">
             <a href="" class="simple-text logo-mini">
             </a>
@@ -82,12 +82,12 @@
                                     <p> Ingresos </p>
                                 </a>
                             </li>
-                            <li class="{{ Request::is('act/mov-activos/traslados*') ? 'nav-item active' : 'nav-item' }}">
+                           {{-- <li class="{{ Request::is('act/mov-activos/traslados*') ? 'nav-item active' : 'nav-item' }}">
                                 <a class="nav-link" href="{{url('act/mov-activos/traslados')}}">
                                     <i class="fa fa-dolly-flatbed"></i>
                                     <p> Traslados </p>
                                 </a>
-                            </li>
+                            </li>--}}
                             <li class="{{ Request::is('act/mov-activos/asignaciones*') ? 'nav-item active' : 'nav-item' }}">
                                 <a class="nav-link" href="{{url('act/mov-activos/asignaciones')}}">
                                     <i class="fa fa-hand-point-right"></i>
@@ -118,12 +118,12 @@
                                     <p> Ingresos </p>
                                 </a>
                             </li>
-                            <li class="{{ Request::is('act/reportes/traslados*') ? 'nav-item active' : 'nav-item' }}">
+                         {{--   <li class="{{ Request::is('act/reportes/traslados*') ? 'nav-item active' : 'nav-item' }}">
                                 <a class="nav-link" href="{{url('/act/reportes/traslados')}}">
                                     <i class="fa fa-dolly-flatbed"></i>
                                     <p> Traslados </p>
                                 </a>
-                            </li>
+                            </li>--}}
                             <li class="{{ Request::is('act/reportes/asignaciones*') ? 'nav-item active' : 'nav-item' }}">
                                 <a class="nav-link" href="{{url('/act/reportes/asignaciones')}}">
                                     <i class="fa fa-hand-point-right"></i>
@@ -164,14 +164,14 @@
                 <div class="collapse navbar-collapse justify-content-end">
                     <div class="navbar-form" hidden></div>
                     <ul class="navbar-nav">
-                        <li class="nav-item">
+                        {{--<li class="nav-item">
                             <a class="nav-link" href="{{url('config/tema')}}">
                                 <i class="fa fa-palette"></i>
                                 <p class="d-lg-none d-md-block">
                                     Cambiar tema
                                 </p>
                             </a>
-                        </li>
+                        </li>--}}
                         @if(Auth::user()->area == 'Activos Fijos - Suministros')
                             <li class="nav-item">
                                 <a class="nav-link" href="{{url('sum')}}">

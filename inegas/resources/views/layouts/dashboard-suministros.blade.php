@@ -18,7 +18,7 @@
 
 <body class="">
 <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="{{Auth::user()->color}}" data-image="{{asset('img/sidebar-1.jpg')}}">
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="{{asset('img/sidebar-1.jpg')}}">
         <div class="logo">
             <a href="" class="simple-text logo-mini">
             </a>
@@ -168,14 +168,6 @@
                 <div class="collapse navbar-collapse justify-content-end">
                     <div class="navbar-form" hidden></div>
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('config/tema')}}">
-                                <i class="fa fa-palette"></i>
-                                <p class="d-lg-none d-md-block">
-                                    Cambiar tema
-                                </p>
-                            </a>
-                        </li>
                         @if(Auth::user()->area == 'Activos Fijos - Suministros')
                             <li class="nav-item">
                                 <a class="nav-link" href="{{url('act')}}">
