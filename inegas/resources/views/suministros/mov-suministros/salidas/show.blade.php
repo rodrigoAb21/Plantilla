@@ -29,19 +29,27 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                <div class="col-lg-4 col-md-4 col-sm-3 col-xs-6">
                                     <div class="form-group">
                                         <label>Ubicacion</label>
-                                        <p>{{$salida -> ubicacion}}</p>
+                                        <p>{{$salida -> area}} - {{$salida -> ubicacion}}</p>
                                     </div>
                                 </div>
 
-                                <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
                                     <div class="form-group">
                                         <label>Recibe</label>
-                                        <p>{{$salida -> recibe}} - {{$salida -> cargo}}</p>
+                                        <p>{{$salida -> recibe}}</p>
                                     </div>
                                 </div>
+
+                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+                                    <div class="form-group">
+                                        <label>Emitido</label>
+                                        <p>{{$salida -> emitido}}</p>
+                                    </div>
+                                </div>
+
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <label>Observacion</label>

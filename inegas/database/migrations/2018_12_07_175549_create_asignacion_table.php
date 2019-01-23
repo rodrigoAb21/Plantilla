@@ -18,7 +18,11 @@ class CreateAsignacionTable extends Migration
             $table->date('fecha');
             $table->string('observacion');
             $table->unsignedInteger('trabajador_id');
+            $table->unsignedInteger('ubicacion_id');
             $table->foreign('trabajador_id')->references('id')->on('trabajador')->onDelete('cascade');
+            $table->foreign('ubicacion_id')->references('id')->on('ubicacion')->onDelete('cascade');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

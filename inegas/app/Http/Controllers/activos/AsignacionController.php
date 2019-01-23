@@ -99,7 +99,8 @@ class AsignacionController extends Controller
         $asignacion = DB::table('asignacion')
             ->where('asignacion.id', '=', $id)
             ->join('trabajador','asignacion.trabajador_id','=','trabajador.id')
-            ->join('ubicacion','trabajador.ubicacion_id','=','ubicacion.id')
+            ->join('area','trabajador.area_id','=','area.id')
+            ->join('ubicacion','area.id','=','ubicacion.area_id')
             ->select('asignacion.id', 'asignacion.fecha', 'asignacion.observacion', 'trabajador.nombre as responsable', 'trabajador.cargo', 'ubicacion.nombre as ubicacion')
             ->first();
         

@@ -16,7 +16,8 @@ class ReporteActController extends Controller
     public function vista_asignacion(Request $request){
         $asignaciones = DB::table('asignacion')
             ->join('trabajador','asignacion.trabajador_id','=','trabajador.id')
-            ->join('ubicacion','trabajador.ubicacion_id','=','ubicacion.id')
+            ->join('area','trabajador.area_id','=','area.id')
+            ->join('ubicacion','area.id','=','ubicacion.area_id')
             ->orderBy('asignacion.id','desc')
             ->where('trabajador.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
             ->orWhere('ubicacion.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
@@ -30,7 +31,8 @@ class ReporteActController extends Controller
     public function asignacionPDF(){
         $asignaciones = DB::table('asignacion')
             ->join('trabajador','asignacion.trabajador_id','=','trabajador.id')
-            ->join('ubicacion','trabajador.ubicacion_id','=','ubicacion.id')
+            ->join('area','trabajador.area_id','=','area.id')
+            ->join('ubicacion','area.id','=','ubicacion.area_id')
             ->orderBy('asignacion.id','asc')
             ->select('asignacion.id', 'asignacion.fecha', 'asignacion.observacion', 'trabajador.nombre as responsable', 'trabajador.cargo', 'ubicacion.nombre as ubicacion')
             ->get();
@@ -54,7 +56,8 @@ class ReporteActController extends Controller
         $asignacion = DB::table('asignacion')
             ->where('asignacion.id', '=', $id)
             ->join('trabajador','asignacion.trabajador_id','=','trabajador.id')
-            ->join('ubicacion','trabajador.ubicacion_id','=','ubicacion.id')
+            ->join('area','trabajador.area_id','=','area.id')
+            ->join('ubicacion','area.id','=','ubicacion.area_id')
             ->select('asignacion.id', 'asignacion.fecha', 'asignacion.observacion', 'trabajador.nombre as responsable', 'trabajador.cargo', 'ubicacion.nombre as ubicacion')
             ->first();
 
@@ -74,7 +77,8 @@ class ReporteActController extends Controller
         $asignacion = DB::table('asignacion')
             ->where('asignacion.id', '=', $id)
             ->join('trabajador','asignacion.trabajador_id','=','trabajador.id')
-            ->join('ubicacion','trabajador.ubicacion_id','=','ubicacion.id')
+            ->join('area','trabajador.area_id','=','area.id')
+            ->join('ubicacion','area.id','=','ubicacion.area_id')
             ->select('asignacion.id', 'asignacion.fecha', 'asignacion.observacion', 'trabajador.nombre as responsable', 'trabajador.cargo', 'ubicacion.nombre as ubicacion')
             ->first();
 
@@ -107,7 +111,8 @@ class ReporteActController extends Controller
 
         $activos = DB::table('activo_fijo')
             ->join('trabajador','asignacion.trabajador_id','=','trabajador.id')
-            ->join('ubicacion','trabajador.ubicacion_id','=','ubicacion.id')
+            ->join('area','trabajador.area_id','=','area.id')
+            ->join('ubicacion','area.id','=','ubicacion.area_id')
             ->where('activo_fijo.codigo', 'LIKE','%'.trim($request['busqueda']).'%')
             ->select('activo_fijo.id', 'activo_fijo.codigo','activo_fijo.marca','activo_fijo.color','activo_fijo.modelo','activo_fijo.serie', 'activo_fijo.disponibilidad', 'trabajador.nombre as responsable', 'ubicacion.nombre as ubicacion')
             ->orderBy('activo_fijo.codigo', 'asc')
@@ -122,7 +127,8 @@ class ReporteActController extends Controller
     public function inventarioPDF(){
         $activos = DB::table('activo_fijo')
             ->join('trabajador','asignacion.trabajador_id','=','trabajador.id')
-            ->join('ubicacion','trabajador.ubicacion_id','=','ubicacion.id')
+            ->join('area','trabajador.area_id','=','area.id')
+            ->join('ubicacion','area.id','=','ubicacion.area_id')
             ->select('activo_fijo.id', 'activo_fijo.codigo','activo_fijo.marca','activo_fijo.color','activo_fijo.modelo','activo_fijo.serie', 'activo_fijo.disponibilidad', 'trabajador.nombre as responsable', 'ubicacion.nombre as ubicacion')
             ->orderBy('activo_fijo.codigo', 'asc')
             ->get();

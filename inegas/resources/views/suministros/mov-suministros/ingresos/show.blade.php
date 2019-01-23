@@ -20,7 +20,7 @@
                                     <div class="row">
                                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
                                             <div class="form-group">
-                                                <label>ID</label>
+                                                <label>N. Documento</label>
                                                 <p>{{$ingreso -> id}}</p>
                                             </div>
                                         </div>
@@ -46,14 +46,21 @@
 
                                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
                                             <div class="form-group">
-                                                <label>Nro Factura</label>
+                                                <label>N. Factura</label>
                                                 <p>{{$ingreso -> nro_factura}}</p>
                                             </div>
                                         </div>
+
                                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
                                             <div class="form-group">
                                                 <label>Fecha Factura</label>
                                                 <p>{{$ingreso -> fecha_factura}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                                            <div class="form-group">
+                                                <label>Emitido</label>
+                                                <p>{{$ingreso -> emitido}}</p>
                                             </div>
                                         </div>
                                     </div>

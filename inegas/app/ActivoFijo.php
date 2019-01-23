@@ -23,5 +23,7 @@ class ActivoFijo extends Model
         'visible',
         'grupo_a_id',
         'ingreso_a_id',
+        'ubicacion_id',
+        'trabajador_id'
     ];
 }

@@ -13,5 +13,6 @@ class Asignacion extends Model
         'fecha',
         'observacion',
         'trabajador_id',
+        'ubicacion_id',
     ];
 }

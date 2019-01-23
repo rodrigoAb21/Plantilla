@@ -35,7 +35,7 @@
                         <div class="card-body ">
                             <div style="border-radius: 5px; border: 2px solid #687578; padding: 10px;">
                                 <div style="width: 10%; float: left">
-                                    <label><b>ID</b></label>
+                                    <label><b>N. Documento</b></label>
                                     <p>{{$salida -> id}}</p>
                                 </div>
                                 <div style="width: 20%; float: left">
@@ -44,11 +44,15 @@
                                 </div>
                                 <div style="width: 30%; float: left">
                                     <label><b>Ubicacion</b></label>
-                                    <p>{{$salida -> ubicacion}}</p>
+                                    <p>{{$salida -> area}} - {{$salida -> ubicacion}}</p>
                                 </div>
-                                <div style="width: 40%; float: left">
+                                <div style="width: 20%; float: left">
                                     <label><b>Recibe</b></label>
-                                    <p>{{$salida -> recibe}} - {{$salida -> cargo}}</p>
+                                    <p>{{$salida -> recibe}}</p>
+                                </div>
+                                <div style="width: 20%; float: left">
+                                    <label><b>Emitido</b></label>
+                                    <p>{{$salida -> emitido}}</p>
                                 </div>
                                 <div>
                                     <label><b>Observacion</b></label>

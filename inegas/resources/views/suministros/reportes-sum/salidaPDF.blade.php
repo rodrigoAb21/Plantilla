@@ -37,6 +37,7 @@
                 <th><b>Ubicacion</b></th>
                 <th><b>Recibe</b></th>
                 <th><b>Estado</b></th>
+                <th><b>Emitido</b></th>
             </tr>
             </thead>
             <tbody>
@@ -47,6 +48,7 @@
                     <td>{{$salida -> ubicacion}}</td>
                     <td>{{$salida -> recibe}}</td>
                     <td>{{$salida -> estado}}</td>
+                    <td>{{$salida -> emitido}}</td>
                 </tr>
             @endforeach
             </tbody>

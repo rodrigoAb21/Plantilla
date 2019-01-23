@@ -14,6 +14,7 @@ class SalidaSuministro extends Model
         'observacion',
         'estado',
         'trabajador_id',
+        'ubicacion_id',
     ];
 
 }

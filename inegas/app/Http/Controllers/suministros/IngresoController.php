@@ -11,6 +11,7 @@ use App\Tablas;
 use App\Visitas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
@@ -53,6 +54,7 @@ class IngresoController extends Controller
             $ingreso -> proveedor = $request['proveedor'];
             $ingreso -> estado = 'Realizado';
             $ingreso -> nro_factura = $request['nro_factura'];
+            $ingreso -> user_id = Auth::user()->id;
 
             if (Input::hasFile('foto_factura')) {
                 $file = Input::file('foto_factura');
@@ -98,13 +100,19 @@ class IngresoController extends Controller
 
     public function show($id)
     {
+        $ingreso =  DB::table('ingreso_s')
+            ->join('users', 'users.id', '=', 'ingreso_s.user_id')
+            ->where('ingreso_s.id','=',$id)
+            ->select('ingreso_s.id', 'ingreso_s.fecha_ingreso','ingreso_s.proveedor','ingreso_s.foto_factura','ingreso_s.nro_factura','ingreso_s.fecha_factura','ingreso_s.estado','users.nombre as emitido')
+            ->first();
+
         $detalles = DB::table('detalle_i_s')
             ->join('suministro','detalle_i_s.suministro_id','=','suministro.id')
             ->where('detalle_i_s.ingreso_s_id', '=', $id)
             ->select('detalle_i_s.id', 'detalle_i_s.cantidad', 'detalle_i_s.precio_unitario', 'suministro.nombre' )
             ->orderBy('detalle_i_s.id', 'asc')
             ->get();
-        return view('suministros.mov-suministros.ingresos.show',['ingreso' => IngresoSuministro::findOrFail($id), 'detalles' => $detalles]);
+        return view('suministros.mov-suministros.ingresos.show',['ingreso' => $ingreso, 'detalles' => $detalles]);
     }
 
 

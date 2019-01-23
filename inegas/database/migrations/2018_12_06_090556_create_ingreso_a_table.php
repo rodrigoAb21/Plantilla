@@ -21,6 +21,8 @@ class CreateIngresoATable extends Migration
             $table->string('nro_factura');
             $table->string('proveedor');
             $table->string('estado');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

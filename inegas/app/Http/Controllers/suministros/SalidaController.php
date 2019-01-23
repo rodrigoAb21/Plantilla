@@ -12,6 +12,7 @@ use Barryvdh\DomPDF\Facade as PDF;
 use App\Visitas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class SalidaController extends Controller
@@ -20,7 +21,8 @@ class SalidaController extends Controller
     {
         $salidas = DB::table('salida_s')
             ->join('trabajador','salida_s.trabajador_id','=','trabajador.id')
-            ->join('ubicacion','trabajador.ubicacion_id','=','ubicacion.id')
+            ->join('area', 'trabajador.area_id', '=', 'area.id')
+            ->join('ubicacion','salida_s.ubicacion_id','=','ubicacion.id')
             ->where('ubicacion.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
             ->orWhere('trabajador.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
             ->orWhere('salida_s.estado', 'LIKE','%'.trim($request['busqueda']).'%')
@@ -44,9 +46,11 @@ class SalidaController extends Controller
             ->get();
 
         $trabajadores = DB::table('trabajador')
-            ->join('ubicacion','trabajador.ubicacion_id','=','ubicacion.id')
+            ->join('area','trabajador.area_id','=','area.id')
+            ->join('ubicacion','area.id','=','ubicacion.area_id')
             ->where('trabajador.visible','=', true)
-            ->select('trabajador.id', 'trabajador.nombre', 'trabajador.cargo', 'ubicacion.nombre as ubicacion')
+            ->select('trabajador.id as trabajador_id', 'trabajador.nombre', 'trabajador.cargo', 'ubicacion.nombre as ubicacion','ubicacion.id as ubicacion_id', 'area.nombre as area')
+            ->orderBy('trabajador.nombre','asc')
             ->orderBy('ubicacion.nombre','asc')
             ->get();
 
@@ -79,8 +83,10 @@ class SalidaController extends Controller
                 $salida = new SalidaSuministro();
                 $salida -> fecha = $request['fecha'];
                 $salida -> trabajador_id = $request['trabajador_id'];
+                $salida -> ubicacion_id = $request['ubicacion_id'];
                 $salida -> observacion = $request['observacion'];
                 $salida -> estado = 'Realizado';
+                $salida -> user_id = Auth::user()->id;
 
                 $salida ->save();
 
@@ -124,8 +130,10 @@ class SalidaController extends Controller
         $salida = DB::table('salida_s')
             ->where('salida_s.id','=', $id)
             ->join('trabajador', 'salida_s.trabajador_id', '=', 'trabajador.id')
-            ->join('ubicacion', 'trabajador.ubicacion_id','=', 'ubicacion.id')
-            ->select('salida_s.id', 'salida_s.fecha', 'salida_s.observacion', 'salida_s.estado', 'ubicacion.nombre as ubicacion', 'trabajador.nombre as recibe', 'trabajador.cargo as cargo')
+            ->join('area', 'trabajador.area_id', '=', 'area.id')
+            ->join('ubicacion','salida_s.ubicacion_id','=','ubicacion.id')
+            ->join('users','users.id','=','salida_s.user_id')
+            ->select('salida_s.id', 'salida_s.fecha', 'salida_s.observacion', 'salida_s.estado', 'ubicacion.nombre as ubicacion', 'trabajador.nombre as recibe', 'trabajador.cargo as cargo', 'area.nombre as area', 'users.nombre as emitido')
             ->first();
 
         $detalles = DB::table('detalle_s_s')
@@ -143,8 +151,10 @@ class SalidaController extends Controller
         $salida = DB::table('salida_s')
             ->where('salida_s.id','=', $id)
             ->join('trabajador', 'salida_s.trabajador_id', '=', 'trabajador.id')
-            ->join('ubicacion', 'trabajador.ubicacion_id','=', 'ubicacion.id')
-            ->select('salida_s.id', 'salida_s.fecha', 'salida_s.observacion', 'salida_s.estado', 'ubicacion.nombre as ubicacion', 'trabajador.nombre as recibe', 'trabajador.cargo as cargo')
+            ->join('area', 'trabajador.area_id', '=', 'area.id')
+            ->join('users','users.id','=','salida_s.user_id')
+            ->join('ubicacion','salida_s.ubicacion_id','=','ubicacion.id')
+            ->select('salida_s.id', 'salida_s.fecha', 'salida_s.observacion', 'salida_s.estado', 'ubicacion.nombre as ubicacion', 'trabajador.nombre as recibe', 'trabajador.cargo as cargo', 'area.nombre as area', 'users.nombre as emitido')
             ->first();
 
         $detalles = DB::table('detalle_s_s')

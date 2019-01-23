@@ -37,6 +37,7 @@
                 <th><b>Proveedor</b></th>
                 <th><b>Nro Factura</b></th>
                 <th><b>Estado</b></th>
+                <th><b>Emitido</b></th>
             </tr>
             </thead>
             <tbody>
@@ -47,6 +48,7 @@
                     <td>{{$ingreso -> proveedor}}</td>
                     <td>{{$ingreso -> nro_factura}}</td>
                     <td>{{$ingreso -> estado}}</td>
+                    <td>{{$ingreso -> emitido}}</td>
                 </tr>
             @endforeach
             </tbody>

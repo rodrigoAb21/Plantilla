@@ -16,6 +16,7 @@ class IngresoSuministro extends Model
         'nro_factura',
         'fecha_factura',
         'estado',
+        'user_id',
 
     ];
 }

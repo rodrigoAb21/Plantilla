@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\suministros;
 
-use App\IngresoSuministro;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -47,27 +46,6 @@ class ReporteSumController extends Controller
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function inventario(Request $request)
     {
         $suministros = DB::table('suministro')
@@ -97,15 +75,6 @@ class ReporteSumController extends Controller
 
 
 
-
-
-
-
-
-
-
-
-
     public function ingreso(Request $request)
     {
         $ingresos =  DB::table('ingreso_s')
@@ -120,7 +89,12 @@ class ReporteSumController extends Controller
 
     public function ingresoPDF()
     {
-        $ingresos = IngresoSuministro::orderBy('id','asc')->get();
+        $ingresos =  DB::table('ingreso_s')
+            ->join('users','users.id', '=', 'ingreso_s.user_id')
+            ->select('ingreso_s.id','ingreso_s.fecha_ingreso', 'ingreso_s.proveedor','ingreso_s.foto_factura','ingreso_s.nro_factura','ingreso_s.fecha_factura','ingreso_s.estado', 'users.nombre as emitido')
+            ->orderBy('ingreso_s.id', 'asc')
+            ->get();
+
         $pdf = PDF::loadView('suministros.reportes-sum.ingresoPDF',['ingresos' => $ingresos]);
         return $pdf->download('ingresos.pdf');
     }
@@ -144,8 +118,10 @@ class ReporteSumController extends Controller
     {
         $salidas = DB::table('salida_s')
             ->join('trabajador','salida_s.trabajador_id','=','trabajador.id')
-            ->join('ubicacion','trabajador.ubicacion_id','=','ubicacion.id')
-            ->select('salida_s.id', 'salida_s.fecha', 'salida_s.estado', 'ubicacion.nombre as ubicacion', 'trabajador.nombre as recibe')
+            ->join('area','trabajador.area_id','=','area.id')
+            ->join('ubicacion','area.id','=','ubicacion.area_id')
+            ->join('users','users.id','=','salida_s.user_id')
+            ->select('salida_s.id', 'salida_s.fecha', 'salida_s.estado', 'ubicacion.nombre as ubicacion', 'trabajador.nombre as recibe', 'users.nombre as emitido')
             ->orderBy('salida_s.id', 'desc')
             ->get();
 
