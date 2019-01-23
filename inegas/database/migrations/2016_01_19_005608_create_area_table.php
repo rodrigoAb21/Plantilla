@@ -1,5 +1,6 @@
 <?php
 
+use App\Area;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -18,6 +19,11 @@ class CreateAreaTable extends Migration
             $table->string('nombre');
             $table->boolean('visible');
         });
+
+        $area = new Area();
+        $area -> nombre = 'Area de Activos Fijos';
+        $area -> visible = false;
+        $area -> save();
     }
 
     /**

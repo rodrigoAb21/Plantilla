@@ -38,13 +38,15 @@
                                     <label>Responsable</label>
                                 </div>
                                 <select class="form-control selectpicker" data-live-search="true"
-                                        data-style="btn btn-link" name="trabajador_id" required>
+                                        data-style="btn btn-link" id="selector" required>
                                     @foreach($trabajadores as $trabajador)
-                                        <option value="{{$trabajador->id}}">{{$trabajador -> nombre}} // {{$trabajador -> cargo}} // {{$trabajador -> ubicacion}}</option>
+                                        <option value="{{$trabajador->trabajador_id}}_{{$trabajador->ubicacion_id}}">{{$trabajador -> nombre}} // {{$trabajador -> area}} // {{$trabajador -> ubicacion}}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
+                        <input type="hidden" id="ubicacion_id" name="ubicacion_id" value="{{old('ubicacion_id')}}" required>
+                        <input type="hidden" id="trabajador_id" name="trabajador_id" value="{{old('trabajador_id')}}" required>
                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
                             <div class="form-group mt-2">
                                 <div class="mb-1">
@@ -126,8 +128,18 @@
             function () {
                 evaluar();
                 getActivo();
+                capturar();
             }
         );
+
+        function capturar() {
+            array_id = document.getElementById('selector').value.split('_');
+            $('#trabajador_id').val(array_id[0]);
+            $('#ubicacion_id').val(array_id[1]);
+        }
+
+        $('#selector').change(capturar);
+
 
         $('#activo_cab').change(getActivo);
 

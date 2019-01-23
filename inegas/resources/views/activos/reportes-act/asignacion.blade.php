@@ -49,7 +49,7 @@
                                 <tr>
                                     <td>{{$traslado -> id}}</td>
                                     <td>{{$traslado -> fecha}}</td>
-                                    <td>{{$traslado -> ubicacion}}</td>
+                                    <td>{{$traslado -> area}} - {{$traslado -> ubicacion}}</td>
                                     <td>{{$traslado -> responsable}}</td>
                                     <td class="text-right ">
                                         <a href="{{url('act/reportes/asignaciones/'.$traslado -> id)}}">

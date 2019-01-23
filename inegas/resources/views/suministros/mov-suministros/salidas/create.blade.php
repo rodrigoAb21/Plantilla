@@ -46,8 +46,8 @@
                                 </select>
                             </div>
                         </div>
-                        <input type="hidden" id="ubicacion_id" name="ubicacion_id" value="{{old('ubicacion_id')}}">
-                        <input type="hidden" id="trabajador_id" name="trabajador_id" value="{{old('trabajador_id')}}">
+                        <input type="hidden" id="ubicacion_id" name="ubicacion_id" value="{{old('ubicacion_id')}}" required>
+                        <input type="hidden" id="trabajador_id" name="trabajador_id" value="{{old('trabajador_id')}}" required>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="form-group mt-2">
                                 <div class="mb-1">

@@ -11,6 +11,7 @@ use App\Tablas;
 use App\Visitas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use LaravelQRCode\Facades\QRCode;
 
@@ -19,11 +20,12 @@ class AsignacionController extends Controller
     public function index(Request $request){
         $asignaciones = DB::table('asignacion')
             ->join('trabajador','asignacion.trabajador_id','=','trabajador.id')
-            ->join('ubicacion','trabajador.ubicacion_id','=','ubicacion.id')
+            ->join('ubicacion','asignacion.ubicacion_id','=','ubicacion.id')
+            ->join('area','ubicacion.area_id','=','area.id')
             ->orderBy('asignacion.id','desc')
             ->where('trabajador.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
             ->orWhere('ubicacion.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
-            ->select('asignacion.id', 'asignacion.fecha', 'asignacion.observacion', 'trabajador.nombre as responsable', 'ubicacion.nombre as ubicacion')
+            ->select('asignacion.id', 'asignacion.fecha', 'asignacion.observacion', 'trabajador.nombre as responsable', 'ubicacion.nombre as ubicacion', 'area.nombre as area')
             ->paginate(10);
 
         return view('activos.mov-activos.asignaciones.index',['asignaciones' => $asignaciones, 'busqueda' => trim($request['busqueda'])]);
@@ -40,9 +42,10 @@ class AsignacionController extends Controller
             ->get();
 
         $trabajadores = DB::table('trabajador')
-            ->join('ubicacion','trabajador.ubicacion_id','=','ubicacion.id')
+            ->join('area','area.id','=','trabajador.area_id')
+            ->join('ubicacion','ubicacion.area_id','=','area.id')
             ->where('trabajador.visible','=', true)
-            ->select('trabajador.id', 'trabajador.nombre', 'trabajador.cargo', 'ubicacion.nombre as ubicacion')
+            ->select('trabajador.id as trabajador_id', 'trabajador.nombre', 'trabajador.cargo', 'ubicacion.nombre as ubicacion', 'area.nombre as area', 'ubicacion.id as ubicacion_id')
             ->orderBy('ubicacion.nombre','asc')
             ->get();
 
@@ -60,6 +63,9 @@ class AsignacionController extends Controller
             $asignacion -> fecha = $request['fecha'];
             $asignacion -> observacion = $request['observacion'];
             $asignacion -> trabajador_id = $request['trabajador_id'];
+            $asignacion -> ubicacion_id = $request['ubicacion_id'];
+            $asignacion -> user_id = Auth::user() -> id;
+
             if ($asignacion -> save()){
 
                 $act_ids = $request['activo_fijo_idT'];
@@ -74,6 +80,8 @@ class AsignacionController extends Controller
 
                     $activo = ActivoFijo::findOrFail($act_ids[$cont]);
                     $activo -> disponibilidad = 'Asignado';
+                    $activo -> trabajador_id = $request['trabajador_id'];
+                    $activo -> ubicacion_id = $request['ubicacion_id'];
                     $activo -> save();
 
                     $cont++;
@@ -101,7 +109,7 @@ class AsignacionController extends Controller
             ->join('trabajador','asignacion.trabajador_id','=','trabajador.id')
             ->join('area','trabajador.area_id','=','area.id')
             ->join('ubicacion','area.id','=','ubicacion.area_id')
-            ->select('asignacion.id', 'asignacion.fecha', 'asignacion.observacion', 'trabajador.nombre as responsable', 'trabajador.cargo', 'ubicacion.nombre as ubicacion')
+            ->select('asignacion.id', 'asignacion.fecha', 'asignacion.observacion', 'trabajador.nombre as responsable', 'trabajador.cargo', 'ubicacion.nombre as ubicacion', 'area.nombre as area')
             ->first();
         
         $activos = DB::table('activo_fijo')

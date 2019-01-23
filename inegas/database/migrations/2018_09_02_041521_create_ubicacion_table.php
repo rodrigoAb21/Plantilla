@@ -1,5 +1,6 @@
 <?php
 
+use App\Ubicacion;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -20,6 +21,12 @@ class CreateUbicacionTable extends Migration
             $table->unsignedInteger('area_id');
             $table->foreign('area_id')->references('id')->on('area')->onDelete('cascade');
         });
+
+        $ubicacion = new Ubicacion();
+        $ubicacion -> nombre = 'Almacen';
+        $ubicacion -> visible = false;
+        $ubicacion -> area_id = 1;
+        $ubicacion -> save();
     }
 
     /**

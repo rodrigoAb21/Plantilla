@@ -34,6 +34,7 @@
             <tr>
                 <th><b>ID</b></th>
                 <th><b>Fecha</b></th>
+                <th><b>Ubicacion</b></th>
                 <th><b>Responsable</b></th>
             </tr>
             </thead>
@@ -43,6 +44,7 @@
                 <tr>
                     <td>{{$traslado -> id}}</td>
                     <td>{{$traslado -> fecha}}</td>
+                    <td>{{$traslado -> area}} - {{$traslado -> ubicacion}}</td>
                     <td>{{$traslado -> responsable}}</td>
                 </tr>
             @endforeach

@@ -1,5 +1,6 @@
 <?php
 
+use App\Trabajador;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -22,6 +23,13 @@ class CreateTrabajadorTable extends Migration
             $table->foreign('area_id')->references('id')->on('area')->onDelete('cascade');
             $table->timestamps();
         });
+
+        $trabajador = new Trabajador();
+        $trabajador -> nombre = 'Inegas';
+        $trabajador -> cargo = ' ';
+        $trabajador -> visible = false;
+        $trabajador -> area_id = 1;
+        $trabajador -> save();
     }
 
     /**

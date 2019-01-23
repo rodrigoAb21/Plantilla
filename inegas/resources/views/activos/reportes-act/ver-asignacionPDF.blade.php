@@ -38,7 +38,7 @@
                                 </div>
                                 <div style="width: 25%; float: left">
                                     <label><b>Ubicacion</b></label>
-                                    <p>{{$asignacion -> ubicacion}}</p>
+                                    <p>{{$asignacion -> area}} - {{$asignacion -> ubicacion}}</p>
                                 </div>
                                 <div style="width: 35%; float: left">
                                     <label ><b>Responsable</b></label>

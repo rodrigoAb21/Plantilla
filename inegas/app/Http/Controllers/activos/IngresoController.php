@@ -14,6 +14,7 @@ use App\Visitas;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
@@ -55,6 +56,7 @@ class IngresoController extends Controller
             $ingreso -> proveedor = $request['proveedor'];
             $ingreso -> estado = 'Realizado';
             $ingreso -> nro_factura = $request['nro_factura'];
+            $ingreso -> user_id = Auth::user() -> id;
 
             if (Input::hasFile('foto_factura')) {
                 $file = Input::file('foto_factura');
@@ -98,6 +100,11 @@ class IngresoController extends Controller
                 $activo -> visible = true;
                 $activo -> grupo_a_id = $grupos[$cont];
                 $activo -> ingreso_a_id = $ingreso -> id;
+
+                $activo -> trabajador_id = 1;
+                $activo -> ubicacion_id = 1;
+
+
 
                 if ($activo -> save()){
                     $activo -> codigo = ''.$lg -> linea_a_id.' - '.$lg -> id.' - '.$activo -> id;

@@ -26,7 +26,7 @@
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
                             <label>Ubicacion</label>
-                            <p>{{$asignacion -> ubicacion}}</p>
+                            <p>{{$asignacion -> area}} - {{$asignacion -> ubicacion}}</p>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <label >Responsable</label>

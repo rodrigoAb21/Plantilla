@@ -59,7 +59,7 @@
                                         <td>{{$activo -> modelo}}</td>
                                         <td>{{$activo -> color}}</td>
                                         <td>{{$activo -> serie}}</td>
-                                        <td>{{$activo -> ubicacion}}</td>
+                                        <td>{{$activo -> area}} - {{$activo -> ubicacion}}</td>
                                         <td>{{$activo -> responsable}}</td>
                                     </tr>
                                 @else

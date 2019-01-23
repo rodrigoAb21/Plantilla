@@ -34,7 +34,7 @@
                         <table class="table table-hover table-striped ">
                             <thead>
                                 <tr>
-                                    <th><b>N. Documento</b></th>
+                                    <th><b>N. Doc</b></th>
                                     <th><b>Fecha</b></th>
                                     <th><b>Ubicacion</b></th>
                                     <th><b>Responsable</b></th>
@@ -47,7 +47,7 @@
                                     <tr>
                                         <td>{{$traslado -> id}}</td>
                                         <td>{{$traslado -> fecha}}</td>
-                                        <td>{{$traslado -> ubicacion}}</td>
+                                        <td>{{$traslado -> area}} - {{$traslado -> ubicacion}}</td>
                                         <td>{{$traslado -> responsable}}</td>
                                         <td class="text-right ">
                                             <a href="{{url('act/mov-activos/asignaciones/'.$traslado -> id)}}">
