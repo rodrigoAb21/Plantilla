@@ -35,7 +35,7 @@
                         <div class="card-body ">
                             <div style="border-radius: 5px; border: 2px solid #687578; padding: 10px;">
                                 <div style="width: 10%; float: left">
-                                    <label><b>N. Documento</b></label>
+                                    <label><b>N. Doc</b></label>
                                     <p>{{$salida -> id}}</p>
                                 </div>
                                 <div style="width: 20%; float: left">

@@ -39,9 +39,8 @@
                         <table class="table table-hover table-striped ">
                             <thead>
                                 <tr>
-                                    <th><b>N. Documento</b></th>
+                                    <th><b>N. Doc</b></th>
                                     <th><b>Fecha</b></th>
-                                    <th><b>Area</b></th>
                                     <th><b>Ubicacion</b></th>
                                     <th><b>Recibe</b></th>
                                     <th><b>Estado</b></th>
@@ -53,8 +52,7 @@
                                     <tr>
                                         <td>{{$salida -> id}}</td>
                                         <td>{{Carbon\Carbon::parse($salida -> fecha)->format('d/m/Y h:i A')}}</td>
-                                        <td>{{$salida -> area}}</td>
-                                        <td>{{$salida -> ubicacion}}</td>
+                                        <td>{{$salida -> area}} - {{$salida -> ubicacion}}</td>
                                         <td>{{$salida -> recibe}}</td>
                                         <td>{{$salida -> estado}}</td>
                                         <td class="text-right ">

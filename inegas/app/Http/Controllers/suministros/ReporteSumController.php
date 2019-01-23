@@ -121,11 +121,11 @@ class ReporteSumController extends Controller
             ->join('area','trabajador.area_id','=','area.id')
             ->join('ubicacion','area.id','=','ubicacion.area_id')
             ->join('users','users.id','=','salida_s.user_id')
-            ->select('salida_s.id', 'salida_s.fecha', 'salida_s.estado', 'ubicacion.nombre as ubicacion', 'trabajador.nombre as recibe', 'users.nombre as emitido')
+            ->select('salida_s.id', 'salida_s.fecha', 'salida_s.estado', 'ubicacion.nombre as ubicacion', 'trabajador.nombre as recibe', 'users.nombre as emitido', 'area.nombre as area')
             ->orderBy('salida_s.id', 'desc')
             ->get();
 
-        $pdf = PDF::loadView('suministros.reportes-sum.salidaPDF',['salidas' => $salidas]);
+        $pdf = PDF::loadView('suministros.reportes-sum.salidaPDF',['salidas' => $salidas])->setPaper('letter', 'landscape');
         return $pdf->download('salidas.pdf');
     }
 

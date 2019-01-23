@@ -26,7 +26,7 @@ class SalidaController extends Controller
             ->where('ubicacion.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
             ->orWhere('trabajador.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
             ->orWhere('salida_s.estado', 'LIKE','%'.trim($request['busqueda']).'%')
-            ->select('salida_s.id', 'salida_s.fecha', 'salida_s.estado', 'ubicacion.nombre as ubicacion', 'trabajador.nombre as recibe')
+            ->select('salida_s.id', 'salida_s.fecha', 'salida_s.estado', 'ubicacion.nombre as ubicacion', 'trabajador.nombre as recibe', 'area.nombre as area')
             ->orderBy('salida_s.id', 'desc')
             ->paginate(10);
 
