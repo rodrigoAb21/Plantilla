@@ -25,7 +25,18 @@
     </style>
 </head>
 <body>
-<h2 align="center">Salida de Suministro</h2>
+<div>
+    <div style="width: 20%; float: left;">
+        <img style="height: 65px" src="<?php echo $_SERVER["DOCUMENT_ROOT"].'/img/inegas-logo.png';?>"/>
+    </div>
+    <div style="width: 60%; float: left">
+        <h2 align="center">Salida de Suministro</h2>
+    </div>
+    <div style="width: 20%; float: left; border-left: 2px solid #687578; padding-left: 5px" align="center">
+
+    </div>
+    <div style="clear: both;" />
+</div>
 <div class="content" style="font-size: 12px">
     <div class="content">
         <div class="container">
@@ -35,7 +46,7 @@
                         <div class="card-body ">
                             <div style="border-radius: 5px; border: 2px solid #687578; padding: 10px;">
                                 <div style="width: 10%; float: left">
-                                    <label><b>N. Doc</b></label>
+                                    <label><b>N° Doc</b></label>
                                     <p>{{$salida -> id}}</p>
                                 </div>
                                 <div style="width: 20%; float: left">
