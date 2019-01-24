@@ -17,7 +17,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="form-group mt-2">
                             <div class="mb-1">
-                                <label>Fecha Ingreso</label>
+                                <label>Desde</label>
                             </div>
                             <input type="date" class="form-control" name="fecha_ingreso"  required value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}">
                         </div>
@@ -25,7 +25,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="form-group mt-2">
                             <div class="mb-1">
-                                <label>Fecha Factura</label>
+                                <label>Hasta</label>
                             </div>
                             <input type="date" class="form-control" name="fecha_factura"  required value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}">
                         </div>
@@ -53,6 +53,9 @@
                          </button>
                          </a>
                     </span>
+                <br>
+                <br>
+                <br>
 
                 <div class="table-responsive">
                     <table class="table table-hover table-striped ">
