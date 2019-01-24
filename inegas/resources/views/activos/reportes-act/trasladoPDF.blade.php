@@ -32,7 +32,7 @@
         <table class="table table-hover table-striped ">
             <thead>
             <tr>
-                <th><b>ID</b></th>
+                <th><b>N° Doc</b></th>
                 <th><b>Fecha</b></th>
                 <th><b>Ubicacion</b></th>
             </tr>

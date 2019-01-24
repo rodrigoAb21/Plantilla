@@ -44,7 +44,7 @@
         <table class="table table-hover table-striped ">
             <thead>
             <tr>
-                <th><b>ID</b></th>
+                <th><b>N° Doc</b></th>
                 <th><b>Fecha</b></th>
                 <th><b>Proveedor</b></th>
                 <th><b>Nro Factura</b></th>

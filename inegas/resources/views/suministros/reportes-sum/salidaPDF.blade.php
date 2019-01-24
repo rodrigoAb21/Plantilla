@@ -43,7 +43,7 @@
         <table class="table table-hover table-striped ">
             <thead>
             <tr>
-                <th><b>N. Doc</b></th>
+                <th><b>N° Doc</b></th>
                 <th><b>Fecha</b></th>
                 <th><b>Ubicacion</b></th>
                 <th><b>Recibe</b></th>
