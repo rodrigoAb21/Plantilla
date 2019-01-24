@@ -23,16 +23,32 @@
     </style>
 </head>
 <body>
-<h2 align="center">Asignacion de Activos Fijos</h2>
-<div style="font-size: 12px" class="content">
+<br>
+<div style="font-size: 12px; clear: both;" class="content">
     <div class="content">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card ">
+                        <div style="border-radius: 5px; border: 2px solid #687578; padding: 10px;">
+                            <div style="width: 20%; float: left; border-right: 2px solid #687578">
+                                <img style="height: 65px" src="<?php echo $_SERVER["DOCUMENT_ROOT"].'/img/inegas-logo.png';?>"/>
+                            </div>
+                            <div style="width: 60%; float: left">
+                                <h3 align="center">ASIGNACION DE ACTIVOS FIJOS</h3>
+                            </div>
+                            <div style="width: 20%; float: left; border-left: 2px solid #687578; padding-left: 5px" align="center">
+                                <p>Codigo: {{$reporte -> codigo}}<br>Fecha: {{$reporte -> fecha}}<br>Revision: {{$reporte -> revision}}</p>
+                            </div>
+                            <div style="clear: both;" />
+                        </div>
+                        <br>
                         <div class="card-body ">
-                            <div style="border-radius: 5px; border: 2px solid #687578; padding: 10px">
+                            <div style="border-radius: 5px; border: 2px solid #687578; padding: 10px; overflow: auto; width: 100%; clear: both">
                                 <div style="width: 20%; float: left">
+                                    <label><b>N° Doc</b></label>
+                                    <p>{{$asignacion -> fecha}}</p>
+                                </div><div style="width: 20%; float: left">
                                     <label><b>Fecha</b></label>
                                     <p>{{$asignacion -> fecha}}</p>
                                 </div>
@@ -44,17 +60,13 @@
                                     <label ><b>Responsable</b></label>
                                     <p>{{$asignacion -> responsable}}</p>
                                 </div>
-                                <div style="width: 20%; float: left">
-                                    <label ><b>Cargo</b></label>
-                                    <p>{{$asignacion -> cargo}}</p>
-                                </div>
                                 <div>
                                     <label><b>Observacion</b></label>
                                     <p>{{$asignacion -> observacion}}</p>
                                 </div>
                             </div>
                         </div>
-                        <br>
+                        <br style="clear: left;" />
                         <div style="border-radius: 5px; border: 2px solid #687578; padding: 10px">
                             <div class="card-header">
                                 <h3>Detalle</h3>

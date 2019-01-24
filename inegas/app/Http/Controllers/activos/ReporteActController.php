@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\activos;
 
 use App\Asignacion;
+use App\Reporte;
 use App\Visitas;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -91,7 +92,9 @@ class ReporteActController extends Controller
             ->where('activo_fijo.disponibilidad', '!=', 'Baja')
             ->get();
 
-        $pdf = PDF::loadView('activos.reportes-act.ver-asignacionPDF',['asignacion' => $asignacion, 'activos' => $activos]);
+        $reporte = Reporte::findOrFail(1);
+
+        $pdf = PDF::loadView('activos.reportes-act.ver-asignacionPDF',['asignacion' => $asignacion, 'activos' => $activos, 'reporte' => $reporte]);
         return $pdf->download('asignacion-'.$id.'.pdf');
     }
 
