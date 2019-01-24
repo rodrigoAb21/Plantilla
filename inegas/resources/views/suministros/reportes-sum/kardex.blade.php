@@ -13,79 +13,102 @@
                 </div>
                 <div class="card-body">
                     <form method="GET" action="{{url('sum/reportes/kardex/')}}" autocomplete="off">
-                <div class="input-group">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group mt-2">
-                            <div class="mb-1">
-                                <label>Desde</label>
+                        <div class="input-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group mt-2">
+                                    <div class="mb-1">
+                                        <label>Desde</label>
+                                    </div>
+                                    @if(is_null($datos['desde']))
+                                    <input type="date" class="form-control" name="desde" required
+                                           value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}">
+                                    @else
+                                        <input type="date" class="form-control" name="desde" required
+                                               value= {{$datos['desde']}}>
+                                    @endif
+                                </div>
                             </div>
-                            <input type="date" class="form-control" name="desde"  required value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group mt-2">
-                            <div class="mb-1">
-                                <label>Hasta</label>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group mt-2">
+                                    <div class="mb-1">
+                                        <label>Hasta</label>
+                                    </div>
+                                    @if(is_null($datos['hasta']))
+                                    <input type="date" class="form-control" name="hasta" required
+                                           value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}">
+                                    @else
+                                        <input type="date" class="form-control" name="hasta" required
+                                               value={{$datos['hasta']}}>
+                                    @endif
+
+                                </div>
                             </div>
-                            <input type="date" class="form-control" name="hasta"  required value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}">
-                        </div>
-                    </div>
 
-                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-                        <div class="form-group">
-                            <label>Suministro</label>
-                            <select name="id_sum" class="form-control selectpicker" data-live-search="true"
-                                    data-style="btn btn-link" id="sumi_cab" >
-                                @foreach($suministros as $suministro)
-                                    <option value="{{$suministro->id}}" >{{$suministro -> nombre}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
+                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label>Suministro</label>
+                                    <select name="id_sum" class="form-control selectpicker" data-live-search="true"
+                                            data-style="btn btn-link" id="sumi_cab">
+                                        @foreach($suministros as $suministro)
+                                            <option value="{{$suministro->id}}">{{$suministro -> nombre}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
 
-                    <span class="input-group-btn">
+                            <span class="input-group-btn">
                          <button type="submit" class="btn btn-fab btn-round btn-primary">
                          <i class="fa fa-search"></i>
                          </button>
                          <a href="{{url('sum/reportes/movimientos/ingresosPDF')}}">
-                         <button type="button" class="btn btn-fab btn-round btn-primary" title="Descargar PDF" >
+                         <button type="button" class="btn btn-fab btn-round btn-primary" title="Descargar PDF">
                          <i class="fa fa-file-pdf"></i>
                          </button>
                          </a>
                     </span>
-                <br>
-                <br>
-                <br>
+                            <br>
+                            <br>
+                            <br>
 
-                <div name= 'tablaK' class="table-responsive">
-                    <table class="table table-hover table-striped ">
-                        <thead>
-                        <tr>
-                            <th><b>Fecha</b></th>
-                            <th><b>Documento</b></th>
-                            <th><b>Movimiento</b></th>
-                            <th><b>Cantidad</b></th>
-                            <th><b>Saldo</b></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @if(!is_null($kardex))
-                        @foreach($kardex as $k)
-                            <tr>
-                                <td>{{Carbon\Carbon::parse($k -> fecha_mov)->format('d/m/Y h:i A')}}</td>
-                                <td>{{$k -> id_mov}}</td>
-                                <td>{{$k -> tipo_mov}}</td>
-                                <td>{{$k -> cantidad}}</td>
-                                <td>{{$k -> saldo}}</td>
-                            </tr>
-                        @endforeach
-                            @endif
-                        </tbody>
-                    </table>
+                            <div name='tablaK' class="table-responsive">
+                                <table class="table table-hover table-striped ">
+                                    <thead>
+                                    <tr>
+                                        <th><b>Fecha</b></th>
+                                        <th><b>Documento</b></th>
+                                        <th><b>Movimiento</b></th>
+                                        <th><b>Cantidad</b></th>
+                                        <th><b>Saldo</b></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @if(!is_null($kardex))
+                                        @foreach($kardex as $k)
+                                            <tr>
+                                                <td>{{Carbon\Carbon::parse($k -> fecha_mov)->format('d/m/Y h:i A')}}</td>
+                                                <td>{{$k -> id_mov}}</td>
+                                                <td>{{$k -> tipo_mov}}</td>
+                                                <td>{{$k -> cantidad}}</td>
+                                                <td>{{$k -> saldo}}</td>
+                                            </tr>
+                                        @endforeach
+                                    @endif
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </form>
                 </div>
+                @if(!is_null($kardex))
+                <div class="card-footer">
+                    {{$kardex -> links('pagination.default')}}
+                </div>
+                @endif
             </div>
-
+        </div>
     </div>
+
 
 
 @endsection

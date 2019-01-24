@@ -135,8 +135,12 @@ class ReporteSumController extends Controller
         $kardex=null;
         if(!is_null($request['id_sum'])){
             $kardex= DB::table('kardex')
-                ->where ('kardex.id_sum','=',$request['id_sum'])
-                ->get();
+                ->where ([
+                    ['kardex.id_sum','=',$request['id_sum']],
+                    ['kardex.fecha_mov','>=',$request['desde']],
+                    ['kardex.fecha_mov','<=',$request['hasta']]
+                ])
+                ->paginate(10);
         }
         $suministros = Suministro::
         where('visible','=', true)
@@ -144,7 +148,7 @@ class ReporteSumController extends Controller
             ->get();
 
 
-        return view('suministros.reportes-sum.kardex', ['suministros'=>$suministros,'kardex'=>$kardex]);
+        return view('suministros.reportes-sum.kardex', ['suministros'=>$suministros,'kardex'=>$kardex,'datos'=>$request]);
     }
 
 

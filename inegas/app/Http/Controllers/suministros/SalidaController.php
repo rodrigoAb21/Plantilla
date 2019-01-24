@@ -5,6 +5,7 @@ namespace App\Http\Controllers\suministros;
 use App\Bitacora;
 use App\DetalleSalSum;
 use App\Http\Requests\suministro\SalidaSumRequest;
+use App\Kardex;
 use App\SalidaSuministro;
 use App\Suministro;
 use App\Tablas;
@@ -106,6 +107,16 @@ class SalidaController extends Controller
                     $s = Suministro::findOrFail($suministros[$cont]);
                     $s -> stock = $s -> stock - $cantidades[$cont];
                     $s -> save();
+
+
+                    $k = new Kardex();
+                    $k-> tipo_mov = 'salida';
+                    $k ->id_mov = $salida->id;
+                    $k-> id_sum = $suministros[$cont];
+                    $k-> fecha_mov = $salida->fecha;
+                    $k-> cantidad = $cantidades[$cont];
+                    $k-> saldo = $s->stock;
+                    $k->save();
 
                     $cont = $cont + 1;
                 }

@@ -92,18 +92,18 @@ class IngresoController extends Controller
                 $k-> tipo_mov = 'ingreso';
                 $k ->id_mov = $ingreso->id;
                 $k-> id_sum = $suministros[$cont];
-                $k-> fecha_mov = '12/12/2019';
+                $k-> fecha_mov =$ingreso->fecha_ingreso;
                 $k-> cantidad = $cantidades[$cont];
-                $k-> saldo = (DB::table('kardex')->select('saldo')
-                    ->where('id_sum','=',$suministros[$cont])
-                    ->orderBy('fecha_mov', 'desc')
-                    ->get());
-                if(count($k->saldo) == 0){
-                    $k->saldo = $k->cantidad;
-                }else{
-                    $k->saldo= ($k->saldo)[0]->saldo+$k->cantidad;
-                }
-
+//                $k-> saldo = (DB::table('kardex')->select('saldo')
+//                    ->where('id_sum','=',$suministros[$cont])
+//                    ->orderBy('fecha_mov', 'desc')
+//                    ->get());
+//                if(count($k->saldo) == 0){
+//                    $k->saldo = $k->cantidad;
+//                }else{
+//                    $k->saldo= ($k->saldo)[0]->saldo+$k->cantidad;
+//                }
+                $k->saldo = $s->stock;
                 $k->save();
 
                 $cont = $cont + 1;
