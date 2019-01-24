@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\suministros;
 
+use App\Kardex;
 use App\Suministro;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
@@ -130,12 +131,20 @@ class ReporteSumController extends Controller
         return $pdf->download('salidas.pdf');
     }
 
-    public function kardex(){
+    public function kardex(Request $request){
+        $kardex=null;
+        if(!is_null($request['id_sum'])){
+            $kardex= DB::table('kardex')
+                ->where ('kardex.id_sum','=',$request['id_sum'])
+                ->get();
+        }
         $suministros = Suministro::
         where('visible','=', true)
             ->select('id','nombre')
             ->get();
-        return view('suministros.reportes-sum.kardex', ['suministros'=>$suministros]);
+
+
+        return view('suministros.reportes-sum.kardex', ['suministros'=>$suministros,'kardex'=>$kardex]);
     }
 
 

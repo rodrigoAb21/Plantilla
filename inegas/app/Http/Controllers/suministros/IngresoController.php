@@ -6,14 +6,19 @@ use App\Bitacora;
 use App\DetalleIngSum;
 use App\Http\Requests\suministro\IngresoSumRequest;
 use App\IngresoSuministro;
+use App\Kardex;
 use App\Suministro;
 use App\Tablas;
 use App\Visitas;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use function MongoDB\BSON\toJSON;
+use phpDocumentor\Reflection\Types\Integer;
+use function PHPSTORM_META\type;
 
 class IngresoController extends Controller
 {
@@ -82,6 +87,24 @@ class IngresoController extends Controller
                 $s = Suministro::findOrFail($suministros[$cont]);
                 $s -> stock = $s -> stock + $cantidades[$cont];
                 $s -> save();
+
+                $k = new Kardex();
+                $k-> tipo_mov = 'ingreso';
+                $k ->id_mov = $ingreso->id;
+                $k-> id_sum = $suministros[$cont];
+                $k-> fecha_mov = '12/12/2019';
+                $k-> cantidad = $cantidades[$cont];
+                $k-> saldo = (DB::table('kardex')->select('saldo')
+                    ->where('id_sum','=',$suministros[$cont])
+                    ->orderBy('fecha_mov', 'desc')
+                    ->get());
+                if(count($k->saldo) == 0){
+                    $k->saldo = $k->cantidad;
+                }else{
+                    $k->saldo= ($k->saldo)[0]->saldo+$k->cantidad;
+                }
+
+                $k->save();
 
                 $cont = $cont + 1;
             }

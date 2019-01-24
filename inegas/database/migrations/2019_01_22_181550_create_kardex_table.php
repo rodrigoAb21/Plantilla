@@ -16,7 +16,7 @@ class CreateKardexTable extends Migration
         Schema::create('kardex', function (Blueprint $table) {
             $table->increments('id');
             $table->string('tipo_mov');
-            $table->string('id_mov');
+            $table->unsignedInteger('id_mov');
             $table-> unsignedInteger('id_sum');
             $table->dateTime('fecha_mov');
             $table->integer('cantidad');
