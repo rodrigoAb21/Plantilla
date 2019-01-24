@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    {{$bitacoras -> links('pagination.default')}}
+                    {{$bitacoras -> appends(Request::except('page')) -> links('pagination.default')}}
                 </div>
             </div>
 

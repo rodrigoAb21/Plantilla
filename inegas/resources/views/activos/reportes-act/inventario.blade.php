@@ -81,7 +81,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    {{$activos -> links('pagination.default')}}
+                    {{$activos -> appends(Request::except('page')) -> links('pagination.default')}}
                 </div>
             </div>
 

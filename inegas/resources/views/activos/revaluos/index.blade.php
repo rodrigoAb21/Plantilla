@@ -70,7 +70,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    {{$revaluos -> links('pagination.default')}}
+                    {{$revaluos -> appends(Request::except('page')) -> links('pagination.default')}}
                 </div>
             </div>
 

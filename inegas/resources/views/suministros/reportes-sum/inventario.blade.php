@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    {{$suministros -> links('pagination.default')}}
+                    {{$suministros -> appends(Request::except('page')) -> links('pagination.default')}}
                 </div>
             </div>
 

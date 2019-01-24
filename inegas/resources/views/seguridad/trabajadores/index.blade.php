@@ -66,7 +66,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    {{$trabajadores->links('pagination.default')}}
+                    {{$trabajadores -> appends(Request::except('page'))->links('pagination.default')}}
                 </div>
             </div>
 
