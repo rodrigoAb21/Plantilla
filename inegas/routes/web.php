@@ -133,6 +133,9 @@ Route::middleware('auth')->group(function () {
 
         Route::resource('/seg/trabajadores', 'seguridad\TrabajadorController');
 
+        Route::get('/seg/configuracion', 'seguridad\ReporteController@formulario');
+        Route::post('/seg/configuracion', 'seguridad\ReporteController@guardar');
+
 
         Route::resource('/seg/estadisticas', 'seguridad\EstadisticaController');
     });

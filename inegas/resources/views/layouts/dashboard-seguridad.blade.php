@@ -61,6 +61,13 @@
                     </a>
                 </li>
 
+                <li class="{{ Request::is('seg/configuracion*') ? 'nav-item active' : 'nav-item' }}">
+                    <a class="nav-link" href="{{url('seg/configuracion')}}">
+                        <i class="fa fa-wrench"></i>
+                        <p> Config PDF </p>
+                    </a>
+                </li>
+
                 <li class="{{ Request::is('seg/bitacora*') ? 'nav-item active' : 'nav-item' }}">
                     <a class="nav-link" href="{{url('seg/bitacora')}}">
                         <i class="fa fa-user-clock"></i>
