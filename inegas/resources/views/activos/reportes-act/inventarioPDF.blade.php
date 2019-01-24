@@ -26,7 +26,20 @@
     </style>
 </head>
 <body>
-<h2 align="center">Inventario de Activos Fijos</h2>
+
+<div>
+    <div style="width: 20%; float: left;">
+        <img style="height: 65px" src="<?php echo $_SERVER["DOCUMENT_ROOT"].'/img/inegas-logo.png';?>"/>
+    </div>
+    <div style="width: 60%; float: left">
+        <h2 align="center">Inventario de Activos Fijos</h2>
+    </div>
+    <div style="width: 20%; float: left; border-left: 2px solid #687578; padding-left: 5px" align="center">
+
+    </div>
+    <div style="clear: both;" />
+</div>
+<br>
 <div style="font-size: 12px">
     <div class="table-responsive">
         <table class="table table-hover table-striped ">
