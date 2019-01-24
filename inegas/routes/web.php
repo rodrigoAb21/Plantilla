@@ -62,6 +62,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/sum/reportes/movimientos/ingresos', 'suministros\ReporteSumController@ingreso');
         Route::get('/sum/reportes/movimientos/ingresosPDF', 'suministros\ReporteSumController@ingresoPDF');
 
+        Route::get('sum/reportes/kardex',
+ 'suministros\ReporteSumController@kardex');
+
 
         Route::get('/sum/reportes/movimientos/salidas', 'suministros\ReporteSumController@salida');
         Route::get('/sum/reportes/movimientos/salidasPDF', 'suministros\ReporteSumController@salidaPDF');

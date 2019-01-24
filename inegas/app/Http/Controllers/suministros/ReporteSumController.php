@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\suministros;
 
+use App\Suministro;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -127,6 +128,14 @@ class ReporteSumController extends Controller
 
         $pdf = PDF::loadView('suministros.reportes-sum.salidaPDF',['salidas' => $salidas])->setPaper('letter', 'landscape');
         return $pdf->download('salidas.pdf');
+    }
+
+    public function kardex(){
+        $suministros = Suministro::
+        where('visible','=', true)
+            ->select('id','nombre')
+            ->get();
+        return view('suministros.reportes-sum.kardex', ['suministros'=>$suministros]);
     }
 
 

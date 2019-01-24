@@ -96,6 +96,12 @@
                                     <p> Faltantes </p>
                                 </a>
                             </li>
+                            <li class="{{ Request::is('sum/reportes/kardex*') ? 'nav-item active' : 'nav-item' }}">
+                                <a class="nav-link" href="{{url('sum/reportes/kardex')}}">
+                                    <i class="fa fa-clipboard"></i>
+                                    <p> Kardex </p>
+                                </a>
+                            </li>
                            {{-- <li class="{{ Request::is('sum/reportes/movimientos/ingresos*') ? 'nav-item active' : 'nav-item' }}">
                                 <a class="nav-link" href="{{url('sum/reportes/movimientos/ingresos')}}">
                                     <i class="fa fa-truck-loading"></i>
