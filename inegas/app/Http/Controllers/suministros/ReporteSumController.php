@@ -151,5 +151,20 @@ class ReporteSumController extends Controller
         return view('suministros.reportes-sum.kardex', ['suministros'=>$suministros,'kardex'=>$kardex,'datos'=>$request]);
     }
 
+    public function kardexPDF($desde)
+    {
+
+        dd($desde);
+//        $kardex= DB::table('kardex')
+//            ->where ([
+//                ['kardex.id_sum','=',$request['id_sum']],
+////                ['kardex.fecha_mov','>=',$request['desde']],
+////                ['kardex.fecha_mov','<=',$request['hasta']]
+//            ])
+//            ->get();
+
+        $pdf = PDF::loadView('suministros.reportes-sum.kardexPDF',['kardex' => $kardex])->setPaper('letter', 'landscape');
+        return $pdf->download('kardex.pdf');
+    }
 
 }

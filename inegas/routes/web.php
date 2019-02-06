@@ -64,7 +64,8 @@ Route::middleware('auth')->group(function () {
 
         Route::get('sum/reportes/kardex',
  'suministros\ReporteSumController@kardex');
-
+        Route::post('/sum/reportes/kardexPDF/',
+ 'suministros\ReporteSumController@kardexPDF');
 
         Route::get('/sum/reportes/movimientos/salidas', 'suministros\ReporteSumController@salida');
         Route::get('/sum/reportes/movimientos/salidasPDF', 'suministros\ReporteSumController@salidaPDF');
@@ -111,9 +112,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/act/reportes/asignaciones/{id}', 'activos\ReporteActController@ver_asignacion');
         Route::get('/act/reportes/asignaciones/{id}/PDF', 'activos\ReporteActController@ver_asignacion_pdf');
 
-
-
-
+        Route::get('/act/ubicaciones','activos\UbicacionesController@index');
+        Route::post('/act/ubicaciones/create/{sup}','activos\UbicacionesController@create');
+        Route::post('/act/ubicaciones/eliminar/{id}',
+ 'activos\UbicacionesController@eliminar');
+        Route::post('/act/ubicaciones/editar/{id}',
+            'activos\UbicacionesController@editar');
     });
 
 

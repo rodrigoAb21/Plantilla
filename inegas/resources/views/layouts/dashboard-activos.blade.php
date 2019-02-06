@@ -67,7 +67,12 @@
                         <p> Revaluos </p>
                     </a>
                 </li>
-
+                <li class="{{ Request::is('act/ubicaciones*') ? 'nav-item active' : 'nav-item' }}">
+                    <a class="nav-link" href="{{url('act/ubicaciones')}}">
+                        <i class="fa fa-hotel"></i>
+                        <p> Ubicaciones </p>
+                    </a>
+                </li>
 
                 <li class="{{ Request::is('act/mov-activos*') ? 'nav-item active' : 'nav-item' }}">
                     <a class="{{ Request::is('act/mov-activos*') ? 'nav-link collapse collapsed' : 'nav-link collapse' }}" data-toggle="collapse" href="#mov-sum" aria-expanded="{{ Request::is('act/mov-activos*') ? 'true' : 'false' }}" >

@@ -24,7 +24,7 @@
                                            value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}">
                                     @else
                                         <input type="date" class="form-control" name="desde" required
-                                               value= {{$datos['desde']}}>
+                                               value= {{$datos->desde}}>
                                     @endif
                                 </div>
                             </div>
@@ -33,7 +33,7 @@
                                     <div class="mb-1">
                                         <label>Hasta</label>
                                     </div>
-                                    @if(is_null($datos['hasta']))
+                                    @if(is_null($datos->hasta))
                                     <input type="date" class="form-control" name="hasta" required
                                            value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}">
                                     @else
@@ -60,7 +60,7 @@
                          <button type="submit" class="btn btn-fab btn-round btn-primary">
                          <i class="fa fa-search"></i>
                          </button>
-                         <a href="{{url('sum/reportes/movimientos/ingresosPDF')}}">
+                         <a  href="{{url('sum/reportes/kardexPDF/')}}">
                          <button type="button" class="btn btn-fab btn-round btn-primary" title="Descargar PDF">
                          <i class="fa fa-file-pdf"></i>
                          </button>
@@ -102,7 +102,7 @@
                 </div>
                 @if(!is_null($kardex))
                 <div class="card-footer">
-                    {{$kardex -> links('pagination.default')}}
+                    {{$kardex -> appends(Request::except('page'))->links('pagination.default')}}
                 </div>
                 @endif
             </div>

@@ -38,7 +38,7 @@
                                 <h3 align="center">ASIGNACION DE ACTIVOS FIJOS</h3>
                             </div>
                             <div style="width: 20%; float: left; border-left: 2px solid #687578; padding-left: 5px" align="center">
-                                <p>Codigo: {{$reporte -> codigo}}<br>Fecha: {{$reporte -> fecha}}<br>Revision: {{$reporte -> revision}}</p>
+                                <p>Código: {{$reporte -> codigo}}<br>Rev: {{$reporte -> revision}}<br>Fecha Rev: {{$reporte -> fecha}}</p>
                             </div>
                             <div style="clear: both;" />
                         </div>
@@ -47,7 +47,7 @@
                             <div style="border-radius: 5px; border: 2px solid #687578; padding: 10px; overflow: auto; width: 100%; clear: both">
                                 <div style="width: 20%; float: left">
                                     <label><b>N° Doc</b></label>
-                                    <p>{{$asignacion -> fecha}}</p>
+                                    <p>{{$asignacion -> id}}</p>
                                 </div><div style="width: 20%; float: left">
                                     <label><b>Fecha</b></label>
                                     <p>{{$asignacion -> fecha}}</p>
