@@ -18,4 +18,5 @@ class Ubicaciones extends Model
     {
         return $this->hasMany('App\Ubicaciones', 'u_id');
     }
+
 }

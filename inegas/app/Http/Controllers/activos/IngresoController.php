@@ -10,6 +10,7 @@ use App\GrupoA;
 use App\Http\Requests\activos\IngresoRequest;
 use App\IngresoActivo;
 use App\Tablas;
+use App\Ubicaciones;
 use App\Visitas;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -41,12 +42,24 @@ class IngresoController extends Controller
             ->where('grupo_a.visible','=', true)
             ->select('grupo_a.id','grupo_a.nombre as grupo','linea_a.nombre as linea')
             ->get();
-        return view('activos.mov-activos.ingresos.create', ['grupos' => $grupos]);
+
+        $cont=0;
+        $ubi= Ubicaciones::with('hijos')->get();
+        foreach ($ubi as $u){
+            if(count($u['relations']['hijos']) == 0){
+                $listU[$cont]=$u['attributes'];
+                $cont++;
+            }
+        }
+//            dd($listU);
+
+        return view('activos.mov-activos.ingresos.create', ['ubicaciones' => $listU, 'grupos'=>$grupos]);
     }
 
 
     public function store(IngresoRequest $request)
     {
+//        dd($request);
         try {
             DB::beginTransaction();
 
@@ -73,6 +86,7 @@ class IngresoController extends Controller
             $modelos = $request['modeloT'];
             $colores = $request['colorT'];
             $caracteristicas = $request['caracteristicasT'];
+            $ubicaciones = $request['ubicacionesT'];
 
             $files = array();
             if (Input::hasFile('fotoT')) {
@@ -102,7 +116,7 @@ class IngresoController extends Controller
                 $activo -> ingreso_a_id = $ingreso -> id;
 
                 $activo -> trabajador_id = 1;
-                $activo -> ubicacion_id = 1;
+                $activo -> ubicacion_id = $ubicaciones[$cont];
 
 
 
@@ -157,7 +171,14 @@ class IngresoController extends Controller
             ->select('activo_fijo.id', 'activo_fijo.marca', 'activo_fijo.modelo', 'activo_fijo.color', 'activo_fijo.foto', 'activo_fijo.caracteristicas', 'activo_fijo.serie', 'activo_fijo.costo_ingreso', 'grupo_a.nombre as grupo', 'linea_a.nombre as linea')
             ->orderBy('activo_fijo.id', 'asc')
             ->get();
-        return view('activos.mov-activos.ingresos.show',['ingreso' => IngresoActivo::findOrFail($id), 'activos' => $activos]);
+
+        $ubicacion = DB::table('ubicaciones')
+            ->join('activo_fijo','ubicaciones.id','=','activo_fijo.ubicacion_id')
+            ->select('ubicaciones.nombre','activo_fijo.id')
+            ->orderBy('activo_fijo.id','asc')
+            ->get();
+//        dd($ubicacion);
+        return view('activos.mov-activos.ingresos.show',['ingreso' => IngresoActivo::findOrFail($id), 'activos' => $activos, 'ubicacion'=>$ubicacion]);
     }
 
 

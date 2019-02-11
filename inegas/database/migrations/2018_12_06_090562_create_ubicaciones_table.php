@@ -11,7 +11,9 @@ class CreateUbicacionesTable extends Migration
         Schema::create('ubicaciones', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->integer('u_id')->nullable();
+            $table->unsignedInteger('u_id')->nullable();
+
+            $table->foreign('u_id')->references('id')->on('ubicaciones')->onDelete('cascade');
         });
     }
 

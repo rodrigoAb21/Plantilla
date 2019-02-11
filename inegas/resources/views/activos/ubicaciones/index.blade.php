@@ -28,7 +28,7 @@
         function modalEdit(nombre, url) {
             $('#modalForm').attr("action", url);
             $('#metodo').val('patch');
-            $('#nombreGrupo').val(nombre);
+            $('#nombre').val(nombre);
             $('#modalTitulo').html("Editar Ubicacion");
             $('#modalGrupo').modal('show');
         }

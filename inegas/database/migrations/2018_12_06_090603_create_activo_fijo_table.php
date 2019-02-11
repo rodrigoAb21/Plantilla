@@ -25,15 +25,17 @@ class CreateActivoFijoTable extends Migration
             $table->string('color');
             $table->string('modelo');
             $table->string('caracteristicas');
+//            $table->unsignedInteger('ubicacion_id');
             $table->boolean('visible');
             $table->unsignedInteger('grupo_a_id');
             $table->unsignedInteger('ingreso_a_id');
             $table->unsignedInteger('trabajador_id');
             $table->unsignedInteger('ubicacion_id');
+            $table->foreign('ubicacion_id')->references('id')->on('ubicaciones')->onDelete('cascade');
             $table->foreign('grupo_a_id')->references('id')->on('grupo_a')->onDelete('cascade');
             $table->foreign('ingreso_a_id')->references('id')->on('ingreso_a')->onDelete('cascade');
             $table->foreign('trabajador_id')->references('id')->on('trabajador')->onDelete('cascade');
-            $table->foreign('ubicacion_id')->references('id')->on('ubicacion')->onDelete('cascade');
+//            $table->foreign('ubicacion_id')->references('id')->on('ubicacion')->onDelete('cascade');
         });
     }
 
