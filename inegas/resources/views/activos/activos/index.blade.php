@@ -55,7 +55,7 @@
                                         <td>{{$activo -> linea.' - '.$activo -> grupo}}</td>
                                         <td class="text-right ">
                                             <a href="{{url('act/activos/'.$activo -> id)}}">
-                                                <button class="btn btn-outline-primary btn-sm">
+                                                <button class="btn btn-outline-primary btn-sm" onclick=>
                                                     <i class="fa fa-eye"></i>
                                                 </button>
                                             </a>

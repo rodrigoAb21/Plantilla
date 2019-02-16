@@ -23,14 +23,15 @@ class IngresoController extends Controller
 {
     public function index(Request $request)
     {
-        $ingresos = DB::table('ingreso_a')
+        $ingresos1 = DB::table('ingreso_a')
             ->where('nro_factura', 'LIKE','%'.trim($request['busqueda']).'%')
             ->orWhere('proveedor', 'LIKE','%'.trim($request['busqueda']).'%')
             ->orWhere('estado', 'LIKE','%'.trim($request['busqueda']).'%')
             ->orderBy('id', 'desc')
             ->paginate(10);
 
-        return view('activos.mov-activos.ingresos.index', ['ingresos' => $ingresos, 'busqueda' => trim($request['busqueda'])]);
+
+        return view('activos.mov-activos.ingresos.index', ['ingresos' => $ingresos1, 'busqueda' => trim($request['busqueda'])]);
 
     }
 
@@ -51,13 +52,17 @@ class IngresoController extends Controller
                 $cont++;
             }
         }
-//            dd($listU);
 
-        return view('activos.mov-activos.ingresos.create', ['ubicaciones' => $listU, 'grupos'=>$grupos]);
+        $estados = DB::table('estado')
+            ->where('estado.visible','=',true)
+            ->select('estado.nombre','estado.id')
+            ->get();
+
+        return view('activos.mov-activos.ingresos.create', ['ubicaciones' => $listU, 'grupos'=>$grupos,'estados'=>$estados]);
     }
 
 
-    public function store(IngresoRequest $request)
+    public function store(Request $request)
     {
 //        dd($request);
         try {
@@ -87,6 +92,7 @@ class IngresoController extends Controller
             $colores = $request['colorT'];
             $caracteristicas = $request['caracteristicasT'];
             $ubicaciones = $request['ubicacionesT'];
+            $estados = $request['estadosT'];
 
             $files = array();
             if (Input::hasFile('fotoT')) {
@@ -124,21 +130,13 @@ class IngresoController extends Controller
                     $activo -> codigo = ''.$lg -> linea_a_id.' - '.$lg -> id.' - '.$activo -> id;
                     $activo -> save();
 
-                    $estado = Estado::where('nombre','LIKE', '%Nuevo%')->first();
-
-                    if ($estado == null){
-                        $estado = new Estado();
-                        $estado -> nombre = 'Nuevo';
-                        $estado -> visible = true;
-                        $estado ->save();
-                    }
 
                     $detalle = new DetalleEstado();
                     $detalle -> fecha = Carbon::now('America/La_Paz');
-                    $detalle -> motivo = 'Nuevo ingreso de activos fijos.';
+                    $detalle -> motivo = 'Estado de ingreso al sistema.';
                     $detalle -> visible = true;
                     $detalle -> activo_fijo_id = $activo -> id;
-                    $detalle -> estado_id = $estado -> id;
+                    $detalle -> estado_id = $estados[$cont];
                     $detalle -> save();
                 }
 
@@ -164,11 +162,12 @@ class IngresoController extends Controller
 
     public function show($id)
     {
+
         $activos = DB::table('activo_fijo')
             ->join('grupo_a', 'activo_fijo.grupo_a_id', '=', 'grupo_a.id')
             ->join('linea_a', 'grupo_a.linea_a_id', '=', 'linea_a.id')
             ->where('activo_fijo.ingreso_a_id', '=', $id)
-            ->select('activo_fijo.id', 'activo_fijo.marca', 'activo_fijo.modelo', 'activo_fijo.color', 'activo_fijo.foto', 'activo_fijo.caracteristicas', 'activo_fijo.serie', 'activo_fijo.costo_ingreso', 'grupo_a.nombre as grupo', 'linea_a.nombre as linea')
+            ->select('activo_fijo.id', 'activo_fijo.marca', 'activo_fijo.modelo', 'activo_fijo.color', 'activo_fijo.foto', 'activo_fijo.caracteristicas', 'activo_fijo.serie', 'activo_fijo.costo_ingreso', 'grupo_a.nombre as grupo', 'linea_a.nombre as linea','grupo_a.id as grupoId','linea_a.id as lineaId')
             ->orderBy('activo_fijo.id', 'asc')
             ->get();
 
@@ -177,8 +176,20 @@ class IngresoController extends Controller
             ->select('ubicaciones.nombre','activo_fijo.id')
             ->orderBy('activo_fijo.id','asc')
             ->get();
-//        dd($ubicacion);
-        return view('activos.mov-activos.ingresos.show',['ingreso' => IngresoActivo::findOrFail($id), 'activos' => $activos, 'ubicacion'=>$ubicacion]);
+
+        $cont=1;
+        foreach ($activos as $activo){
+                $elem = DB::table('estado')
+                ->join('detalle_estado','estado.id','=','detalle_estado.estado_id')
+                ->where('detalle_estado.activo_fijo_id','=',$activo->id)
+                ->orderBy('detalle_estado.fecha','desc')
+                ->select('estado.id','estado.nombre')
+                ->first();
+                $estados[$cont]=($elem);
+                $cont++;
+        }
+
+        return view('activos.mov-activos.ingresos.show',['ingreso' => IngresoActivo::findOrFail($id), 'activos' => $activos, 'ubicacion'=>$ubicacion,'estados'=>$estados]);
     }
 
 

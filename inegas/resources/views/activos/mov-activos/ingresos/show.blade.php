@@ -90,6 +90,12 @@
                                     <td>
                                         <div>
                                             <div class="container-fluid">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+                                                        <h2><label>CODIGO:
+                                                        {{$activo -> lineaId.' - '.$activo -> grupoId.' - '.$activo->id}} </label></h2>
+                                                    </div>
+                                                </div>
                                                 <div class="row">
                                                     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                                                         <div class="fileinput fileinput-new text-center" data-provides="fileinput">
@@ -100,6 +106,7 @@
                                                     </div>
                                                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                                                         <div class="row">
+
                                                             <div class="col-lg-10 col-md-10 col-sm-6 col-xs-12">
                                                                 <div class="form-group">
                                                                     <label>Linea - Grupo</label>
@@ -142,10 +149,16 @@
                                                                     <p>{{$activo -> caracteristicas}}</p>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                                 <div class="form-group">
                                                                     <label>Ubicacion</label>
                                                                     <p>{{$ubicacion[$loop->iteration] -> nombre}}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label>Estado</label>
+                                                                    <p>{{$estados[$loop->iteration] -> nombre}}</p>
                                                                 </div>
                                                             </div>
                                                         </div>

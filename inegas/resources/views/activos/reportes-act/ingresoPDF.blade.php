@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title> Lista de Productos </title>
+    <title>  </title>
     <style>
         body{
             padding-top: 15px;
@@ -24,11 +24,27 @@
             border-spacing: 5px;
         }
     </style>
+    <script>
+
+        function imp(){
+            window.print();
+            Window.open(url('/act/mov-activos/ingresos'));
+            $.ajax({
+                url:'/act/mov-activos/ingresos',
+                type:'GET'}
+            );
+        }
+        window.onload=imp();
+
+
+        // $('#res').event.click;
+        // window.location(url('/act/mov-activos/ingresos','GET'));
+    </script>
 </head>
 <body>
 <div>
     <div style="width: 20%; float: left;">
-        <img style="height: 65px" src="<?php echo $_SERVER["DOCUMENT_ROOT"].'/img/inegas-logo.png';?>"/>
+        <img style="height: 65px" src="{{asset('img/inegas-logo.png')}}">
     </div>
     <div style="width: 60%; float: left">
         <h2 align="center">Ingresos de Activos Fijos</h2>
@@ -69,3 +85,5 @@
 </div>
 </body>
 </html>
+
+

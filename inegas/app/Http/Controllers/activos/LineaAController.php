@@ -91,6 +91,27 @@ class LineaAController extends Controller
         return redirect('act/lineas');
     }
 
+    public function eliminarL(Request $request, $idL){
+        if($request->ajax()){
+            $linea = LineaA::findOrFail($idL);
+            $linea -> visible = false;
+            if ($linea -> save()){
+                Bitacora::registrar_accion(Tablas::$linea_a, 'Eliminó la linea con ID: '.$linea -> id.' junto a todos sus grupos');
+            }
+            $grupos = DB::table('grupo_a')
+                ->where('linea_a_id','=', $idL)
+                ->get();
+
+            foreach ($grupos as $grupo) {
+                $g = GrupoA::findOrFail($grupo->id);
+                $g->visible = false;
+                $g->save();
+            }
+
+            return;
+        }
+    }
+
     public function guardarGrupo(GrupoRequest $request, $id){
         $grupo = new GrupoA();
         $grupo -> nombre = $request['nombreGrupo'];

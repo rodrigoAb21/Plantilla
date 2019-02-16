@@ -95,6 +95,7 @@ class ReporteActController extends Controller
         $reporte = Reporte::findOrFail(1);
 
         $pdf = PDF::loadView('activos.reportes-act.ver-asignacionPDF',['asignacion' => $asignacion, 'activos' => $activos, 'reporte' => $reporte]);
+
         return $pdf->download('asignacion-'.$id.'.pdf');
     }
 
@@ -149,15 +150,23 @@ class ReporteActController extends Controller
 
 
     public function vista_ingreso(Request $request){
-        $ingresos = DB::table('ingreso_a')
+        $ingresos1 = DB::table('ingreso_a')
             ->where('nro_factura', 'LIKE','%'.trim($request['busqueda']).'%')
             ->orWhere('proveedor', 'LIKE','%'.trim($request['busqueda']).'%')
             ->orWhere('estado', 'LIKE','%'.trim($request['busqueda']).'%')
             ->orderBy('id', 'asc')
             ->paginate(10);
 
+        $ingresos2 = DB::table('ingreso_a')
+            ->join('users', 'users.id', '=', 'ingreso_a.user_id')
+            ->select('ingreso_a.id', 'ingreso_a.fecha_ingreso', 'ingreso_a.fecha_factura', 'ingreso_a.foto_factura', 'ingreso_a.nro_factura', 'ingreso_a.proveedor', 'ingreso_a.estado', 'users.nombre as emitido')
+            ->orderBy('id', 'asc')
+            ->get();
 
-        return view('activos.reportes-act.ingreso', ['ingresos' => $ingresos, 'busqueda' => trim($request['busqueda'])]);
+//        $pdf = PDF::loadView('activos.reportes-act.ingresoPDF',['ingresos' => $ingresos2]);
+
+
+        return view('activos.reportes-act.ingreso', ['ingresos1' => $ingresos1, 'busqueda' => trim($request['busqueda']),'ingresos2' => $ingresos2]);
     }
 
 
@@ -168,9 +177,11 @@ class ReporteActController extends Controller
             ->select('ingreso_a.id', 'ingreso_a.fecha_ingreso', 'ingreso_a.fecha_factura', 'ingreso_a.foto_factura', 'ingreso_a.nro_factura', 'ingreso_a.proveedor', 'ingreso_a.estado', 'users.nombre as emitido')
             ->orderBy('id', 'asc')
             ->get();
-
-        $pdf = PDF::loadView('activos.reportes-act.ingresoPDF',['ingresos' => $ingresos]);
-        return $pdf->download('ingresos.pdf');
+        return view('activos.reportes-act.ingresoPDF',['ingresos' => $ingresos]);
+//
+//        $pdf = PDF::loadView('activos.reportes-act.ingresoPDF',['ingresos' => $ingresos]);
+//
+//        return $pdf->download('ingresos.pdf');
     }
 
 

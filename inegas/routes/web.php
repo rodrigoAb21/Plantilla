@@ -82,6 +82,8 @@ Route::middleware('auth')->group(function () {
         Route::patch('act/lineas/{idLinea}/grupo/{idGrupo}', 'activos\LineaAController@actualizarGrupo');
         Route::delete('act/lineas/{idLinea}/grupo/{idGrupo}', 'activos\LineaAController@eliminarGrupo');
 
+        Route::DELETE('act/lineas/{idL}','activos\LineaAController@eliminarL')->name('eliminarL');
+
         Route::resource('/act/estados', 'activos\EstadoController');
         Route::resource('/act/activos', 'activos\ActivoController');
         Route::get('/act/activos/{id}/estados', 'activos\ActivoController@estados');
@@ -142,6 +144,8 @@ Route::middleware('auth')->group(function () {
 
 
         Route::resource('/seg/estadisticas', 'seguridad\EstadisticaController');
+
+
     });
 });
 

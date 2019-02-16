@@ -13,23 +13,14 @@
                         </ul>
                     </div>
                 @endif
-                <div class="card ">
-
+                <div class="card">
                     <div class="card-header card-header-primary card-header-icon">
                         <div class="card-icon">
                             <i class="fa fa-angle-double-right fa-2x"></i>
                         </div>
                         <h3 class="card-title">Ingreso de Activos</h3>
                     </div>
-                    <div id="checkSs" class="form-check ml-auto" >
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value="">
-                            Sin datos de compra
-                            <span  class="form-check-sign">
-            <span  class="check" ></span>
-        </span>
-                        </label>
-                    </div>
+
                     <div class="card-body ">
                         {{csrf_field()}}
                         <div class="input-group">
@@ -38,7 +29,7 @@
                                     <div class="mb-1">
                                         <label>Fecha Ingreso</label>
                                     </div>
-                                    <input type="date" class="form-control" name="fecha_ingreso" value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}"  >
+                                    <input type="date" class="form-control" name="fecha_ingreso" value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}" required >
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -46,7 +37,7 @@
                                     <div class="mb-1">
                                         <label>Fecha Factura</label>
                                     </div>
-                                    <input type="date" class="form-control" name="fecha_factura" value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}" >
+                                    <input type="date" class="form-control" name="fecha_factura" value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}" required >
                                 </div>
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
@@ -54,7 +45,7 @@
                                     <div class="mb-1">
                                         <label>Proveedor</label>
                                     </div>
-                                    <input type="text" class="form-control"  value="{{old('proveedor')}}" name="proveedor"  >
+                                    <input type="text" class="form-control"  value="{{old('proveedor')}}" name="proveedor" required >
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -62,7 +53,7 @@
                                     <div class="mb-1">
                                         <label>Nro. Factura</label>
                                     </div>
-                                    <input type="number" class="form-control" value="{{old('nro_factura')}}" name="nro_factura"  >
+                                    <input type="number" class="form-control" value="{{old('nro_factura')}}" name="nro_factura" required >
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -70,7 +61,7 @@
                                     <div class="mb-1">
                                         <label>Adjuntar Factura</label>
                                     </div>
-                                    <input type="file" name="foto_factura" accept="image/*" class="inputFileHidden" >
+                                    <input type="file" name="foto_factura" accept="image/*" class="inputFileHidden" required>
                                     <div class="input-group">
                                         <input type="text" class="form-control inputFileVisible" name="foto_factura">
                                         <span class="input-group-btn">
@@ -87,7 +78,7 @@
 
 
 
-                <div class="card ">
+                <div class="card">
                     <div class="card-header card-header-primary card-header-icon">
                         <div class="card-icon">
                             <i class="fa fa-clipboard-list fa-2x"></i>
@@ -168,18 +159,6 @@
     <!-- end row -->
     @push('scripts')
         <script>
-            var checkS=true;
-            function cambiar(){
-                if(checkS==true) {
-                    console.log("ok");
-                    checkS=false;
-                }
-                else{
-                    console.log("no");
-                    checkS=true;
-                }
-            }
-
             $('.form-file-simple .inputFileVisible').click(function () {
                 $(this).siblings('.inputFileHidden').trigger('click');
             });
@@ -275,37 +254,37 @@
                                                         '<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">' +
                                                             '<div class="form-group">' +
                                                                 '<label>Costo</label>' +
-                                                                '<input type="number"  class="form-control" name="costoT[]" value="'+costo+'" readonly required>' +
+                                                                '<input type="number" class="form-control" name="costoT[]" value="'+costo+'" readonly>' +
                                                             '</div>' +
                                                         '</div>' +
                                                         '<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">' +
                                                             '<div class="form-group">' +
                                                                 '<label>Marca</label>' +
-                                                                '<input type="text" class="form-control" name="marcaT[]" >' +
+                                                                '<input type="text" class="form-control" name="marcaT[]" required>' +
                                                             '</div>' +
                                                         '</div>' +
                                                         '<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">' +
                                                             '<div class="form-group">' +
                                                                 '<label>Nro Serie</label>' +
-                                                                '<input type="text" class="form-control" name="serieT[]" >' +
+                                                                '<input type="text" class="form-control" name="serieT[]" required>' +
                                                             '</div>' +
                                                         '</div>' +
                                                         '<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">' +
                                                             '<div class="form-group">' +
                                                                 '<label>Modelo</label>' +
-                                                                '<input type="text" class="form-control" name="modeloT[]" >' +
+                                                                '<input type="text" class="form-control" name="modeloT[]" required>' +
                                                             '</div>' +
                                                         '</div>' +
                                                         '<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">' +
                                                             '<div class="form-group">' +
                                                                 '<label>Color</label>' +
-                                                                '<input type="text" class="form-control" name="colorT[]" >' +
+                                                                '<input type="text" class="form-control" name="colorT[]" required>' +
                                                             '</div>' +
                                                         '</div>' +
                                                         '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">' +
                                                             '<div class="form-group">' +
                                                                 '<label>Caracteristicas</label>' +
-                                                                '<textarea class="form-control" name="caracteristicasT[]" rows="3" ></textarea>' +
+                                                                '<textarea class="form-control" name="caracteristicasT[]" rows="3" required></textarea>' +
 
                                                             '</div>' +
                                                         '</div>' +
@@ -320,18 +299,6 @@
                                     '</select>'+
                                                          '</div>'+
                                                          '</div>' +
-
-                            '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">' +
-                            '<div class="form-group">' +
-                            '<label class="row">Estado</label>' +
-                            '<select name ="estadosT[]" class="form-control row" data-live-search="true"' +
-                            'data-style="btn btn-link" >' +
-                            '@foreach($estados as $estado)\n' +
-                            '<option value="{{$estado->id}}">{{$estado->nombre}}</option>\n' +
-                            '@endforeach' +
-                            '</select>'+
-                            '</div>'+
-                            '</div>' +
                                                     '</div>' +
                                                 '</div>' +
                                                 '<div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">' +

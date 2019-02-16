@@ -68,30 +68,33 @@ class ActivoController extends Controller
         $activo = DB::table('activo_fijo')
             ->join('grupo_a', 'activo_fijo.grupo_a_id', '=', 'grupo_a.id')
             ->join('linea_a', 'grupo_a.linea_a_id', '=', 'linea_a.id')
+            ->join('ubicaciones','activo_fijo.ubicacion_id','=','ubicaciones.id')
             ->where('activo_fijo.id', '=', $id)
-            ->select('activo_fijo.id', 'activo_fijo.marca', 'activo_fijo.modelo', 'activo_fijo.color', 'activo_fijo.foto','activo_fijo.codigo', 'activo_fijo.caracteristicas', 'activo_fijo.serie', 'activo_fijo.costo_actual','activo_fijo.costo_ingreso', 'grupo_a.nombre as grupo', 'linea_a.nombre as linea')
+            ->select('activo_fijo.id', 'activo_fijo.marca', 'activo_fijo.modelo', 'activo_fijo.color', 'activo_fijo.foto','activo_fijo.codigo', 'activo_fijo.caracteristicas', 'activo_fijo.serie', 'activo_fijo.costo_actual','activo_fijo.costo_ingreso', 'grupo_a.nombre as grupo', 'linea_a.nombre as linea','ubicaciones.nombre')
             ->orderBy('activo_fijo.id', 'asc')
             ->first();
 
-        $asignacion = DB::table('asignacion')
-            ->join('detalle_asig', 'asignacion.id', '=', 'detalle_asig.asignacion_id')
-            ->join('trabajador', 'asignacion.trabajador_id', '=', 'trabajador.id')
-            ->join('ubicacion', 'trabajador.ubicacion_id', '=', 'ubicacion.id')
-            ->where('detalle_asig.activo_fijo_id','=',$activo->id)
-            ->orderBy('detalle_asig.id', 'desc')
-            ->select('asignacion.fecha', 'trabajador.nombre as responsable', 'detalle_asig.activo_fijo_id', 'trabajador.cargo', 'ubicacion.nombre as ubicacion')
-            ->first();
+//        $asignacion = DB::table('asignacion')
+//            ->join('detalle_asig', 'asignacion.id', '=', 'detalle_asig.asignacion_id')
+////            ->join('trabajador', 'asignacion.trabajador_id', '=', 'trabajador.id')
+////            ->join('ubicacion', 'trabajador.ubicacion_id', '=', 'ubicacion.id')
+//            ->where('detalle_asig.activo_fijo_id','=',$activo->id)
+//            ->orderBy('detalle_asig.id', 'desc')
+//            ->select('asignacion.fecha', 'trabajador.nombre as responsable', 'detalle_asig.activo_fijo_id', 'trabajador.cargo'
+////                ,'ubicacion.nombre as ubicacion'
+//            )
+//            ->first();
 
 
-        if ($asignacion == null){
+//        if ($asignacion == null){
             return view('activos.activos.show2', ['activo' => $activo]);
-        }else{
-            $qr = public_path('img/activos/activos/codigos/qr-activo-'.$id.'.png');
-            $datos = "\r\nCODIGO: ".$activo->codigo." \r\nMARCA: ".$activo->marca." \r\nMODELO: ".$activo->modelo." \r\nNRO. SERIE: ".$activo->serie." \r\nCOLOR: ".$activo->color." \r\nUBICACION: ".$asignacion->ubicacion;
-            QRCode::text($datos)->setSize(6)->setOutfile($qr)->png();
-
-            return view('activos.activos.show', ['activo' => $activo, 'asignacion' => $asignacion]);
-        }
+//        }else{
+//            $qr = public_path('img/activos/activos/codigos/qr-activo-'.$id.'.png');
+//            $datos = "\r\nCODIGO: ".$activo->codigo." \r\nMARCA: ".$activo->marca." \r\nMODELO: ".$activo->modelo." \r\nNRO. SERIE: ".$activo->serie." \r\nCOLOR: ".$activo->color." \r\nUBICACION: ".$asignacion->ubicacion;
+//            QRCode::text($datos)->setSize(6)->setOutfile($qr)->png();
+//
+//            return view('activos.activos.show', ['activo' => $activo, 'asignacion' => $asignacion]);
+//        }
 
 
     }
@@ -126,13 +129,16 @@ class ActivoController extends Controller
         $estados = DB::table('estado')
             ->join('detalle_estado', 'estado.id', '=', 'detalle_estado.estado_id')
             ->select('detalle_estado.id','detalle_estado.activo_fijo_id', 'detalle_estado.fecha','detalle_estado.motivo', 'estado.nombre')
-            ->where('detalle_estado.activo_fijo_id', '=', $id)
-            ->where(function ($query) use ($request) {
-                $query ->where('detalle_estado.motivo', 'LIKE','%'.trim($request['busqueda']).'%')
+//            ->where('detalle_estado.activo_fijo_id', '=', $id)
+            ->where(function ($query) use ($request,$id) {
+
+                $query->where('detalle_estado.activo_fijo_id', '=', $id)
+                    ->where('detalle_estado.motivo', 'LIKE','%'.trim($request['busqueda']).'%')
                     ->where('detalle_estado.visible', '=', true);
             })
-            ->orWhere(function ($query) use ($request) {
-                $query ->where('estado.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
+            ->orWhere(function ($query) use ($request,$id) {
+                $query ->where('detalle_estado.activo_fijo_id', '=', $id)
+                    ->where('estado.nombre', 'LIKE','%'.trim($request['busqueda']).'%')
                     ->where('detalle_estado.visible', '=', true);
             })
             ->orderBy('detalle_estado.id', 'desc')

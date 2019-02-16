@@ -72,6 +72,12 @@
                                             <p>{{$activo -> caracteristicas}}</p>
                                         </div>
                                     </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Ubicacion</label>
+                                            <p>{{$activo -> nombre}}</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

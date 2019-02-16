@@ -179,6 +179,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
+        Collective\Html\HtmlServiceProvider::class,
     ],
 
     /*
@@ -230,6 +232,8 @@ return [
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'QRCode' => LaravelQRCode\Facades\QRCode::class,
 
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
     ],
 
 ];
