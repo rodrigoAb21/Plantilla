@@ -317,8 +317,8 @@
                                                             '</div>' +
                                                         '</div>' +
                                                         '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">' +
-                                                            '<div class="form-group">' +
-                                                                '<label class="row">Ubicacion</label>' +
+                                                            '<div class="form-group">'+
+                                                                '<label class="pb-2">Ubicacion</label>' +
                                                                 '<select name ="ubicacionesT[]" class="form-control row" data-live-search="true"' +
                             'data-style="btn btn-link" >' +
                                                     '@foreach($ubicaciones as $ubicacion)\n' +
