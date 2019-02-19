@@ -59,5 +59,6 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\Admin::class,
         'activos' => \App\Http\Middleware\Activos::class,
         'suministros' => \App\Http\Middleware\Suministros::class,
+        'solicitar_sum' => \App\Http\Middleware\solicitar_sum::class,
     ];
 }

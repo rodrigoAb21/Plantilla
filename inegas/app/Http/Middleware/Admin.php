@@ -16,12 +16,15 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->area != 'Activos Fijos - Suministros'){
-            if (Auth::user()->area == 'Activos Fijos'){
-                return redirect('/act');
-            }else{
-                return redirect('/sum');
-            }
+        $area = Auth::user()->area;
+        if ($area == 'Ninguno'){
+            return redirect('/solicitar_sum');
+        }
+        if ($area == 'Activos Fijos'){
+            return redirect('/act');
+        }
+        if ($area == 'Suministros'){
+            return redirect('/sum');
         }
         return $next($request);
     }

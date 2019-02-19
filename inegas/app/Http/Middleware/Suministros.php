@@ -16,9 +16,14 @@ class Suministros
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->area == 'Activos Fijos'){
+        $area = Auth::user()->area;
+        if ($area == 'Ninguno'){
+            return redirect('/solicitar_sum');
+        }
+        if ($area == 'Activos Fijos'){
             return redirect('/act');
         }
+
         return $next($request);
     }
 }

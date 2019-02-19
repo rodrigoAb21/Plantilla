@@ -30,6 +30,23 @@
         </span>
                         </label>
                     </div>
+
+                    <div class="form-check form-check-radio form-check-inline" id="100">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
+                            <span class="circle">
+        <span class="check"></span>
+    </span>
+                        </label>
+                    </div>
+                    <div class="form-check form-check-radio form-check-inline" id="200">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option1"> 1
+                            <span class="circle">
+        <span class="check"></span>
+    </span>
+                        </label>
+                    </div>
                     <div class="card-body ">
                         {{csrf_field()}}
                         <div class="input-group">
@@ -168,17 +185,7 @@
     <!-- end row -->
     @push('scripts')
         <script>
-            var checkS=true;
-            function cambiar(){
-                if(checkS==true) {
-                    console.log("ok");
-                    checkS=false;
-                }
-                else{
-                    console.log("no");
-                    checkS=true;
-                }
-            }
+
 
             $('.form-file-simple .inputFileVisible').click(function () {
                 $(this).siblings('.inputFileHidden').trigger('click');
@@ -310,13 +317,13 @@
                                                             '</div>' +
                                                         '</div>' +
                                                         '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">' +
-                                                        '<div class="form-group">' +
-                                                        '<label class="row">Ubicacion</label>' +
-                            '<select name ="ubicacionesT[]" class="form-control row" data-live-search="true"' +
+                                                            '<div class="form-group">' +
+                                                                '<label class="row">Ubicacion</label>' +
+                                                                '<select name ="ubicacionesT[]" class="form-control row" data-live-search="true"' +
                             'data-style="btn btn-link" >' +
-                                '@foreach($ubicaciones as $ubicacion)\n' +
-                                        '<option value="{{$ubicacion['id']}}">{{$ubicacion['nombre']}}</option>\n' +
-                                        '@endforeach' +
+                                                    '@foreach($ubicaciones as $ubicacion)\n' +
+                                                            '<option value="{{$ubicacion['id']}}">{{$ubicacion['nombre']}}</option>\n' +
+                                                            '@endforeach' +
                                     '</select>'+
                                                          '</div>'+
                                                          '</div>' +

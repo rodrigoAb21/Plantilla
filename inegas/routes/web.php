@@ -147,5 +147,9 @@ Route::middleware('auth')->group(function () {
 
 
     });
+
+    Route::get('/solicitar_sum', function () {
+        return view('layouts.vista');
+    });
 });
 

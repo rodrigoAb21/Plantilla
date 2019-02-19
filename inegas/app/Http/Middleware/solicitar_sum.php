@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class Activos
+class solicitar_sum
 {
     /**
      * Handle an incoming request.
@@ -16,12 +16,13 @@ class Activos
      */
     public function handle($request, Closure $next)
     {
-        $area = Auth::user()->area;
-        if ($area == 'Suministros'){
-            return redirect('/sum');
-        }
-        if ($area == 'Ninguno'){
-            return redirect('/solicitar_sum');
+        $area= Auth::user()->area;
+        if ( $area!== 'Ninguno'){
+            if($area == 'Activos Fijos'){
+                return redirect('/act');
+            }else{
+                return redirect('/sum');
+            }
         }
         return $next($request);
     }
