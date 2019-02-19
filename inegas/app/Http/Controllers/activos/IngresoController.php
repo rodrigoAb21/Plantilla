@@ -45,6 +45,7 @@ class IngresoController extends Controller
             ->get();
 
         $cont=0;
+        $listU=[];
         $ubi= Ubicaciones::with('hijos')->get();
         foreach ($ubi as $u){
             if(count($u['relations']['hijos']) == 0){
